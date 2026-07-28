@@ -1,0 +1,44 @@
+=== D2_final strong scaling (large matrix, full P sweep, single driver) ===
+Node:     edu01
+Date:     Sat Jul 25 01:41:16 AM CEST 2026
+Matrix:   ../big_matrices/mycielskian19.mtx
+Reps:     1
+Driver:   spmv_ghost_acc
+
+--- P=1 rep=1/1 driver=spmv_ghost_acc ---
+Loaded ../big_matrices/mycielskian19.mtx: 393215 x 393215, 903194710 nnz
+[kernel] acc -> FLAT (nnz=903194710, avg_nnz=2296.95, imbalance=85.59)
+RESULT comm=ghost_mpi kernel=acc matrix=mycielskian19.mtx P=1 rank=0 nrows_local=393215 ncols_global=393215 nnz_local=903194710 n_ghost=0 compute_avg_ms=14.802125 compute_min_ms=14.691328 compute_max_ms=14.938112 compute_var_ms=0.005748675 compute_gflops=122.035819 eff_bw_gbs=488.700405 pct_peak_bw=52.3727 comm_avg_ms=0.000586 comm_min_ms=0.000533 comm_max_ms=0.000821 comm_var_ms=0.000000004 total_avg_ms=14.802711 total_min_ms=14.691871 total_max_ms=14.938697 total_var_ms=0.005746468 effective_gflops=122.030988
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/1 driver=spmv_ghost_acc ---
+Loaded ../big_matrices/mycielskian19.mtx: 393215 x 393215, 903194710 nnz
+[kernel] acc -> FLAT (nnz=451400765, avg_nnz=2295.95, imbalance=57.09)
+[kernel] acc -> FLAT (nnz=451793945, avg_nnz=2297.94, imbalance=85.56)
+RESULT comm=ghost_mpi kernel=acc matrix=mycielskian19.mtx P=2 rank=0 nrows_local=196608 ncols_global=393215 nnz_local=451793945 n_ghost=196607 compute_avg_ms=7.766903 compute_min_ms=7.431168 compute_max_ms=8.576000 compute_var_ms=0.200874104 compute_gflops=116.338242 eff_bw_gbs=465.985209 pct_peak_bw=49.9384 comm_avg_ms=0.156222 comm_min_ms=0.074262 comm_max_ms=0.210231 comm_var_ms=0.002093316 total_avg_ms=7.923125 total_min_ms=7.511527 total_max_ms=8.785207 total_var_ms=0.192210483 effective_gflops=114.044377
+RESULT comm=ghost_mpi kernel=acc matrix=mycielskian19.mtx P=2 rank=1 nrows_local=196607 ncols_global=393215 nnz_local=451400765 n_ghost=196608 compute_avg_ms=7.749120 compute_min_ms=7.519232 compute_max_ms=8.386560 compute_var_ms=0.083076368 compute_gflops=116.503748 eff_bw_gbs=466.648486 pct_peak_bw=50.0095 comm_avg_ms=0.156303 comm_min_ms=0.074545 comm_max_ms=0.210274 comm_var_ms=0.002099431 total_avg_ms=7.905423 total_min_ms=7.594801 total_max_ms=8.596834 total_var_ms=0.080782903 effective_gflops=114.200274
+[ERROR CHECKING] OK!
+
+--- P=3 rep=1/1 driver=spmv_ghost_acc ---
+Loaded ../big_matrices/mycielskian19.mtx: 393215 x 393215, 903194710 nnz
+[kernel] acc -> FLAT (nnz=301209098, avg_nnz=2298.04, imbalance=85.55)
+[kernel] acc -> FLAT (nnz=301182852, avg_nnz=2297.84, imbalance=57.04)
+[kernel] acc -> FLAT (nnz=300802760, avg_nnz=2294.96, imbalance=57.11)
+RESULT comm=ghost_mpi kernel=acc matrix=mycielskian19.mtx P=3 rank=0 nrows_local=131072 ncols_global=393215 nnz_local=301182852 n_ghost=262142 compute_avg_ms=6.765124 compute_min_ms=5.040128 compute_max_ms=7.743488 compute_var_ms=1.631093133 compute_gflops=89.039858 eff_bw_gbs=356.720830 pct_peak_bw=38.2288 comm_avg_ms=0.646789 comm_min_ms=0.307554 comm_max_ms=1.001933 comm_var_ms=0.012737974 total_avg_ms=7.411913 total_min_ms=5.397858 total_max_ms=8.745421 total_var_ms=1.672140337 effective_gflops=81.269937
+RESULT comm=ghost_mpi kernel=acc matrix=mycielskian19.mtx P=3 rank=1 nrows_local=131072 ncols_global=393215 nnz_local=301209098 n_ghost=262143 compute_avg_ms=7.149022 compute_min_ms=5.078016 compute_max_ms=7.747584 compute_var_ms=1.168782692 compute_gflops=84.265821 eff_bw_gbs=337.594552 pct_peak_bw=36.1791 comm_avg_ms=0.634539 comm_min_ms=0.339052 comm_max_ms=0.956675 comm_var_ms=0.011535380 total_avg_ms=7.783560 total_min_ms=5.541996 total_max_ms=8.702211 total_var_ms=1.204449792 effective_gflops=77.396225
+RESULT comm=ghost_mpi kernel=acc matrix=mycielskian19.mtx P=3 rank=2 nrows_local=131071 ncols_global=393215 nnz_local=300802760 n_ghost=262143 compute_avg_ms=5.628825 compute_min_ms=5.058560 compute_max_ms=7.782400 compute_var_ms=1.162190935 compute_gflops=106.879424 eff_bw_gbs=428.192158 pct_peak_bw=45.8882 comm_avg_ms=0.650475 comm_min_ms=0.337170 comm_max_ms=1.001936 comm_var_ms=0.013770725 total_avg_ms=6.279299 total_min_ms=5.395730 total_max_ms=8.492493 total_var_ms=1.192725092 effective_gflops=95.807747
+[ERROR CHECKING] OK!
+
+--- P=4 rep=1/1 driver=spmv_ghost_acc ---
+Loaded ../big_matrices/mycielskian19.mtx: 393215 x 393215, 903194710 nnz
+[kernel] acc -> FLAT (nnz=226331737, avg_nnz=2302.37, imbalance=85.39)
+[kernel] acc -> FLAT (nnz=225349942, avg_nnz=2292.38, imbalance=57.18)
+[kernel] acc -> FLAT (nnz=226050823, avg_nnz=2299.53, imbalance=57.00)
+[kernel] acc -> FLAT (nnz=225462208, avg_nnz=2293.52, imbalance=57.15)
+RESULT comm=ghost_mpi kernel=acc matrix=mycielskian19.mtx P=4 rank=0 nrows_local=98304 ncols_global=393215 nnz_local=225462208 n_ghost=294894 compute_avg_ms=5.313195 compute_min_ms=3.801088 compute_max_ms=5.841920 compute_var_ms=0.763535123 compute_gflops=84.868792 eff_bw_gbs=340.084961 pct_peak_bw=36.4460 comm_avg_ms=1.094999 comm_min_ms=0.710876 comm_max_ms=1.602370 comm_var_ms=0.045949247 total_avg_ms=6.408193 total_min_ms=4.555428 total_max_ms=7.444290 total_var_ms=0.884549461 effective_gflops=70.366856
+RESULT comm=ghost_mpi kernel=acc matrix=mycielskian19.mtx P=4 rank=2 nrows_local=98304 ncols_global=393215 nnz_local=226331737 n_ghost=294911 compute_avg_ms=4.347085 compute_min_ms=3.809280 compute_max_ms=5.854208 compute_var_ms=0.770272384 compute_gflops=104.130353 eff_bw_gbs=417.267522 pct_peak_bw=44.7175 comm_avg_ms=1.193562 comm_min_ms=0.698761 comm_max_ms=1.758249 comm_var_ms=0.118818478 total_avg_ms=5.540647 total_min_ms=4.519305 total_max_ms=7.467620 total_var_ms=1.150176705 effective_gflops=81.698670
+RESULT comm=ghost_mpi kernel=acc matrix=mycielskian19.mtx P=4 rank=1 nrows_local=98304 ncols_global=393215 nnz_local=225349942 n_ghost=294909 compute_avg_ms=4.176828 compute_min_ms=3.804160 compute_max_ms=5.839872 compute_var_ms=0.581787503 compute_gflops=107.904831 eff_bw_gbs=432.394929 pct_peak_bw=46.3386 comm_avg_ms=1.185240 comm_min_ms=0.606149 comm_max_ms=1.730906 comm_var_ms=0.098403835 total_avg_ms=5.362067 total_min_ms=4.412357 total_max_ms=7.408328 total_var_ms=0.819358585 effective_gflops=84.053383
+RESULT comm=ghost_mpi kernel=acc matrix=mycielskian19.mtx P=4 rank=3 nrows_local=98303 ncols_global=393215 nnz_local=226050823 n_ghost=294909 compute_avg_ms=4.344081 compute_min_ms=3.806208 compute_max_ms=5.854208 compute_var_ms=0.793962387 compute_gflops=104.073023 eff_bw_gbs=417.038463 pct_peak_bw=44.6929 comm_avg_ms=1.266546 comm_min_ms=0.708999 comm_max_ms=1.757908 comm_var_ms=0.092468843 total_avg_ms=5.610627 total_min_ms=4.516231 total_max_ms=7.473395 total_var_ms=1.088716056 effective_gflops=80.579525
+[ERROR CHECKING] OK!
+
+=== Job done ===

@@ -1,0 +1,34 @@
+=== D2_final strong scaling (large matrix, full P sweep, single driver) ===
+Node:     edu01
+Date:     Fri Jul 24 10:49:48 PM CEST 2026
+Matrix:   ../big_matrices/nlpkkt240.mtx
+Reps:     1
+Driver:   spmv_ghost_cusparse
+
+--- P=1 rep=1/1 driver=spmv_ghost_cusparse ---
+Loaded ../big_matrices/nlpkkt240.mtx: 27993600 x 27993600, 774472352 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=nlpkkt240.mtx P=1 rank=0 nrows_local=27993600 ncols_global=27993600 nnz_local=774472352 n_ghost=0 compute_avg_ms=8.739396 compute_min_ms=8.726528 compute_max_ms=8.754176 compute_var_ms=0.000042619 compute_gflops=177.237036 eff_bw_gbs=747.385950 pct_peak_bw=80.0954 comm_avg_ms=0.000600 comm_min_ms=0.000505 comm_max_ms=0.000833 comm_var_ms=0.000000005 total_avg_ms=8.739996 total_min_ms=8.727124 total_max_ms=8.754729 total_var_ms=0.000042376 effective_gflops=177.224873
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/1 driver=spmv_ghost_cusparse ---
+Loaded ../big_matrices/nlpkkt240.mtx: 27993600 x 27993600, 774472352 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=nlpkkt240.mtx P=2 rank=0 nrows_local=13996800 ncols_global=27993600 nnz_local=387236176 n_ghost=13939200 compute_avg_ms=4.399445 compute_min_ms=4.393984 compute_max_ms=4.409344 compute_var_ms=0.000008482 compute_gflops=176.038635 eff_bw_gbs=755.006041 pct_peak_bw=80.9120 comm_avg_ms=30.221266 comm_min_ms=29.178063 comm_max_ms=31.009640 comm_var_ms=0.216989764 total_avg_ms=34.620711 total_min_ms=33.581263 total_max_ms=35.408744 total_var_ms=0.215922818 effective_gflops=22.370203
+RESULT comm=ghost_mpi kernel=cusparse matrix=nlpkkt240.mtx P=2 rank=1 nrows_local=13996800 ncols_global=27993600 nnz_local=387236176 n_ghost=13939200 compute_avg_ms=4.399070 compute_min_ms=4.392960 compute_max_ms=4.403200 compute_var_ms=0.000006954 compute_gflops=176.053660 eff_bw_gbs=755.070484 pct_peak_bw=80.9189 comm_avg_ms=30.221247 comm_min_ms=29.178624 comm_max_ms=31.009780 comm_var_ms=0.216904008 total_avg_ms=34.620317 total_min_ms=33.576704 total_max_ms=35.410932 total_var_ms=0.216384007 effective_gflops=22.370458
+[ERROR CHECKING] OK!
+
+--- P=3 rep=1/1 driver=spmv_ghost_cusparse ---
+Loaded ../big_matrices/nlpkkt240.mtx: 27993600 x 27993600, 774472352 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=nlpkkt240.mtx P=3 rank=1 nrows_local=9331200 ncols_global=27993600 nnz_local=258161280 n_ghost=18585600 compute_avg_ms=3.082684 compute_min_ms=3.078144 compute_max_ms=3.087360 compute_var_ms=0.000004941 compute_gflops=167.491250 eff_bw_gbs=730.404805 pct_peak_bw=78.2755 comm_avg_ms=50.881356 comm_min_ms=49.233867 comm_max_ms=51.513698 comm_var_ms=0.258701400 total_avg_ms=53.964040 total_min_ms=52.317131 total_max_ms=54.599010 total_var_ms=0.258541819 effective_gflops=9.567900
+RESULT comm=ghost_mpi kernel=cusparse matrix=nlpkkt240.mtx P=3 rank=2 nrows_local=9331200 ncols_global=27993600 nnz_local=258155536 n_ghost=18584640 compute_avg_ms=3.049199 compute_min_ms=3.041280 compute_max_ms=3.056640 compute_var_ms=0.000019918 compute_gflops=169.326789 eff_bw_gbs=738.409423 pct_peak_bw=79.1334 comm_avg_ms=69.631146 comm_min_ms=64.411008 comm_max_ms=71.318936 comm_var_ms=2.789960840 total_avg_ms=72.680345 total_min_ms=67.467648 total_max_ms=74.360216 total_var_ms=2.784345377 effective_gflops=7.103861
+RESULT comm=ghost_mpi kernel=cusparse matrix=nlpkkt240.mtx P=3 rank=0 nrows_local=9331200 ncols_global=27993600 nnz_local=258155536 n_ghost=18584640 compute_avg_ms=3.048107 compute_min_ms=3.044352 compute_max_ms=3.052544 compute_var_ms=0.000004427 compute_gflops=169.387464 eff_bw_gbs=738.674015 pct_peak_bw=79.1617 comm_avg_ms=69.631104 comm_min_ms=64.409921 comm_max_ms=71.318903 comm_var_ms=2.790324581 total_avg_ms=72.679210 total_min_ms=67.461441 total_max_ms=74.368375 total_var_ms=2.789488819 effective_gflops=7.103972
+[ERROR CHECKING] OK!
+
+--- P=4 rep=1/1 driver=spmv_ghost_cusparse ---
+Loaded ../big_matrices/nlpkkt240.mtx: 27993600 x 27993600, 774472352 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=nlpkkt240.mtx P=4 rank=0 nrows_local=6998400 ncols_global=27993600 nnz_local=193615216 n_ghost=17394240 compute_avg_ms=2.255701 compute_min_ms=2.251776 compute_max_ms=2.258944 compute_var_ms=0.000003291 compute_gflops=171.667421 eff_bw_gbs=754.745081 pct_peak_bw=80.8840 comm_avg_ms=64.294309 comm_min_ms=47.623424 comm_max_ms=96.813112 comm_var_ms=229.234578954 total_avg_ms=66.550011 total_min_ms=49.881344 total_max_ms=99.067960 total_var_ms=229.234606658 effective_gflops=5.818638
+RESULT comm=ghost_mpi kernel=cusparse matrix=nlpkkt240.mtx P=4 rank=1 nrows_local=6998400 ncols_global=27993600 nnz_local=193620960 n_ghost=17395200 compute_avg_ms=2.257783 compute_min_ms=2.254848 compute_max_ms=2.262016 compute_var_ms=0.000004595 compute_gflops=171.514196 eff_bw_gbs=754.071101 pct_peak_bw=80.8118 comm_avg_ms=74.457446 comm_min_ms=47.655802 comm_max_ms=100.684687 comm_var_ms=256.897715474 total_avg_ms=76.715229 total_min_ms=49.914746 total_max_ms=102.942607 total_var_ms=256.897200209 effective_gflops=5.047784
+RESULT comm=ghost_mpi kernel=cusparse matrix=nlpkkt240.mtx P=4 rank=2 nrows_local=6998400 ncols_global=27993600 nnz_local=193620960 n_ghost=17395200 compute_avg_ms=2.254199 compute_min_ms=2.250752 compute_max_ms=2.258944 compute_var_ms=0.000003949 compute_gflops=171.786892 eff_bw_gbs=755.270024 pct_peak_bw=80.9403 comm_avg_ms=86.757028 comm_min_ms=72.442728 comm_max_ms=106.535981 comm_var_ms=83.008371746 total_avg_ms=89.011228 total_min_ms=74.701672 total_max_ms=108.788781 total_var_ms=83.007763703 effective_gflops=4.350484
+RESULT comm=ghost_mpi kernel=cusparse matrix=nlpkkt240.mtx P=4 rank=3 nrows_local=6998400 ncols_global=27993600 nnz_local=193615216 n_ghost=17394240 compute_avg_ms=2.255189 compute_min_ms=2.251776 compute_max_ms=2.259968 compute_var_ms=0.000003239 compute_gflops=171.706395 eff_bw_gbs=754.916433 pct_peak_bw=80.9024 comm_avg_ms=87.343991 comm_min_ms=72.442766 comm_max_ms=106.535083 comm_var_ms=80.824402223 total_avg_ms=89.599181 total_min_ms=74.698638 total_max_ms=108.795051 total_var_ms=80.825435240 effective_gflops=4.321808
+[ERROR CHECKING] OK!
+
+=== Job done ===

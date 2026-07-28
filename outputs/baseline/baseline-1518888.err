@@ -1,0 +1,5 @@
+Loaded ../big_matrices/arabic-2005.mtx: 22744080 x 22744080, nnz(file)=639999458, nnz(expanded)=639999458, symmetric=0, skew=0, pattern=1
+
+real	1m29.486s
+user	1m23.220s
+sys	0m4.447s

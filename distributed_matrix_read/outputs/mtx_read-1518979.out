@@ -1,0 +1,19 @@
+=== distributed matrix read benchmark (large matrix, full P sweep) ===
+Node:    edu01
+Date:    Sun Jul 26 07:07:40 PM CEST 2026
+Matrix:  ../big_matrices/nlpkkt240.mtx
+Reps:    1
+
+--- P=1 ---
+RESULT_CSV_READ matrix=nlpkkt240.mtx P=1 reps=1 serial_mean_ms=185249.9978 serial_min_ms=185249.9978 chunked_mean_ms=138737.0001 chunked_min_ms=138737.0001 serial_read_ms=113120.0468 serial_distribute_ms=72129.9500 chunked_io_ms=2382.1283 chunked_parse_ms=30471.7768 chunked_redistribute_ms=105636.1938 nnz_total_serial=774472352 nnz_total_chunked=774472352 spmv_mismatches=0 check=OK!
+
+--- P=2 ---
+RESULT_CSV_READ matrix=nlpkkt240.mtx P=2 reps=1 serial_mean_ms=184647.4453 serial_min_ms=184647.4453 chunked_mean_ms=75895.5166 chunked_min_ms=75895.5166 serial_read_ms=114998.2294 serial_distribute_ms=184636.6774 chunked_io_ms=1323.1900 chunked_parse_ms=15424.7165 chunked_redistribute_ms=59443.8838 nnz_total_serial=774472352 nnz_total_chunked=774472352 spmv_mismatches=0 check=OK!
+
+--- P=3 ---
+RESULT_CSV_READ matrix=nlpkkt240.mtx P=3 reps=1 serial_mean_ms=286372.3532 serial_min_ms=286372.3532 chunked_mean_ms=70039.6710 chunked_min_ms=70039.6710 serial_read_ms=196502.6510 serial_distribute_ms=286358.5083 chunked_io_ms=1366.1948 chunked_parse_ms=22268.3896 chunked_redistribute_ms=50306.2592 nnz_total_serial=774472352 nnz_total_chunked=774472352 spmv_mismatches=0 check=OK!
+
+--- P=4 ---
+RESULT_CSV_READ matrix=nlpkkt240.mtx P=4 reps=1 serial_mean_ms=284899.2511 serial_min_ms=284899.2511 chunked_mean_ms=70058.1485 chunked_min_ms=70058.1485 serial_read_ms=195385.2566 serial_distribute_ms=284885.3817 chunked_io_ms=1109.6078 chunked_parse_ms=17391.4324 chunked_redistribute_ms=52405.1380 nnz_total_serial=774472352 nnz_total_chunked=774472352 spmv_mismatches=0 check=OK!
+
+=== Job done ===

@@ -1,0 +1,58 @@
+=== D2_final strong scaling (large matrix, full P sweep, single driver) ===
+Node:     edu01
+Date:     Sat Jul 25 10:12:52 AM CEST 2026
+Matrix:   ../big_matrices/Queen_4147.mtx
+Reps:     1
+Driver:   spmv_2d_acc
+
+--- P=1 rep=1/1 driver=spmv_2d_acc ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../big_matrices/Queen_4147.mtx: 4147110 x 4147110, 329499284 nnz
+[kernel] acc -> FLAT (nnz=329499284, avg_nnz=79.45, imbalance=1.02)
+RESULT comm=checkerboard_mpi kernel=acc matrix=Queen_4147.mtx P=1 rank=0 nrows_local=4147110 ncols_global=4147110 nnz_local=329499284 n_ghost=-1 compute_avg_ms=3.755759 compute_min_ms=3.738624 compute_max_ms=3.764224 compute_var_ms=0.000033131 compute_gflops=175.463490 eff_bw_gbs=715.447065 pct_peak_bw=76.6726 comm_avg_ms=13.525912 comm_min_ms=13.484782 comm_max_ms=13.642612 comm_var_ms=0.000981093 total_avg_ms=17.281671 total_min_ms=17.239895 total_max_ms=17.389428 total_var_ms=0.000889819 effective_gflops=38.132803
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/1 driver=spmv_2d_acc ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded ../big_matrices/Queen_4147.mtx: 4147110 x 4147110, 329499284 nnz
+[kernel] acc -> FLAT (nnz=164768538, avg_nnz=39.73, imbalance=1.36)
+[kernel] acc -> FLAT (nnz=164730746, avg_nnz=39.72, imbalance=1.36)
+RESULT comm=checkerboard_mpi kernel=acc matrix=Queen_4147.mtx P=2 rank=1 nrows_local=4147110 ncols_global=4147110 nnz_local=164768538 n_ghost=-1 compute_avg_ms=2.015983 compute_min_ms=2.004992 compute_max_ms=2.028544 compute_var_ms=0.000045084 compute_gflops=163.462231 eff_bw_gbs=674.739346 pct_peak_bw=72.3100 comm_avg_ms=7.202454 comm_min_ms=7.124862 comm_max_ms=7.322123 comm_var_ms=0.000901690 total_avg_ms=9.218437 total_min_ms=9.149310 total_max_ms=9.331211 total_var_ms=0.000766011 effective_gflops=35.747609
+RESULT comm=checkerboard_mpi kernel=acc matrix=Queen_4147.mtx P=2 rank=0 nrows_local=4147110 ncols_global=4147110 nnz_local=164730746 n_ghost=-1 compute_avg_ms=2.015983 compute_min_ms=1.999872 compute_max_ms=2.036736 compute_var_ms=0.000098491 compute_gflops=163.424744 eff_bw_gbs=674.589322 pct_peak_bw=72.2940 comm_avg_ms=10.557827 comm_min_ms=10.492851 comm_max_ms=10.678199 comm_var_ms=0.000952926 total_avg_ms=12.573810 total_min_ms=12.506035 total_max_ms=12.690359 total_var_ms=0.001070899 effective_gflops=26.202200
+[ERROR CHECKING] Mismatch at index 335812: CPU = -654080.000000, GPU = -630784.000000
+[ERROR CHECKING] Mismatch at index 417204: CPU = -70592.000000, GPU = -69632.000000
+[ERROR CHECKING] Mismatch at index 503646: CPU = -552576.000000, GPU = -561152.000000
+[ERROR CHECKING] Mismatch at index 820382: CPU = -245760.000000, GPU = -262144.000000
+[ERROR CHECKING] Mismatch at index 1100527: CPU = -341248.000000, GPU = -311296.000000
+[ERROR CHECKING] Mismatch at index 1195984: CPU = 26955776.000000, GPU = 26607616.000000
+[ERROR CHECKING] Mismatch at index 1416824: CPU = 108544.000000, GPU = 114688.000000
+[ERROR CHECKING] Mismatch at index 1599691: CPU = 472896.000000, GPU = 458752.000000
+[ERROR CHECKING] Mismatch at index 1782653: CPU = -9418752.000000, GPU = -9273344.000000
+[ERROR CHECKING] Mismatch at index 1905263: CPU = -3872.000000, GPU = 0.000000
+[ERROR CHECKING] Total mismatches: 25
+
+--- P=3 driver=spmv_2d_acc: SKIPPED (no non-degenerate process grid at P=3) ---
+--- P=4 rep=1/1 driver=spmv_2d_acc ---
+Grid: P=4 -> P_r=2 x P_c=2
+Loaded ../big_matrices/Queen_4147.mtx: 4147110 x 4147110, 329499284 nnz
+[kernel] acc -> FLAT (nnz=82491235, avg_nnz=39.78, imbalance=1.36)
+[kernel] acc -> FLAT (nnz=82277303, avg_nnz=39.68, imbalance=1.36)
+[kernel] acc -> FLAT (nnz=82239511, avg_nnz=39.66, imbalance=1.36)
+[kernel] acc -> FLAT (nnz=82491235, avg_nnz=39.78, imbalance=1.36)
+RESULT comm=checkerboard_mpi kernel=acc matrix=Queen_4147.mtx P=4 rank=0 nrows_local=2073555 ncols_global=4147110 nnz_local=82239511 n_ghost=-1 compute_avg_ms=1.028642 compute_min_ms=1.017856 compute_max_ms=1.037312 compute_var_ms=0.000032417 compute_gflops=159.899169 eff_bw_gbs=664.098800 pct_peak_bw=71.1697 comm_avg_ms=7.783666 comm_min_ms=7.698812 comm_max_ms=8.357712 comm_var_ms=0.013383216 total_avg_ms=8.812308 total_min_ms=8.718138 total_max_ms=9.383760 total_var_ms=0.013306750 effective_gflops=18.664694
+RESULT comm=checkerboard_mpi kernel=acc matrix=Queen_4147.mtx P=4 rank=1 nrows_local=2073555 ncols_global=4147110 nnz_local=82491235 n_ghost=-1 compute_avg_ms=1.026526 compute_min_ms=1.018880 compute_max_ms=1.041408 compute_var_ms=0.000021232 compute_gflops=160.719254 eff_bw_gbs=667.430606 pct_peak_bw=71.5268 comm_avg_ms=5.272833 comm_min_ms=5.225464 comm_max_ms=5.562172 comm_var_ms=0.003480700 total_avg_ms=6.299359 total_min_ms=6.248440 total_max_ms=6.596412 total_var_ms=0.003608715 effective_gflops=26.190360
+RESULT comm=checkerboard_mpi kernel=acc matrix=Queen_4147.mtx P=4 rank=2 nrows_local=2073555 ncols_global=4147110 nnz_local=82491235 n_ghost=-1 compute_avg_ms=1.028813 compute_min_ms=1.015808 compute_max_ms=1.036288 compute_var_ms=0.000024687 compute_gflops=160.361992 eff_bw_gbs=665.946980 pct_peak_bw=71.3678 comm_avg_ms=11.090049 comm_min_ms=11.045565 comm_max_ms=11.145502 comm_var_ms=0.000609370 total_avg_ms=12.118862 total_min_ms=12.077757 total_max_ms=12.178718 total_var_ms=0.000659574 effective_gflops=13.613694
+RESULT comm=checkerboard_mpi kernel=acc matrix=Queen_4147.mtx P=4 rank=3 nrows_local=2073555 ncols_global=4147110 nnz_local=82277303 n_ghost=-1 compute_avg_ms=1.028949 compute_min_ms=1.018880 compute_max_ms=1.040384 compute_var_ms=0.000028387 compute_gflops=159.924887 eff_bw_gbs=664.194494 pct_peak_bw=71.1800 comm_avg_ms=9.087338 comm_min_ms=9.058106 comm_max_ms=9.130565 comm_var_ms=0.000411697 total_avg_ms=10.116288 total_min_ms=10.083130 total_max_ms=10.162739 total_var_ms=0.000411737 effective_gflops=16.266304
+[ERROR CHECKING] Mismatch at index 335812: CPU = -654080.000000, GPU = -630784.000000
+[ERROR CHECKING] Mismatch at index 417204: CPU = -70592.000000, GPU = -69632.000000
+[ERROR CHECKING] Mismatch at index 503646: CPU = -552576.000000, GPU = -561152.000000
+[ERROR CHECKING] Mismatch at index 820382: CPU = -245760.000000, GPU = -262144.000000
+[ERROR CHECKING] Mismatch at index 1100527: CPU = -341248.000000, GPU = -311296.000000
+[ERROR CHECKING] Mismatch at index 1416824: CPU = 108544.000000, GPU = 114688.000000
+[ERROR CHECKING] Mismatch at index 1782653: CPU = -9418752.000000, GPU = -9273344.000000
+[ERROR CHECKING] Mismatch at index 1905263: CPU = -3872.000000, GPU = 0.000000
+[ERROR CHECKING] Mismatch at index 1928711: CPU = -720896.000000, GPU = -819200.000000
+[ERROR CHECKING] Mismatch at index 2118954: CPU = -285260.000000, GPU = -294912.000000
+[ERROR CHECKING] Total mismatches: 23
+
+=== Job done ===

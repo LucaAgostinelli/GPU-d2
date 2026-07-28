@@ -1,0 +1,9 @@
+=== CPU baseline ===
+Node:     edu01
+Date:     Sun Jul 26 03:08:07 PM CEST 2026
+Matrix:   ../big_matrices/com-Orkut.mtx
+Reps:     10
+
+RESULT comm=none kernel=cpu_serial matrix=com-Orkut.mtx M=3072441 N=3072441 nnz_expanded=234370166 avg_ms=568.132524 min_ms=555.037446 max_ms=592.423123 gflops=0.825055
+
+=== Job done ===

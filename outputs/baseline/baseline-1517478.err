@@ -1,0 +1,5 @@
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, nnz(file)=4904179, nnz(expanded)=8580313, symmetric=1, skew=0, pattern=0
+
+real	0m1.740s
+user	0m1.683s
+sys	0m0.047s

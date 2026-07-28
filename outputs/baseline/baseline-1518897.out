@@ -1,0 +1,9 @@
+=== CPU baseline ===
+Node:     edu01
+Date:     Sun Jul 26 03:08:07 PM CEST 2026
+Matrix:   ../big_matrices/webbase-2001.mtx
+Reps:     10
+
+RESULT comm=none kernel=cpu_serial matrix=webbase-2001.mtx M=118142155 N=118142155 nnz_expanded=1019903190 avg_ms=1661.816229 min_ms=1624.636304 max_ms=1971.550648 gflops=1.227456
+
+=== Job done ===

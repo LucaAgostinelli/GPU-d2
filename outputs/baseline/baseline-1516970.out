@@ -1,0 +1,9 @@
+=== D2_final CPU baseline ===
+Node:     edu01
+Date:     Tue Jul 21 01:46:12 PM CEST 2026
+Matrix:   ../matrices/cit-Patents.mtx
+Reps:     10
+
+RESULT comm=none kernel=cpu_serial matrix=cit-Patents.mtx M=3774768 N=3774768 nnz_expanded=16518948 avg_ms=77.789123 min_ms=76.213012 max_ms=80.954185 gflops=0.424711
+
+=== Job done ===

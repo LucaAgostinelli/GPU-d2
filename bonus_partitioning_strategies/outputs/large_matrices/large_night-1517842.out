@@ -1,0 +1,74 @@
+=== D2_final intelligent-partitioning large-matrix check (full P sweep, single driver) ===
+Node:     edu01
+Date:     Fri Jul 24 06:47:52 AM CEST 2026
+Matrix:   ../big_matrices/Queen_4147.mtx
+Reps:     1
+Driver:   spmv_fennel_nccl_cusparse
+
+--- P=1 rep=1/1 driver=spmv_fennel_nccl_cusparse ---
+Loaded ../big_matrices/Queen_4147.mtx: 4147110 x 4147110, 329499284 nnz
+RESULT comm=fennel_nccl kernel=cusparse matrix=Queen_4147.mtx P=1 rank=0 nrows_local=4147110 ncols_global=4147110 nnz_local=329499284 n_ghost=0 compute_avg_ms=3.596800 compute_min_ms=3.374080 compute_max_ms=3.799040 compute_var_ms=0.040610287 compute_gflops=183.218017 eff_bw_gbs=746.708067 pct_peak_bw=80.0227 comm_avg_ms=0.001097 comm_min_ms=0.001033 comm_max_ms=0.001488 comm_var_ms=0.000000007 total_avg_ms=3.597897 total_min_ms=3.375123 total_max_ms=3.800073 total_var_ms=0.040613272 effective_gflops=183.162144
+[ERROR CHECKING] Mismatch at index 202548: CPU = -3542784.000000, GPU = -3493888.000000
+[ERROR CHECKING] Mismatch at index 417204: CPU = -70592.000000, GPU = -69632.000000
+[ERROR CHECKING] Mismatch at index 1100527: CPU = -341248.000000, GPU = -401408.000000
+[ERROR CHECKING] Mismatch at index 1416824: CPU = 108544.000000, GPU = 98304.000000
+[ERROR CHECKING] Mismatch at index 1905263: CPU = -3872.000000, GPU = -1024.000000
+[ERROR CHECKING] Mismatch at index 1928711: CPU = -720896.000000, GPU = -712704.000000
+[ERROR CHECKING] Mismatch at index 2276237: CPU = 4028416.000000, GPU = 4079616.000000
+[ERROR CHECKING] Mismatch at index 2305983: CPU = -727872.000000, GPU = -737280.000000
+[ERROR CHECKING] Mismatch at index 2669328: CPU = 82442368.000000, GPU = 83361792.000000
+[ERROR CHECKING] Mismatch at index 2674338: CPU = 251904.000000, GPU = 262144.000000
+[ERROR CHECKING] Total mismatches: 18
+
+--- P=2 rep=1/1 driver=spmv_fennel_nccl_cusparse ---
+Loaded ../big_matrices/Queen_4147.mtx: 4147110 x 4147110, 329499284 nnz
+RESULT comm=fennel_nccl kernel=cusparse matrix=Queen_4147.mtx P=2 rank=1 nrows_local=2072904 ncols_global=4147110 nnz_local=164709124 n_ghost=1392969 compute_avg_ms=1.896175 compute_min_ms=1.842176 compute_max_ms=1.899520 compute_var_ms=0.000101428 compute_gflops=173.727770 eff_bw_gbs=710.968001 pct_peak_bw=76.1926 comm_avg_ms=0.743075 comm_min_ms=0.720759 comm_max_ms=0.762952 comm_var_ms=0.000100593 total_avg_ms=2.639250 total_min_ms=2.593105 total_max_ms=2.660424 total_var_ms=0.000175596 effective_gflops=124.815083
+RESULT comm=fennel_nccl kernel=cusparse matrix=Queen_4147.mtx P=2 rank=0 nrows_local=2074206 ncols_global=4147110 nnz_local=164790160 n_ghost=1396890 compute_avg_ms=1.896243 compute_min_ms=1.894400 compute_max_ms=1.897472 compute_var_ms=0.000000937 compute_gflops=173.806987 eff_bw_gbs=711.300800 pct_peak_bw=76.2282 comm_avg_ms=0.958870 comm_min_ms=0.937639 comm_max_ms=0.976953 comm_var_ms=0.000088693 total_avg_ms=2.855113 total_min_ms=2.833063 total_max_ms=2.873401 total_var_ms=0.000092398 effective_gflops=115.435113
+[ERROR CHECKING] Mismatch at index 276750: CPU = -56401920.000000, GPU = -55836672.000000
+[ERROR CHECKING] Mismatch at index 335812: CPU = -654080.000000, GPU = -665728.000000
+[ERROR CHECKING] Mismatch at index 820382: CPU = -245760.000000, GPU = -241664.000000
+[ERROR CHECKING] Mismatch at index 1100527: CPU = -341248.000000, GPU = -385024.000000
+[ERROR CHECKING] Mismatch at index 1108838: CPU = 949760.000000, GPU = 931840.000000
+[ERROR CHECKING] Mismatch at index 1416824: CPU = 108544.000000, GPU = 114688.000000
+[ERROR CHECKING] Mismatch at index 1782653: CPU = -9418752.000000, GPU = -9293824.000000
+[ERROR CHECKING] Mismatch at index 1905263: CPU = -3872.000000, GPU = -1024.000000
+[ERROR CHECKING] Mismatch at index 1928711: CPU = -720896.000000, GPU = -690176.000000
+[ERROR CHECKING] Mismatch at index 2276237: CPU = 4028416.000000, GPU = 4128768.000000
+[ERROR CHECKING] Total mismatches: 15
+
+--- P=3 rep=1/1 driver=spmv_fennel_nccl_cusparse ---
+Loaded ../big_matrices/Queen_4147.mtx: 4147110 x 4147110, 329499284 nnz
+RESULT comm=fennel_nccl kernel=cusparse matrix=Queen_4147.mtx P=3 rank=0 nrows_local=1378648 ncols_global=4147110 nnz_local=109653561 n_ghost=1446707 compute_avg_ms=1.247607 compute_min_ms=1.156096 compute_max_ms=1.277952 compute_var_ms=0.002479357 compute_gflops=175.782148 eff_bw_gbs=721.027338 pct_peak_bw=77.2706 comm_avg_ms=1.003325 comm_min_ms=0.900247 comm_max_ms=1.056931 comm_var_ms=0.002716845 total_avg_ms=2.250932 total_min_ms=2.059415 total_max_ms=2.332835 total_var_ms=0.010286605 effective_gflops=97.429466
+RESULT comm=fennel_nccl kernel=cusparse matrix=Queen_4147.mtx P=3 rank=1 nrows_local=1384896 ncols_global=4147110 nnz_local=109959649 n_ghost=1428516 compute_avg_ms=1.282082 compute_min_ms=1.280000 compute_max_ms=1.284096 compute_var_ms=0.000001152 compute_gflops=171.532926 eff_bw_gbs=703.550886 pct_peak_bw=75.3977 comm_avg_ms=0.997310 comm_min_ms=0.976353 comm_max_ms=1.015577 comm_var_ms=0.000071903 total_avg_ms=2.279393 total_min_ms=2.259425 total_max_ms=2.297625 total_var_ms=0.000069429 effective_gflops=96.481535
+RESULT comm=fennel_nccl kernel=cusparse matrix=Queen_4147.mtx P=3 rank=2 nrows_local=1383566 ncols_global=4147110 nnz_local=109886074 n_ghost=1453990 compute_avg_ms=1.277167 compute_min_ms=1.274880 compute_max_ms=1.278976 compute_var_ms=0.000000817 compute_gflops=172.077860 eff_bw_gbs=705.864947 pct_peak_bw=75.6457 comm_avg_ms=1.066640 comm_min_ms=1.039257 comm_max_ms=1.091605 comm_var_ms=0.000143896 total_avg_ms=2.343807 total_min_ms=2.316185 total_max_ms=2.366485 total_var_ms=0.000139060 effective_gflops=93.767179
+[ERROR CHECKING] Mismatch at index 27531: CPU = 1707008.000000, GPU = 1687552.000000
+[ERROR CHECKING] Mismatch at index 202548: CPU = -3542784.000000, GPU = -3497984.000000
+[ERROR CHECKING] Mismatch at index 276750: CPU = -56401920.000000, GPU = -55574528.000000
+[ERROR CHECKING] Mismatch at index 820382: CPU = -245760.000000, GPU = -249856.000000
+[ERROR CHECKING] Mismatch at index 1100527: CPU = -341248.000000, GPU = -368640.000000
+[ERROR CHECKING] Mismatch at index 1108838: CPU = 949760.000000, GPU = 940032.000000
+[ERROR CHECKING] Mismatch at index 1416824: CPU = 108544.000000, GPU = 114688.000000
+[ERROR CHECKING] Mismatch at index 1782653: CPU = -9418752.000000, GPU = -9216000.000000
+[ERROR CHECKING] Mismatch at index 1905263: CPU = -3872.000000, GPU = -768.000000
+[ERROR CHECKING] Mismatch at index 1928711: CPU = -720896.000000, GPU = -737280.000000
+[ERROR CHECKING] Total mismatches: 22
+
+--- P=4 rep=1/1 driver=spmv_fennel_nccl_cusparse ---
+Loaded ../big_matrices/Queen_4147.mtx: 4147110 x 4147110, 329499284 nnz
+RESULT comm=fennel_nccl kernel=cusparse matrix=Queen_4147.mtx P=4 rank=0 nrows_local=1034909 ncols_global=4147110 nnz_local=82235223 n_ghost=1340569 compute_avg_ms=0.967612 compute_min_ms=0.966656 compute_max_ms=0.968704 compute_var_ms=0.000000555 compute_gflops=169.975664 eff_bw_gbs=698.279023 pct_peak_bw=74.8327 comm_avg_ms=3.532850 comm_min_ms=1.106217 comm_max_ms=11.570919 comm_var_ms=6.044977118 total_avg_ms=4.500461 total_min_ms=2.074921 total_max_ms=12.538599 total_var_ms=6.044851415 effective_gflops=36.545240
+RESULT comm=fennel_nccl kernel=cusparse matrix=Queen_4147.mtx P=4 rank=1 nrows_local=1037356 ncols_global=4147110 nnz_local=82424374 n_ghost=1333727 compute_avg_ms=0.912316 compute_min_ms=0.867328 compute_max_ms=0.971776 compute_var_ms=0.002509797 compute_gflops=180.692651 eff_bw_gbs=742.262962 pct_peak_bw=79.5464 comm_avg_ms=3.527661 comm_min_ms=1.038449 comm_max_ms=11.546594 comm_var_ms=6.096297395 total_avg_ms=4.439976 total_min_ms=1.906801 total_max_ms=12.414946 total_var_ms=6.093145164 effective_gflops=37.128293
+RESULT comm=fennel_nccl kernel=cusparse matrix=Queen_4147.mtx P=4 rank=2 nrows_local=1040061 ncols_global=4147110 nnz_local=82510585 n_ghost=1351749 compute_avg_ms=0.968329 compute_min_ms=0.966656 compute_max_ms=0.970752 compute_var_ms=0.000000593 compute_gflops=170.418579 eff_bw_gbs=700.147109 pct_peak_bw=75.0329 comm_avg_ms=3.653104 comm_min_ms=1.190054 comm_max_ms=11.689297 comm_var_ms=6.124693826 total_avg_ms=4.621433 total_min_ms=2.158758 total_max_ms=12.656977 total_var_ms=6.124530087 effective_gflops=35.707795
+RESULT comm=fennel_nccl kernel=cusparse matrix=Queen_4147.mtx P=4 rank=3 nrows_local=1034784 ncols_global=4147110 nnz_local=82329102 n_ghost=1358832 compute_avg_ms=0.967680 compute_min_ms=0.966656 compute_max_ms=0.969728 compute_var_ms=0.000000769 compute_gflops=170.157701 eff_bw_gbs=699.079818 pct_peak_bw=74.9185 comm_avg_ms=3.684131 comm_min_ms=1.239313 comm_max_ms=11.736492 comm_var_ms=6.081802253 total_avg_ms=4.651811 total_min_ms=2.208017 total_max_ms=12.704172 total_var_ms=6.081195833 effective_gflops=35.396579
+[ERROR CHECKING] Mismatch at index 202548: CPU = -3542784.000000, GPU = -3493888.000000
+[ERROR CHECKING] Mismatch at index 276750: CPU = -56401920.000000, GPU = -55836672.000000
+[ERROR CHECKING] Mismatch at index 417204: CPU = -70592.000000, GPU = -69120.000000
+[ERROR CHECKING] Mismatch at index 820382: CPU = -245760.000000, GPU = -250880.000000
+[ERROR CHECKING] Mismatch at index 1100527: CPU = -341248.000000, GPU = -385024.000000
+[ERROR CHECKING] Mismatch at index 1108838: CPU = 949760.000000, GPU = 940032.000000
+[ERROR CHECKING] Mismatch at index 1416824: CPU = 108544.000000, GPU = 114688.000000
+[ERROR CHECKING] Mismatch at index 1598836: CPU = 1852096.000000, GPU = 1830912.000000
+[ERROR CHECKING] Mismatch at index 1905263: CPU = -3872.000000, GPU = -1024.000000
+[ERROR CHECKING] Mismatch at index 1928711: CPU = -720896.000000, GPU = -737280.000000
+[ERROR CHECKING] Total mismatches: 19
+
+=== Job done ===

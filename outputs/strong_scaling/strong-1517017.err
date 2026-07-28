@@ -1,0 +1,96 @@
+--------------------------------------------------------------------------
+The call to cuMemHostRegister(0x7f471be00008, 134217728, 0) failed.
+  Host:  edu01
+  cuMemHostRegister return value:  1
+  Registration cache:  smcuda
+--------------------------------------------------------------------------
+[edu01:2078430] 1 more process has sent help message help-mpi-common-cuda.txt / cuMemHostRegister during init failed
+[edu01:2078430] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+The call to cuMemHostRegister(0x7fcbabe00008, 134217728, 0) failed.
+  Host:  edu01
+  cuMemHostRegister return value:  1
+  Registration cache:  smcuda
+--------------------------------------------------------------------------
+[edu01:2078456] 1 more process has sent help message help-mpi-common-cuda.txt / cuMemHostRegister during init failed
+[edu01:2078456] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+The call to cuMemHostRegister(0x7fbb13e00008, 134217728, 0) failed.
+  Host:  edu01
+  cuMemHostRegister return value:  1
+  Registration cache:  smcuda
+--------------------------------------------------------------------------
+[edu01:2078556] 1 more process has sent help message help-mpi-common-cuda.txt / cuMemHostRegister during init failed
+[edu01:2078556] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+The call to cuMemHostRegister(0x7fc107e00008, 134217728, 0) failed.
+  Host:  edu01
+  cuMemHostRegister return value:  1
+  Registration cache:  smcuda
+--------------------------------------------------------------------------
+[edu01:2078582] 1 more process has sent help message help-mpi-common-cuda.txt / cuMemHostRegister during init failed
+[edu01:2078582] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+The call to cuMemHostRegister(0x7f8ba3e00008, 134217728, 0) failed.
+  Host:  edu01
+  cuMemHostRegister return value:  1
+  Registration cache:  smcuda
+--------------------------------------------------------------------------
+[edu01:2078716] 1 more process has sent help message help-mpi-common-cuda.txt / cuMemHostRegister during init failed
+[edu01:2078716] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+The call to cuMemHostRegister(0x7f9f4be00008, 134217728, 0) failed.
+  Host:  edu01
+  cuMemHostRegister return value:  1
+  Registration cache:  smcuda
+--------------------------------------------------------------------------
+[edu01:2078742] 1 more process has sent help message help-mpi-common-cuda.txt / cuMemHostRegister during init failed
+[edu01:2078742] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+The call to cuMemHostRegister(0x7f8b33e00008, 134217728, 0) failed.
+  Host:  edu01
+  cuMemHostRegister return value:  1
+  Registration cache:  smcuda
+--------------------------------------------------------------------------
+[edu01:2078842] 1 more process has sent help message help-mpi-common-cuda.txt / cuMemHostRegister during init failed
+[edu01:2078842] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+The call to cuMemHostRegister(0x7f5f33e00008, 134217728, 0) failed.
+  Host:  edu01
+  cuMemHostRegister return value:  1
+  Registration cache:  smcuda
+--------------------------------------------------------------------------
+[edu01:2078868] 1 more process has sent help message help-mpi-common-cuda.txt / cuMemHostRegister during init failed
+[edu01:2078868] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+The call to cuMemHostRegister(0x7fe06fe00008, 134217728, 0) failed.
+  Host:  edu01
+  cuMemHostRegister return value:  1
+  Registration cache:  smcuda
+--------------------------------------------------------------------------
+[edu01:2079002] 1 more process has sent help message help-mpi-common-cuda.txt / cuMemHostRegister during init failed
+[edu01:2079002] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+The call to cuMemHostRegister(0x7f1befe00008, 134217728, 0) failed.
+  Host:  edu01
+  cuMemHostRegister return value:  1
+  Registration cache:  smcuda
+--------------------------------------------------------------------------
+[edu01:2079028] 1 more process has sent help message help-mpi-common-cuda.txt / cuMemHostRegister during init failed
+[edu01:2079028] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+The call to cuMemHostRegister(0x7f2acfe00008, 134217728, 0) failed.
+  Host:  edu01
+  cuMemHostRegister return value:  1
+  Registration cache:  smcuda
+--------------------------------------------------------------------------
+[edu01:2079130] 1 more process has sent help message help-mpi-common-cuda.txt / cuMemHostRegister during init failed
+[edu01:2079130] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+The call to cuMemHostRegister(0x7f77e3e00008, 134217728, 0) failed.
+  Host:  edu01
+  cuMemHostRegister return value:  1
+  Registration cache:  smcuda
+--------------------------------------------------------------------------
+[edu01:2079156] 1 more process has sent help message help-mpi-common-cuda.txt / cuMemHostRegister during init failed
+[edu01:2079156] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages

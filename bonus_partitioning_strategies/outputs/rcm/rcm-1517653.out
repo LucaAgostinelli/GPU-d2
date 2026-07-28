@@ -1,0 +1,43 @@
+=== D2_final intelligent-partitioning (RCM) small-matrix check ===
+Node:     edu01
+Date:     Thu Jul 23 11:46:20 AM CEST 2026
+Matrix:   ../matrices/parabolic_fem.mtx
+Reps:     1
+
+--- P=1 rep=1/1 driver=spmv_rcm_nccl_acc ---
+Loaded ../matrices/parabolic_fem.mtx: 525825 x 525825, 3674625 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=3674625, avg_nnz=6.99, imbalance=1.00, V=1)
+RESULT comm=rcm_nccl kernel=acc matrix=parabolic_fem.mtx P=1 rank=0 nrows_local=525825 ncols_global=525825 nnz_local=3674625 n_ghost=0 compute_avg_ms=0.078882 compute_min_ms=0.077824 compute_max_ms=0.080896 compute_var_ms=0.000000593 compute_gflops=93.167489 eff_bw_gbs=452.661508 pct_peak_bw=48.5105 comm_avg_ms=0.000952 comm_min_ms=0.000907 comm_max_ms=0.001027 comm_var_ms=0.000000001 total_avg_ms=0.079834 total_min_ms=0.078735 total_max_ms=0.081859 total_var_ms=0.000000595 effective_gflops=92.056415
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/1 driver=spmv_rcm_nccl_acc ---
+Loaded ../matrices/parabolic_fem.mtx: 525825 x 525825, 3674625 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=1837316, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1837309, avg_nnz=6.99, imbalance=1.00, V=1)
+RESULT comm=rcm_nccl kernel=acc matrix=parabolic_fem.mtx P=2 rank=0 nrows_local=262913 ncols_global=525825 nnz_local=1837316 n_ghost=514 compute_avg_ms=0.044032 compute_min_ms=0.043008 compute_max_ms=0.045056 compute_var_ms=0.000000419 compute_gflops=83.453670 eff_bw_gbs=405.512900 pct_peak_bw=43.4577 comm_avg_ms=0.038146 comm_min_ms=0.037001 comm_max_ms=0.040800 comm_var_ms=0.000000953 total_avg_ms=0.082178 total_min_ms=0.080009 total_max_ms=0.084964 total_var_ms=0.000001761 effective_gflops=44.715429
+RESULT comm=rcm_nccl kernel=acc matrix=parabolic_fem.mtx P=2 rank=1 nrows_local=262912 ncols_global=525825 nnz_local=1837309 n_ghost=514 compute_avg_ms=0.045090 compute_min_ms=0.044032 compute_max_ms=0.048128 compute_var_ms=0.000000733 compute_gflops=81.494946 eff_bw_gbs=395.995189 pct_peak_bw=42.4378 comm_avg_ms=0.037653 comm_min_ms=0.035887 comm_max_ms=0.041044 comm_var_ms=0.000001375 total_avg_ms=0.082743 total_min_ms=0.080556 total_max_ms=0.086100 total_var_ms=0.000002282 effective_gflops=44.410088
+[ERROR CHECKING] OK!
+
+--- P=3 rep=1/1 driver=spmv_rcm_nccl_acc ---
+Loaded ../matrices/parabolic_fem.mtx: 525825 x 525825, 3674625 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=1224878, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1224877, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1224870, avg_nnz=6.99, imbalance=1.00, V=1)
+RESULT comm=rcm_nccl kernel=acc matrix=parabolic_fem.mtx P=3 rank=0 nrows_local=175324 ncols_global=525825 nnz_local=1224877 n_ghost=514 compute_avg_ms=0.026146 compute_min_ms=0.025600 compute_max_ms=0.027648 compute_var_ms=0.000000331 compute_gflops=93.694697 eff_bw_gbs=455.324084 pct_peak_bw=48.7959 comm_avg_ms=0.032343 comm_min_ms=0.031428 comm_max_ms=0.033760 comm_var_ms=0.000000321 total_avg_ms=0.058489 total_min_ms=0.057028 total_max_ms=0.060384 total_var_ms=0.000000640 effective_gflops=41.883941
+RESULT comm=rcm_nccl kernel=acc matrix=parabolic_fem.mtx P=3 rank=1 nrows_local=175178 ncols_global=525825 nnz_local=1224878 n_ghost=1028 compute_avg_ms=0.026931 compute_min_ms=0.025600 compute_max_ms=0.027648 compute_var_ms=0.000000290 compute_gflops=90.963493 eff_bw_gbs=442.062592 pct_peak_bw=47.3747 comm_avg_ms=0.037475 comm_min_ms=0.035684 comm_max_ms=0.057840 comm_var_ms=0.000015062 total_avg_ms=0.064406 total_min_ms=0.062305 total_max_ms=0.084464 total_var_ms=0.000015154 effective_gflops=38.036047
+RESULT comm=rcm_nccl kernel=acc matrix=parabolic_fem.mtx P=3 rank=2 nrows_local=175323 ncols_global=525825 nnz_local=1224870 n_ghost=514 compute_avg_ms=0.027546 compute_min_ms=0.026624 compute_max_ms=0.028672 compute_var_ms=0.000000374 compute_gflops=88.933986 eff_bw_gbs=432.188662 pct_peak_bw=46.3165 comm_avg_ms=0.033283 comm_min_ms=0.032589 comm_max_ms=0.034947 comm_var_ms=0.000000317 total_avg_ms=0.060828 total_min_ms=0.059217 total_max_ms=0.062866 total_var_ms=0.000000650 effective_gflops=40.272943
+[ERROR CHECKING] OK!
+
+--- P=4 rep=1/1 driver=spmv_rcm_nccl_acc ---
+Loaded ../matrices/parabolic_fem.mtx: 525825 x 525825, 3674625 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=918656, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=918653, avg_nnz=6.98, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=918660, avg_nnz=6.98, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=918656, avg_nnz=6.99, imbalance=1.00, V=1)
+RESULT comm=rcm_nccl kernel=acc matrix=parabolic_fem.mtx P=4 rank=0 nrows_local=131530 ncols_global=525825 nnz_local=918660 n_ghost=514 compute_avg_ms=0.022801 compute_min_ms=0.021504 compute_max_ms=0.023552 compute_var_ms=0.000000345 compute_gflops=80.580440 eff_bw_gbs=391.635182 pct_peak_bw=41.9705 comm_avg_ms=0.038246 comm_min_ms=0.032439 comm_max_ms=0.093181 comm_var_ms=0.000105733 total_avg_ms=0.061047 total_min_ms=0.054967 total_max_ms=0.115709 total_var_ms=0.000105196 effective_gflops=30.096958
+RESULT comm=rcm_nccl kernel=acc matrix=parabolic_fem.mtx P=4 rank=1 nrows_local=131383 ncols_global=525825 nnz_local=918656 n_ghost=1027 compute_avg_ms=0.024542 compute_min_ms=0.023552 compute_max_ms=0.025600 compute_var_ms=0.000000383 compute_gflops=74.864393 eff_bw_gbs=363.866201 pct_peak_bw=38.9946 comm_avg_ms=0.047011 comm_min_ms=0.036280 comm_max_ms=0.299173 comm_var_ms=0.002197646 total_avg_ms=0.071553 total_min_ms=0.060197 total_max_ms=0.323749 total_var_ms=0.002198661 effective_gflops=25.677721
+RESULT comm=rcm_nccl kernel=acc matrix=parabolic_fem.mtx P=4 rank=2 nrows_local=131383 ncols_global=525825 nnz_local=918656 n_ghost=1027 compute_avg_ms=0.024337 compute_min_ms=0.022528 compute_max_ms=0.025600 compute_var_ms=0.000000537 compute_gflops=75.494388 eff_bw_gbs=366.928188 pct_peak_bw=39.3227 comm_avg_ms=0.051275 comm_min_ms=0.036840 comm_max_ms=0.424057 comm_var_ms=0.004793176 total_avg_ms=0.075613 total_min_ms=0.059880 total_max_ms=0.448633 total_var_ms=0.004800157 effective_gflops=24.299040
+RESULT comm=rcm_nccl kernel=acc matrix=parabolic_fem.mtx P=4 rank=3 nrows_local=131529 ncols_global=525825 nnz_local=918653 n_ghost=514 compute_avg_ms=0.022426 compute_min_ms=0.021504 compute_max_ms=0.023552 compute_var_ms=0.000000304 compute_gflops=81.928956 eff_bw_gbs=398.189210 pct_peak_bw=42.6729 comm_avg_ms=0.048677 comm_min_ms=0.034474 comm_max_ms=0.419236 comm_var_ms=0.004735558 total_avg_ms=0.071103 total_min_ms=0.056251 total_max_ms=0.441764 total_var_ms=0.004738443 effective_gflops=25.840148
+[ERROR CHECKING] OK!
+
+=== Job done ===

@@ -1,0 +1,10 @@
+=== D2_final distributed matrix read benchmark ===
+Node:    edu01
+Date:    Fri Jul 24 04:58:06 PM CEST 2026
+Matrix:  ../matrices/thermal2.mtx
+P:       4
+Reps:    3
+
+RESULT_CSV_READ matrix=thermal2.mtx P=4 reps=3 serial_mean_ms=3988.0256 serial_min_ms=3984.1438 chunked_mean_ms=612.1195 chunked_min_ms=604.0920 serial_read_ms=3131.8464 serial_distribute_ms=3986.4344 chunked_io_ms=22.8694 chunked_parse_ms=338.0258 chunked_redistribute_ms=261.4953 nnz_total_serial=8580313 nnz_total_chunked=8580313 spmv_mismatches=0 check=OK!
+
+=== Job done ===

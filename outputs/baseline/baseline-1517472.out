@@ -1,0 +1,9 @@
+=== D2_final CPU baseline ===
+Node:     edu01
+Date:     Wed Jul 22 05:29:23 PM CEST 2026
+Matrix:   ../matrices/amazon0302.mtx
+Reps:     10
+
+RESULT comm=none kernel=cpu_serial matrix=amazon0302.mtx M=262111 N=262111 nnz_expanded=1234877 avg_ms=1.708832 min_ms=1.674449 max_ms=1.739282 gflops=1.445288
+
+=== Job done ===

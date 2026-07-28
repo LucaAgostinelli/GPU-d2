@@ -1,0 +1,10 @@
+=== D2_final distributed matrix read benchmark ===
+Node:    edu01
+Date:    Fri Jul 24 04:48:06 PM CEST 2026
+Matrix:  ../matrices/amazon0302.mtx
+P:       1
+Reps:    3
+
+RESULT_CSV_READ matrix=amazon0302.mtx P=1 reps=3 serial_mean_ms=213.6029 serial_min_ms=211.4895 chunked_mean_ms=172.0270 chunked_min_ms=168.5635 serial_read_ms=104.0193 serial_distribute_ms=109.5828 chunked_io_ms=6.2486 chunked_parse_ms=43.5147 chunked_redistribute_ms=122.1749 nnz_total_serial=1234877 nnz_total_chunked=1234877 spmv_mismatches=0 check=OK!
+
+=== Job done ===

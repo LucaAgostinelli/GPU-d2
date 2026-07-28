@@ -1,0 +1,10 @@
+=== D2_final distributed matrix read benchmark ===
+Node:    edu01
+Date:    Fri Jul 24 04:55:36 PM CEST 2026
+Matrix:  ../matrices/roadNet-CA.mtx
+P:       1
+Reps:    3
+
+RESULT_CSV_READ matrix=roadNet-CA.mtx P=1 reps=3 serial_mean_ms=604.2946 serial_min_ms=603.1591 chunked_mean_ms=523.2686 chunked_min_ms=503.3870 serial_read_ms=252.2428 serial_distribute_ms=352.0511 chunked_io_ms=14.5339 chunked_parse_ms=115.1337 chunked_redistribute_ms=393.2272 nnz_total_serial=5533214 nnz_total_chunked=5533214 spmv_mismatches=0 check=OK!
+
+=== Job done ===

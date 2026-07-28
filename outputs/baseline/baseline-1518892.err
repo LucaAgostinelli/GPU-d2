@@ -1,0 +1,5 @@
+Loaded ../big_matrices/mawi_201512020330.mtx: 226196185 x 226196185, nnz(file)=240023949, nnz(expanded)=480047894, symmetric=1, skew=0, pattern=0
+
+real	1m0.549s
+user	0m57.075s
+sys	0m2.978s

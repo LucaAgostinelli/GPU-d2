@@ -1,0 +1,5 @@
+Loaded ../big_matrices/uk-2005.mtx: 39459925 x 39459925, nnz(file)=936364282, nnz(expanded)=936364282, symmetric=0, skew=0, pattern=1
+
+real	4m39.140s
+user	2m5.706s
+sys	0m7.022s

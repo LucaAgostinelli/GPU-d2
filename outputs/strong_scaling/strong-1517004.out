@@ -1,0 +1,167 @@
+=== D2_final strong scaling ===
+Node:     edu01
+Date:     Tue Jul 21 03:53:47 PM CEST 2026
+Matrix:   ../matrices/ASIC_680k.mtx
+P:        1
+Reps:     3
+
+--- P=1 rep=1/3 driver=spmv_bcast ---
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+RESULT comm=bcast kernel=cusparse matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=-1 compute_avg_ms=0.076356 compute_min_ms=0.075776 compute_max_ms=0.076800 compute_var_ms=0.000000257 compute_gflops=101.413361 eff_bw_gbs=512.970735 pct_peak_bw=54.9737 comm_avg_ms=0.147785 comm_min_ms=0.146451 comm_max_ms=0.151686 comm_var_ms=0.000002464 total_avg_ms=0.224141 total_min_ms=0.222239 total_max_ms=0.228486 total_var_ms=0.000003243 effective_gflops=34.547660
+[ERROR CHECKING] OK!
+
+--- P=1 rep=1/3 driver=spmv_ghost_cusparse ---
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=0 compute_avg_ms=0.076766 compute_min_ms=0.075776 compute_max_ms=0.077824 compute_var_ms=0.000000244 compute_gflops=100.872250 eff_bw_gbs=510.233678 pct_peak_bw=54.6804 comm_avg_ms=0.000547 comm_min_ms=0.000520 comm_max_ms=0.000624 comm_var_ms=0.000000001 total_avg_ms=0.077313 total_min_ms=0.076300 total_max_ms=0.078414 total_var_ms=0.000000248 effective_gflops=100.157916
+[ERROR CHECKING] OK!
+
+--- P=1 rep=1/3 driver=spmv_ghost_acc ---
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+[kernel] acc -> FLAT (nnz=3871773, avg_nnz=5.67, imbalance=69711.56)
+RESULT comm=ghost_mpi kernel=acc matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=0 compute_avg_ms=0.075264 compute_min_ms=0.073728 compute_max_ms=0.076800 compute_var_ms=0.000000402 compute_gflops=102.885120 eff_bw_gbs=520.616209 pct_peak_bw=55.7931 comm_avg_ms=0.000512 comm_min_ms=0.000495 comm_max_ms=0.000562 comm_var_ms=0.000000000 total_avg_ms=0.075776 total_min_ms=0.074237 total_max_ms=0.077322 total_var_ms=0.000000405 effective_gflops=102.190490
+[ERROR CHECKING] OK!
+
+--- P=1 rep=1/3 driver=spmv_ghost_nccl_cusparse ---
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+RESULT comm=ghost_nccl kernel=cusparse matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=0 compute_avg_ms=0.076288 compute_min_ms=0.075776 compute_max_ms=0.077824 compute_var_ms=0.000000402 compute_gflops=101.504112 eff_bw_gbs=513.429772 pct_peak_bw=55.0229 comm_avg_ms=0.001012 comm_min_ms=0.000971 comm_max_ms=0.001205 comm_var_ms=0.000000002 total_avg_ms=0.077300 total_min_ms=0.076747 total_max_ms=0.078855 total_var_ms=0.000000404 effective_gflops=100.174847
+[ERROR CHECKING] OK!
+
+--- P=1 rep=1/3 driver=spmv_ghost_nccl_acc ---
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+[kernel] acc -> FLAT (nnz=3871773, avg_nnz=5.67, imbalance=69711.56)
+RESULT comm=ghost_nccl kernel=acc matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=0 compute_avg_ms=0.076220 compute_min_ms=0.075776 compute_max_ms=0.076800 compute_var_ms=0.000000257 compute_gflops=101.595024 eff_bw_gbs=514.088104 pct_peak_bw=55.0935 comm_avg_ms=0.001005 comm_min_ms=0.000967 comm_max_ms=0.001141 comm_var_ms=0.000000001 total_avg_ms=0.077225 total_min_ms=0.076743 total_max_ms=0.077857 total_var_ms=0.000000261 effective_gflops=100.272221
+[ERROR CHECKING] OK!
+
+--- P=1 rep=1/3 driver=spmv_2d_cusparse ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+RESULT comm=checkerboard_mpi kernel=cusparse matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=-1 compute_avg_ms=0.077278 compute_min_ms=0.075776 compute_max_ms=0.077824 compute_var_ms=0.000000331 compute_gflops=100.203931 eff_bw_gbs=506.853173 pct_peak_bw=54.3181 comm_avg_ms=1.086865 comm_min_ms=1.080237 comm_max_ms=1.091466 comm_var_ms=0.000008511 total_avg_ms=1.164143 total_min_ms=1.158061 total_max_ms=1.169290 total_var_ms=0.000009107 effective_gflops=6.651716
+[ERROR CHECKING] OK!
+
+--- P=1 rep=1/3 driver=spmv_2d_acc ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+[kernel] acc -> FLAT (nnz=3871773, avg_nnz=5.67, imbalance=69711.56)
+RESULT comm=checkerboard_mpi kernel=acc matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=-1 compute_avg_ms=0.076937 compute_min_ms=0.075776 compute_max_ms=0.077824 compute_var_ms=0.000000331 compute_gflops=100.648489 eff_bw_gbs=509.298474 pct_peak_bw=54.5802 comm_avg_ms=1.190165 comm_min_ms=1.184563 comm_max_ms=1.196118 comm_var_ms=0.000009757 total_avg_ms=1.267102 total_min_ms=1.261363 total_max_ms=1.272918 total_var_ms=0.000008619 effective_gflops=6.111227
+[ERROR CHECKING] OK!
+
+--- P=1 rep=1/3 driver=spmv_2d_nccl_cusparse ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+RESULT comm=checkerboard_nccl kernel=cusparse matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=-1 compute_avg_ms=0.076937 compute_min_ms=0.075776 compute_max_ms=0.078848 compute_var_ms=0.000000611 compute_gflops=100.648489 eff_bw_gbs=509.101847 pct_peak_bw=54.5591 comm_avg_ms=0.020430 comm_min_ms=0.020065 comm_max_ms=0.021254 comm_var_ms=0.000000092 total_avg_ms=0.097366 total_min_ms=0.095841 total_max_ms=0.099522 total_var_ms=0.000000866 effective_gflops=79.530042
+[ERROR CHECKING] OK!
+
+--- P=1 rep=1/3 driver=spmv_2d_nccl_acc ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+[kernel] acc -> FLAT (nnz=3871773, avg_nnz=5.67, imbalance=69711.56)
+RESULT comm=checkerboard_nccl kernel=acc matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=-1 compute_avg_ms=0.077141 compute_min_ms=0.076800 compute_max_ms=0.077824 compute_var_ms=0.000000233 compute_gflops=100.381281 eff_bw_gbs=507.946358 pct_peak_bw=54.4353 comm_avg_ms=0.021709 comm_min_ms=0.021158 comm_max_ms=0.022659 comm_var_ms=0.000000130 total_avg_ms=0.098851 total_min_ms=0.097993 total_max_ms=0.100082 total_var_ms=0.000000382 effective_gflops=78.335904
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_bcast ---
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+RESULT comm=bcast kernel=cusparse matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=-1 compute_avg_ms=0.076698 compute_min_ms=0.075776 compute_max_ms=0.077824 compute_var_ms=0.000000234 compute_gflops=100.962034 eff_bw_gbs=510.687823 pct_peak_bw=54.7291 comm_avg_ms=0.148478 comm_min_ms=0.146922 comm_max_ms=0.152108 comm_var_ms=0.000002331 total_avg_ms=0.225175 total_min_ms=0.223283 total_max_ms=0.228908 total_var_ms=0.000002524 effective_gflops=34.388982
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_ghost_cusparse ---
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=0 compute_avg_ms=0.076937 compute_min_ms=0.075776 compute_max_ms=0.077824 compute_var_ms=0.000000331 compute_gflops=100.648489 eff_bw_gbs=509.101844 pct_peak_bw=54.5591 comm_avg_ms=0.000546 comm_min_ms=0.000526 comm_max_ms=0.000590 comm_var_ms=0.000000000 total_avg_ms=0.077482 total_min_ms=0.076313 total_max_ms=0.078386 total_var_ms=0.000000330 effective_gflops=99.939588
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_ghost_acc ---
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+[kernel] acc -> FLAT (nnz=3871773, avg_nnz=5.67, imbalance=69711.56)
+RESULT comm=ghost_mpi kernel=acc matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=0 compute_avg_ms=0.075332 compute_min_ms=0.073728 compute_max_ms=0.075776 compute_var_ms=0.000000327 compute_gflops=102.791885 eff_bw_gbs=520.144423 pct_peak_bw=55.7425 comm_avg_ms=0.000509 comm_min_ms=0.000485 comm_max_ms=0.000565 comm_var_ms=0.000000000 total_avg_ms=0.075842 total_min_ms=0.074249 total_max_ms=0.076341 total_var_ms=0.000000328 effective_gflops=102.101560
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_ghost_nccl_cusparse ---
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+RESULT comm=ghost_nccl kernel=cusparse matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=0 compute_avg_ms=0.076390 compute_min_ms=0.074752 compute_max_ms=0.077824 compute_var_ms=0.000000391 compute_gflops=101.368047 eff_bw_gbs=512.741527 pct_peak_bw=54.9492 comm_avg_ms=0.000987 comm_min_ms=0.000964 comm_max_ms=0.001018 comm_var_ms=0.000000000 total_avg_ms=0.077378 total_min_ms=0.075729 total_max_ms=0.078789 total_var_ms=0.000000395 effective_gflops=100.074815
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_ghost_nccl_acc ---
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+[kernel] acc -> FLAT (nnz=3871773, avg_nnz=5.67, imbalance=69711.56)
+RESULT comm=ghost_nccl kernel=acc matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=0 compute_avg_ms=0.075810 compute_min_ms=0.074752 compute_max_ms=0.076800 compute_var_ms=0.000000244 compute_gflops=102.143939 eff_bw_gbs=516.865709 pct_peak_bw=55.3911 comm_avg_ms=0.000956 comm_min_ms=0.000921 comm_max_ms=0.001058 comm_var_ms=0.000000001 total_avg_ms=0.076766 total_min_ms=0.075702 total_max_ms=0.077742 total_var_ms=0.000000232 effective_gflops=100.871724
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_2d_cusparse ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+RESULT comm=checkerboard_mpi kernel=cusparse matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=-1 compute_avg_ms=0.077107 compute_min_ms=0.075776 compute_max_ms=0.078848 compute_var_ms=0.000000430 compute_gflops=100.425717 eff_bw_gbs=507.975019 pct_peak_bw=54.4383 comm_avg_ms=1.085929 comm_min_ms=1.077105 comm_max_ms=1.262598 comm_var_ms=0.001081335 total_avg_ms=1.163036 total_min_ms=1.153674 total_max_ms=1.339398 total_var_ms=0.001078234 effective_gflops=6.658046
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_2d_acc ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+[kernel] acc -> FLAT (nnz=3871773, avg_nnz=5.67, imbalance=69711.56)
+RESULT comm=checkerboard_mpi kernel=acc matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=-1 compute_avg_ms=0.077073 compute_min_ms=0.075776 compute_max_ms=0.077824 compute_var_ms=0.000000275 compute_gflops=100.470193 eff_bw_gbs=508.396265 pct_peak_bw=54.4835 comm_avg_ms=1.210076 comm_min_ms=1.204276 comm_max_ms=1.219305 comm_var_ms=0.000012768 total_avg_ms=1.287149 total_min_ms=1.281443 total_max_ms=1.297129 total_var_ms=0.000013520 effective_gflops=6.016045
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_2d_nccl_cusparse ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+RESULT comm=checkerboard_nccl kernel=cusparse matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=-1 compute_avg_ms=0.077005 compute_min_ms=0.075776 compute_max_ms=0.077824 compute_var_ms=0.000000447 compute_gflops=100.559262 eff_bw_gbs=508.650518 pct_peak_bw=54.5107 comm_avg_ms=0.020296 comm_min_ms=0.019865 comm_max_ms=0.020790 comm_var_ms=0.000000063 total_avg_ms=0.097301 total_min_ms=0.095899 total_max_ms=0.098614 total_var_ms=0.000000520 effective_gflops=79.583388
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_2d_nccl_acc ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+[kernel] acc -> FLAT (nnz=3871773, avg_nnz=5.67, imbalance=69711.56)
+RESULT comm=checkerboard_nccl kernel=acc matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=-1 compute_avg_ms=0.076902 compute_min_ms=0.075776 compute_max_ms=0.077824 compute_var_ms=0.000000164 compute_gflops=100.693161 eff_bw_gbs=509.524522 pct_peak_bw=54.6044 comm_avg_ms=0.021643 comm_min_ms=0.021296 comm_max_ms=0.022791 comm_var_ms=0.000000095 total_avg_ms=0.098545 total_min_ms=0.097106 total_max_ms=0.099591 total_var_ms=0.000000241 effective_gflops=78.578832
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_bcast ---
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+RESULT comm=bcast kernel=cusparse matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=-1 compute_avg_ms=0.076493 compute_min_ms=0.075776 compute_max_ms=0.077824 compute_var_ms=0.000000290 compute_gflops=101.232347 eff_bw_gbs=512.055126 pct_peak_bw=54.8756 comm_avg_ms=0.147997 comm_min_ms=0.146387 comm_max_ms=0.154607 comm_var_ms=0.000004912 total_avg_ms=0.224490 total_min_ms=0.222418 total_max_ms=0.231407 total_var_ms=0.000005075 effective_gflops=34.494017
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_ghost_cusparse ---
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=0 compute_avg_ms=0.076595 compute_min_ms=0.075776 compute_max_ms=0.077824 compute_var_ms=0.000000447 compute_gflops=101.097011 eff_bw_gbs=511.370565 pct_peak_bw=54.8022 comm_avg_ms=0.000587 comm_min_ms=0.000559 comm_max_ms=0.000618 comm_var_ms=0.000000000 total_avg_ms=0.077182 total_min_ms=0.076335 total_max_ms=0.078440 total_var_ms=0.000000450 effective_gflops=100.327826
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_ghost_acc ---
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+[kernel] acc -> FLAT (nnz=3871773, avg_nnz=5.67, imbalance=69711.56)
+RESULT comm=ghost_mpi kernel=acc matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=0 compute_avg_ms=0.075298 compute_min_ms=0.074752 compute_max_ms=0.076800 compute_var_ms=0.000000331 compute_gflops=102.838481 eff_bw_gbs=520.380209 pct_peak_bw=55.7678 comm_avg_ms=0.000533 comm_min_ms=0.000514 comm_max_ms=0.000572 comm_var_ms=0.000000000 total_avg_ms=0.075831 total_min_ms=0.075268 total_max_ms=0.077320 total_var_ms=0.000000328 effective_gflops=102.115832
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_ghost_nccl_cusparse ---
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+RESULT comm=ghost_nccl kernel=cusparse matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=0 compute_avg_ms=0.076322 compute_min_ms=0.074752 compute_max_ms=0.077824 compute_var_ms=0.000000401 compute_gflops=101.458716 eff_bw_gbs=513.200151 pct_peak_bw=54.9983 comm_avg_ms=0.001033 comm_min_ms=0.000998 comm_max_ms=0.001093 comm_var_ms=0.000000000 total_avg_ms=0.077355 total_min_ms=0.075790 total_max_ms=0.078856 total_var_ms=0.000000401 effective_gflops=100.104355
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_ghost_nccl_acc ---
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+[kernel] acc -> FLAT (nnz=3871773, avg_nnz=5.67, imbalance=69711.56)
+RESULT comm=ghost_nccl kernel=acc matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=0 compute_avg_ms=0.075913 compute_min_ms=0.074752 compute_max_ms=0.076800 compute_var_ms=0.000000401 compute_gflops=102.006155 eff_bw_gbs=516.168498 pct_peak_bw=55.3164 comm_avg_ms=0.001029 comm_min_ms=0.000974 comm_max_ms=0.001323 comm_var_ms=0.000000005 total_avg_ms=0.076942 total_min_ms=0.075737 total_max_ms=0.078123 total_var_ms=0.000000429 effective_gflops=100.641815
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_2d_cusparse ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+RESULT comm=checkerboard_mpi kernel=cusparse matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=-1 compute_avg_ms=0.076902 compute_min_ms=0.075776 compute_max_ms=0.077824 compute_var_ms=0.000000304 compute_gflops=100.693161 eff_bw_gbs=509.327809 pct_peak_bw=54.5833 comm_avg_ms=1.143305 comm_min_ms=1.137218 comm_max_ms=1.150638 comm_var_ms=0.000013937 total_avg_ms=1.220207 total_min_ms=1.214018 total_max_ms=1.228271 total_var_ms=0.000013897 effective_gflops=6.346090
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_2d_acc ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+[kernel] acc -> FLAT (nnz=3871773, avg_nnz=5.67, imbalance=69711.56)
+RESULT comm=checkerboard_mpi kernel=acc matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=-1 compute_avg_ms=0.076971 compute_min_ms=0.075776 compute_max_ms=0.078848 compute_var_ms=0.000000285 compute_gflops=100.603855 eff_bw_gbs=509.072617 pct_peak_bw=54.5560 comm_avg_ms=1.079331 comm_min_ms=1.070510 comm_max_ms=1.086441 comm_var_ms=0.000010383 total_avg_ms=1.156302 total_min_ms=1.148334 total_max_ms=1.163241 total_var_ms=0.000009766 effective_gflops=6.696819
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_2d_nccl_cusparse ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+RESULT comm=checkerboard_nccl kernel=cusparse matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=-1 compute_avg_ms=0.077107 compute_min_ms=0.075776 compute_max_ms=0.078848 compute_var_ms=0.000000430 compute_gflops=100.425717 eff_bw_gbs=507.975015 pct_peak_bw=54.4383 comm_avg_ms=0.020518 comm_min_ms=0.020189 comm_max_ms=0.021058 comm_var_ms=0.000000056 total_avg_ms=0.097625 total_min_ms=0.096301 total_max_ms=0.099906 total_var_ms=0.000000534 effective_gflops=79.319508
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_2d_nccl_acc ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, 3871773 nnz
+[kernel] acc -> FLAT (nnz=3871773, avg_nnz=5.67, imbalance=69711.56)
+RESULT comm=checkerboard_nccl kernel=acc matrix=ASIC_680k.mtx P=1 rank=0 nrows_local=682862 ncols_global=682862 nnz_local=3871773 n_ghost=-1 compute_avg_ms=0.076800 compute_min_ms=0.075776 compute_max_ms=0.077824 compute_var_ms=0.000000350 compute_gflops=100.827419 eff_bw_gbs=510.203890 pct_peak_bw=54.6772 comm_avg_ms=0.021304 comm_min_ms=0.020898 comm_max_ms=0.022291 comm_var_ms=0.000000075 total_avg_ms=0.098104 total_min_ms=0.096789 total_max_ms=0.099341 total_var_ms=0.000000473 effective_gflops=78.932304
+[ERROR CHECKING] OK!
+
+=== Job done ===

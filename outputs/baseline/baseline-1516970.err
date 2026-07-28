@@ -1,0 +1,5 @@
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, nnz(file)=16518948, nnz(expanded)=16518948, symmetric=0, skew=0, pattern=1
+
+real	0m3.359s
+user	0m3.217s
+sys	0m0.099s

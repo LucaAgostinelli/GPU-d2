@@ -1,0 +1,5 @@
+Loaded ../big_matrices/mycielskian19.mtx: 393215 x 393215, nnz(file)=451597355, nnz(expanded)=903194710, symmetric=1, skew=0, pattern=1
+
+real	10m20.581s
+user	1m11.768s
+sys	0m25.655s

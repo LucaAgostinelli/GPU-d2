@@ -1,0 +1,10 @@
+=== D2_final distributed matrix read benchmark ===
+Node:    edu01
+Date:    Fri Jul 24 04:52:36 PM CEST 2026
+Matrix:  ../matrices/crankseg_2.mtx
+P:       1
+Reps:    3
+
+RESULT_CSV_READ matrix=crankseg_2.mtx P=1 reps=3 serial_mean_ms=3222.6568 serial_min_ms=3221.5856 chunked_mean_ms=2201.9564 chunked_min_ms=2198.6563 serial_read_ms=2012.7564 serial_distribute_ms=1209.8996 chunked_io_ms=49.3389 chunked_parse_ms=812.8315 chunked_redistribute_ms=1337.9713 nnz_total_serial=14148858 nnz_total_chunked=14148858 spmv_mismatches=0 check=OK!
+
+=== Job done ===

@@ -1,0 +1,34 @@
+=== D2_final intelligent-partitioning large-matrix check (full P sweep, single driver) ===
+Node:     edu01
+Date:     Fri Jul 24 04:34:55 AM CEST 2026
+Matrix:   ../big_matrices/arabic-2005.mtx
+Reps:     1
+Driver:   spmv_fennel_nccl_cusparse
+
+--- P=1 rep=1/1 driver=spmv_fennel_nccl_cusparse ---
+Loaded ../big_matrices/arabic-2005.mtx: 22744080 x 22744080, 639999458 nnz
+RESULT comm=fennel_nccl kernel=cusparse matrix=arabic-2005.mtx P=1 rank=0 nrows_local=22744080 ncols_global=22744080 nnz_local=639999458 n_ghost=0 compute_avg_ms=10.074487 compute_min_ms=10.061824 compute_max_ms=10.088448 compute_var_ms=0.000065603 compute_gflops=127.053502 eff_bw_gbs=535.305109 pct_peak_bw=57.3672 comm_avg_ms=0.001181 comm_min_ms=0.001055 comm_max_ms=0.002573 comm_var_ms=0.000000073 total_avg_ms=10.075669 total_min_ms=10.062886 total_max_ms=10.089516 total_var_ms=0.000065797 effective_gflops=127.038608
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/1 driver=spmv_fennel_nccl_cusparse ---
+Loaded ../big_matrices/arabic-2005.mtx: 22744080 x 22744080, 639999458 nnz
+RESULT comm=fennel_nccl kernel=cusparse matrix=arabic-2005.mtx P=2 rank=0 nrows_local=10880350 ncols_global=22744080 nnz_local=314542612 n_ghost=177092 compute_avg_ms=4.830618 compute_min_ms=4.816896 compute_max_ms=4.841472 compute_var_ms=0.000041915 compute_gflops=130.228735 eff_bw_gbs=548.090053 pct_peak_bw=58.7374 comm_avg_ms=0.268866 comm_min_ms=0.260628 comm_max_ms=0.275734 comm_var_ms=0.000011652 total_avg_ms=5.099484 total_min_ms=5.085748 total_max_ms=5.110288 total_var_ms=0.000043784 effective_gflops=123.362529
+RESULT comm=fennel_nccl kernel=cusparse matrix=arabic-2005.mtx P=2 rank=1 nrows_local=11863730 ncols_global=22744080 nnz_local=325456846 n_ghost=311949 compute_avg_ms=4.876425 compute_min_ms=4.618240 compute_max_ms=5.055488 compute_var_ms=0.037542016 compute_gflops=133.481753 eff_bw_gbs=563.377392 pct_peak_bw=60.3757 comm_avg_ms=0.329249 comm_min_ms=0.283106 comm_max_ms=0.363174 comm_var_ms=0.001096757 total_avg_ms=5.205673 total_min_ms=4.901346 total_max_ms=5.414510 total_var_ms=0.051335555 effective_gflops=125.039294
+[ERROR CHECKING] OK!
+
+--- P=3 rep=1/1 driver=spmv_fennel_nccl_cusparse ---
+Loaded ../big_matrices/arabic-2005.mtx: 22744080 x 22744080, 639999458 nnz
+RESULT comm=fennel_nccl kernel=cusparse matrix=arabic-2005.mtx P=3 rank=1 nrows_local=5778242 ncols_global=22744080 nnz_local=213016104 n_ghost=185108 compute_avg_ms=3.058756 compute_min_ms=2.669568 compute_max_ms=3.095552 compute_var_ms=0.010724615 compute_gflops=139.282824 eff_bw_gbs=580.042355 pct_peak_bw=62.1616 comm_avg_ms=0.298126 comm_min_ms=0.277980 comm_max_ms=0.315899 comm_var_ms=0.000089138 total_avg_ms=3.356882 total_min_ms=2.969202 total_max_ms=3.405728 total_var_ms=0.010682149 effective_gflops=126.913063
+RESULT comm=fennel_nccl kernel=cusparse matrix=arabic-2005.mtx P=3 rank=2 nrows_local=8028123 ncols_global=22744080 nnz_local=195224034 n_ghost=173327 compute_avg_ms=2.849553 compute_min_ms=2.842624 compute_max_ms=2.863104 compute_var_ms=0.000026332 compute_gflops=137.020809 eff_bw_gbs=582.134468 pct_peak_bw=62.3858 comm_avg_ms=0.266941 comm_min_ms=0.248343 comm_max_ms=0.282421 comm_var_ms=0.000082457 total_avg_ms=3.116494 total_min_ms=3.095042 total_max_ms=3.144656 total_var_ms=0.000109162 effective_gflops=125.284397
+RESULT comm=fennel_nccl kernel=cusparse matrix=arabic-2005.mtx P=3 rank=0 nrows_local=8937715 ncols_global=22744080 nnz_local=231759320 n_ghost=475904 compute_avg_ms=3.510921 compute_min_ms=3.283968 compute_max_ms=3.616768 compute_var_ms=0.020469216 compute_gflops=132.021967 eff_bw_gbs=559.178346 pct_peak_bw=59.9257 comm_avg_ms=0.376415 comm_min_ms=0.318802 comm_max_ms=0.401118 comm_var_ms=0.000986414 total_avg_ms=3.887336 total_min_ms=3.606866 total_max_ms=4.012705 total_var_ms=0.030359992 effective_gflops=119.238136
+[ERROR CHECKING] OK!
+
+--- P=4 rep=1/1 driver=spmv_fennel_nccl_cusparse ---
+Loaded ../big_matrices/arabic-2005.mtx: 22744080 x 22744080, 639999458 nnz
+RESULT comm=fennel_nccl kernel=cusparse matrix=arabic-2005.mtx P=4 rank=0 nrows_local=6634399 ncols_global=22744080 nnz_local=136231480 n_ghost=151614 compute_avg_ms=2.005743 compute_min_ms=1.995776 compute_max_ms=2.014208 compute_var_ms=0.000018450 compute_gflops=135.841415 eff_bw_gbs=583.360439 pct_peak_bw=62.5172 comm_avg_ms=0.329514 comm_min_ms=0.324529 comm_max_ms=0.335708 comm_var_ms=0.000006460 total_avg_ms=2.335257 total_min_ms=2.321329 total_max_ms=2.344796 total_var_ms=0.000026331 effective_gflops=116.673645
+RESULT comm=fennel_nccl kernel=cusparse matrix=arabic-2005.mtx P=4 rank=1 nrows_local=4980681 ncols_global=22744080 nnz_local=171674309 n_ghost=246439 compute_avg_ms=2.443230 compute_min_ms=2.436096 compute_max_ms=2.452480 compute_var_ms=0.000016042 compute_gflops=140.530624 eff_bw_gbs=586.988731 pct_peak_bw=62.9060 comm_avg_ms=0.354001 comm_min_ms=0.345515 comm_max_ms=0.362104 comm_var_ms=0.000017154 total_avg_ms=2.797231 total_min_ms=2.783089 total_max_ms=2.812360 total_var_ms=0.000035011 effective_gflops=122.745911
+RESULT comm=fennel_nccl kernel=cusparse matrix=arabic-2005.mtx P=4 rank=2 nrows_local=4922155 ncols_global=22744080 nnz_local=158117442 n_ghost=139001 compute_avg_ms=2.211055 compute_min_ms=2.202624 compute_max_ms=2.220032 compute_var_ms=0.000013260 compute_gflops=143.024440 eff_bw_gbs=599.063108 pct_peak_bw=64.2000 comm_avg_ms=0.187377 comm_min_ms=0.183714 comm_max_ms=0.191999 comm_var_ms=0.000004721 total_avg_ms=2.398432 total_min_ms=2.388700 total_max_ms=2.406442 total_var_ms=0.000018128 effective_gflops=131.850699
+RESULT comm=fennel_nccl kernel=cusparse matrix=arabic-2005.mtx P=4 rank=3 nrows_local=6206845 ncols_global=22744080 nnz_local=173976227 n_ghost=382558 compute_avg_ms=2.650283 compute_min_ms=2.640896 compute_max_ms=2.660352 compute_var_ms=0.000024402 compute_gflops=131.288811 eff_bw_gbs=553.836100 pct_peak_bw=59.3531 comm_avg_ms=0.527156 comm_min_ms=0.518287 comm_max_ms=0.533297 comm_var_ms=0.000009997 total_avg_ms=3.177438 total_min_ms=3.164303 total_max_ms=3.191225 total_var_ms=0.000041974 effective_gflops=109.507220
+[ERROR CHECKING] OK!
+
+=== Job done ===

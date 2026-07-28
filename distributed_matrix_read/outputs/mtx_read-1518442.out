@@ -1,0 +1,10 @@
+=== D2_final distributed matrix read benchmark ===
+Node:    edu01
+Date:    Fri Jul 24 04:54:06 PM CEST 2026
+Matrix:  ../matrices/parabolic_fem.mtx
+P:       1
+Reps:    3
+
+RESULT_CSV_READ matrix=parabolic_fem.mtx P=1 reps=3 serial_mean_ms=983.9598 serial_min_ms=980.3295 chunked_mean_ms=577.1233 chunked_min_ms=566.7442 serial_read_ms=709.2964 serial_distribute_ms=274.6629 chunked_io_ms=22.2235 chunked_parse_ms=253.8326 chunked_redistribute_ms=300.9364 nnz_total_serial=3674625 nnz_total_chunked=3674625 spmv_mismatches=0 check=OK!
+
+=== Job done ===

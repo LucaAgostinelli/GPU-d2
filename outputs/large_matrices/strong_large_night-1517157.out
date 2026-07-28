@@ -1,0 +1,34 @@
+=== D2_final strong scaling (large matrix, full P sweep, single driver) ===
+Node:     edu01
+Date:     Wed Jul 22 02:43:03 AM CEST 2026
+Matrix:   ../big_matrices/mawi_201512020330.mtx
+Reps:     1
+Driver:   spmv_bcast
+
+--- P=1 rep=1/1 driver=spmv_bcast ---
+Loaded ../big_matrices/mawi_201512020330.mtx: 226196185 x 226196185, 480047894 nnz
+RESULT comm=bcast kernel=cusparse matrix=mawi_201512020330.mtx P=1 rank=0 nrows_local=226196185 ncols_global=226196185 nnz_local=480047894 n_ghost=-1 compute_avg_ms=10.138999 compute_min_ms=10.127360 compute_max_ms=10.147840 compute_var_ms=0.000020096 compute_gflops=94.693347 eff_bw_gbs=646.487597 pct_peak_bw=69.2824 comm_avg_ms=78.785633 comm_min_ms=78.695621 comm_max_ms=79.049174 comm_var_ms=0.005665232 total_avg_ms=88.924632 total_min_ms=88.831191 total_max_ms=89.190870 total_var_ms=0.005754594 effective_gflops=10.796736
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/1 driver=spmv_bcast ---
+Loaded ../big_matrices/mawi_201512020330.mtx: 226196185 x 226196185, 480047894 nnz
+RESULT comm=bcast kernel=cusparse matrix=mawi_201512020330.mtx P=2 rank=0 nrows_local=113098093 ncols_global=226196185 nnz_local=135045360 n_ghost=-1 compute_avg_ms=4.294895 compute_min_ms=4.289536 compute_max_ms=4.300800 compute_var_ms=0.000005710 compute_gflops=62.886457 eff_bw_gbs=672.876160 pct_peak_bw=72.1104 comm_avg_ms=213.843891 comm_min_ms=213.639374 comm_max_ms=214.475987 comm_var_ms=0.029022918 total_avg_ms=218.138785 total_min_ms=217.934030 total_max_ms=218.771667 total_var_ms=0.029075504 effective_gflops=1.238160
+RESULT comm=bcast kernel=cusparse matrix=mawi_201512020330.mtx P=2 rank=1 nrows_local=113098092 ncols_global=226196185 nnz_local=345002534 n_ghost=-1 compute_avg_ms=7.869918 compute_min_ms=7.814144 compute_max_ms=7.896064 compute_var_ms=0.000333499 compute_gflops=87.676273 eff_bw_gbs=580.640084 pct_peak_bw=62.2257 comm_avg_ms=216.148266 comm_min_ms=215.977952 comm_max_ms=216.595288 comm_var_ms=0.018118665 total_avg_ms=224.018184 total_min_ms=223.854560 total_max_ms=224.458584 total_var_ms=0.019060535 effective_gflops=3.080130
+[ERROR CHECKING] OK!
+
+--- P=3 rep=1/1 driver=spmv_bcast ---
+Loaded ../big_matrices/mawi_201512020330.mtx: 226196185 x 226196185, 480047894 nnz
+RESULT comm=bcast kernel=cusparse matrix=mawi_201512020330.mtx P=3 rank=0 nrows_local=75398729 ncols_global=226196185 nnz_local=90091354 n_ghost=-1 compute_avg_ms=2.897408 compute_min_ms=2.891776 compute_max_ms=2.904064 compute_var_ms=0.000007392 compute_gflops=62.187551 eff_bw_gbs=769.206620 pct_peak_bw=82.4338 comm_avg_ms=374.705605 comm_min_ms=364.914748 comm_max_ms=394.818414 comm_var_ms=80.554309031 total_avg_ms=377.603013 total_min_ms=367.808572 total_max_ms=397.712238 total_var_ms=80.547476463 effective_gflops=0.477175
+RESULT comm=bcast kernel=cusparse matrix=mawi_201512020330.mtx P=3 rank=1 nrows_local=75398728 ncols_global=226196185 nnz_local=300898506 n_ghost=-1 compute_avg_ms=6.460245 compute_min_ms=6.415360 compute_max_ms=6.486016 compute_var_ms=0.000286827 compute_gflops=93.153894 eff_bw_gbs=606.039307 pct_peak_bw=64.9476 comm_avg_ms=313.584393 comm_min_ms=306.250712 comm_max_ms=330.994234 comm_var_ms=46.408984025 total_avg_ms=320.044639 total_min_ms=312.720344 total_max_ms=337.457722 total_var_ms=46.415627405 effective_gflops=1.880353
+RESULT comm=bcast kernel=cusparse matrix=mawi_201512020330.mtx P=3 rank=2 nrows_local=75398728 ncols_global=226196185 nnz_local=89058034 n_ghost=-1 compute_avg_ms=2.828493 compute_min_ms=2.826240 compute_max_ms=2.832384 compute_var_ms=0.000002754 compute_gflops=62.972076 eff_bw_gbs=785.025430 pct_peak_bw=84.1291 comm_avg_ms=374.845013 comm_min_ms=365.075403 comm_max_ms=395.049091 comm_var_ms=81.694568006 total_avg_ms=377.673506 total_min_ms=367.902667 total_max_ms=397.879427 total_var_ms=81.695488502 effective_gflops=0.471614
+[ERROR CHECKING] OK!
+
+--- P=4 rep=1/1 driver=spmv_bcast ---
+Loaded ../big_matrices/mawi_201512020330.mtx: 226196185 x 226196185, 480047894 nnz
+RESULT comm=bcast kernel=cusparse matrix=mawi_201512020330.mtx P=4 rank=0 nrows_local=56549047 ncols_global=226196185 nnz_local=67348594 n_ghost=-1 compute_avg_ms=2.175590 compute_min_ms=2.171904 compute_max_ms=2.181120 compute_var_ms=0.000004236 compute_gflops=61.912934 eff_bw_gbs=871.471870 pct_peak_bw=93.3933 comm_avg_ms=375.536742 comm_min_ms=374.164020 comm_max_ms=384.810256 comm_var_ms=4.805056637 total_avg_ms=377.712333 total_min_ms=376.337972 total_max_ms=386.987280 total_var_ms=4.807422930 effective_gflops=0.356613
+RESULT comm=bcast kernel=cusparse matrix=mawi_201512020330.mtx P=4 rank=1 nrows_local=56549046 ncols_global=226196185 nnz_local=278573208 n_ghost=-1 compute_avg_ms=5.780105 compute_min_ms=5.735424 compute_max_ms=5.797888 compute_var_ms=0.000171301 compute_gflops=96.390370 eff_bw_gbs=620.362961 pct_peak_bw=66.4827 comm_avg_ms=519.230716 comm_min_ms=514.318059 comm_max_ms=528.604995 comm_var_ms=4.215751068 total_avg_ms=525.010821 total_min_ms=520.105707 total_max_ms=534.388547 total_var_ms=4.215647957 effective_gflops=1.061209
+RESULT comm=bcast kernel=cusparse matrix=mawi_201512020330.mtx P=4 rank=2 nrows_local=56549046 ncols_global=226196185 nnz_local=67696766 n_ghost=-1 compute_avg_ms=2.189107 compute_min_ms=2.186240 compute_max_ms=2.193408 compute_var_ms=0.000003174 compute_gflops=61.848745 eff_bw_gbs=867.363306 pct_peak_bw=92.9530 comm_avg_ms=576.926126 comm_min_ms=574.010061 comm_max_ms=599.747814 comm_var_ms=30.027401089 total_avg_ms=579.115233 total_min_ms=576.202445 total_max_ms=601.935078 total_var_ms=30.022456212 effective_gflops=0.233794
+RESULT comm=bcast kernel=cusparse matrix=mawi_201512020330.mtx P=4 rank=3 nrows_local=56549046 ncols_global=226196185 nnz_local=66429326 n_ghost=-1 compute_avg_ms=2.146816 compute_min_ms=2.143232 compute_max_ms=2.150400 compute_var_ms=0.000002849 compute_gflops=61.886374 eff_bw_gbs=879.726903 pct_peak_bw=94.2780 comm_avg_ms=583.435153 comm_min_ms=580.809518 comm_max_ms=626.816988 comm_var_ms=69.684820265 total_avg_ms=585.581969 total_min_ms=582.954798 total_max_ms=628.962268 total_var_ms=69.677845614 effective_gflops=0.226883
+[ERROR CHECKING] OK!
+
+=== Job done ===

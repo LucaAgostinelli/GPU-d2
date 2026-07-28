@@ -1,0 +1,115 @@
+=== D2_final intelligent-partitioning (Fennel/LDG) small-matrix check ===
+Node:     edu01
+Date:     Thu Jul 23 12:49:53 PM CEST 2026
+Matrix:   ../matrices/parabolic_fem.mtx
+Reps:     3
+
+--- P=1 rep=1/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/parabolic_fem.mtx: 525825 x 525825, 3674625 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=3674625, avg_nnz=6.99, imbalance=1.00, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=1 rank=0 nrows_local=525825 ncols_global=525825 nnz_local=3674625 n_ghost=0 compute_avg_ms=0.079565 compute_min_ms=0.077824 compute_max_ms=0.080896 compute_var_ms=0.000000430 compute_gflops=92.368111 eff_bw_gbs=448.777667 pct_peak_bw=48.0943 comm_avg_ms=0.001038 comm_min_ms=0.000970 comm_max_ms=0.001316 comm_var_ms=0.000000005 total_avg_ms=0.080603 total_min_ms=0.078811 total_max_ms=0.081950 total_var_ms=0.000000431 effective_gflops=91.178334
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/parabolic_fem.mtx: 525825 x 525825, 3674625 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=1837359, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1837266, avg_nnz=6.99, imbalance=1.00, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=2 rank=1 nrows_local=262922 ncols_global=525825 nnz_local=1837359 n_ghost=158394 compute_avg_ms=0.050005 compute_min_ms=0.047104 compute_max_ms=0.056320 compute_var_ms=0.000009443 compute_gflops=73.486520 eff_bw_gbs=369.710879 pct_peak_bw=39.6209 comm_avg_ms=0.214923 comm_min_ms=0.210150 comm_max_ms=0.222322 comm_var_ms=0.000009563 total_avg_ms=0.264929 total_min_ms=0.257731 total_max_ms=0.275570 total_var_ms=0.000027512 effective_gflops=13.870599
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=2 rank=0 nrows_local=262903 ncols_global=525825 nnz_local=1837266 n_ghost=159095 compute_avg_ms=0.049323 compute_min_ms=0.046080 compute_max_ms=0.054272 compute_var_ms=0.000007346 compute_gflops=74.499864 eff_bw_gbs=374.865129 pct_peak_bw=40.1733 comm_avg_ms=0.213030 comm_min_ms=0.208314 comm_max_ms=0.216811 comm_var_ms=0.000004883 total_avg_ms=0.262352 total_min_ms=0.257342 total_max_ms=0.270059 total_var_ms=0.000014767 effective_gflops=14.006093
+[ERROR CHECKING] OK!
+
+--- P=3 rep=1/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/parabolic_fem.mtx: 525825 x 525825, 3674625 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=1224907, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1224775, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1224943, avg_nnz=6.99, imbalance=1.00, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=3 rank=0 nrows_local=175289 ncols_global=525825 nnz_local=1224943 n_ghost=163204 compute_avg_ms=0.034202 compute_min_ms=0.030720 compute_max_ms=0.039936 compute_var_ms=0.000010458 compute_gflops=71.630743 eff_bw_gbs=367.112417 pct_peak_bw=39.3425 comm_avg_ms=0.166363 comm_min_ms=0.136492 comm_max_ms=0.818589 comm_var_ms=0.014685054 total_avg_ms=0.200564 total_min_ms=0.169260 total_max_ms=0.858525 total_var_ms=0.014971376 effective_gflops=12.214968
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=3 rank=2 nrows_local=175255 ncols_global=525825 nnz_local=1224775 n_ghost=163043 compute_avg_ms=0.033041 compute_min_ms=0.029696 compute_max_ms=0.039936 compute_var_ms=0.000011040 compute_gflops=74.136529 eff_bw_gbs=379.934341 pct_peak_bw=40.7166 comm_avg_ms=0.180205 comm_min_ms=0.173242 comm_max_ms=0.185134 comm_var_ms=0.000010137 total_avg_ms=0.213246 total_min_ms=0.206505 total_max_ms=0.225070 total_var_ms=0.000025758 effective_gflops=11.486957
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=3 rank=1 nrows_local=175281 ncols_global=525825 nnz_local=1224907 n_ghost=164488 compute_avg_ms=0.032461 compute_min_ms=0.030720 compute_max_ms=0.039936 compute_var_ms=0.000004694 compute_gflops=75.469921 eff_bw_gbs=386.946228 pct_peak_bw=41.4680 comm_avg_ms=0.183156 comm_min_ms=0.175310 comm_max_ms=0.204044 comm_var_ms=0.000030797 total_avg_ms=0.215617 total_min_ms=0.207054 total_max_ms=0.235788 total_var_ms=0.000042486 effective_gflops=11.361890
+[ERROR CHECKING] OK!
+
+--- P=4 rep=1/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/parabolic_fem.mtx: 525825 x 525825, 3674625 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=918756, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=918657, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=918616, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=918596, avg_nnz=6.99, imbalance=1.00, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=4 rank=0 nrows_local=131448 ncols_global=525825 nnz_local=918616 n_ghost=142222 compute_avg_ms=0.028126 compute_min_ms=0.027648 compute_max_ms=0.031744 compute_var_ms=0.000000680 compute_gflops=65.321791 eff_bw_gbs=337.596564 pct_peak_bw=36.1793 comm_avg_ms=0.165129 comm_min_ms=0.158181 comm_max_ms=0.173676 comm_var_ms=0.000015622 total_avg_ms=0.193255 total_min_ms=0.185829 total_max_ms=0.201324 total_var_ms=0.000018142 effective_gflops=9.506786
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=4 rank=1 nrows_local=131445 ncols_global=525825 nnz_local=918596 n_ghost=142221 compute_avg_ms=0.029525 compute_min_ms=0.027648 compute_max_ms=0.031744 compute_var_ms=0.000002033 compute_gflops=62.224259 eff_bw_gbs=321.588103 pct_peak_bw=34.4637 comm_avg_ms=0.177739 comm_min_ms=0.172760 comm_max_ms=0.186050 comm_var_ms=0.000012191 total_avg_ms=0.207265 total_min_ms=0.200837 total_max_ms=0.217794 total_var_ms=0.000020967 effective_gflops=8.863990
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=4 rank=3 nrows_local=131477 ncols_global=525825 nnz_local=918756 n_ghost=140484 compute_avg_ms=0.027648 compute_min_ms=0.025600 compute_max_ms=0.030720 compute_var_ms=0.000002517 compute_gflops=66.460938 eff_bw_gbs=343.233219 pct_peak_bw=36.7834 comm_avg_ms=0.208708 comm_min_ms=0.202107 comm_max_ms=0.218715 comm_var_ms=0.000010638 total_avg_ms=0.236356 total_min_ms=0.228731 total_max_ms=0.247387 total_var_ms=0.000015555 effective_gflops=7.774350
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=4 rank=2 nrows_local=131455 ncols_global=525825 nnz_local=918657 n_ghost=142505 compute_avg_ms=0.029184 compute_min_ms=0.027648 compute_max_ms=0.031744 compute_var_ms=0.000001870 compute_gflops=62.956209 eff_bw_gbs=325.409129 pct_peak_bw=34.8732 comm_avg_ms=0.205884 comm_min_ms=0.200978 comm_max_ms=0.211703 comm_var_ms=0.000006881 total_avg_ms=0.235068 total_min_ms=0.228626 total_max_ms=0.242423 total_var_ms=0.000013463 effective_gflops=7.816099
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/parabolic_fem.mtx: 525825 x 525825, 3674625 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=3674625, avg_nnz=6.99, imbalance=1.00, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=1 rank=0 nrows_local=525825 ncols_global=525825 nnz_local=3674625 n_ghost=0 compute_avg_ms=0.079497 compute_min_ms=0.077824 compute_max_ms=0.080896 compute_var_ms=0.000000453 compute_gflops=92.447431 eff_bw_gbs=449.163049 pct_peak_bw=48.1356 comm_avg_ms=0.001050 comm_min_ms=0.000981 comm_max_ms=0.001710 comm_var_ms=0.000000017 total_avg_ms=0.080547 total_min_ms=0.078808 total_max_ms=0.081928 total_var_ms=0.000000491 effective_gflops=91.242178
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/parabolic_fem.mtx: 525825 x 525825, 3674625 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=1837266, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1837359, avg_nnz=6.99, imbalance=1.00, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=2 rank=0 nrows_local=262903 ncols_global=525825 nnz_local=1837266 n_ghost=159095 compute_avg_ms=0.049391 compute_min_ms=0.047104 compute_max_ms=0.054272 compute_var_ms=0.000008087 compute_gflops=74.396892 eff_bw_gbs=374.347001 pct_peak_bw=40.1178 comm_avg_ms=0.215770 comm_min_ms=0.211425 comm_max_ms=0.229767 comm_var_ms=0.000009980 total_avg_ms=0.265161 total_min_ms=0.259464 total_max_ms=0.276871 total_var_ms=0.000020115 effective_gflops=13.857755
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=2 rank=1 nrows_local=262922 ncols_global=525825 nnz_local=1837359 n_ghost=158394 compute_avg_ms=0.050142 compute_min_ms=0.047104 compute_max_ms=0.056320 compute_var_ms=0.000008003 compute_gflops=73.286421 eff_bw_gbs=368.704178 pct_peak_bw=39.5131 comm_avg_ms=0.214409 comm_min_ms=0.209235 comm_max_ms=0.220827 comm_var_ms=0.000008774 total_avg_ms=0.264551 total_min_ms=0.257363 total_max_ms=0.273835 total_var_ms=0.000022075 effective_gflops=13.890380
+[ERROR CHECKING] OK!
+
+--- P=3 rep=2/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/parabolic_fem.mtx: 525825 x 525825, 3674625 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=1224907, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1224775, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1224943, avg_nnz=6.99, imbalance=1.00, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=3 rank=0 nrows_local=175289 ncols_global=525825 nnz_local=1224943 n_ghost=163204 compute_avg_ms=0.034167 compute_min_ms=0.030720 compute_max_ms=0.039936 compute_var_ms=0.000009401 compute_gflops=71.702301 eff_bw_gbs=367.479159 pct_peak_bw=39.3818 comm_avg_ms=0.163340 comm_min_ms=0.140320 comm_max_ms=0.637450 comm_var_ms=0.007764669 total_avg_ms=0.197508 total_min_ms=0.172064 total_max_ms=0.677386 total_var_ms=0.007978577 effective_gflops=12.404011
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=3 rank=2 nrows_local=175255 ncols_global=525825 nnz_local=1224775 n_ghost=163043 compute_avg_ms=0.033451 compute_min_ms=0.029696 compute_max_ms=0.038912 compute_var_ms=0.000008831 compute_gflops=73.228735 eff_bw_gbs=375.282086 pct_peak_bw=40.2180 comm_avg_ms=0.174427 comm_min_ms=0.167895 comm_max_ms=0.183755 comm_var_ms=0.000012707 total_avg_ms=0.207877 total_min_ms=0.199992 total_max_ms=0.218571 total_var_ms=0.000026886 effective_gflops=11.783640
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=3 rank=1 nrows_local=175281 ncols_global=525825 nnz_local=1224907 n_ghost=164488 compute_avg_ms=0.031607 compute_min_ms=0.030720 compute_max_ms=0.032768 compute_var_ms=0.000000541 compute_gflops=77.507447 eff_bw_gbs=397.392943 pct_peak_bw=42.5875 comm_avg_ms=0.184282 comm_min_ms=0.176968 comm_max_ms=0.205488 comm_var_ms=0.000035190 total_avg_ms=0.215889 total_min_ms=0.208712 total_max_ms=0.237232 total_var_ms=0.000034979 effective_gflops=11.347552
+[ERROR CHECKING] OK!
+
+--- P=4 rep=2/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/parabolic_fem.mtx: 525825 x 525825, 3674625 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=918596, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=918657, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=918616, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=918756, avg_nnz=6.99, imbalance=1.00, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=4 rank=1 nrows_local=131445 ncols_global=525825 nnz_local=918596 n_ghost=142221 compute_avg_ms=0.029355 compute_min_ms=0.027648 compute_max_ms=0.031744 compute_var_ms=0.000001771 compute_gflops=62.586028 eff_bw_gbs=323.457804 pct_peak_bw=34.6641 comm_avg_ms=0.173192 comm_min_ms=0.165523 comm_max_ms=0.181405 comm_var_ms=0.000015059 total_avg_ms=0.202547 total_min_ms=0.193476 total_max_ms=0.212125 total_var_ms=0.000024566 effective_gflops=9.070442
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=4 rank=0 nrows_local=131448 ncols_global=525825 nnz_local=918616 n_ghost=142222 compute_avg_ms=0.029218 compute_min_ms=0.027648 compute_max_ms=0.031744 compute_var_ms=0.000002358 compute_gflops=62.879855 eff_bw_gbs=324.976133 pct_peak_bw=34.8268 comm_avg_ms=0.166978 comm_min_ms=0.162255 comm_max_ms=0.172820 comm_var_ms=0.000008070 total_avg_ms=0.196196 total_min_ms=0.190518 total_max_ms=0.204564 total_var_ms=0.000013123 effective_gflops=9.364256
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=4 rank=2 nrows_local=131455 ncols_global=525825 nnz_local=918657 n_ghost=142505 compute_avg_ms=0.028877 compute_min_ms=0.026624 compute_max_ms=0.031744 compute_var_ms=0.000002265 compute_gflops=63.625956 eff_bw_gbs=328.870928 pct_peak_bw=35.2442 comm_avg_ms=0.204764 comm_min_ms=0.196624 comm_max_ms=0.213227 comm_var_ms=0.000017935 total_avg_ms=0.233641 total_min_ms=0.224272 total_max_ms=0.244572 total_var_ms=0.000027169 effective_gflops=7.863826
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=4 rank=3 nrows_local=131477 ncols_global=525825 nnz_local=918756 n_ghost=140484 compute_avg_ms=0.028058 compute_min_ms=0.026624 compute_max_ms=0.030720 compute_var_ms=0.000001580 compute_gflops=65.490705 eff_bw_gbs=338.222512 pct_peak_bw=36.2464 comm_avg_ms=0.208286 comm_min_ms=0.200572 comm_max_ms=0.217182 comm_var_ms=0.000012983 total_avg_ms=0.236343 total_min_ms=0.227196 total_max_ms=0.245854 total_var_ms=0.000018665 effective_gflops=7.774761
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/parabolic_fem.mtx: 525825 x 525825, 3674625 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=3674625, avg_nnz=6.99, imbalance=1.00, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=1 rank=0 nrows_local=525825 ncols_global=525825 nnz_local=3674625 n_ghost=0 compute_avg_ms=0.079428 compute_min_ms=0.077824 compute_max_ms=0.079872 compute_var_ms=0.000000327 compute_gflops=92.526887 eff_bw_gbs=449.549094 pct_peak_bw=48.1770 comm_avg_ms=0.001039 comm_min_ms=0.000970 comm_max_ms=0.001504 comm_var_ms=0.000000012 total_avg_ms=0.080467 total_min_ms=0.078835 total_max_ms=0.081376 total_var_ms=0.000000345 effective_gflops=91.332551
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/parabolic_fem.mtx: 525825 x 525825, 3674625 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=1837359, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1837266, avg_nnz=6.99, imbalance=1.00, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=2 rank=1 nrows_local=262922 ncols_global=525825 nnz_local=1837359 n_ghost=158394 compute_avg_ms=0.050039 compute_min_ms=0.048128 compute_max_ms=0.056320 compute_var_ms=0.000007601 compute_gflops=73.436393 eff_bw_gbs=369.458687 pct_peak_bw=39.5939 comm_avg_ms=0.213865 comm_min_ms=0.208966 comm_max_ms=0.220035 comm_var_ms=0.000006781 total_avg_ms=0.263905 total_min_ms=0.257118 total_max_ms=0.273283 total_var_ms=0.000017871 effective_gflops=13.924402
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=2 rank=0 nrows_local=262903 ncols_global=525825 nnz_local=1837266 n_ghost=159095 compute_avg_ms=0.049562 compute_min_ms=0.047104 compute_max_ms=0.055296 compute_var_ms=0.000008780 compute_gflops=74.140705 eff_bw_gbs=373.057927 pct_peak_bw=39.9796 comm_avg_ms=0.214893 comm_min_ms=0.210436 comm_max_ms=0.224727 comm_var_ms=0.000009975 total_avg_ms=0.264455 total_min_ms=0.257540 total_max_ms=0.276119 total_var_ms=0.000027108 effective_gflops=13.894743
+[ERROR CHECKING] OK!
+
+--- P=3 rep=3/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/parabolic_fem.mtx: 525825 x 525825, 3674625 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=1224907, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1224775, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1224943, avg_nnz=6.99, imbalance=1.00, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=3 rank=0 nrows_local=175289 ncols_global=525825 nnz_local=1224943 n_ghost=163204 compute_avg_ms=0.033894 compute_min_ms=0.030720 compute_max_ms=0.039936 compute_var_ms=0.000008763 compute_gflops=72.279963 eff_bw_gbs=370.439717 pct_peak_bw=39.6990 comm_avg_ms=0.143579 comm_min_ms=0.137529 comm_max_ms=0.158941 comm_var_ms=0.000021056 total_avg_ms=0.177474 total_min_ms=0.169273 total_max_ms=0.198877 total_var_ms=0.000052593 effective_gflops=13.804228
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=3 rank=1 nrows_local=175281 ncols_global=525825 nnz_local=1224907 n_ghost=164488 compute_avg_ms=0.031744 compute_min_ms=0.030720 compute_max_ms=0.032768 compute_var_ms=0.000000210 compute_gflops=77.174081 eff_bw_gbs=395.683725 pct_peak_bw=42.4044 comm_avg_ms=0.183546 comm_min_ms=0.175482 comm_max_ms=0.229617 comm_var_ms=0.000081459 total_avg_ms=0.215290 total_min_ms=0.207226 total_max_ms=0.261361 total_var_ms=0.000082247 effective_gflops=11.379139
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=3 rank=2 nrows_local=175255 ncols_global=525825 nnz_local=1224775 n_ghost=163043 compute_avg_ms=0.033212 compute_min_ms=0.029696 compute_max_ms=0.039936 compute_var_ms=0.000009135 compute_gflops=73.755560 eff_bw_gbs=377.981957 pct_peak_bw=40.5073 comm_avg_ms=0.197529 comm_min_ms=0.168932 comm_max_ms=0.892367 comm_var_ms=0.016658905 total_avg_ms=0.230740 total_min_ms=0.199652 total_max_ms=0.930255 total_var_ms=0.016897847 effective_gflops=10.616044
+[ERROR CHECKING] OK!
+
+--- P=4 rep=3/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/parabolic_fem.mtx: 525825 x 525825, 3674625 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=918596, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=918616, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=918657, avg_nnz=6.99, imbalance=1.00, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=918756, avg_nnz=6.99, imbalance=1.00, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=4 rank=1 nrows_local=131445 ncols_global=525825 nnz_local=918596 n_ghost=142221 compute_avg_ms=0.029525 compute_min_ms=0.027648 compute_max_ms=0.031744 compute_var_ms=0.000001544 compute_gflops=62.224259 eff_bw_gbs=321.588105 pct_peak_bw=34.4637 comm_avg_ms=0.175060 comm_min_ms=0.167888 comm_max_ms=0.188020 comm_var_ms=0.000024022 total_avg_ms=0.204586 total_min_ms=0.196560 total_max_ms=0.219764 total_var_ms=0.000034158 effective_gflops=8.980058
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=4 rank=0 nrows_local=131448 ncols_global=525825 nnz_local=918616 n_ghost=142222 compute_avg_ms=0.029321 compute_min_ms=0.027648 compute_max_ms=0.031744 compute_var_ms=0.000002201 compute_gflops=62.660252 eff_bw_gbs=323.841178 pct_peak_bw=34.7052 comm_avg_ms=0.164579 comm_min_ms=0.158858 comm_max_ms=0.178198 comm_var_ms=0.000016459 total_avg_ms=0.193900 total_min_ms=0.187530 total_max_ms=0.208918 total_var_ms=0.000024218 effective_gflops=9.475167
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=4 rank=2 nrows_local=131455 ncols_global=525825 nnz_local=918657 n_ghost=142505 compute_avg_ms=0.028843 compute_min_ms=0.027648 compute_max_ms=0.030720 compute_var_ms=0.000001334 compute_gflops=63.701253 eff_bw_gbs=329.260123 pct_peak_bw=35.2859 comm_avg_ms=0.201622 comm_min_ms=0.182958 comm_max_ms=0.210713 comm_var_ms=0.000027640 total_avg_ms=0.230465 total_min_ms=0.210606 total_max_ms=0.240409 total_var_ms=0.000035344 effective_gflops=7.972201
+RESULT comm=fennel_nccl kernel=acc matrix=parabolic_fem.mtx P=4 rank=3 nrows_local=131477 ncols_global=525825 nnz_local=918756 n_ghost=140484 compute_avg_ms=0.028058 compute_min_ms=0.025600 compute_max_ms=0.030720 compute_var_ms=0.000001720 compute_gflops=65.490705 eff_bw_gbs=338.222512 pct_peak_bw=36.2464 comm_avg_ms=0.208248 comm_min_ms=0.199595 comm_max_ms=0.213927 comm_var_ms=0.000009378 total_avg_ms=0.236306 total_min_ms=0.230315 total_max_ms=0.243256 total_var_ms=0.000012811 effective_gflops=7.775985
+[ERROR CHECKING] OK!
+
+=== Job done ===

@@ -1,0 +1,9 @@
+=== CPU baseline ===
+Node:     edu01
+Date:     Sun Jul 26 03:08:07 PM CEST 2026
+Matrix:   ../big_matrices/Queen_4147.mtx
+Reps:     10
+
+RESULT comm=none kernel=cpu_serial matrix=Queen_4147.mtx M=4147110 N=4147110 nnz_expanded=329499284 avg_ms=297.686405 min_ms=292.430741 max_ms=305.777277 gflops=2.213734
+
+=== Job done ===

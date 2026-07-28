@@ -1,0 +1,10 @@
+=== D2_final distributed matrix read benchmark ===
+Node:    edu01
+Date:    Fri Jul 24 04:52:06 PM CEST 2026
+Matrix:  ../matrices/cage13.mtx
+P:       4
+Reps:    3
+
+RESULT_CSV_READ matrix=cage13.mtx P=4 reps=3 serial_mean_ms=5186.4701 serial_min_ms=5179.1636 chunked_mean_ms=702.6714 chunked_min_ms=699.9190 serial_read_ms=4323.3404 serial_distribute_ms=5184.4856 chunked_io_ms=35.0183 chunked_parse_ms=425.3537 chunked_redistribute_ms=255.7764 nnz_total_serial=7479343 nnz_total_chunked=7479343 spmv_mismatches=0 check=OK!
+
+=== Job done ===

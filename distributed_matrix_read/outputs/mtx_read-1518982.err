@@ -1,0 +1,12 @@
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 2430995 on node edu01 exited on signal 9 (Killed).
+--------------------------------------------------------------------------
+
+real	28m42.126s
+user	10m29.202s
+sys	1m13.326s
+[2026-07-26T20:54:23.645] error: Detected 1 oom_kill event in StepId=1518982.batch. Some of the step tasks have been OOM Killed.

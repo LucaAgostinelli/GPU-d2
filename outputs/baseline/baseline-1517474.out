@@ -1,0 +1,9 @@
+=== D2_final CPU baseline ===
+Node:     edu01
+Date:     Wed Jul 22 05:29:23 PM CEST 2026
+Matrix:   ../matrices/cage13.mtx
+Reps:     10
+
+RESULT comm=none kernel=cpu_serial matrix=cage13.mtx M=445315 N=445315 nnz_expanded=7479343 avg_ms=5.906408 min_ms=5.780115 max_ms=6.082889 gflops=2.532620
+
+=== Job done ===

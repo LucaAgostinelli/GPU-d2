@@ -1,0 +1,5 @@
+Loaded ../matrices/amazon0302.mtx: 262111 x 262111, nnz(file)=1234877, nnz(expanded)=1234877, symmetric=0, skew=0, pattern=1
+
+real	0m0.171s
+user	0m0.156s
+sys	0m0.007s

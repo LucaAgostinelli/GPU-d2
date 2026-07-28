@@ -1,0 +1,5 @@
+Loaded ../big_matrices/com-Orkut.mtx: 3072441 x 3072441, nnz(file)=117185083, nnz(expanded)=234370166, symmetric=1, skew=0, pattern=1
+
+real	0m23.937s
+user	0m22.799s
+sys	0m0.983s

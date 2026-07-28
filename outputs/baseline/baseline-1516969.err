@@ -1,0 +1,5 @@
+Loaded ../matrices/poisson3Da.mtx: 13514 x 13514, nnz(file)=352762, nnz(expanded)=352762, symmetric=0, skew=0, pattern=0
+
+real	0m0.138s
+user	0m0.109s
+sys	0m0.004s

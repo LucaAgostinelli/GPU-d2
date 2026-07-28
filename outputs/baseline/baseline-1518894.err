@@ -1,0 +1,5 @@
+Loaded ../big_matrices/nlpkkt240.mtx: 27993600 x 27993600, nnz(file)=401232976, nnz(expanded)=774472352, symmetric=1, skew=0, pattern=0
+
+real	5m17.891s
+user	1m24.028s
+sys	0m7.055s

@@ -1,0 +1,34 @@
+=== D2_final strong scaling (large matrix, full P sweep, single driver) ===
+Node:     edu01
+Date:     Fri Jul 24 09:50:12 PM CEST 2026
+Matrix:   ../big_matrices/kmer_V1r.mtx
+Reps:     1
+Driver:   spmv_ghost_cusparse
+
+--- P=1 rep=1/1 driver=spmv_ghost_cusparse ---
+Loaded ../big_matrices/kmer_V1r.mtx: 214005017 x 214005017, 465410904 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=kmer_V1r.mtx P=1 rank=0 nrows_local=214005017 ncols_global=214005017 nnz_local=465410904 n_ghost=0 compute_avg_ms=14.976819 compute_min_ms=14.966784 compute_max_ms=14.985216 compute_var_ms=0.000022258 compute_gflops=62.150834 eff_bw_gbs=420.072337 pct_peak_bw=45.0180 comm_avg_ms=0.000598 comm_min_ms=0.000540 comm_max_ms=0.000775 comm_var_ms=0.000000003 total_avg_ms=14.977417 total_min_ms=14.967360 total_max_ms=14.985780 total_var_ms=0.000022133 effective_gflops=62.148354
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/1 driver=spmv_ghost_cusparse ---
+Loaded ../big_matrices/kmer_V1r.mtx: 214005017 x 214005017, 465410904 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=kmer_V1r.mtx P=2 rank=0 nrows_local=107002509 ncols_global=214005017 nnz_local=232709697 n_ghost=82603127 compute_avg_ms=9.583309 compute_min_ms=9.578496 compute_max_ms=9.588736 compute_var_ms=0.000006162 compute_gflops=48.565626 eff_bw_gbs=362.726513 pct_peak_bw=38.8724 comm_avg_ms=179.609977 comm_min_ms=173.422377 comm_max_ms=182.594267 comm_var_ms=6.106389436 total_avg_ms=189.193286 total_min_ms=183.003945 total_max_ms=192.181979 total_var_ms=6.105553863 effective_gflops=2.460021
+RESULT comm=ghost_mpi kernel=cusparse matrix=kmer_V1r.mtx P=2 rank=1 nrows_local=107002508 ncols_global=214005017 nnz_local=232701207 n_ghost=82607877 compute_avg_ms=9.583001 compute_min_ms=9.578496 compute_max_ms=9.588736 compute_var_ms=0.000007521 compute_gflops=48.565412 eff_bw_gbs=362.733040 pct_peak_bw=38.8731 comm_avg_ms=179.610006 comm_min_ms=173.422782 comm_max_ms=182.593618 comm_var_ms=6.106607459 total_avg_ms=189.193008 total_min_ms=183.002302 total_max_ms=192.177234 total_var_ms=6.108271024 effective_gflops=2.459935
+[ERROR CHECKING] OK!
+
+--- P=3 rep=1/1 driver=spmv_ghost_cusparse ---
+Loaded ../big_matrices/kmer_V1r.mtx: 214005017 x 214005017, 465410904 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=kmer_V1r.mtx P=3 rank=0 nrows_local=71335006 ncols_global=214005017 nnz_local=155137572 n_ghost=83069167 compute_avg_ms=6.966238 compute_min_ms=6.961152 compute_max_ms=6.970368 compute_var_ms=0.000004647 compute_gflops=44.539843 eff_bw_gbs=348.738783 pct_peak_bw=37.3734 comm_avg_ms=315.853459 comm_min_ms=310.775985 comm_max_ms=323.110480 comm_var_ms=17.652248982 total_avg_ms=322.819697 total_min_ms=317.744305 total_max_ms=330.077776 total_var_ms=17.646720169 effective_gflops=0.961141
+RESULT comm=ghost_mpi kernel=cusparse matrix=kmer_V1r.mtx P=3 rank=1 nrows_local=71335006 ncols_global=214005017 nnz_local=155137944 n_ghost=83061838 compute_avg_ms=6.966716 compute_min_ms=6.961152 compute_max_ms=6.970368 compute_var_ms=0.000004731 compute_gflops=44.536895 eff_bw_gbs=348.711083 pct_peak_bw=37.3704 comm_avg_ms=267.521002 comm_min_ms=262.074028 comm_max_ms=274.850568 comm_var_ms=18.323471495 total_avg_ms=274.487718 total_min_ms=269.044396 total_max_ms=281.815816 total_var_ms=18.320484290 effective_gflops=1.130382
+RESULT comm=ghost_mpi kernel=cusparse matrix=kmer_V1r.mtx P=3 rank=2 nrows_local=71335005 ncols_global=214005017 nnz_local=155135388 n_ghost=83066277 compute_avg_ms=6.966989 compute_min_ms=6.963200 compute_max_ms=6.971392 compute_var_ms=0.000005533 compute_gflops=44.534416 eff_bw_gbs=348.697025 pct_peak_bw=37.3689 comm_avg_ms=315.853563 comm_min_ms=310.776585 comm_max_ms=323.111760 comm_var_ms=17.652361061 total_avg_ms=322.820551 total_min_ms=317.744905 total_max_ms=330.081104 total_var_ms=17.648862453 effective_gflops=0.961125
+[ERROR CHECKING] OK!
+
+--- P=4 rep=1/1 driver=spmv_ghost_cusparse ---
+Loaded ../big_matrices/kmer_V1r.mtx: 214005017 x 214005017, 465410904 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=kmer_V1r.mtx P=4 rank=0 nrows_local=53501255 ncols_global=214005017 nnz_local=116359721 n_ghost=74271176 compute_avg_ms=5.432730 compute_min_ms=5.430272 compute_max_ms=5.435392 compute_var_ms=0.000001999 compute_gflops=42.836559 eff_bw_gbs=344.205893 pct_peak_bw=36.8876 comm_avg_ms=308.625495 comm_min_ms=221.164543 comm_max_ms=407.891380 comm_var_ms=5557.505807843 total_avg_ms=314.058224 total_min_ms=226.597887 total_max_ms=413.326772 total_var_ms=5557.531013118 effective_gflops=0.741007
+RESULT comm=ghost_mpi kernel=cusparse matrix=kmer_V1r.mtx P=4 rank=1 nrows_local=53501254 ncols_global=214005017 nnz_local=116350696 n_ghost=74271918 compute_avg_ms=5.433378 compute_min_ms=5.430272 compute_max_ms=5.437440 compute_var_ms=0.000002341 compute_gflops=42.828124 eff_bw_gbs=344.152062 pct_peak_bw=36.8819 comm_avg_ms=337.388388 comm_min_ms=238.350558 comm_max_ms=409.881426 comm_var_ms=4645.890571968 total_avg_ms=342.821766 total_min_ms=243.782878 total_max_ms=415.314770 total_var_ms=4645.908977024 effective_gflops=0.678782
+RESULT comm=ghost_mpi kernel=cusparse matrix=kmer_V1r.mtx P=4 rank=2 nrows_local=53501254 ncols_global=214005017 nnz_local=116349976 n_ghost=74266182 compute_avg_ms=5.432457 compute_min_ms=5.428224 compute_max_ms=5.435392 compute_var_ms=0.000003127 compute_gflops=42.835124 eff_bw_gbs=344.205163 pct_peak_bw=36.8876 comm_avg_ms=366.617297 comm_min_ms=220.106584 comm_max_ms=409.881061 comm_var_ms=3897.513714394 total_avg_ms=372.049753 total_min_ms=225.541976 total_max_ms=415.314405 total_var_ms=3897.488280269 effective_gflops=0.625454
+RESULT comm=ghost_mpi kernel=cusparse matrix=kmer_V1r.mtx P=4 rank=3 nrows_local=53501254 ncols_global=214005017 nnz_local=116350511 n_ghost=74268337 compute_avg_ms=5.430716 compute_min_ms=5.428224 compute_max_ms=5.433344 compute_var_ms=0.000002215 compute_gflops=42.849052 eff_bw_gbs=344.317874 pct_peak_bw=36.8996 comm_avg_ms=388.110873 comm_min_ms=281.743734 comm_max_ms=408.964819 comm_var_ms=514.868464568 total_avg_ms=393.541589 total_min_ms=287.175030 total_max_ms=414.393043 total_var_ms=514.865228962 effective_gflops=0.591300
+[ERROR CHECKING] OK!
+
+=== Job done ===

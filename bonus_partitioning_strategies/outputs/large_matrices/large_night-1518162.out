@@ -1,0 +1,20 @@
+=== D2_final intelligent-partitioning large-matrix check (full P sweep, single driver) ===
+Node:     edu01
+Date:     Fri Jul 24 06:20:39 PM CEST 2026
+Matrix:   ../big_matrices/webbase-2001.mtx
+Reps:     1
+Driver:   spmv_block_nccl_cusparse
+
+--- P=1 rep=1/1 driver=spmv_block_nccl_cusparse ---
+Loaded ../big_matrices/webbase-2001.mtx: 118142155 x 118142155, 1019903190 nnz
+RESULT comm=block_nccl kernel=cusparse matrix=webbase-2001.mtx P=1 rank=0 nrows_local=118142155 ncols_global=118142155 nnz_local=1019903190 n_ghost=0 compute_avg_ms=14.367130 compute_min_ms=14.358528 compute_max_ms=14.382080 compute_var_ms=0.000029541 compute_gflops=141.977308 eff_bw_gbs=666.586273 pct_peak_bw=71.4363 comm_avg_ms=0.001360 comm_min_ms=0.001004 comm_max_ms=0.007700 comm_var_ms=0.000001400 total_avg_ms=14.368489 total_min_ms=14.359680 total_max_ms=14.383636 total_var_ms=0.000035274 effective_gflops=141.963873
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/1 driver=spmv_block_nccl_cusparse ---
+Loaded ../big_matrices/webbase-2001.mtx: 118142155 x 118142155, 1019903190 nnz
+RESULT comm=block_nccl kernel=cusparse matrix=webbase-2001.mtx P=2 rank=0 nrows_local=59071078 ncols_global=118142155 nnz_local=474747692 n_ghost=2091874 compute_avg_ms=6.600055 compute_min_ms=6.507520 compute_max_ms=6.720512 compute_var_ms=0.009233160 compute_gflops=143.861728 eff_bw_gbs=684.115761 pct_peak_bw=73.3149 comm_avg_ms=1.256556 comm_min_ms=1.214140 comm_max_ms=1.305783 comm_var_ms=0.000932956 total_avg_ms=7.856611 total_min_ms=7.724048 total_max_ms=8.022199 total_var_ms=0.015733933 effective_gflops=120.853041
+RESULT comm=block_nccl kernel=cusparse matrix=webbase-2001.mtx P=2 rank=1 nrows_local=59071077 ncols_global=118142155 nnz_local=545155498 n_ghost=2159824 compute_avg_ms=7.475029 compute_min_ms=7.402496 compute_max_ms=7.540736 compute_var_ms=0.003232627 compute_gflops=145.860430 eff_bw_gbs=679.426923 pct_peak_bw=72.8124 comm_avg_ms=1.270518 comm_min_ms=1.233488 comm_max_ms=1.327852 comm_var_ms=0.000898273 total_avg_ms=8.745548 total_min_ms=8.638401 total_max_ms=8.867564 total_var_ms=0.007114944 effective_gflops=124.670409
+[ERROR CHECKING] OK!
+
+--- P=3 rep=1/1 driver=spmv_block_nccl_cusparse ---
+Loaded ../big_matrices/webbase-2001.mtx: 118142155 x 118142155, 1019903190 nnz

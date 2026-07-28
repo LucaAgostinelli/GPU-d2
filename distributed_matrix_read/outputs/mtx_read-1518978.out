@@ -1,0 +1,7 @@
+=== distributed matrix read benchmark (large matrix, full P sweep) ===
+Node:    edu01
+Date:    Sun Jul 26 06:55:40 PM CEST 2026
+Matrix:  ../big_matrices/mycielskian19.mtx
+Reps:    1
+
+--- P=1 ---

@@ -1,0 +1,115 @@
+=== D2_final intelligent-partitioning (1D-Block) small-matrix check ===
+Node:     edu01
+Date:     Thu Jul 23 03:00:32 PM CEST 2026
+Matrix:   ../matrices/amazon0302.mtx
+Reps:     3
+
+--- P=1 rep=1/3 driver=spmv_block_nccl_acc ---
+Loaded ../matrices/amazon0302.mtx: 262111 x 262111, 1234877 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=1234877, avg_nnz=4.71, imbalance=1.06, V=1)
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=1 rank=0 nrows_local=262111 ncols_global=262111 nnz_local=1234877 n_ghost=0 compute_avg_ms=0.043179 compute_min_ms=0.041984 compute_max_ms=0.045056 compute_var_ms=0.000000495 compute_gflops=57.198478 eff_bw_gbs=301.638589 pct_peak_bw=32.3258 comm_avg_ms=0.000966 comm_min_ms=0.000931 comm_max_ms=0.001097 comm_var_ms=0.000000001 total_avg_ms=0.044144 total_min_ms=0.042928 total_max_ms=0.046094 total_var_ms=0.000000492 effective_gflops=55.947249
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/3 driver=spmv_block_nccl_acc ---
+Loaded ../matrices/amazon0302.mtx: 262111 x 262111, 1234877 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=627510, avg_nnz=4.79, imbalance=1.04, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=607367, avg_nnz=4.63, imbalance=1.08, V=1)
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=2 rank=0 nrows_local=131056 ncols_global=262111 nnz_local=627510 n_ghost=27554 compute_avg_ms=0.027853 compute_min_ms=0.026624 compute_max_ms=0.029696 compute_var_ms=0.000000587 compute_gflops=45.059024 eff_bw_gbs=240.657025 pct_peak_bw=25.7906 comm_avg_ms=0.067113 comm_min_ms=0.065226 comm_max_ms=0.074926 comm_var_ms=0.000003479 total_avg_ms=0.094966 total_min_ms=0.092026 total_max_ms=0.102574 total_var_ms=0.000003951 effective_gflops=13.215457
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=2 rank=1 nrows_local=131055 ncols_global=262111 nnz_local=607367 n_ghost=53448 compute_avg_ms=0.029047 compute_min_ms=0.027648 compute_max_ms=0.033792 compute_var_ms=0.000001292 compute_gflops=41.818930 eff_bw_gbs=228.776988 pct_peak_bw=24.5174 comm_avg_ms=0.100795 comm_min_ms=0.098434 comm_max_ms=0.108051 comm_var_ms=0.000002975 total_avg_ms=0.129843 total_min_ms=0.127028 total_max_ms=0.136723 total_var_ms=0.000004131 effective_gflops=9.355418
+[ERROR CHECKING] OK!
+
+--- P=3 rep=1/3 driver=spmv_block_nccl_acc ---
+Loaded ../matrices/amazon0302.mtx: 262111 x 262111, 1234877 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=416438, avg_nnz=4.77, imbalance=1.05, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=419298, avg_nnz=4.80, imbalance=1.04, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=399141, avg_nnz=4.57, imbalance=1.09, V=1)
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=3 rank=0 nrows_local=87371 ncols_global=262111 nnz_local=419298 n_ghost=26197 compute_avg_ms=0.019115 compute_min_ms=0.018432 compute_max_ms=0.019456 compute_var_ms=0.000000233 compute_gflops=43.871862 eff_bw_gbs=235.820387 pct_peak_bw=25.2722 comm_avg_ms=0.080935 comm_min_ms=0.078386 comm_max_ms=0.087203 comm_var_ms=0.000003423 total_avg_ms=0.100050 total_min_ms=0.096818 total_max_ms=0.106659 total_var_ms=0.000003802 effective_gflops=8.381758
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=3 rank=1 nrows_local=87370 ncols_global=262111 nnz_local=416438 n_ghost=58334 compute_avg_ms=0.020685 compute_min_ms=0.020480 compute_max_ms=0.021504 compute_var_ms=0.000000168 compute_gflops=40.265123 eff_bw_gbs=223.027735 pct_peak_bw=23.9013 comm_avg_ms=0.099238 comm_min_ms=0.093771 comm_max_ms=0.104263 comm_var_ms=0.000005541 total_avg_ms=0.119923 total_min_ms=0.114251 total_max_ms=0.124743 total_var_ms=0.000005699 effective_gflops=6.945074
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=3 rank=2 nrows_local=87370 ncols_global=262111 nnz_local=399141 n_ghost=54126 compute_avg_ms=0.020617 compute_min_ms=0.019456 compute_max_ms=0.021504 compute_var_ms=0.000000261 compute_gflops=38.720478 eff_bw_gbs=216.237911 pct_peak_bw=23.1736 comm_avg_ms=0.122201 comm_min_ms=0.099673 comm_max_ms=0.620607 comm_var_ms=0.008580299 total_avg_ms=0.142818 total_min_ms=0.120153 total_max_ms=0.640063 total_var_ms=0.008540186 effective_gflops=5.589508
+[ERROR CHECKING] OK!
+
+--- P=4 rep=1/3 driver=spmv_block_nccl_acc ---
+Loaded ../matrices/amazon0302.mtx: 262111 x 262111, 1234877 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=296838, avg_nnz=4.53, imbalance=1.10, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=311950, avg_nnz=4.76, imbalance=1.05, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=310529, avg_nnz=4.74, imbalance=1.06, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=315560, avg_nnz=4.82, imbalance=1.04, V=1)
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=4 rank=0 nrows_local=65528 ncols_global=262111 nnz_local=315560 n_ghost=22541 compute_avg_ms=0.017271 compute_min_ms=0.016384 compute_max_ms=0.017408 compute_var_ms=0.000000121 compute_gflops=36.541193 eff_bw_gbs=196.913442 pct_peak_bw=21.1027 comm_avg_ms=0.074738 comm_min_ms=0.071415 comm_max_ms=0.094116 comm_var_ms=0.000014696 total_avg_ms=0.092010 total_min_ms=0.088823 total_max_ms=0.111524 total_var_ms=0.000015081 effective_gflops=6.859262
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=4 rank=1 nrows_local=65528 ncols_global=262111 nnz_local=311950 n_ghost=55424 compute_avg_ms=0.018705 compute_min_ms=0.017408 compute_max_ms=0.020480 compute_var_ms=0.000000345 compute_gflops=33.354599 eff_bw_gbs=187.309461 pct_peak_bw=20.0735 comm_avg_ms=0.139977 comm_min_ms=0.134207 comm_max_ms=0.148148 comm_var_ms=0.000008800 total_avg_ms=0.158682 total_min_ms=0.152639 total_max_ms=0.166580 total_var_ms=0.000008818 effective_gflops=3.931755
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=4 rank=2 nrows_local=65528 ncols_global=262111 nnz_local=310529 n_ghost=62838 compute_avg_ms=0.018671 compute_min_ms=0.017408 compute_max_ms=0.019456 compute_var_ms=0.000000257 compute_gflops=33.263361 eff_bw_gbs=188.631382 pct_peak_bw=20.2151 comm_avg_ms=0.137834 comm_min_ms=0.131427 comm_max_ms=0.149124 comm_var_ms=0.000010135 total_avg_ms=0.156505 total_min_ms=0.149859 total_max_ms=0.166532 total_var_ms=0.000009070 effective_gflops=3.968305
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=4 rank=3 nrows_local=65527 ncols_global=262111 nnz_local=296838 n_ghost=47919 compute_avg_ms=0.018978 compute_min_ms=0.018432 compute_max_ms=0.019456 compute_var_ms=0.000000261 compute_gflops=31.282107 eff_bw_gbs=176.661633 pct_peak_bw=18.9324 comm_avg_ms=0.097405 comm_min_ms=0.094677 comm_max_ms=0.101187 comm_var_ms=0.000003144 total_avg_ms=0.116383 total_min_ms=0.113152 total_max_ms=0.120643 total_var_ms=0.000003850 effective_gflops=5.101037
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_block_nccl_acc ---
+Loaded ../matrices/amazon0302.mtx: 262111 x 262111, 1234877 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=1234877, avg_nnz=4.71, imbalance=1.06, V=1)
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=1 rank=0 nrows_local=262111 ncols_global=262111 nnz_local=1234877 n_ghost=0 compute_avg_ms=0.043076 compute_min_ms=0.041984 compute_max_ms=0.044032 compute_var_ms=0.000000275 compute_gflops=57.334449 eff_bw_gbs=302.355638 pct_peak_bw=32.4027 comm_avg_ms=0.000949 comm_min_ms=0.000910 comm_max_ms=0.001094 comm_var_ms=0.000000001 total_avg_ms=0.044026 total_min_ms=0.042914 total_max_ms=0.044988 total_var_ms=0.000000271 effective_gflops=56.098007
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_block_nccl_acc ---
+Loaded ../matrices/amazon0302.mtx: 262111 x 262111, 1234877 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=607367, avg_nnz=4.63, imbalance=1.08, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=627510, avg_nnz=4.79, imbalance=1.04, V=1)
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=2 rank=1 nrows_local=131055 ncols_global=262111 nnz_local=607367 n_ghost=53448 compute_avg_ms=0.029150 compute_min_ms=0.027648 compute_max_ms=0.033792 compute_var_ms=0.000001030 compute_gflops=41.672025 eff_bw_gbs=227.973320 pct_peak_bw=24.4313 comm_avg_ms=0.098609 comm_min_ms=0.096226 comm_max_ms=0.101404 comm_var_ms=0.000002027 total_avg_ms=0.127759 total_min_ms=0.124898 total_max_ms=0.131247 total_var_ms=0.000002556 effective_gflops=9.507999
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=2 rank=0 nrows_local=131056 ncols_global=262111 nnz_local=627510 n_ghost=27554 compute_avg_ms=0.027682 compute_min_ms=0.026624 compute_max_ms=0.029696 compute_var_ms=0.000000733 compute_gflops=45.336824 eff_bw_gbs=242.140730 pct_peak_bw=25.9496 comm_avg_ms=0.064497 comm_min_ms=0.062372 comm_max_ms=0.065929 comm_var_ms=0.000000840 total_avg_ms=0.092180 total_min_ms=0.088996 total_max_ms=0.094433 total_var_ms=0.000001545 effective_gflops=13.614958
+[ERROR CHECKING] OK!
+
+--- P=3 rep=2/3 driver=spmv_block_nccl_acc ---
+Loaded ../matrices/amazon0302.mtx: 262111 x 262111, 1234877 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=416438, avg_nnz=4.77, imbalance=1.05, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=419298, avg_nnz=4.80, imbalance=1.04, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=399141, avg_nnz=4.57, imbalance=1.09, V=1)
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=3 rank=0 nrows_local=87371 ncols_global=262111 nnz_local=419298 n_ghost=26197 compute_avg_ms=0.019183 compute_min_ms=0.018432 compute_max_ms=0.019456 compute_var_ms=0.000000205 compute_gflops=43.715734 eff_bw_gbs=234.981169 pct_peak_bw=25.1823 comm_avg_ms=0.093904 comm_min_ms=0.076485 comm_max_ms=0.493047 comm_var_ms=0.005496319 total_avg_ms=0.113087 total_min_ms=0.094917 total_max_ms=0.512503 total_var_ms=0.005503950 effective_gflops=7.415505
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=3 rank=1 nrows_local=87370 ncols_global=262111 nnz_local=416438 n_ghost=58334 compute_avg_ms=0.020787 compute_min_ms=0.020480 compute_max_ms=0.021504 compute_var_ms=0.000000220 compute_gflops=40.066773 eff_bw_gbs=221.929076 pct_peak_bw=23.7836 comm_avg_ms=0.111385 comm_min_ms=0.092470 comm_max_ms=0.567056 comm_var_ms=0.007163295 total_avg_ms=0.132172 total_min_ms=0.113030 total_max_ms=0.587536 total_var_ms=0.007153506 effective_gflops=6.301457
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=3 rank=2 nrows_local=87370 ncols_global=262111 nnz_local=399141 n_ghost=54126 compute_avg_ms=0.020719 compute_min_ms=0.020480 compute_max_ms=0.021504 compute_var_ms=0.000000188 compute_gflops=38.529108 eff_bw_gbs=215.169190 pct_peak_bw=23.0591 comm_avg_ms=0.113391 comm_min_ms=0.093140 comm_max_ms=0.532682 comm_var_ms=0.006077097 total_avg_ms=0.134110 total_min_ms=0.113620 total_max_ms=0.553162 total_var_ms=0.006070234 effective_gflops=5.952429
+[ERROR CHECKING] OK!
+
+--- P=4 rep=2/3 driver=spmv_block_nccl_acc ---
+Loaded ../matrices/amazon0302.mtx: 262111 x 262111, 1234877 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=296838, avg_nnz=4.53, imbalance=1.10, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=311950, avg_nnz=4.76, imbalance=1.05, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=310529, avg_nnz=4.74, imbalance=1.06, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=315560, avg_nnz=4.82, imbalance=1.04, V=1)
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=4 rank=0 nrows_local=65528 ncols_global=262111 nnz_local=315560 n_ghost=22541 compute_avg_ms=0.017306 compute_min_ms=0.016384 compute_max_ms=0.018432 compute_var_ms=0.000000164 compute_gflops=36.469119 eff_bw_gbs=196.525052 pct_peak_bw=21.0611 comm_avg_ms=0.075817 comm_min_ms=0.072631 comm_max_ms=0.078741 comm_var_ms=0.000002625 total_avg_ms=0.093123 total_min_ms=0.090039 total_max_ms=0.096149 total_var_ms=0.000003180 effective_gflops=6.777273
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=4 rank=1 nrows_local=65528 ncols_global=262111 nnz_local=311950 n_ghost=55424 compute_avg_ms=0.018569 compute_min_ms=0.017408 compute_max_ms=0.019456 compute_var_ms=0.000000191 compute_gflops=33.599853 eff_bw_gbs=188.686735 pct_peak_bw=20.2211 comm_avg_ms=0.150486 comm_min_ms=0.142490 comm_max_ms=0.156740 comm_var_ms=0.000007906 total_avg_ms=0.169055 total_min_ms=0.160922 total_max_ms=0.175172 total_var_ms=0.000008378 effective_gflops=3.690526
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=4 rank=2 nrows_local=65528 ncols_global=262111 nnz_local=310529 n_ghost=62838 compute_avg_ms=0.018671 compute_min_ms=0.018432 compute_max_ms=0.019456 compute_var_ms=0.000000188 compute_gflops=33.263361 eff_bw_gbs=188.631381 pct_peak_bw=20.2151 comm_avg_ms=0.139621 comm_min_ms=0.134405 comm_max_ms=0.144042 comm_var_ms=0.000005936 total_avg_ms=0.158292 total_min_ms=0.152837 total_max_ms=0.162474 total_var_ms=0.000006074 effective_gflops=3.923488
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=4 rank=3 nrows_local=65527 ncols_global=262111 nnz_local=296838 n_ghost=47919 compute_avg_ms=0.018807 compute_min_ms=0.018432 compute_max_ms=0.019456 compute_var_ms=0.000000244 compute_gflops=31.565974 eff_bw_gbs=178.264731 pct_peak_bw=19.1042 comm_avg_ms=0.103030 comm_min_ms=0.098262 comm_max_ms=0.110797 comm_var_ms=0.000010407 total_avg_ms=0.121838 total_min_ms=0.116823 total_max_ms=0.130253 total_var_ms=0.000011630 effective_gflops=4.872678
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_block_nccl_acc ---
+Loaded ../matrices/amazon0302.mtx: 262111 x 262111, 1234877 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=1234877, avg_nnz=4.71, imbalance=1.06, V=1)
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=1 rank=0 nrows_local=262111 ncols_global=262111 nnz_local=1234877 n_ghost=0 compute_avg_ms=0.043179 compute_min_ms=0.041984 compute_max_ms=0.044032 compute_var_ms=0.000000425 compute_gflops=57.198478 eff_bw_gbs=301.638589 pct_peak_bw=32.3258 comm_avg_ms=0.000926 comm_min_ms=0.000896 comm_max_ms=0.000990 comm_var_ms=0.000000001 total_avg_ms=0.044104 total_min_ms=0.042891 total_max_ms=0.044949 total_var_ms=0.000000410 effective_gflops=55.998117
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_block_nccl_acc ---
+Loaded ../matrices/amazon0302.mtx: 262111 x 262111, 1234877 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=607367, avg_nnz=4.63, imbalance=1.08, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=627510, avg_nnz=4.79, imbalance=1.04, V=1)
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=2 rank=0 nrows_local=131056 ncols_global=262111 nnz_local=627510 n_ghost=27554 compute_avg_ms=0.027921 compute_min_ms=0.026624 compute_max_ms=0.029696 compute_var_ms=0.000000694 compute_gflops=44.948856 eff_bw_gbs=240.068621 pct_peak_bw=25.7275 comm_avg_ms=0.064143 comm_min_ms=0.061946 comm_max_ms=0.066612 comm_var_ms=0.000001099 total_avg_ms=0.092064 total_min_ms=0.090568 total_max_ms=0.096308 total_var_ms=0.000001546 effective_gflops=13.632088
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=2 rank=1 nrows_local=131055 ncols_global=262111 nnz_local=607367 n_ghost=53448 compute_avg_ms=0.028979 compute_min_ms=0.027648 compute_max_ms=0.031744 compute_var_ms=0.000000500 compute_gflops=41.917444 eff_bw_gbs=229.315920 pct_peak_bw=24.5752 comm_avg_ms=0.098316 comm_min_ms=0.094980 comm_max_ms=0.101665 comm_var_ms=0.000002853 total_avg_ms=0.127295 total_min_ms=0.123652 total_max_ms=0.132104 total_var_ms=0.000003719 effective_gflops=9.542636
+[ERROR CHECKING] OK!
+
+--- P=3 rep=3/3 driver=spmv_block_nccl_acc ---
+Loaded ../matrices/amazon0302.mtx: 262111 x 262111, 1234877 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=416438, avg_nnz=4.77, imbalance=1.05, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=419298, avg_nnz=4.80, imbalance=1.04, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=399141, avg_nnz=4.57, imbalance=1.09, V=1)
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=3 rank=1 nrows_local=87370 ncols_global=262111 nnz_local=416438 n_ghost=58334 compute_avg_ms=0.020924 compute_min_ms=0.019456 compute_max_ms=0.021504 compute_var_ms=0.000000327 compute_gflops=39.805325 eff_bw_gbs=220.480925 pct_peak_bw=23.6284 comm_avg_ms=0.093607 comm_min_ms=0.089933 comm_max_ms=0.097261 comm_var_ms=0.000003362 total_avg_ms=0.114531 total_min_ms=0.110413 total_max_ms=0.118765 total_var_ms=0.000004335 effective_gflops=7.272057
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=3 rank=0 nrows_local=87371 ncols_global=262111 nnz_local=419298 n_ghost=26197 compute_avg_ms=0.019012 compute_min_ms=0.018432 compute_max_ms=0.019456 compute_var_ms=0.000000257 compute_gflops=44.108155 eff_bw_gbs=237.090513 pct_peak_bw=25.4084 comm_avg_ms=0.080169 comm_min_ms=0.075695 comm_max_ms=0.083133 comm_var_ms=0.000002284 total_avg_ms=0.099181 total_min_ms=0.094127 total_max_ms=0.102570 total_var_ms=0.000002930 effective_gflops=8.455180
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=3 rank=2 nrows_local=87370 ncols_global=262111 nnz_local=399141 n_ghost=54126 compute_avg_ms=0.027716 compute_min_ms=0.020480 compute_max_ms=0.232448 compute_var_ms=0.001445492 compute_gflops=28.801932 eff_bw_gbs=160.846919 pct_peak_bw=17.2375 comm_avg_ms=0.099388 comm_min_ms=0.095909 comm_max_ms=0.106804 comm_var_ms=0.000011674 total_avg_ms=0.127104 total_min_ms=0.116389 total_max_ms=0.328963 total_var_ms=0.001416544 effective_gflops=6.280553
+[ERROR CHECKING] OK!
+
+--- P=4 rep=3/3 driver=spmv_block_nccl_acc ---
+Loaded ../matrices/amazon0302.mtx: 262111 x 262111, 1234877 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=296838, avg_nnz=4.53, imbalance=1.10, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=310529, avg_nnz=4.74, imbalance=1.06, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=315560, avg_nnz=4.82, imbalance=1.04, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=311950, avg_nnz=4.76, imbalance=1.05, V=1)
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=4 rank=0 nrows_local=65528 ncols_global=262111 nnz_local=315560 n_ghost=22541 compute_avg_ms=0.017067 compute_min_ms=0.016384 compute_max_ms=0.017408 compute_var_ms=0.000000233 compute_gflops=36.979687 eff_bw_gbs=199.276404 pct_peak_bw=21.3559 comm_avg_ms=0.075380 comm_min_ms=0.073164 comm_max_ms=0.078950 comm_var_ms=0.000002005 total_avg_ms=0.092447 total_min_ms=0.089548 total_max_ms=0.096358 total_var_ms=0.000002748 effective_gflops=6.826855
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=4 rank=1 nrows_local=65528 ncols_global=262111 nnz_local=311950 n_ghost=55424 compute_avg_ms=0.018637 compute_min_ms=0.018432 compute_max_ms=0.020480 compute_var_ms=0.000000238 compute_gflops=33.476776 eff_bw_gbs=187.995574 pct_peak_bw=20.1470 comm_avg_ms=0.136406 comm_min_ms=0.133085 comm_max_ms=0.141228 comm_var_ms=0.000003629 total_avg_ms=0.155042 total_min_ms=0.151517 total_max_ms=0.159660 total_var_ms=0.000003633 effective_gflops=4.024063
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=4 rank=3 nrows_local=65527 ncols_global=262111 nnz_local=296838 n_ghost=47919 compute_avg_ms=0.019115 compute_min_ms=0.018432 compute_max_ms=0.019456 compute_var_ms=0.000000233 compute_gflops=31.058664 eff_bw_gbs=175.399766 pct_peak_bw=18.7971 comm_avg_ms=0.098799 comm_min_ms=0.094153 comm_max_ms=0.102554 comm_var_ms=0.000003713 total_avg_ms=0.117913 total_min_ms=0.113609 total_max_ms=0.121953 total_var_ms=0.000003670 effective_gflops=5.034846
+RESULT comm=block_nccl kernel=acc matrix=amazon0302.mtx P=4 rank=2 nrows_local=65528 ncols_global=262111 nnz_local=310529 n_ghost=62838 compute_avg_ms=0.018807 compute_min_ms=0.018432 compute_max_ms=0.019456 compute_var_ms=0.000000244 compute_gflops=33.021885 eff_bw_gbs=187.262008 pct_peak_bw=20.0684 comm_avg_ms=0.139051 comm_min_ms=0.135161 comm_max_ms=0.144013 comm_var_ms=0.000004661 total_avg_ms=0.157859 total_min_ms=0.153593 total_max_ms=0.163469 total_var_ms=0.000005801 effective_gflops=3.934270
+[ERROR CHECKING] OK!
+
+=== Job done ===

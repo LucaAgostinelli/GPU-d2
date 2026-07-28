@@ -1,0 +1,167 @@
+=== D2_final strong scaling ===
+Node:     edu01
+Date:     Tue Jul 21 07:39:53 PM CEST 2026
+Matrix:   ../matrices/cit-Patents.mtx
+P:        1
+Reps:     3
+
+--- P=1 rep=1/3 driver=spmv_bcast ---
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+RESULT comm=bcast kernel=cusparse matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=-1 compute_avg_ms=0.762846 compute_min_ms=0.760832 compute_max_ms=0.763904 compute_var_ms=0.000000593 compute_gflops=43.308743 eff_bw_gbs=232.614226 pct_peak_bw=24.9287 comm_avg_ms=1.096908 comm_min_ms=1.079157 comm_max_ms=1.117066 comm_var_ms=0.000103142 total_avg_ms=1.859754 total_min_ms=1.842037 total_max_ms=1.878922 total_var_ms=0.000104279 effective_gflops=17.764664
+[ERROR CHECKING] OK!
+
+--- P=1 rep=1/3 driver=spmv_ghost_cusparse ---
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=0 compute_avg_ms=0.762675 compute_min_ms=0.760832 compute_max_ms=0.763904 compute_var_ms=0.000000517 compute_gflops=43.318434 eff_bw_gbs=232.666278 pct_peak_bw=24.9342 comm_avg_ms=0.000549 comm_min_ms=0.000516 comm_max_ms=0.000614 comm_var_ms=0.000000000 total_avg_ms=0.763225 total_min_ms=0.761374 total_max_ms=0.764477 total_var_ms=0.000000523 effective_gflops=43.287253
+[ERROR CHECKING] OK!
+
+--- P=1 rep=1/3 driver=spmv_ghost_acc ---
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+[kernel] acc -> FLAT (nnz=16518948, avg_nnz=4.38, imbalance=175.95)
+RESULT comm=ghost_mpi kernel=acc matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=0 compute_avg_ms=4.352546 compute_min_ms=3.832832 compute_max_ms=5.099520 compute_var_ms=0.358729855 compute_gflops=7.590476 eff_bw_gbs=40.783791 pct_peak_bw=4.3707 comm_avg_ms=0.000570 comm_min_ms=0.000549 comm_max_ms=0.000621 comm_var_ms=0.000000000 total_avg_ms=4.353116 total_min_ms=3.833432 total_max_ms=5.100121 total_var_ms=0.358727083 effective_gflops=7.589482
+[ERROR CHECKING] OK!
+
+--- P=1 rep=1/3 driver=spmv_ghost_nccl_cusparse ---
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+RESULT comm=ghost_nccl kernel=cusparse matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=0 compute_avg_ms=0.763017 compute_min_ms=0.761856 compute_max_ms=0.765952 compute_var_ms=0.000000750 compute_gflops=43.299056 eff_bw_gbs=232.562197 pct_peak_bw=24.9231 comm_avg_ms=0.001024 comm_min_ms=0.000965 comm_max_ms=0.001134 comm_var_ms=0.000000001 total_avg_ms=0.764041 total_min_ms=0.762821 total_max_ms=0.766954 total_var_ms=0.000000750 effective_gflops=43.241026
+[ERROR CHECKING] OK!
+
+--- P=1 rep=1/3 driver=spmv_ghost_nccl_acc ---
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+[kernel] acc -> FLAT (nnz=16518948, avg_nnz=4.38, imbalance=175.95)
+RESULT comm=ghost_nccl kernel=acc matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=0 compute_avg_ms=4.439211 compute_min_ms=4.083712 compute_max_ms=5.099520 compute_var_ms=0.209168277 compute_gflops=7.442291 eff_bw_gbs=39.987589 pct_peak_bw=4.2854 comm_avg_ms=0.001072 comm_min_ms=0.000991 comm_max_ms=0.001233 comm_var_ms=0.000000005 total_avg_ms=4.440282 total_min_ms=4.084715 total_max_ms=5.100734 total_var_ms=0.209194506 effective_gflops=7.440494
+[ERROR CHECKING] OK!
+
+--- P=1 rep=1/3 driver=spmv_2d_cusparse ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+RESULT comm=checkerboard_mpi kernel=cusparse matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=-1 compute_avg_ms=0.762743 compute_min_ms=0.760832 compute_max_ms=0.764928 compute_var_ms=0.000000820 compute_gflops=43.314557 eff_bw_gbs=232.645455 pct_peak_bw=24.9320 comm_avg_ms=10.944065 comm_min_ms=10.900529 comm_max_ms=11.018241 comm_var_ms=0.000628463 total_avg_ms=11.706808 total_min_ms=11.663326 total_max_ms=11.781121 total_var_ms=0.000632864 effective_gflops=2.822110
+[ERROR CHECKING] OK!
+
+--- P=1 rep=1/3 driver=spmv_2d_acc ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+[kernel] acc -> FLAT (nnz=16518948, avg_nnz=4.38, imbalance=175.95)
+RESULT comm=checkerboard_mpi kernel=acc matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=-1 compute_avg_ms=4.740062 compute_min_ms=4.588544 compute_max_ms=5.075968 compute_var_ms=0.019523258 compute_gflops=6.969929 eff_bw_gbs=37.449581 pct_peak_bw=4.0134 comm_avg_ms=12.004736 comm_min_ms=11.964598 comm_max_ms=12.058471 comm_var_ms=0.000378934 total_avg_ms=16.744798 total_min_ms=16.596452 total_max_ms=17.134439 total_var_ms=0.021168004 effective_gflops=1.973024
+[ERROR CHECKING] OK!
+
+--- P=1 rep=1/3 driver=spmv_2d_nccl_cusparse ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+RESULT comm=checkerboard_nccl kernel=cusparse matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=-1 compute_avg_ms=0.762948 compute_min_ms=0.761856 compute_max_ms=0.764928 compute_var_ms=0.000000555 compute_gflops=43.302930 eff_bw_gbs=232.583005 pct_peak_bw=24.9253 comm_avg_ms=0.052481 comm_min_ms=0.051643 comm_max_ms=0.053637 comm_var_ms=0.000000261 total_avg_ms=0.815430 total_min_ms=0.813870 total_max_ms=0.817187 total_var_ms=0.000000698 effective_gflops=40.515942
+[ERROR CHECKING] OK!
+
+--- P=1 rep=1/3 driver=spmv_2d_nccl_acc ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+[kernel] acc -> FLAT (nnz=16518948, avg_nnz=4.38, imbalance=175.95)
+RESULT comm=checkerboard_nccl kernel=acc matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=-1 compute_avg_ms=4.839526 compute_min_ms=3.705856 compute_max_ms=5.095424 compute_var_ms=0.253925057 compute_gflops=6.826680 eff_bw_gbs=36.679897 pct_peak_bw=3.9309 comm_avg_ms=0.051417 comm_min_ms=0.043345 comm_max_ms=0.057421 comm_var_ms=0.000015785 total_avg_ms=4.890943 total_min_ms=3.749201 total_max_ms=5.148988 total_var_ms=0.257675185 effective_gflops=6.754913
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_bcast ---
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+RESULT comm=bcast kernel=cusparse matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=-1 compute_avg_ms=0.762982 compute_min_ms=0.760832 compute_max_ms=0.764928 compute_var_ms=0.000000793 compute_gflops=43.300993 eff_bw_gbs=232.572602 pct_peak_bw=24.9242 comm_avg_ms=1.008945 comm_min_ms=0.994053 comm_max_ms=1.050419 comm_var_ms=0.000123761 total_avg_ms=1.771927 total_min_ms=1.756933 total_max_ms=1.814323 total_var_ms=0.000127393 effective_gflops=18.645175
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_ghost_cusparse ---
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=0 compute_avg_ms=0.762846 compute_min_ms=0.760832 compute_max_ms=0.764928 compute_var_ms=0.000000663 compute_gflops=43.308743 eff_bw_gbs=232.614226 pct_peak_bw=24.9287 comm_avg_ms=0.000529 comm_min_ms=0.000505 comm_max_ms=0.000596 comm_var_ms=0.000000000 total_avg_ms=0.763374 total_min_ms=0.761359 total_max_ms=0.765437 total_var_ms=0.000000663 effective_gflops=43.278755
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_ghost_acc ---
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+[kernel] acc -> FLAT (nnz=16518948, avg_nnz=4.38, imbalance=175.95)
+RESULT comm=ghost_mpi kernel=acc matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=0 compute_avg_ms=4.784947 compute_min_ms=3.717120 compute_max_ms=5.091328 compute_var_ms=0.294830665 compute_gflops=6.904548 eff_bw_gbs=37.098284 pct_peak_bw=3.9757 comm_avg_ms=0.000579 comm_min_ms=0.000539 comm_max_ms=0.000759 comm_var_ms=0.000000002 total_avg_ms=4.785526 total_min_ms=3.717678 total_max_ms=5.091902 total_var_ms=0.294846816 effective_gflops=6.903712
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_ghost_nccl_cusparse ---
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+RESULT comm=ghost_nccl kernel=cusparse matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=0 compute_avg_ms=0.762743 compute_min_ms=0.760832 compute_max_ms=0.763904 compute_var_ms=0.000000680 compute_gflops=43.314557 eff_bw_gbs=232.645455 pct_peak_bw=24.9320 comm_avg_ms=0.001093 comm_min_ms=0.001029 comm_max_ms=0.001242 comm_var_ms=0.000000002 total_avg_ms=0.763836 total_min_ms=0.761943 total_max_ms=0.765099 total_var_ms=0.000000668 effective_gflops=43.252590
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_ghost_nccl_acc ---
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+[kernel] acc -> FLAT (nnz=16518948, avg_nnz=4.38, imbalance=175.95)
+RESULT comm=ghost_nccl kernel=acc matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=0 compute_avg_ms=4.678622 compute_min_ms=4.514816 compute_max_ms=5.098496 compute_var_ms=0.056033974 compute_gflops=7.061459 eff_bw_gbs=37.941372 pct_peak_bw=4.0661 comm_avg_ms=0.001109 comm_min_ms=0.001009 comm_max_ms=0.001503 comm_var_ms=0.000000010 total_avg_ms=4.679731 total_min_ms=4.515984 total_max_ms=5.099614 total_var_ms=0.056035358 effective_gflops=7.059786
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_2d_cusparse ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+RESULT comm=checkerboard_mpi kernel=cusparse matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=-1 compute_avg_ms=0.762812 compute_min_ms=0.761856 compute_max_ms=0.764928 compute_var_ms=0.000000624 compute_gflops=43.310681 eff_bw_gbs=232.624634 pct_peak_bw=24.9298 comm_avg_ms=11.406826 comm_min_ms=11.363105 comm_max_ms=11.602084 comm_var_ms=0.001616044 total_avg_ms=12.169638 total_min_ms=12.125985 total_max_ms=12.364964 total_var_ms=0.001623659 effective_gflops=2.714781
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_2d_acc ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+[kernel] acc -> FLAT (nnz=16518948, avg_nnz=4.38, imbalance=175.95)
+RESULT comm=checkerboard_mpi kernel=acc matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=-1 compute_avg_ms=4.490650 compute_min_ms=4.096000 compute_max_ms=5.088256 compute_var_ms=0.123950049 compute_gflops=7.357042 eff_bw_gbs=39.529544 pct_peak_bw=4.2363 comm_avg_ms=9.856701 comm_min_ms=9.777714 comm_max_ms=9.956050 comm_var_ms=0.002495384 total_avg_ms=14.347350 total_min_ms=13.977075 total_max_ms=14.915495 total_var_ms=0.100785624 effective_gflops=2.302718
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_2d_nccl_cusparse ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+RESULT comm=checkerboard_nccl kernel=cusparse matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=-1 compute_avg_ms=0.763290 compute_min_ms=0.761856 compute_max_ms=0.764928 compute_var_ms=0.000000811 compute_gflops=43.283566 eff_bw_gbs=232.479001 pct_peak_bw=24.9142 comm_avg_ms=0.052508 comm_min_ms=0.051759 comm_max_ms=0.053584 comm_var_ms=0.000000184 total_avg_ms=0.815797 total_min_ms=0.814151 total_max_ms=0.818028 total_var_ms=0.000000724 effective_gflops=40.497677
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_2d_nccl_acc ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+[kernel] acc -> FLAT (nnz=16518948, avg_nnz=4.38, imbalance=175.95)
+RESULT comm=checkerboard_nccl kernel=acc matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=-1 compute_avg_ms=5.079245 compute_min_ms=5.059584 compute_max_ms=5.108736 compute_var_ms=0.000123620 compute_gflops=6.504490 eff_bw_gbs=34.948765 pct_peak_bw=3.7454 comm_avg_ms=0.052952 comm_min_ms=0.052045 comm_max_ms=0.053939 comm_var_ms=0.000000158 total_avg_ms=5.132197 total_min_ms=5.112602 total_max_ms=5.161934 total_var_ms=0.000121484 effective_gflops=6.437379
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_bcast ---
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+RESULT comm=bcast kernel=cusparse matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=-1 compute_avg_ms=0.762470 compute_min_ms=0.760832 compute_max_ms=0.764928 compute_var_ms=0.000000741 compute_gflops=43.330069 eff_bw_gbs=232.728772 pct_peak_bw=24.9409 comm_avg_ms=1.011067 comm_min_ms=0.997421 comm_max_ms=1.117505 comm_var_ms=0.000433484 total_avg_ms=1.773537 total_min_ms=1.760301 total_max_ms=1.878337 total_var_ms=0.000421442 effective_gflops=18.628251
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_ghost_cusparse ---
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=0 compute_avg_ms=0.763085 compute_min_ms=0.761856 compute_max_ms=0.764928 compute_var_ms=0.000000587 compute_gflops=43.295182 eff_bw_gbs=232.541392 pct_peak_bw=24.9208 comm_avg_ms=0.000542 comm_min_ms=0.000492 comm_max_ms=0.000652 comm_var_ms=0.000000001 total_avg_ms=0.763627 total_min_ms=0.762377 total_max_ms=0.765433 total_var_ms=0.000000581 effective_gflops=43.264443
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_ghost_acc ---
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+[kernel] acc -> FLAT (nnz=16518948, avg_nnz=4.38, imbalance=175.95)
+RESULT comm=ghost_mpi kernel=acc matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=0 compute_avg_ms=4.577792 compute_min_ms=4.321280 compute_max_ms=5.089280 compute_var_ms=0.113647229 compute_gflops=7.216994 eff_bw_gbs=38.777064 pct_peak_bw=4.1556 comm_avg_ms=0.000569 comm_min_ms=0.000537 comm_max_ms=0.000644 comm_var_ms=0.000000001 total_avg_ms=4.578361 total_min_ms=4.321859 total_max_ms=5.089837 total_var_ms=0.113646695 effective_gflops=7.216097
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_ghost_nccl_cusparse ---
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+RESULT comm=ghost_nccl kernel=cusparse matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=0 compute_avg_ms=0.763221 compute_min_ms=0.761856 compute_max_ms=0.764928 compute_var_ms=0.000000722 compute_gflops=43.287437 eff_bw_gbs=232.499793 pct_peak_bw=24.9164 comm_avg_ms=0.001025 comm_min_ms=0.000980 comm_max_ms=0.001180 comm_var_ms=0.000000001 total_avg_ms=0.764247 total_min_ms=0.762840 total_max_ms=0.766002 total_var_ms=0.000000723 effective_gflops=43.229367
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_ghost_nccl_acc ---
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+[kernel] acc -> FLAT (nnz=16518948, avg_nnz=4.38, imbalance=175.95)
+RESULT comm=ghost_nccl kernel=acc matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=0 compute_avg_ms=5.077231 compute_min_ms=5.054464 compute_max_ms=5.101568 compute_var_ms=0.000115321 compute_gflops=6.507070 eff_bw_gbs=34.962627 pct_peak_bw=3.7469 comm_avg_ms=0.001045 comm_min_ms=0.000986 comm_max_ms=0.001221 comm_var_ms=0.000000003 total_avg_ms=5.078276 total_min_ms=5.055516 total_max_ms=5.102599 total_var_ms=0.000114972 effective_gflops=6.505730
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_2d_cusparse ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+RESULT comm=checkerboard_mpi kernel=cusparse matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=-1 compute_avg_ms=0.762846 compute_min_ms=0.761856 compute_max_ms=0.764928 compute_var_ms=0.000000873 compute_gflops=43.308743 eff_bw_gbs=232.614227 pct_peak_bw=24.9287 comm_avg_ms=11.388426 comm_min_ms=11.343417 comm_max_ms=11.443202 comm_var_ms=0.000830412 total_avg_ms=12.151272 total_min_ms=12.105273 total_max_ms=12.207106 total_var_ms=0.000854586 effective_gflops=2.718884
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_2d_acc ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+[kernel] acc -> FLAT (nnz=16518948, avg_nnz=4.38, imbalance=175.95)
+RESULT comm=checkerboard_mpi kernel=acc matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=-1 compute_avg_ms=4.390980 compute_min_ms=4.101120 compute_max_ms=5.090304 compute_var_ms=0.044119802 compute_gflops=7.524037 eff_bw_gbs=40.426812 pct_peak_bw=4.3324 comm_avg_ms=10.421158 comm_min_ms=10.334562 comm_max_ms=10.620090 comm_var_ms=0.002772630 total_avg_ms=14.812139 total_min_ms=14.539117 total_max_ms=15.488310 total_var_ms=0.039189038 effective_gflops=2.230461
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_2d_nccl_cusparse ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+RESULT comm=checkerboard_nccl kernel=cusparse matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=-1 compute_avg_ms=0.762880 compute_min_ms=0.761856 compute_max_ms=0.765952 compute_var_ms=0.000000769 compute_gflops=43.306805 eff_bw_gbs=232.603816 pct_peak_bw=24.9275 comm_avg_ms=0.055532 comm_min_ms=0.051777 comm_max_ms=0.142726 comm_var_ms=0.000263008 total_avg_ms=0.818412 total_min_ms=0.813748 total_max_ms=0.905606 total_var_ms=0.000263359 effective_gflops=40.368270
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_2d_nccl_acc ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../matrices/cit-Patents.mtx: 3774768 x 3774768, 16518948 nnz
+[kernel] acc -> FLAT (nnz=16518948, avg_nnz=4.38, imbalance=175.95)
+RESULT comm=checkerboard_nccl kernel=acc matrix=cit-Patents.mtx P=1 rank=0 nrows_local=3774768 ncols_global=3774768 nnz_local=16518948 n_ghost=-1 compute_avg_ms=4.841882 compute_min_ms=3.724288 compute_max_ms=5.102592 compute_var_ms=0.251534178 compute_gflops=6.823359 eff_bw_gbs=36.662056 pct_peak_bw=3.9290 comm_avg_ms=0.050922 comm_min_ms=0.043295 comm_max_ms=0.053926 comm_var_ms=0.000013525 total_avg_ms=4.892804 total_min_ms=3.767583 total_max_ms=5.155067 total_var_ms=0.255026885 effective_gflops=6.752345
+[ERROR CHECKING] OK!
+
+=== Job done ===

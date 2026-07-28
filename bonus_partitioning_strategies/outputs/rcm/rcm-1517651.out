@@ -1,0 +1,43 @@
+=== D2_final intelligent-partitioning (RCM) small-matrix check ===
+Node:     edu01
+Date:     Thu Jul 23 11:45:20 AM CEST 2026
+Matrix:   ../matrices/poisson3Da.mtx
+Reps:     1
+
+--- P=1 rep=1/1 driver=spmv_rcm_nccl_acc ---
+Loaded ../matrices/poisson3Da.mtx: 13514 x 13514, 352762 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=352762, avg_nnz=26.10, imbalance=4.21, V=4)
+RESULT comm=rcm_nccl kernel=acc matrix=poisson3Da.mtx P=1 rank=0 nrows_local=13514 ncols_global=13514 nnz_local=352762 n_ghost=0 compute_avg_ms=0.016657 compute_min_ms=0.016384 compute_max_ms=0.017408 compute_var_ms=0.000000205 compute_gflops=42.355837 eff_bw_gbs=179.159275 pct_peak_bw=19.2000 comm_avg_ms=0.001050 comm_min_ms=0.001000 comm_max_ms=0.001286 comm_var_ms=0.000000004 total_avg_ms=0.017707 total_min_ms=0.017384 total_max_ms=0.018694 total_var_ms=0.000000213 effective_gflops=39.843905
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/1 driver=spmv_rcm_nccl_acc ---
+Loaded ../matrices/poisson3Da.mtx: 13514 x 13514, 352762 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=176363, avg_nnz=27.34, imbalance=4.02, V=4)
+[kernel] acc -> LINE-ENHANCE (nnz=176399, avg_nnz=24.98, imbalance=4.00, V=4)
+RESULT comm=rcm_nccl kernel=acc matrix=poisson3Da.mtx P=2 rank=1 nrows_local=6451 ncols_global=13514 nnz_local=176363 n_ghost=2320 compute_avg_ms=0.015667 compute_min_ms=0.014336 compute_max_ms=0.022528 compute_var_ms=0.000001758 compute_gflops=22.513660 eff_bw_gbs=95.588237 pct_peak_bw=10.2439 comm_avg_ms=0.040000 comm_min_ms=0.038768 comm_max_ms=0.042500 comm_var_ms=0.000000886 total_avg_ms=0.055667 total_min_ms=0.054244 total_max_ms=0.062383 total_var_ms=0.000002424 effective_gflops=6.336319
+RESULT comm=rcm_nccl kernel=acc matrix=poisson3Da.mtx P=2 rank=0 nrows_local=7063 ncols_global=13514 nnz_local=176399 n_ghost=1087 compute_avg_ms=0.015155 compute_min_ms=0.014336 compute_max_ms=0.015360 compute_var_ms=0.000000168 compute_gflops=23.279007 eff_bw_gbs=98.995726 pct_peak_bw=10.6091 comm_avg_ms=0.037980 comm_min_ms=0.036243 comm_max_ms=0.039737 comm_var_ms=0.000000900 total_avg_ms=0.053135 total_min_ms=0.050579 total_max_ms=0.055097 total_var_ms=0.000001295 effective_gflops=6.639650
+[ERROR CHECKING] OK!
+
+--- P=3 rep=1/1 driver=spmv_rcm_nccl_acc ---
+Loaded ../matrices/poisson3Da.mtx: 13514 x 13514, 352762 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=117578, avg_nnz=26.72, imbalance=3.74, V=4)
+[kernel] acc -> LINE-ENHANCE (nnz=117613, avg_nnz=24.35, imbalance=3.90, V=4)
+[kernel] acc -> LINE-ENHANCE (nnz=117571, avg_nnz=27.45, imbalance=4.01, V=4)
+RESULT comm=rcm_nccl kernel=acc matrix=poisson3Da.mtx P=3 rank=0 nrows_local=4830 ncols_global=13514 nnz_local=117613 n_ghost=1120 compute_avg_ms=0.014711 compute_min_ms=0.014336 compute_max_ms=0.015360 compute_var_ms=0.000000244 compute_gflops=15.989296 eff_bw_gbs=68.201766 pct_peak_bw=7.3090 comm_avg_ms=0.034961 comm_min_ms=0.033448 comm_max_ms=0.045279 comm_var_ms=0.000005023 total_avg_ms=0.049673 total_min_ms=0.047860 total_max_ms=0.059615 total_var_ms=0.000004777 effective_gflops=4.735503
+RESULT comm=rcm_nccl kernel=acc matrix=poisson3Da.mtx P=3 rank=1 nrows_local=4401 ncols_global=13514 nnz_local=117578 n_ghost=3033 compute_avg_ms=0.014711 compute_min_ms=0.014336 compute_max_ms=0.015360 compute_var_ms=0.000000244 compute_gflops=15.984538 eff_bw_gbs=68.352940 pct_peak_bw=7.3252 comm_avg_ms=0.043132 comm_min_ms=0.036597 comm_max_ms=0.077557 comm_var_ms=0.000046942 total_avg_ms=0.057843 total_min_ms=0.050933 total_max_ms=0.091893 total_var_ms=0.000046202 effective_gflops=4.065411
+RESULT comm=rcm_nccl kernel=acc matrix=poisson3Da.mtx P=3 rank=2 nrows_local=4283 ncols_global=13514 nnz_local=117571 n_ghost=2107 compute_avg_ms=0.014302 compute_min_ms=0.013312 compute_max_ms=0.014336 compute_var_ms=0.000000034 compute_gflops=16.441350 eff_bw_gbs=69.948631 pct_peak_bw=7.4962 comm_avg_ms=0.038109 comm_min_ms=0.036258 comm_max_ms=0.047761 comm_var_ms=0.000005264 total_avg_ms=0.052411 total_min_ms=0.050337 total_max_ms=0.062097 total_var_ms=0.000005371 effective_gflops=4.486507
+[ERROR CHECKING] OK!
+
+--- P=4 rep=1/1 driver=spmv_rcm_nccl_acc ---
+Loaded ../matrices/poisson3Da.mtx: 13514 x 13514, 352762 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=88172, avg_nnz=27.43, imbalance=4.01, V=4)
+[kernel] acc -> LINE-ENHANCE (nnz=88202, avg_nnz=26.06, imbalance=3.84, V=4)
+[kernel] acc -> LINE-ENHANCE (nnz=88197, avg_nnz=23.98, imbalance=3.96, V=2)
+[kernel] acc -> LINE-ENHANCE (nnz=88191, avg_nnz=27.25, imbalance=3.67, V=4)
+RESULT comm=rcm_nccl kernel=acc matrix=poisson3Da.mtx P=4 rank=0 nrows_local=3678 ncols_global=13514 nnz_local=88197 n_ghost=1038 compute_avg_ms=0.019968 compute_min_ms=0.019456 compute_max_ms=0.022528 compute_var_ms=0.000000472 compute_gflops=8.833834 eff_bw_gbs=37.753807 pct_peak_bw=4.0460 comm_avg_ms=0.066661 comm_min_ms=0.038082 comm_max_ms=0.864067 comm_var_ms=0.021926933 total_avg_ms=0.086629 total_min_ms=0.057580 total_max_ms=0.883523 total_var_ms=0.021899142 effective_gflops=2.036208
+RESULT comm=rcm_nccl kernel=acc matrix=poisson3Da.mtx P=4 rank=1 nrows_local=3385 ncols_global=13514 nnz_local=88202 n_ghost=2935 compute_avg_ms=0.015155 compute_min_ms=0.014336 compute_max_ms=0.016384 compute_var_ms=0.000000238 compute_gflops=11.639833 eff_bw_gbs=50.014517 pct_peak_bw=5.3599 comm_avg_ms=0.071359 comm_min_ms=0.042357 comm_max_ms=0.868364 comm_var_ms=0.021906633 total_avg_ms=0.086514 total_min_ms=0.056951 total_max_ms=0.883724 total_var_ms=0.021918246 effective_gflops=2.039022
+RESULT comm=rcm_nccl kernel=acc matrix=poisson3Da.mtx P=4 rank=2 nrows_local=3236 ncols_global=13514 nnz_local=88191 n_ghost=3063 compute_avg_ms=0.014677 compute_min_ms=0.014336 compute_max_ms=0.015360 compute_var_ms=0.000000233 compute_gflops=12.017306 eff_bw_gbs=51.549964 pct_peak_bw=5.5245 comm_avg_ms=0.075260 comm_min_ms=0.045894 comm_max_ms=0.872517 comm_var_ms=0.021919616 total_avg_ms=0.089938 total_min_ms=0.060563 total_max_ms=0.887877 total_var_ms=0.021957042 effective_gflops=1.961158
+RESULT comm=rcm_nccl kernel=acc matrix=poisson3Da.mtx P=4 rank=3 nrows_local=3215 ncols_global=13514 nnz_local=88172 n_ghost=1663 compute_avg_ms=0.014234 compute_min_ms=0.013312 compute_max_ms=0.016384 compute_var_ms=0.000000304 compute_gflops=12.389276 eff_bw_gbs=52.735218 pct_peak_bw=5.6515 comm_avg_ms=0.042369 comm_min_ms=0.038741 comm_max_ms=0.117331 comm_var_ms=0.000194107 total_avg_ms=0.056602 total_min_ms=0.052644 total_max_ms=0.131667 total_var_ms=0.000194967 effective_gflops=3.115488
+[ERROR CHECKING] OK!
+
+=== Job done ===

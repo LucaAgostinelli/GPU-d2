@@ -1,0 +1,206 @@
+=== D2_final weak scaling ===
+Node:     edu01
+Date:     Tue Jul 21 03:43:16 PM CEST 2026
+P:        2
+Matrix:   matrices_synthetic/weak_P2.mtx
+Reps:     3
+
+--- P=2 rep=1/3 driver=spmv_bcast matrix=matrices_synthetic/weak_P2.mtx ---
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+RESULT comm=bcast kernel=cusparse matrix=weak_P2.mtx P=2 rank=1 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=-1 compute_avg_ms=0.081476 compute_min_ms=0.080896 compute_max_ms=0.082944 compute_var_ms=0.000000327 compute_gflops=36.820539 eff_bw_gbs=162.010422 pct_peak_bw=17.3622 comm_avg_ms=0.104492 comm_min_ms=0.100748 comm_max_ms=0.125703 comm_var_ms=0.000024668 total_avg_ms=0.185969 total_min_ms=0.181680 total_max_ms=0.208647 total_var_ms=0.000027496 effective_gflops=16.131744
+RESULT comm=bcast kernel=cusparse matrix=weak_P2.mtx P=2 rank=0 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=-1 compute_avg_ms=0.079326 compute_min_ms=0.077824 compute_max_ms=0.079872 compute_var_ms=0.000000401 compute_gflops=37.818687 eff_bw_gbs=166.402273 pct_peak_bw=17.8329 comm_avg_ms=0.103970 comm_min_ms=0.100351 comm_max_ms=0.125754 comm_var_ms=0.000024733 total_avg_ms=0.183295 total_min_ms=0.179199 total_max_ms=0.205626 total_var_ms=0.000026738 effective_gflops=16.367014
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/3 driver=spmv_ghost_cusparse matrix=matrices_synthetic/weak_P2.mtx ---
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=weak_P2.mtx P=2 rank=1 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74999 compute_avg_ms=0.081954 compute_min_ms=0.080896 compute_max_ms=0.082944 compute_var_ms=0.000000383 compute_gflops=36.605842 eff_bw_gbs=161.065706 pct_peak_bw=17.2610 comm_avg_ms=0.066723 comm_min_ms=0.043385 comm_max_ms=0.089894 comm_var_ms=0.000215159 total_avg_ms=0.148677 total_min_ms=0.125305 total_max_ms=0.171814 total_var_ms=0.000213469 effective_gflops=20.177925
+RESULT comm=ghost_mpi kernel=cusparse matrix=weak_P2.mtx P=2 rank=0 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74994 compute_avg_ms=0.078711 compute_min_ms=0.077824 compute_max_ms=0.078848 compute_var_ms=0.000000121 compute_gflops=38.113889 eff_bw_gbs=167.700858 pct_peak_bw=17.9721 comm_avg_ms=0.066514 comm_min_ms=0.043119 comm_max_ms=0.089852 comm_var_ms=0.000215957 total_avg_ms=0.145225 total_min_ms=0.120943 total_max_ms=0.168700 total_var_ms=0.000216156 effective_gflops=20.657539
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/3 driver=spmv_ghost_acc matrix=matrices_synthetic/weak_P2.mtx ---
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+[kernel] acc -> FLAT (nnz=1500000, avg_nnz=20.00, imbalance=1.00)
+[kernel] acc -> FLAT (nnz=1500000, avg_nnz=20.00, imbalance=1.00)
+RESULT comm=ghost_mpi kernel=acc matrix=weak_P2.mtx P=2 rank=1 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74999 compute_avg_ms=0.068233 compute_min_ms=0.067584 compute_max_ms=0.069632 compute_var_ms=0.000000313 compute_gflops=43.967296 eff_bw_gbs=193.541984 pct_peak_bw=20.7414 comm_avg_ms=0.068628 comm_min_ms=0.043578 comm_max_ms=0.087895 comm_var_ms=0.000155674 total_avg_ms=0.136861 total_min_ms=0.112186 total_max_ms=0.156503 total_var_ms=0.000156358 effective_gflops=21.920098
+RESULT comm=ghost_mpi kernel=acc matrix=weak_P2.mtx P=2 rank=0 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74994 compute_avg_ms=0.065741 compute_min_ms=0.064512 compute_max_ms=0.066560 compute_var_ms=0.000000308 compute_gflops=45.633762 eff_bw_gbs=200.877385 pct_peak_bw=21.5275 comm_avg_ms=0.068534 comm_min_ms=0.043558 comm_max_ms=0.087879 comm_var_ms=0.000156598 total_avg_ms=0.134275 total_min_ms=0.110118 total_max_ms=0.153415 total_var_ms=0.000157337 effective_gflops=22.342241
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/3 driver=spmv_ghost_nccl_cusparse matrix=matrices_synthetic/weak_P2.mtx ---
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+RESULT comm=ghost_nccl kernel=cusparse matrix=weak_P2.mtx P=2 rank=0 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74994 compute_avg_ms=0.080213 compute_min_ms=0.078848 compute_max_ms=0.080896 compute_var_ms=0.000000373 compute_gflops=37.400267 eff_bw_gbs=164.560926 pct_peak_bw=17.6356 comm_avg_ms=0.085260 comm_min_ms=0.083321 comm_max_ms=0.088773 comm_var_ms=0.000001841 total_avg_ms=0.165474 total_min_ms=0.162472 total_max_ms=0.168254 total_var_ms=0.000002284 effective_gflops=18.129788
+RESULT comm=ghost_nccl kernel=cusparse matrix=weak_P2.mtx P=2 rank=1 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74999 compute_avg_ms=0.082534 compute_min_ms=0.080896 compute_max_ms=0.088064 compute_var_ms=0.000001440 compute_gflops=36.348481 eff_bw_gbs=159.933316 pct_peak_bw=17.1396 comm_avg_ms=0.085591 comm_min_ms=0.082900 comm_max_ms=0.088714 comm_var_ms=0.000001738 total_avg_ms=0.168125 total_min_ms=0.164867 total_max_ms=0.174543 total_var_ms=0.000003343 effective_gflops=17.843827
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/3 driver=spmv_ghost_nccl_acc matrix=matrices_synthetic/weak_P2.mtx ---
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+[kernel] acc -> FLAT (nnz=1500000, avg_nnz=20.00, imbalance=1.00)
+[kernel] acc -> FLAT (nnz=1500000, avg_nnz=20.00, imbalance=1.00)
+RESULT comm=ghost_nccl kernel=acc matrix=weak_P2.mtx P=2 rank=0 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74994 compute_avg_ms=0.067004 compute_min_ms=0.064512 compute_max_ms=0.067584 compute_var_ms=0.000000677 compute_gflops=44.773624 eff_bw_gbs=197.091106 pct_peak_bw=21.1217 comm_avg_ms=0.087895 comm_min_ms=0.083210 comm_max_ms=0.093546 comm_var_ms=0.000006388 total_avg_ms=0.154899 total_min_ms=0.148746 total_max_ms=0.161130 total_var_ms=0.000010135 effective_gflops=19.367434
+RESULT comm=ghost_nccl kernel=acc matrix=weak_P2.mtx P=2 rank=1 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74999 compute_avg_ms=0.069291 compute_min_ms=0.067584 compute_max_ms=0.070656 compute_var_ms=0.000000583 compute_gflops=43.295874 eff_bw_gbs=190.586416 pct_peak_bw=20.4246 comm_avg_ms=0.089094 comm_min_ms=0.084404 comm_max_ms=0.092373 comm_var_ms=0.000005034 total_avg_ms=0.158385 total_min_ms=0.151988 total_max_ms=0.163029 total_var_ms=0.000008211 effective_gflops=18.941207
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/3 driver=spmv_2d_cusparse matrix=matrices_synthetic/weak_P2.mtx ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+RESULT comm=checkerboard_mpi kernel=cusparse matrix=weak_P2.mtx P=2 rank=0 nrows_local=150000 ncols_global=150000 nnz_local=1499711 n_ghost=-1 compute_avg_ms=0.077824 compute_min_ms=0.076800 compute_max_ms=0.078848 compute_var_ms=0.000000489 compute_gflops=38.541094 eff_bw_gbs=173.438686 pct_peak_bw=18.5870 comm_avg_ms=0.404712 comm_min_ms=0.394420 comm_max_ms=0.421661 comm_var_ms=0.000036473 total_avg_ms=0.482536 total_min_ms=0.472244 total_max_ms=0.500509 total_var_ms=0.000039557 effective_gflops=6.215957
+RESULT comm=checkerboard_mpi kernel=cusparse matrix=weak_P2.mtx P=2 rank=1 nrows_local=150000 ncols_global=150000 nnz_local=1500289 n_ghost=-1 compute_avg_ms=0.079804 compute_min_ms=0.078848 compute_max_ms=0.080896 compute_var_ms=0.000000415 compute_gflops=37.599470 eff_bw_gbs=169.194045 pct_peak_bw=18.1321 comm_avg_ms=0.287774 comm_min_ms=0.282900 comm_max_ms=0.303056 comm_var_ms=0.000012748 total_avg_ms=0.367578 total_min_ms=0.361748 total_max_ms=0.381904 total_var_ms=0.000011838 effective_gflops=8.163109
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/3 driver=spmv_2d_acc matrix=matrices_synthetic/weak_P2.mtx ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+[kernel] acc -> FLAT (nnz=1500289, avg_nnz=10.00, imbalance=1.90)
+[kernel] acc -> FLAT (nnz=1499711, avg_nnz=10.00, imbalance=1.90)
+RESULT comm=checkerboard_mpi kernel=acc matrix=weak_P2.mtx P=2 rank=1 nrows_local=150000 ncols_global=150000 nnz_local=1500289 n_ghost=-1 compute_avg_ms=0.065741 compute_min_ms=0.064512 compute_max_ms=0.067584 compute_var_ms=0.000000447 compute_gflops=45.642554 eff_bw_gbs=205.476356 pct_peak_bw=22.0204 comm_avg_ms=0.316456 comm_min_ms=0.303723 comm_max_ms=0.335061 comm_var_ms=0.000030628 total_avg_ms=0.382197 total_min_ms=0.369259 total_max_ms=0.400597 total_var_ms=0.000031152 effective_gflops=7.850862
+RESULT comm=checkerboard_mpi kernel=acc matrix=weak_P2.mtx P=2 rank=0 nrows_local=150000 ncols_global=150000 nnz_local=1499711 n_ghost=-1 compute_avg_ms=0.063659 compute_min_ms=0.062464 compute_max_ms=0.064512 compute_var_ms=0.000000216 compute_gflops=47.117261 eff_bw_gbs=212.124332 pct_peak_bw=22.7328 comm_avg_ms=0.431619 comm_min_ms=0.423708 comm_max_ms=0.449725 comm_var_ms=0.000030740 total_avg_ms=0.495277 total_min_ms=0.488220 total_max_ms=0.514237 total_var_ms=0.000032292 effective_gflops=6.056047
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/3 driver=spmv_2d_nccl_cusparse matrix=matrices_synthetic/weak_P2.mtx ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+RESULT comm=checkerboard_nccl kernel=cusparse matrix=weak_P2.mtx P=2 rank=1 nrows_local=150000 ncols_global=150000 nnz_local=1500289 n_ghost=-1 compute_avg_ms=0.084002 compute_min_ms=0.081920 compute_max_ms=0.087040 compute_var_ms=0.000001082 compute_gflops=35.720260 eff_bw_gbs=160.737778 pct_peak_bw=17.2258 comm_avg_ms=0.069299 comm_min_ms=0.068137 comm_max_ms=0.070887 comm_var_ms=0.000000403 total_avg_ms=0.153301 total_min_ms=0.150057 total_max_ms=0.157598 total_var_ms=0.000002006 effective_gflops=19.573140
+RESULT comm=checkerboard_nccl kernel=cusparse matrix=weak_P2.mtx P=2 rank=0 nrows_local=150000 ncols_global=150000 nnz_local=1499711 n_ghost=-1 compute_avg_ms=0.081135 compute_min_ms=0.079872 compute_max_ms=0.082944 compute_var_ms=0.000000397 compute_gflops=36.968319 eff_bw_gbs=166.361046 pct_peak_bw=17.8285 comm_avg_ms=0.107057 comm_min_ms=0.099674 comm_max_ms=0.116774 comm_var_ms=0.000029777 total_avg_ms=0.188192 total_min_ms=0.180570 total_max_ms=0.197670 total_var_ms=0.000031630 effective_gflops=15.938073
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/3 driver=spmv_2d_nccl_acc matrix=matrices_synthetic/weak_P2.mtx ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+[kernel] acc -> FLAT (nnz=1499711, avg_nnz=10.00, imbalance=1.90)
+[kernel] acc -> FLAT (nnz=1500289, avg_nnz=10.00, imbalance=1.90)
+RESULT comm=checkerboard_nccl kernel=acc matrix=weak_P2.mtx P=2 rank=0 nrows_local=150000 ncols_global=150000 nnz_local=1499711 n_ghost=-1 compute_avg_ms=0.066799 compute_min_ms=0.064512 compute_max_ms=0.068608 compute_var_ms=0.000001236 compute_gflops=44.902244 eff_bw_gbs=202.152209 pct_peak_bw=21.6641 comm_avg_ms=0.107684 comm_min_ms=0.097424 comm_max_ms=0.114495 comm_var_ms=0.000029599 total_avg_ms=0.174483 total_min_ms=0.163864 total_max_ms=0.182079 total_var_ms=0.000038193 effective_gflops=17.190389
+RESULT comm=checkerboard_nccl kernel=acc matrix=weak_P2.mtx P=2 rank=1 nrows_local=150000 ncols_global=150000 nnz_local=1500289 n_ghost=-1 compute_avg_ms=0.068745 compute_min_ms=0.066560 compute_max_ms=0.071680 compute_var_ms=0.000001030 compute_gflops=43.648241 eff_bw_gbs=196.498240 pct_peak_bw=21.0582 comm_avg_ms=0.070218 comm_min_ms=0.068131 comm_max_ms=0.072876 comm_var_ms=0.000000924 total_avg_ms=0.138962 total_min_ms=0.135715 total_max_ms=0.142508 total_var_ms=0.000002889 effective_gflops=21.592779
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_bcast matrix=matrices_synthetic/weak_P2.mtx ---
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+RESULT comm=bcast kernel=cusparse matrix=weak_P2.mtx P=2 rank=0 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=-1 compute_avg_ms=0.079326 compute_min_ms=0.078848 compute_max_ms=0.079872 compute_var_ms=0.000000261 compute_gflops=37.818687 eff_bw_gbs=166.402273 pct_peak_bw=17.8329 comm_avg_ms=0.106244 comm_min_ms=0.102922 comm_max_ms=0.130508 comm_var_ms=0.000024717 total_avg_ms=0.185570 total_min_ms=0.181770 total_max_ms=0.210380 total_var_ms=0.000026375 effective_gflops=16.166383
+RESULT comm=bcast kernel=cusparse matrix=weak_P2.mtx P=2 rank=1 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=-1 compute_avg_ms=0.081442 compute_min_ms=0.080896 compute_max_ms=0.082944 compute_var_ms=0.000000471 compute_gflops=36.835971 eff_bw_gbs=162.078323 pct_peak_bw=17.3695 comm_avg_ms=0.106003 comm_min_ms=0.102704 comm_max_ms=0.128893 comm_var_ms=0.000022620 total_avg_ms=0.187446 total_min_ms=0.183600 total_max_ms=0.210813 total_var_ms=0.000023317 effective_gflops=16.004647
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_ghost_cusparse matrix=matrices_synthetic/weak_P2.mtx ---
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=weak_P2.mtx P=2 rank=0 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74994 compute_avg_ms=0.078575 compute_min_ms=0.077824 compute_max_ms=0.079872 compute_var_ms=0.000000485 compute_gflops=38.180117 eff_bw_gbs=167.992259 pct_peak_bw=18.0033 comm_avg_ms=0.070857 comm_min_ms=0.043314 comm_max_ms=0.098443 comm_var_ms=0.000277031 total_avg_ms=0.149432 total_min_ms=0.121138 total_max_ms=0.176267 total_var_ms=0.000278759 effective_gflops=20.076053
+RESULT comm=ghost_mpi kernel=cusparse matrix=weak_P2.mtx P=2 rank=1 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74999 compute_avg_ms=0.081681 compute_min_ms=0.080896 compute_max_ms=0.082944 compute_var_ms=0.000000257 compute_gflops=36.728219 eff_bw_gbs=161.604162 pct_peak_bw=17.3187 comm_avg_ms=0.071071 comm_min_ms=0.043596 comm_max_ms=0.098599 comm_var_ms=0.000276194 total_avg_ms=0.152752 total_min_ms=0.125516 total_max_ms=0.181543 total_var_ms=0.000275553 effective_gflops=19.639661
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_ghost_acc matrix=matrices_synthetic/weak_P2.mtx ---
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+[kernel] acc -> FLAT (nnz=1500000, avg_nnz=20.00, imbalance=1.00)
+[kernel] acc -> FLAT (nnz=1500000, avg_nnz=20.00, imbalance=1.00)
+RESULT comm=ghost_mpi kernel=acc matrix=weak_P2.mtx P=2 rank=0 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74994 compute_avg_ms=0.065877 compute_min_ms=0.064512 compute_max_ms=0.066560 compute_var_ms=0.000000303 compute_gflops=45.539184 eff_bw_gbs=200.461059 pct_peak_bw=21.4829 comm_avg_ms=0.065787 comm_min_ms=0.041977 comm_max_ms=0.092278 comm_var_ms=0.000249399 total_avg_ms=0.131665 total_min_ms=0.108537 total_max_ms=0.157814 total_var_ms=0.000244995 effective_gflops=22.785127
+RESULT comm=ghost_mpi kernel=acc matrix=weak_P2.mtx P=2 rank=1 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74999 compute_avg_ms=0.068233 compute_min_ms=0.067584 compute_max_ms=0.068608 compute_var_ms=0.000000244 compute_gflops=43.967296 eff_bw_gbs=193.541984 pct_peak_bw=20.7414 comm_avg_ms=0.065982 comm_min_ms=0.042429 comm_max_ms=0.092318 comm_var_ms=0.000248391 total_avg_ms=0.134214 total_min_ms=0.110013 total_max_ms=0.160926 total_var_ms=0.000253500 effective_gflops=22.352346
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_ghost_nccl_cusparse matrix=matrices_synthetic/weak_P2.mtx ---
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+RESULT comm=ghost_nccl kernel=cusparse matrix=weak_P2.mtx P=2 rank=0 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74994 compute_avg_ms=0.080043 compute_min_ms=0.078848 compute_max_ms=0.081920 compute_var_ms=0.000000495 compute_gflops=37.480012 eff_bw_gbs=164.911803 pct_peak_bw=17.6732 comm_avg_ms=0.087313 comm_min_ms=0.085655 comm_max_ms=0.091248 comm_var_ms=0.000001702 total_avg_ms=0.167355 total_min_ms=0.164561 total_max_ms=0.172144 total_var_ms=0.000002062 effective_gflops=17.925948
+RESULT comm=ghost_nccl kernel=cusparse matrix=weak_P2.mtx P=2 rank=1 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74999 compute_avg_ms=0.083115 compute_min_ms=0.081920 compute_max_ms=0.088064 compute_var_ms=0.000001474 compute_gflops=36.094713 eff_bw_gbs=158.816738 pct_peak_bw=17.0200 comm_avg_ms=0.085486 comm_min_ms=0.083372 comm_max_ms=0.087459 comm_var_ms=0.000000913 total_avg_ms=0.168601 total_min_ms=0.165292 total_max_ms=0.173402 total_var_ms=0.000001935 effective_gflops=17.793496
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_ghost_nccl_acc matrix=matrices_synthetic/weak_P2.mtx ---
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+[kernel] acc -> FLAT (nnz=1500000, avg_nnz=20.00, imbalance=1.00)
+[kernel] acc -> FLAT (nnz=1500000, avg_nnz=20.00, imbalance=1.00)
+RESULT comm=ghost_nccl kernel=acc matrix=weak_P2.mtx P=2 rank=0 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74994 compute_avg_ms=0.067140 compute_min_ms=0.065536 compute_max_ms=0.068608 compute_var_ms=0.000000747 compute_gflops=44.682575 eff_bw_gbs=196.690311 pct_peak_bw=21.0788 comm_avg_ms=0.086973 comm_min_ms=0.082333 comm_max_ms=0.095103 comm_var_ms=0.000008322 total_avg_ms=0.154114 total_min_ms=0.148819 total_max_ms=0.163711 total_var_ms=0.000012134 effective_gflops=19.466143
+RESULT comm=ghost_nccl kernel=acc matrix=weak_P2.mtx P=2 rank=1 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74999 compute_avg_ms=0.069530 compute_min_ms=0.067584 compute_max_ms=0.071680 compute_var_ms=0.000000793 compute_gflops=43.147091 eff_bw_gbs=189.931479 pct_peak_bw=20.3545 comm_avg_ms=0.088377 comm_min_ms=0.083119 comm_max_ms=0.093044 comm_var_ms=0.000006732 total_avg_ms=0.157907 total_min_ms=0.150703 total_max_ms=0.162676 total_var_ms=0.000010577 effective_gflops=18.998512
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_2d_cusparse matrix=matrices_synthetic/weak_P2.mtx ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+RESULT comm=checkerboard_mpi kernel=cusparse matrix=weak_P2.mtx P=2 rank=1 nrows_local=150000 ncols_global=150000 nnz_local=1500289 n_ghost=-1 compute_avg_ms=0.080350 compute_min_ms=0.078848 compute_max_ms=0.080896 compute_var_ms=0.000000401 compute_gflops=37.343909 eff_bw_gbs=168.044043 pct_peak_bw=18.0088 comm_avg_ms=0.286990 comm_min_ms=0.280963 comm_max_ms=0.307118 comm_var_ms=0.000025701 total_avg_ms=0.367340 total_min_ms=0.359811 total_max_ms=0.386990 total_var_ms=0.000024585 effective_gflops=8.168387
+RESULT comm=checkerboard_mpi kernel=cusparse matrix=weak_P2.mtx P=2 rank=0 nrows_local=150000 ncols_global=150000 nnz_local=1499711 n_ghost=-1 compute_avg_ms=0.077756 compute_min_ms=0.076800 compute_max_ms=0.079872 compute_var_ms=0.000000555 compute_gflops=38.574931 eff_bw_gbs=173.590958 pct_peak_bw=18.6033 comm_avg_ms=0.402230 comm_min_ms=0.394831 comm_max_ms=0.426915 comm_var_ms=0.000035481 total_avg_ms=0.479986 total_min_ms=0.472655 total_max_ms=0.504739 total_var_ms=0.000035837 effective_gflops=6.248980
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_2d_acc matrix=matrices_synthetic/weak_P2.mtx ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+[kernel] acc -> FLAT (nnz=1500289, avg_nnz=10.00, imbalance=1.90)
+[kernel] acc -> FLAT (nnz=1499711, avg_nnz=10.00, imbalance=1.90)
+RESULT comm=checkerboard_mpi kernel=acc matrix=weak_P2.mtx P=2 rank=0 nrows_local=150000 ncols_global=150000 nnz_local=1499711 n_ghost=-1 compute_avg_ms=0.063659 compute_min_ms=0.062464 compute_max_ms=0.064512 compute_var_ms=0.000000216 compute_gflops=47.117261 eff_bw_gbs=212.124332 pct_peak_bw=22.7328 comm_avg_ms=0.450235 comm_min_ms=0.445102 comm_max_ms=0.468284 comm_var_ms=0.000018110 total_avg_ms=0.513894 total_min_ms=0.508332 total_max_ms=0.531772 total_var_ms=0.000018264 effective_gflops=5.836654
+RESULT comm=checkerboard_mpi kernel=acc matrix=weak_P2.mtx P=2 rank=1 nrows_local=150000 ncols_global=150000 nnz_local=1500289 n_ghost=-1 compute_avg_ms=0.065707 compute_min_ms=0.065536 compute_max_ms=0.066560 compute_var_ms=0.000000146 compute_gflops=45.666264 eff_bw_gbs=205.583097 pct_peak_bw=22.0318 comm_avg_ms=0.335403 comm_min_ms=0.325975 comm_max_ms=0.352822 comm_var_ms=0.000019246 total_avg_ms=0.401110 total_min_ms=0.391511 total_max_ms=0.418358 total_var_ms=0.000018580 effective_gflops=7.480685
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_2d_nccl_cusparse matrix=matrices_synthetic/weak_P2.mtx ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+RESULT comm=checkerboard_nccl kernel=cusparse matrix=weak_P2.mtx P=2 rank=1 nrows_local=150000 ncols_global=150000 nnz_local=1500289 n_ghost=-1 compute_avg_ms=0.083763 compute_min_ms=0.081920 compute_max_ms=0.089088 compute_var_ms=0.000001496 compute_gflops=35.822152 eff_bw_gbs=161.196280 pct_peak_bw=17.2750 comm_avg_ms=0.069696 comm_min_ms=0.068675 comm_max_ms=0.074037 comm_var_ms=0.000000888 total_avg_ms=0.153459 total_min_ms=0.150891 total_max_ms=0.158269 total_var_ms=0.000002452 effective_gflops=19.552915
+RESULT comm=checkerboard_nccl kernel=cusparse matrix=weak_P2.mtx P=2 rank=0 nrows_local=150000 ncols_global=150000 nnz_local=1499711 n_ghost=-1 compute_avg_ms=0.080964 compute_min_ms=0.079872 compute_max_ms=0.081920 compute_var_ms=0.000000415 compute_gflops=37.046245 eff_bw_gbs=166.711723 pct_peak_bw=17.8661 comm_avg_ms=0.107591 comm_min_ms=0.099799 comm_max_ms=0.116731 comm_var_ms=0.000029301 total_avg_ms=0.188556 total_min_ms=0.179742 total_max_ms=0.198589 total_var_ms=0.000033421 effective_gflops=15.907350
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_2d_nccl_acc matrix=matrices_synthetic/weak_P2.mtx ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+[kernel] acc -> FLAT (nnz=1499711, avg_nnz=10.00, imbalance=1.90)
+[kernel] acc -> FLAT (nnz=1500289, avg_nnz=10.00, imbalance=1.90)
+RESULT comm=checkerboard_nccl kernel=acc matrix=weak_P2.mtx P=2 rank=0 nrows_local=150000 ncols_global=150000 nnz_local=1499711 n_ghost=-1 compute_avg_ms=0.066628 compute_min_ms=0.064512 compute_max_ms=0.068608 compute_var_ms=0.000001044 compute_gflops=45.017260 eff_bw_gbs=202.670017 pct_peak_bw=21.7196 comm_avg_ms=0.106948 comm_min_ms=0.099170 comm_max_ms=0.112867 comm_var_ms=0.000025395 total_avg_ms=0.173577 total_min_ms=0.164706 total_max_ms=0.180451 total_var_ms=0.000034182 effective_gflops=17.280109
+RESULT comm=checkerboard_nccl kernel=acc matrix=weak_P2.mtx P=2 rank=1 nrows_local=150000 ncols_global=150000 nnz_local=1500289 n_ghost=-1 compute_avg_ms=0.069120 compute_min_ms=0.066560 compute_max_ms=0.072704 compute_var_ms=0.000001171 compute_gflops=43.411139 eff_bw_gbs=195.430842 pct_peak_bw=20.9438 comm_avg_ms=0.068995 comm_min_ms=0.067811 comm_max_ms=0.069940 comm_var_ms=0.000000228 total_avg_ms=0.138115 total_min_ms=0.135001 total_max_ms=0.141632 total_var_ms=0.000001808 effective_gflops=21.725162
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_bcast matrix=matrices_synthetic/weak_P2.mtx ---
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+RESULT comm=bcast kernel=cusparse matrix=weak_P2.mtx P=2 rank=1 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=-1 compute_avg_ms=0.081886 compute_min_ms=0.080896 compute_max_ms=0.082944 compute_var_ms=0.000000174 compute_gflops=36.636360 eff_bw_gbs=161.200032 pct_peak_bw=17.2754 comm_avg_ms=0.103210 comm_min_ms=0.099856 comm_max_ms=0.124665 comm_var_ms=0.000020598 total_avg_ms=0.185096 total_min_ms=0.181776 total_max_ms=0.206585 total_var_ms=0.000020469 effective_gflops=16.207844
+RESULT comm=bcast kernel=cusparse matrix=weak_P2.mtx P=2 rank=0 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=-1 compute_avg_ms=0.079155 compute_min_ms=0.078848 compute_max_ms=0.079872 compute_var_ms=0.000000220 compute_gflops=37.900228 eff_bw_gbs=166.761053 pct_peak_bw=17.8713 comm_avg_ms=0.102716 comm_min_ms=0.099180 comm_max_ms=0.125281 comm_var_ms=0.000021808 total_avg_ms=0.181871 total_min_ms=0.178028 total_max_ms=0.204129 total_var_ms=0.000021094 effective_gflops=16.495233
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_ghost_cusparse matrix=matrices_synthetic/weak_P2.mtx ---
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=weak_P2.mtx P=2 rank=1 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74999 compute_avg_ms=0.081408 compute_min_ms=0.080896 compute_max_ms=0.081920 compute_var_ms=0.000000262 compute_gflops=36.851416 eff_bw_gbs=162.146231 pct_peak_bw=17.3768 comm_avg_ms=0.065648 comm_min_ms=0.042351 comm_max_ms=0.090123 comm_var_ms=0.000252642 total_avg_ms=0.147056 total_min_ms=0.123247 total_max_ms=0.171019 total_var_ms=0.000249815 effective_gflops=20.400387
+RESULT comm=ghost_mpi kernel=cusparse matrix=weak_P2.mtx P=2 rank=0 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74994 compute_avg_ms=0.078848 compute_min_ms=0.077824 compute_max_ms=0.079872 compute_var_ms=0.000000280 compute_gflops=38.047891 eff_bw_gbs=167.410467 pct_peak_bw=17.9409 comm_avg_ms=0.065487 comm_min_ms=0.042252 comm_max_ms=0.089974 comm_var_ms=0.000253939 total_avg_ms=0.144335 total_min_ms=0.121100 total_max_ms=0.168822 total_var_ms=0.000254624 effective_gflops=20.785004
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_ghost_acc matrix=matrices_synthetic/weak_P2.mtx ---
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+[kernel] acc -> FLAT (nnz=1500000, avg_nnz=20.00, imbalance=1.00)
+[kernel] acc -> FLAT (nnz=1500000, avg_nnz=20.00, imbalance=1.00)
+RESULT comm=ghost_mpi kernel=acc matrix=weak_P2.mtx P=2 rank=1 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74999 compute_avg_ms=0.068198 compute_min_ms=0.067584 compute_max_ms=0.069632 compute_var_ms=0.000000322 compute_gflops=43.989301 eff_bw_gbs=193.638852 pct_peak_bw=20.7518 comm_avg_ms=0.069643 comm_min_ms=0.042834 comm_max_ms=0.090151 comm_var_ms=0.000177083 total_avg_ms=0.137841 total_min_ms=0.111442 total_max_ms=0.158759 total_var_ms=0.000171161 effective_gflops=21.764133
+RESULT comm=ghost_mpi kernel=acc matrix=weak_P2.mtx P=2 rank=0 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74994 compute_avg_ms=0.066048 compute_min_ms=0.064512 compute_max_ms=0.067584 compute_var_ms=0.000000402 compute_gflops=45.421512 eff_bw_gbs=199.943072 pct_peak_bw=21.4274 comm_avg_ms=0.069358 comm_min_ms=0.042551 comm_max_ms=0.089662 comm_var_ms=0.000176711 total_avg_ms=0.135406 total_min_ms=0.109111 total_max_ms=0.156222 total_var_ms=0.000173079 effective_gflops=22.155657
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_ghost_nccl_cusparse matrix=matrices_synthetic/weak_P2.mtx ---
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+RESULT comm=ghost_nccl kernel=cusparse matrix=weak_P2.mtx P=2 rank=0 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74994 compute_avg_ms=0.079770 compute_min_ms=0.078848 compute_max_ms=0.080896 compute_var_ms=0.000000234 compute_gflops=37.608313 eff_bw_gbs=165.476328 pct_peak_bw=17.7337 comm_avg_ms=0.084103 comm_min_ms=0.082467 comm_max_ms=0.091352 comm_var_ms=0.000002412 total_avg_ms=0.163873 total_min_ms=0.162339 total_max_ms=0.170200 total_var_ms=0.000001984 effective_gflops=18.306856
+RESULT comm=ghost_nccl kernel=cusparse matrix=weak_P2.mtx P=2 rank=1 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74999 compute_avg_ms=0.082773 compute_min_ms=0.081920 compute_max_ms=0.087040 compute_var_ms=0.000000915 compute_gflops=36.243557 eff_bw_gbs=159.471653 pct_peak_bw=17.0902 comm_avg_ms=0.085345 comm_min_ms=0.083321 comm_max_ms=0.087523 comm_var_ms=0.000001234 total_avg_ms=0.168118 total_min_ms=0.166075 total_max_ms=0.172176 total_var_ms=0.000002106 effective_gflops=17.844606
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_ghost_nccl_acc matrix=matrices_synthetic/weak_P2.mtx ---
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+[kernel] acc -> FLAT (nnz=1500000, avg_nnz=20.00, imbalance=1.00)
+[kernel] acc -> FLAT (nnz=1500000, avg_nnz=20.00, imbalance=1.00)
+RESULT comm=ghost_nccl kernel=acc matrix=weak_P2.mtx P=2 rank=0 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74994 compute_avg_ms=0.067038 compute_min_ms=0.065536 compute_max_ms=0.069632 compute_var_ms=0.000000890 compute_gflops=44.750827 eff_bw_gbs=196.990754 pct_peak_bw=21.1110 comm_avg_ms=0.093104 comm_min_ms=0.083414 comm_max_ms=0.239751 comm_var_ms=0.000749128 total_avg_ms=0.160142 total_min_ms=0.149974 total_max_ms=0.308359 total_var_ms=0.000768786 effective_gflops=18.733378
+RESULT comm=ghost_nccl kernel=acc matrix=weak_P2.mtx P=2 rank=1 nrows_local=75000 ncols_global=150000 nnz_local=1500000 n_ghost=74999 compute_avg_ms=0.069495 compute_min_ms=0.067584 compute_max_ms=0.071680 compute_var_ms=0.000000611 compute_gflops=43.168283 eff_bw_gbs=190.024766 pct_peak_bw=20.3645 comm_avg_ms=0.093981 comm_min_ms=0.083048 comm_max_ms=0.251717 comm_var_ms=0.000863759 total_avg_ms=0.163477 total_min_ms=0.151656 total_max_ms=0.322373 total_var_ms=0.000878419 effective_gflops=18.351246
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_2d_cusparse matrix=matrices_synthetic/weak_P2.mtx ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+RESULT comm=checkerboard_mpi kernel=cusparse matrix=weak_P2.mtx P=2 rank=0 nrows_local=150000 ncols_global=150000 nnz_local=1499711 n_ghost=-1 compute_avg_ms=0.077551 compute_min_ms=0.076800 compute_max_ms=0.078848 compute_var_ms=0.000000345 compute_gflops=38.676801 eff_bw_gbs=174.049384 pct_peak_bw=18.6524 comm_avg_ms=0.541683 comm_min_ms=0.533393 comm_max_ms=0.557979 comm_var_ms=0.000028121 total_avg_ms=0.619233 total_min_ms=0.610193 total_max_ms=0.634779 total_var_ms=0.000028009 effective_gflops=4.843766
+RESULT comm=checkerboard_mpi kernel=cusparse matrix=weak_P2.mtx P=2 rank=1 nrows_local=150000 ncols_global=150000 nnz_local=1500289 n_ghost=-1 compute_avg_ms=0.079974 compute_min_ms=0.078848 compute_max_ms=0.080896 compute_var_ms=0.000000444 compute_gflops=37.519232 eff_bw_gbs=168.832982 pct_peak_bw=18.0934 comm_avg_ms=0.399794 comm_min_ms=0.392462 comm_max_ms=0.415333 comm_var_ms=0.000020779 total_avg_ms=0.479768 total_min_ms=0.471428 total_max_ms=0.496229 total_var_ms=0.000023443 effective_gflops=6.254228
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_2d_acc matrix=matrices_synthetic/weak_P2.mtx ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+[kernel] acc -> FLAT (nnz=1500289, avg_nnz=10.00, imbalance=1.90)
+[kernel] acc -> FLAT (nnz=1499711, avg_nnz=10.00, imbalance=1.90)
+RESULT comm=checkerboard_mpi kernel=acc matrix=weak_P2.mtx P=2 rank=0 nrows_local=150000 ncols_global=150000 nnz_local=1499711 n_ghost=-1 compute_avg_ms=0.063420 compute_min_ms=0.062464 compute_max_ms=0.064512 compute_var_ms=0.000000205 compute_gflops=47.294775 eff_bw_gbs=212.923509 pct_peak_bw=22.8184 comm_avg_ms=0.431424 comm_min_ms=0.426254 comm_max_ms=0.443442 comm_var_ms=0.000013406 total_avg_ms=0.494844 total_min_ms=0.489742 total_max_ms=0.506930 total_var_ms=0.000014153 effective_gflops=6.061349
+RESULT comm=checkerboard_mpi kernel=acc matrix=weak_P2.mtx P=2 rank=1 nrows_local=150000 ncols_global=150000 nnz_local=1500289 n_ghost=-1 compute_avg_ms=0.065911 compute_min_ms=0.065536 compute_max_ms=0.066560 compute_var_ms=0.000000244 compute_gflops=45.524370 eff_bw_gbs=204.944309 pct_peak_bw=21.9633 comm_avg_ms=0.316747 comm_min_ms=0.307213 comm_max_ms=0.329263 comm_var_ms=0.000014283 total_avg_ms=0.382659 total_min_ms=0.373773 total_max_ms=0.395823 total_var_ms=0.000014921 effective_gflops=7.841394
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_2d_nccl_cusparse matrix=matrices_synthetic/weak_P2.mtx ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+RESULT comm=checkerboard_nccl kernel=cusparse matrix=weak_P2.mtx P=2 rank=1 nrows_local=150000 ncols_global=150000 nnz_local=1500289 n_ghost=-1 compute_avg_ms=0.083729 compute_min_ms=0.081920 compute_max_ms=0.089088 compute_var_ms=0.000001516 compute_gflops=35.836755 eff_bw_gbs=161.261994 pct_peak_bw=17.2820 comm_avg_ms=0.069559 comm_min_ms=0.068526 comm_max_ms=0.070307 comm_var_ms=0.000000220 total_avg_ms=0.153288 total_min_ms=0.150875 total_max_ms=0.158649 total_var_ms=0.000001894 effective_gflops=19.574813
+RESULT comm=checkerboard_nccl kernel=cusparse matrix=weak_P2.mtx P=2 rank=0 nrows_local=150000 ncols_global=150000 nnz_local=1499711 n_ghost=-1 compute_avg_ms=0.080964 compute_min_ms=0.079872 compute_max_ms=0.081920 compute_var_ms=0.000000415 compute_gflops=37.046245 eff_bw_gbs=166.711723 pct_peak_bw=17.8661 comm_avg_ms=0.107439 comm_min_ms=0.100080 comm_max_ms=0.118256 comm_var_ms=0.000029177 total_avg_ms=0.188403 total_min_ms=0.180368 total_max_ms=0.200176 total_var_ms=0.000033214 effective_gflops=15.920240
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_2d_nccl_acc matrix=matrices_synthetic/weak_P2.mtx ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded matrices_synthetic/weak_P2.mtx: 150000 x 150000, 3000000 nnz
+[kernel] acc -> FLAT (nnz=1499711, avg_nnz=10.00, imbalance=1.90)
+[kernel] acc -> FLAT (nnz=1500289, avg_nnz=10.00, imbalance=1.90)
+RESULT comm=checkerboard_nccl kernel=acc matrix=weak_P2.mtx P=2 rank=0 nrows_local=150000 ncols_global=150000 nnz_local=1499711 n_ghost=-1 compute_avg_ms=0.066901 compute_min_ms=0.064512 compute_max_ms=0.067584 compute_var_ms=0.000000792 compute_gflops=44.833516 eff_bw_gbs=201.842792 pct_peak_bw=21.6310 comm_avg_ms=0.106824 comm_min_ms=0.098851 comm_max_ms=0.112706 comm_var_ms=0.000024129 total_avg_ms=0.173725 total_min_ms=0.164742 total_max_ms=0.180290 total_var_ms=0.000031451 effective_gflops=17.265345
+RESULT comm=checkerboard_nccl kernel=acc matrix=weak_P2.mtx P=2 rank=1 nrows_local=150000 ncols_global=150000 nnz_local=1500289 n_ghost=-1 compute_avg_ms=0.069052 compute_min_ms=0.067584 compute_max_ms=0.073728 compute_var_ms=0.000001376 compute_gflops=43.454057 eff_bw_gbs=195.624051 pct_peak_bw=20.9645 comm_avg_ms=0.069098 comm_min_ms=0.068161 comm_max_ms=0.070247 comm_var_ms=0.000000371 total_avg_ms=0.138150 total_min_ms=0.135745 total_max_ms=0.143013 total_var_ms=0.000002221 effective_gflops=21.719684
+[ERROR CHECKING] OK!
+
+=== Job done ===

@@ -1,0 +1,38 @@
+=== D2_final strong scaling (large matrix, full P sweep, single driver) ===
+Node:     edu01
+Date:     Sat Jul 25 09:05:52 AM CEST 2026
+Matrix:   ../big_matrices/arabic-2005.mtx
+Reps:     1
+Driver:   spmv_2d_acc
+
+--- P=1 rep=1/1 driver=spmv_2d_acc ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../big_matrices/arabic-2005.mtx: 22744080 x 22744080, 639999458 nnz
+[kernel] acc -> FLAT (nnz=639999458, avg_nnz=28.14, imbalance=352.00)
+RESULT comm=checkerboard_mpi kernel=acc matrix=arabic-2005.mtx P=1 rank=0 nrows_local=22744080 ncols_global=22744080 nnz_local=639999458 n_ghost=-1 compute_avg_ms=7.867802 compute_min_ms=7.493632 compute_max_ms=8.491008 compute_var_ms=0.175194673 compute_gflops=162.688254 eff_bw_gbs=685.760123 pct_peak_bw=73.4911 comm_avg_ms=59.531634 comm_min_ms=59.003346 comm_max_ms=59.997880 comm_var_ms=0.127633195 total_avg_ms=67.399435 total_min_ms=67.028166 total_max_ms=67.597245 total_var_ms=0.012242497 effective_gflops=18.991241
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/1 driver=spmv_2d_acc ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded ../big_matrices/arabic-2005.mtx: 22744080 x 22744080, 639999458 nnz
+[kernel] acc -> FLAT (nnz=320236843, avg_nnz=14.08, imbalance=351.70)
+[kernel] acc -> FLAT (nnz=319762615, avg_nnz=14.06, imbalance=352.51)
+RESULT comm=checkerboard_mpi kernel=acc matrix=arabic-2005.mtx P=2 rank=1 nrows_local=22744080 ncols_global=22744080 nnz_local=320236843 n_ghost=-1 compute_avg_ms=4.502392 compute_min_ms=4.482048 compute_max_ms=4.518912 compute_var_ms=0.000055975 compute_gflops=142.251886 eff_bw_gbs=619.800936 pct_peak_bw=66.4224 comm_avg_ms=54.695128 comm_min_ms=54.493334 comm_max_ms=54.984803 comm_var_ms=0.011623935 total_avg_ms=59.197520 total_min_ms=58.998934 total_max_ms=59.503715 total_var_ms=0.011962523 effective_gflops=10.819266
+RESULT comm=checkerboard_mpi kernel=acc matrix=arabic-2005.mtx P=2 rank=0 nrows_local=22744080 ncols_global=22744080 nnz_local=319762615 n_ghost=-1 compute_avg_ms=4.424636 compute_min_ms=4.303872 compute_max_ms=4.526080 compute_var_ms=0.009942241 compute_gflops=144.537372 eff_bw_gbs=629.835071 pct_peak_bw=67.4978 comm_avg_ms=74.178595 comm_min_ms=74.026355 comm_max_ms=74.531000 comm_var_ms=0.013477211 total_avg_ms=78.603231 total_min_ms=78.420933 total_max_ms=78.993504 total_var_ms=0.014201449 effective_gflops=8.136119
+[ERROR CHECKING] OK!
+
+--- P=3 driver=spmv_2d_acc: SKIPPED (no non-degenerate process grid at P=3) ---
+--- P=4 rep=1/1 driver=spmv_2d_acc ---
+Grid: P=4 -> P_r=2 x P_c=2
+Loaded ../big_matrices/arabic-2005.mtx: 22744080 x 22744080, 639999458 nnz
+[kernel] acc -> FLAT (nnz=159739074, avg_nnz=14.05, imbalance=352.82)
+[kernel] acc -> FLAT (nnz=160287511, avg_nnz=14.09, imbalance=351.33)
+[kernel] acc -> FLAT (nnz=160023541, avg_nnz=14.07, imbalance=345.52)
+[kernel] acc -> FLAT (nnz=159949332, avg_nnz=14.07, imbalance=345.11)
+RESULT comm=checkerboard_mpi kernel=acc matrix=arabic-2005.mtx P=4 rank=0 nrows_local=11372040 ncols_global=22744080 nnz_local=160023541 n_ghost=-1 compute_avg_ms=2.301713 compute_min_ms=2.295808 compute_max_ms=2.311168 compute_var_ms=0.000013749 compute_gflops=139.047340 eff_bw_gbs=615.749162 pct_peak_bw=65.9882 comm_avg_ms=68.758172 comm_min_ms=68.440478 comm_max_ms=69.228644 comm_var_ms=0.031552028 total_avg_ms=71.059885 total_min_ms=70.744478 total_max_ms=71.534692 total_var_ms=0.031528195 effective_gflops=4.503907
+RESULT comm=checkerboard_mpi kernel=acc matrix=arabic-2005.mtx P=4 rank=1 nrows_local=11372040 ncols_global=22744080 nnz_local=159949332 n_ghost=-1 compute_avg_ms=2.296627 compute_min_ms=2.287616 compute_max_ms=2.308096 compute_var_ms=0.000021488 compute_gflops=139.290634 eff_bw_gbs=616.854108 pct_peak_bw=66.1066 comm_avg_ms=51.613917 comm_min_ms=51.281183 comm_max_ms=51.931715 comm_var_ms=0.019337495 total_avg_ms=53.910544 total_min_ms=53.580063 total_max_ms=54.224451 total_var_ms=0.019312346 effective_gflops=5.933879
+RESULT comm=checkerboard_mpi kernel=acc matrix=arabic-2005.mtx P=4 rank=3 nrows_local=11372040 ncols_global=22744080 nnz_local=160287511 n_ghost=-1 compute_avg_ms=2.303590 compute_min_ms=2.296832 compute_max_ms=2.314240 compute_var_ms=0.000018357 compute_gflops=139.163205 eff_bw_gbs=616.164534 pct_peak_bw=66.0327 comm_avg_ms=52.088715 comm_min_ms=51.840174 comm_max_ms=52.357046 comm_var_ms=0.015925098 total_avg_ms=54.392305 total_min_ms=54.139054 total_max_ms=54.665054 total_var_ms=0.016124176 effective_gflops=5.893757
+RESULT comm=checkerboard_mpi kernel=acc matrix=arabic-2005.mtx P=4 rank=2 nrows_local=11372040 ncols_global=22744080 nnz_local=159739074 n_ghost=-1 compute_avg_ms=2.286729 compute_min_ms=2.274304 compute_max_ms=2.296832 compute_var_ms=0.000027944 compute_gflops=139.709695 eff_bw_gbs=618.788385 pct_peak_bw=66.3139 comm_avg_ms=68.927882 comm_min_ms=68.673133 comm_max_ms=69.310637 comm_var_ms=0.025754119 total_avg_ms=71.214611 total_min_ms=70.958701 total_max_ms=71.586989 total_var_ms=0.025759152 effective_gflops=4.486132
+[ERROR CHECKING] OK!
+
+=== Job done ===

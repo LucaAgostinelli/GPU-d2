@@ -1,0 +1,10 @@
+=== D2_final distributed matrix read benchmark ===
+Node:    edu01
+Date:    Fri Jul 24 03:28:03 PM CEST 2026
+Matrix:  ../matrices/cit-Patents.mtx
+P:       4
+Reps:    3
+
+RESULT_CSV_READ matrix=cit-Patents.mtx P=4 reps=3 serial_mean_ms=5598.0143 serial_min_ms=5577.8028 chunked_mean_ms=1039.1526 chunked_min_ms=1025.0111 serial_read_ms=3319.0228 serial_distribute_ms=5595.6342 chunked_io_ms=37.9651 chunked_parse_ms=362.7373 chunked_redistribute_ms=656.4665 nnz_total_serial=16518948 nnz_total_chunked=16518948 spmv_mismatches=0 check=OK!
+
+=== Job done ===

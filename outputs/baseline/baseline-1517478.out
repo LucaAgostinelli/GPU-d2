@@ -1,0 +1,9 @@
+=== D2_final CPU baseline ===
+Node:     edu01
+Date:     Wed Jul 22 05:30:23 PM CEST 2026
+Matrix:   ../matrices/thermal2.mtx
+Reps:     10
+
+RESULT comm=none kernel=cpu_serial matrix=thermal2.mtx M=1228045 N=1228045 nnz_expanded=8580313 avg_ms=12.156144 min_ms=11.784090 max_ms=12.530932 gflops=1.411683
+
+=== Job done ===

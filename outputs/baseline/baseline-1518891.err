@@ -1,0 +1,5 @@
+Loaded ../big_matrices/kmer_V1r.mtx: 214005017 x 214005017, nnz(file)=232705452, nnz(expanded)=465410904, symmetric=1, skew=0, pattern=1
+
+real	0m44.675s
+user	0m42.111s
+sys	0m2.382s

@@ -1,0 +1,5 @@
+Loaded ../big_matrices/europe_osm.mtx: 50912018 x 50912018, nnz(file)=54054660, nnz(expanded)=108109320, symmetric=1, skew=0, pattern=1
+
+real	0m12.030s
+user	0m11.308s
+sys	0m0.557s

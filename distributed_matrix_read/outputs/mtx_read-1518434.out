@@ -1,0 +1,10 @@
+=== D2_final distributed matrix read benchmark ===
+Node:    edu01
+Date:    Fri Jul 24 04:50:06 PM CEST 2026
+Matrix:  ../matrices/ASIC_680k.mtx
+P:       2
+Reps:    3
+
+RESULT_CSV_READ matrix=ASIC_680k.mtx P=2 reps=3 serial_mean_ms=1485.5922 serial_min_ms=1484.6026 chunked_mean_ms=419.2302 chunked_min_ms=411.8575 serial_read_ms=1170.5225 serial_distribute_ms=1484.9089 chunked_io_ms=19.6446 chunked_parse_ms=195.9289 chunked_redistribute_ms=210.6587 nnz_total_serial=3871773 nnz_total_chunked=3871773 spmv_mismatches=0 check=OK!
+
+=== Job done ===

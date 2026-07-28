@@ -1,0 +1,19 @@
+=== distributed matrix read benchmark (large matrix, full P sweep) ===
+Node:    edu01
+Date:    Sun Jul 26 06:09:10 PM CEST 2026
+Matrix:  ../big_matrices/europe_osm.mtx
+Reps:    1
+
+--- P=1 ---
+RESULT_CSV_READ matrix=europe_osm.mtx P=1 reps=1 serial_mean_ms=12887.6728 serial_min_ms=12887.6728 chunked_mean_ms=11320.5148 chunked_min_ms=11320.5148 serial_read_ms=5297.7227 serial_distribute_ms=7589.9493 chunked_io_ms=314.8931 chunked_parse_ms=2483.8651 chunked_redistribute_ms=8514.7224 nnz_total_serial=108109320 nnz_total_chunked=108109320 spmv_mismatches=0 check=OK!
+
+--- P=2 ---
+RESULT_CSV_READ matrix=europe_osm.mtx P=2 reps=1 serial_mean_ms=13209.9986 serial_min_ms=13209.9986 chunked_mean_ms=6145.8315 chunked_min_ms=6145.8315 serial_read_ms=5319.0560 serial_distribute_ms=13207.8028 chunked_io_ms=166.5551 chunked_parse_ms=1264.5695 chunked_redistribute_ms=4758.5747 nnz_total_serial=108109320 nnz_total_chunked=108109320 spmv_mismatches=0 check=OK!
+
+--- P=3 ---
+RESULT_CSV_READ matrix=europe_osm.mtx P=3 reps=1 serial_mean_ms=22833.3544 serial_min_ms=22833.3544 chunked_mean_ms=6504.4352 chunked_min_ms=6504.4352 serial_read_ms=12594.6781 serial_distribute_ms=22830.7609 chunked_io_ms=162.6235 chunked_parse_ms=1919.5984 chunked_redistribute_ms=4418.2370 nnz_total_serial=108109320 nnz_total_chunked=108109320 spmv_mismatches=0 check=OK!
+
+--- P=4 ---
+RESULT_CSV_READ matrix=europe_osm.mtx P=4 reps=1 serial_mean_ms=22426.7487 serial_min_ms=22426.7487 chunked_mean_ms=4544.0198 chunked_min_ms=4544.0198 serial_read_ms=12786.1374 serial_distribute_ms=22424.1556 chunked_io_ms=138.7765 chunked_parse_ms=1401.5170 chunked_redistribute_ms=3030.5962 nnz_total_serial=108109320 nnz_total_chunked=108109320 spmv_mismatches=0 check=OK!
+
+=== Job done ===

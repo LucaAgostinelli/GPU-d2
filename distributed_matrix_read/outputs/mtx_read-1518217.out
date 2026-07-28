@@ -1,0 +1,10 @@
+=== D2_final parallel MPI-IO read benchmark ===
+Node:    edu01
+Date:    Fri Jul 24 11:57:58 AM CEST 2026
+Matrix:  ../matrices/cit-Patents.mtx
+P:       4
+Reps:    3
+
+RESULT_CSV_READ matrix=cit-Patents.mtx P=4 reps=3 serial_mean_ms=5992.6724 serial_min_ms=5986.8787 mpiio_mean_ms=7408.3842 mpiio_min_ms=7363.5563 nnz_total_serial=16518948 nnz_total_mpiio=16518948 spmv_mismatches=0 check=OK!
+
+=== Job done ===

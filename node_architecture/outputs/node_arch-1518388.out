@@ -1,0 +1,1499 @@
+=== D2_final node architecture profile ===
+Node:     edu01
+Date:     Fri Jul 24 03:24:03 PM CEST 2026
+Job ID:   1518388
+
+==============================================================================
+== OS / KERNEL
+==============================================================================
+--- uname -a ---
+Linux edu01 5.14.0-503.35.1.el9_5.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Apr 3 12:12:16 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+
+--- /etc/os-release ---
+NAME="Rocky Linux"
+VERSION="9.3 (Blue Onyx)"
+ID="rocky"
+ID_LIKE="rhel centos fedora"
+VERSION_ID="9.3"
+PLATFORM_ID="platform:el9"
+PRETTY_NAME="Rocky Linux 9.3 (Blue Onyx)"
+ANSI_COLOR="0;32"
+LOGO="fedora-logo-icon"
+CPE_NAME="cpe:/o:rocky:rocky:9::baseos"
+HOME_URL="https://rockylinux.org/"
+BUG_REPORT_URL="https://bugs.rockylinux.org/"
+SUPPORT_END="2032-05-31"
+ROCKY_SUPPORT_PRODUCT="Rocky-Linux-9"
+ROCKY_SUPPORT_PRODUCT_VERSION="9.3"
+REDHAT_SUPPORT_PRODUCT="Rocky Linux"
+REDHAT_SUPPORT_PRODUCT_VERSION="9.3"
+
+--- uptime ---
+ 15:24:03 up 70 days,  3:16,  0 users,  load average: 3.07, 3.33, 3.26
+
+
+==============================================================================
+== CPU
+==============================================================================
+--- lscpu (sockets, cores/socket, threads/core, NUMA nodes, cache sizes, flags) ---
+Architecture:                         x86_64
+CPU op-mode(s):                       32-bit, 64-bit
+Address sizes:                        46 bits physical, 57 bits virtual
+Byte Order:                           Little Endian
+CPU(s):                               32
+On-line CPU(s) list:                  0-31
+Vendor ID:                            GenuineIntel
+Model name:                           Intel(R) Xeon(R) Silver 4309Y CPU @ 2.80GHz
+CPU family:                           6
+Model:                                106
+Thread(s) per core:                   2
+Core(s) per socket:                   8
+Socket(s):                            2
+Stepping:                             6
+CPU max MHz:                          3600.0000
+CPU min MHz:                          800.0000
+BogoMIPS:                             5600.00
+Flags:                                fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local split_lock_detect wbnoinvd dtherm ida arat pln pts vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg tme avx512_vpopcntdq la57 rdpid fsrm md_clear pconfig flush_l1d arch_capabilities
+Virtualization:                       VT-x
+L1d cache:                            768 KiB (16 instances)
+L1i cache:                            512 KiB (16 instances)
+L2 cache:                             20 MiB (16 instances)
+L3 cache:                             24 MiB (2 instances)
+NUMA node(s):                         2
+NUMA node0 CPU(s):                    0-7,16-23
+NUMA node1 CPU(s):                    8-15,24-31
+Vulnerability Gather data sampling:   Mitigation; Microcode
+Vulnerability Itlb multihit:          Not affected
+Vulnerability L1tf:                   Not affected
+Vulnerability Mds:                    Not affected
+Vulnerability Meltdown:               Not affected
+Vulnerability Mmio stale data:        Mitigation; Clear CPU buffers; SMT vulnerable
+Vulnerability Reg file data sampling: Not affected
+Vulnerability Retbleed:               Not affected
+Vulnerability Spec rstack overflow:   Not affected
+Vulnerability Spec store bypass:      Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:             Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:             Mitigation; Enhanced / Automatic IBRS; IBPB conditional; RSB filling; PBRSB-eIBRS SW sequence; BHI SW loop, KVM SW loop
+Vulnerability Srbds:                  Not affected
+Vulnerability Tsx async abort:        Not affected
+
+--- nproc --all ---
+32
+
+
+==============================================================================
+== NUMA topology and per-node memory
+==============================================================================
+--- numactl --hardware ---
+/var/spool/slurmd/job1518388/slurm_script: line 72: numactl: command not found
+(command failed or not available: numactl --hardware)
+
+--- lscpu NUMA lines only ---
+NUMA node(s):                         2
+NUMA node0 CPU(s):                    0-7,16-23
+NUMA node1 CPU(s):                    8-15,24-31
+
+
+==============================================================================
+== MEMORY
+==============================================================================
+--- free -h ---
+               total        used        free      shared  buff/cache   available
+Mem:           251Gi       4.8Gi       172Gi       342Mi        76Gi       246Gi
+Swap:           15Gi       799Mi        15Gi
+
+--- /proc/meminfo (MemTotal/HugePages) ---
+MemTotal:       263238944 kB
+AnonHugePages:     26624 kB
+ShmemHugePages:        0 kB
+FileHugePages:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+
+
+==============================================================================
+== GPU (nvidia-smi)
+==============================================================================
+--- nvidia-smi -L (device list) ---
+GPU 0: NVIDIA A30 (UUID: GPU-678d290d-90ce-f0ba-0673-ad53633ec8f9)
+GPU 1: NVIDIA A30 (UUID: GPU-71c4a1ef-bf77-1454-7930-e23665698269)
+GPU 2: NVIDIA A30 (UUID: GPU-64b3d2c0-2528-b2a9-9a0b-6665717708b8)
+GPU 3: NVIDIA A30 (UUID: GPU-79f4460a-5a6e-63df-66c2-73984d78d4b0)
+
+--- nvidia-smi (driver/CUDA version, current utilization/memory) ---
+Fri Jul 24 15:24:04 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.144.03             Driver Version: 550.144.03     CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A30                     On  |   00000000:17:00.0 Off |                    0 |
+| N/A   30C    P0             28W /  165W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA A30                     On  |   00000000:4B:00.0 Off |                    0 |
+| N/A   27C    P0             27W /  165W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA A30                     On  |   00000000:98:00.0 Off |                    0 |
+| N/A   27C    P0             27W /  165W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA A30                     On  |   00000000:B1:00.0 Off |                    0 |
+| N/A   29C    P0             31W /  165W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+--- nvidia-smi -q (full per-GPU query: memory, PCIe, clocks, power, ECC) ---
+
+==============NVSMI LOG==============
+
+Timestamp                                 : Fri Jul 24 15:24:05 2026
+Driver Version                            : 550.144.03
+CUDA Version                              : 12.4
+
+Attached GPUs                             : 4
+GPU 00000000:17:00.0
+    Product Name                          : NVIDIA A30
+    Product Brand                         : NVIDIA
+    Product Architecture                  : Ampere
+    Display Mode                          : Enabled
+    Display Active                        : Disabled
+    Persistence Mode                      : Enabled
+    Addressing Mode                       : None
+    MIG Mode
+        Current                           : Disabled
+        Pending                           : Disabled
+    Accounting Mode                       : Disabled
+    Accounting Mode Buffer Size           : 4000
+    Driver Model
+        Current                           : N/A
+        Pending                           : N/A
+    Serial Number                         : 1652323000339
+    GPU UUID                              : GPU-678d290d-90ce-f0ba-0673-ad53633ec8f9
+    Minor Number                          : 0
+    VBIOS Version                         : 92.00.66.00.04
+    MultiGPU Board                        : No
+    Board ID                              : 0x1700
+    Board Part Number                     : 900-21001-0040-100
+    GPU Part Number                       : 20B7-882-A1
+    FRU Part Number                       : N/A
+    Module ID                             : 1
+    Inforom Version
+        Image Version                     : 1001.0205.00.02
+        OEM Object                        : 2.0
+        ECC Object                        : 6.16
+        Power Management Object           : N/A
+    Inforom BBX Object Flush
+        Latest Timestamp                  : 2026/06/25 20:37:28.368
+        Latest Duration                   : 95571 us
+    GPU Operation Mode
+        Current                           : N/A
+        Pending                           : N/A
+    GPU C2C Mode                          : N/A
+    GPU Virtualization Mode
+        Virtualization Mode               : None
+        Host VGPU Mode                    : N/A
+        vGPU Heterogeneous Mode           : N/A
+    GPU Reset Status
+        Reset Required                    : No
+        Drain and Reset Recommended       : No
+    GSP Firmware Version                  : 550.144.03
+    IBMNPU
+        Relaxed Ordering Mode             : N/A
+    PCI
+        Bus                               : 0x17
+        Device                            : 0x00
+        Domain                            : 0x0000
+        Base Classcode                    : 0x3
+        Sub Classcode                     : 0x2
+        Device Id                         : 0x20B710DE
+        Bus Id                            : 00000000:17:00.0
+        Sub System Id                     : 0x153210DE
+        GPU Link Info
+            PCIe Generation
+                Max                       : 4
+                Current                   : 4
+                Device Current            : 4
+                Device Max                : 4
+                Host Max                  : 4
+            Link Width
+                Max                       : 16x
+                Current                   : 16x
+        Bridge Chip
+            Type                          : N/A
+            Firmware                      : N/A
+        Replays Since Reset               : 0
+        Replay Number Rollovers           : 0
+        Tx Throughput                     : 350 KB/s
+        Rx Throughput                     : 300 KB/s
+        Atomic Caps Inbound               : N/A
+        Atomic Caps Outbound              : N/A
+    Fan Speed                             : N/A
+    Performance State                     : P0
+    Clocks Event Reasons
+        Idle                              : Active
+        Applications Clocks Setting       : Not Active
+        SW Power Cap                      : Not Active
+        HW Slowdown                       : Not Active
+            HW Thermal Slowdown           : Not Active
+            HW Power Brake Slowdown       : Not Active
+        Sync Boost                        : Not Active
+        SW Thermal Slowdown               : Not Active
+        Display Clock Setting             : Not Active
+    Sparse Operation Mode                 : N/A
+    FB Memory Usage
+        Total                             : 24576 MiB
+        Reserved                          : 527 MiB
+        Used                              : 1 MiB
+        Free                              : 24050 MiB
+    BAR1 Memory Usage
+        Total                             : 32768 MiB
+        Used                              : 1 MiB
+        Free                              : 32767 MiB
+    Conf Compute Protected Memory Usage
+        Total                             : 0 MiB
+        Used                              : 0 MiB
+        Free                              : 0 MiB
+    Compute Mode                          : Default
+    Utilization
+        Gpu                               : 0 %
+        Memory                            : 0 %
+        Encoder                           : 0 %
+        Decoder                           : 0 %
+        JPEG                              : 0 %
+        OFA                               : 0 %
+    Encoder Stats
+        Active Sessions                   : 0
+        Average FPS                       : 0
+        Average Latency                   : 0
+    FBC Stats
+        Active Sessions                   : 0
+        Average FPS                       : 0
+        Average Latency                   : 0
+    ECC Mode
+        Current                           : Enabled
+        Pending                           : Enabled
+    ECC Errors
+        Volatile
+            SRAM Correctable              : 0
+            SRAM Uncorrectable Parity     : 0
+            SRAM Uncorrectable SEC-DED    : 0
+            DRAM Correctable              : 0
+            DRAM Uncorrectable            : 0
+        Aggregate
+            SRAM Correctable              : 0
+            SRAM Uncorrectable Parity     : 0
+            SRAM Uncorrectable SEC-DED    : 0
+            DRAM Correctable              : 0
+            DRAM Uncorrectable            : 0
+            SRAM Threshold Exceeded       : No
+        Aggregate Uncorrectable SRAM Sources
+            SRAM L2                       : 0
+            SRAM SM                       : 0
+            SRAM Microcontroller          : 0
+            SRAM PCIE                     : 0
+            SRAM Other                    : 0
+    Retired Pages
+        Single Bit ECC                    : N/A
+        Double Bit ECC                    : N/A
+        Pending Page Blacklist            : N/A
+    Remapped Rows
+        Correctable Error                 : 0
+        Uncorrectable Error               : 0
+        Pending                           : No
+        Remapping Failure Occurred        : No
+        Bank Remap Availability Histogram
+            Max                           : 384 bank(s)
+            High                          : 0 bank(s)
+            Partial                       : 0 bank(s)
+            Low                           : 0 bank(s)
+            None                          : 0 bank(s)
+    Temperature
+        GPU Current Temp                  : 31 C
+        GPU T.Limit Temp                  : N/A
+        GPU Shutdown Temp                 : 100 C
+        GPU Slowdown Temp                 : 97 C
+        GPU Max Operating Temp            : 90 C
+        GPU Target Temperature            : N/A
+        Memory Current Temp               : 31 C
+        Memory Max Operating Temp         : 95 C
+    GPU Power Readings
+        Power Draw                        : 47.06 W
+        Current Power Limit               : 165.00 W
+        Requested Power Limit             : 165.00 W
+        Default Power Limit               : 165.00 W
+        Min Power Limit                   : 100.00 W
+        Max Power Limit                   : 165.00 W
+    GPU Memory Power Readings 
+        Power Draw                        : N/A
+    Module Power Readings
+        Power Draw                        : N/A
+        Current Power Limit               : N/A
+        Requested Power Limit             : N/A
+        Default Power Limit               : N/A
+        Min Power Limit                   : N/A
+        Max Power Limit                   : N/A
+    Clocks
+        Graphics                          : 1410 MHz
+        SM                                : 1410 MHz
+        Memory                            : 1215 MHz
+        Video                             : 1275 MHz
+    Applications Clocks
+        Graphics                          : 930 MHz
+        Memory                            : 1215 MHz
+    Default Applications Clocks
+        Graphics                          : 930 MHz
+        Memory                            : 1215 MHz
+    Deferred Clocks
+        Memory                            : N/A
+    Max Clocks
+        Graphics                          : 1440 MHz
+        SM                                : 1440 MHz
+        Memory                            : 1215 MHz
+        Video                             : 1305 MHz
+    Max Customer Boost Clocks
+        Graphics                          : 1440 MHz
+    Clock Policy
+        Auto Boost                        : N/A
+        Auto Boost Default                : N/A
+    Voltage
+        Graphics                          : 868.750 mV
+    Fabric
+        State                             : N/A
+        Status                            : N/A
+        CliqueId                          : N/A
+        ClusterUUID                       : N/A
+        Health
+            Bandwidth                     : N/A
+    Processes                             : None
+
+GPU 00000000:4B:00.0
+    Product Name                          : NVIDIA A30
+    Product Brand                         : NVIDIA
+    Product Architecture                  : Ampere
+    Display Mode                          : Enabled
+    Display Active                        : Disabled
+    Persistence Mode                      : Enabled
+    Addressing Mode                       : None
+    MIG Mode
+        Current                           : Disabled
+        Pending                           : Disabled
+    Accounting Mode                       : Disabled
+    Accounting Mode Buffer Size           : 4000
+    Driver Model
+        Current                           : N/A
+        Pending                           : N/A
+    Serial Number                         : 1322622002023
+    GPU UUID                              : GPU-71c4a1ef-bf77-1454-7930-e23665698269
+    Minor Number                          : 1
+    VBIOS Version                         : 92.00.66.00.04
+    MultiGPU Board                        : No
+    Board ID                              : 0x4b00
+    Board Part Number                     : 900-21001-0040-100
+    GPU Part Number                       : 20B7-882-A1
+    FRU Part Number                       : N/A
+    Module ID                             : 1
+    Inforom Version
+        Image Version                     : 1001.0205.00.02
+        OEM Object                        : 2.0
+        ECC Object                        : 6.16
+        Power Management Object           : N/A
+    Inforom BBX Object Flush
+        Latest Timestamp                  : 2026/07/23 21:14:10.705
+        Latest Duration                   : 93350 us
+    GPU Operation Mode
+        Current                           : N/A
+        Pending                           : N/A
+    GPU C2C Mode                          : N/A
+    GPU Virtualization Mode
+        Virtualization Mode               : None
+        Host VGPU Mode                    : N/A
+        vGPU Heterogeneous Mode           : N/A
+    GPU Reset Status
+        Reset Required                    : No
+        Drain and Reset Recommended       : No
+    GSP Firmware Version                  : 550.144.03
+    IBMNPU
+        Relaxed Ordering Mode             : N/A
+    PCI
+        Bus                               : 0x4B
+        Device                            : 0x00
+        Domain                            : 0x0000
+        Base Classcode                    : 0x3
+        Sub Classcode                     : 0x2
+        Device Id                         : 0x20B710DE
+        Bus Id                            : 00000000:4B:00.0
+        Sub System Id                     : 0x153210DE
+        GPU Link Info
+            PCIe Generation
+                Max                       : 4
+                Current                   : 4
+                Device Current            : 4
+                Device Max                : 4
+                Host Max                  : 4
+            Link Width
+                Max                       : 16x
+                Current                   : 16x
+        Bridge Chip
+            Type                          : N/A
+            Firmware                      : N/A
+        Replays Since Reset               : 0
+        Replay Number Rollovers           : 0
+        Tx Throughput                     : 350 KB/s
+        Rx Throughput                     : 300 KB/s
+        Atomic Caps Inbound               : N/A
+        Atomic Caps Outbound              : N/A
+    Fan Speed                             : N/A
+    Performance State                     : P0
+    Clocks Event Reasons
+        Idle                              : Active
+        Applications Clocks Setting       : Not Active
+        SW Power Cap                      : Not Active
+        HW Slowdown                       : Not Active
+            HW Thermal Slowdown           : Not Active
+            HW Power Brake Slowdown       : Not Active
+        Sync Boost                        : Not Active
+        SW Thermal Slowdown               : Not Active
+        Display Clock Setting             : Not Active
+    Sparse Operation Mode                 : N/A
+    FB Memory Usage
+        Total                             : 24576 MiB
+        Reserved                          : 527 MiB
+        Used                              : 1 MiB
+        Free                              : 24050 MiB
+    BAR1 Memory Usage
+        Total                             : 32768 MiB
+        Used                              : 1 MiB
+        Free                              : 32767 MiB
+    Conf Compute Protected Memory Usage
+        Total                             : 0 MiB
+        Used                              : 0 MiB
+        Free                              : 0 MiB
+    Compute Mode                          : Default
+    Utilization
+        Gpu                               : 0 %
+        Memory                            : 0 %
+        Encoder                           : 0 %
+        Decoder                           : 0 %
+        JPEG                              : 0 %
+        OFA                               : 0 %
+    Encoder Stats
+        Active Sessions                   : 0
+        Average FPS                       : 0
+        Average Latency                   : 0
+    FBC Stats
+        Active Sessions                   : 0
+        Average FPS                       : 0
+        Average Latency                   : 0
+    ECC Mode
+        Current                           : Enabled
+        Pending                           : Enabled
+    ECC Errors
+        Volatile
+            SRAM Correctable              : 0
+            SRAM Uncorrectable Parity     : 0
+            SRAM Uncorrectable SEC-DED    : 0
+            DRAM Correctable              : 0
+            DRAM Uncorrectable            : 0
+        Aggregate
+            SRAM Correctable              : 0
+            SRAM Uncorrectable Parity     : 0
+            SRAM Uncorrectable SEC-DED    : 0
+            DRAM Correctable              : 0
+            DRAM Uncorrectable            : 0
+            SRAM Threshold Exceeded       : No
+        Aggregate Uncorrectable SRAM Sources
+            SRAM L2                       : 0
+            SRAM SM                       : 0
+            SRAM Microcontroller          : 0
+            SRAM PCIE                     : 0
+            SRAM Other                    : 0
+    Retired Pages
+        Single Bit ECC                    : N/A
+        Double Bit ECC                    : N/A
+        Pending Page Blacklist            : N/A
+    Remapped Rows
+        Correctable Error                 : 0
+        Uncorrectable Error               : 0
+        Pending                           : No
+        Remapping Failure Occurred        : No
+        Bank Remap Availability Histogram
+            Max                           : 384 bank(s)
+            High                          : 0 bank(s)
+            Partial                       : 0 bank(s)
+            Low                           : 0 bank(s)
+            None                          : 0 bank(s)
+    Temperature
+        GPU Current Temp                  : 27 C
+        GPU T.Limit Temp                  : N/A
+        GPU Shutdown Temp                 : 100 C
+        GPU Slowdown Temp                 : 97 C
+        GPU Max Operating Temp            : 90 C
+        GPU Target Temperature            : N/A
+        Memory Current Temp               : 26 C
+        Memory Max Operating Temp         : 95 C
+    GPU Power Readings
+        Power Draw                        : 48.06 W
+        Current Power Limit               : 165.00 W
+        Requested Power Limit             : 165.00 W
+        Default Power Limit               : 165.00 W
+        Min Power Limit                   : 100.00 W
+        Max Power Limit                   : 165.00 W
+    GPU Memory Power Readings 
+        Power Draw                        : N/A
+    Module Power Readings
+        Power Draw                        : N/A
+        Current Power Limit               : N/A
+        Requested Power Limit             : N/A
+        Default Power Limit               : N/A
+        Min Power Limit                   : N/A
+        Max Power Limit                   : N/A
+    Clocks
+        Graphics                          : 1440 MHz
+        SM                                : 1440 MHz
+        Memory                            : 1215 MHz
+        Video                             : 1305 MHz
+    Applications Clocks
+        Graphics                          : 930 MHz
+        Memory                            : 1215 MHz
+    Default Applications Clocks
+        Graphics                          : 930 MHz
+        Memory                            : 1215 MHz
+    Deferred Clocks
+        Memory                            : N/A
+    Max Clocks
+        Graphics                          : 1440 MHz
+        SM                                : 1440 MHz
+        Memory                            : 1215 MHz
+        Video                             : 1305 MHz
+    Max Customer Boost Clocks
+        Graphics                          : 1440 MHz
+    Clock Policy
+        Auto Boost                        : N/A
+        Auto Boost Default                : N/A
+    Voltage
+        Graphics                          : 918.750 mV
+    Fabric
+        State                             : N/A
+        Status                            : N/A
+        CliqueId                          : N/A
+        ClusterUUID                       : N/A
+        Health
+            Bandwidth                     : N/A
+    Processes                             : None
+
+GPU 00000000:98:00.0
+    Product Name                          : NVIDIA A30
+    Product Brand                         : NVIDIA
+    Product Architecture                  : Ampere
+    Display Mode                          : Enabled
+    Display Active                        : Disabled
+    Persistence Mode                      : Enabled
+    Addressing Mode                       : None
+    MIG Mode
+        Current                           : Disabled
+        Pending                           : Disabled
+    Accounting Mode                       : Disabled
+    Accounting Mode Buffer Size           : 4000
+    Driver Model
+        Current                           : N/A
+        Pending                           : N/A
+    Serial Number                         : 1322622001171
+    GPU UUID                              : GPU-64b3d2c0-2528-b2a9-9a0b-6665717708b8
+    Minor Number                          : 2
+    VBIOS Version                         : 92.00.66.00.04
+    MultiGPU Board                        : No
+    Board ID                              : 0x9800
+    Board Part Number                     : 900-21001-0040-100
+    GPU Part Number                       : 20B7-882-A1
+    FRU Part Number                       : N/A
+    Module ID                             : 1
+    Inforom Version
+        Image Version                     : 1001.0205.00.02
+        OEM Object                        : 2.0
+        ECC Object                        : 6.16
+        Power Management Object           : N/A
+    Inforom BBX Object Flush
+        Latest Timestamp                  : 2026/05/15 22:15:53.953
+        Latest Duration                   : 100337 us
+    GPU Operation Mode
+        Current                           : N/A
+        Pending                           : N/A
+    GPU C2C Mode                          : N/A
+    GPU Virtualization Mode
+        Virtualization Mode               : None
+        Host VGPU Mode                    : N/A
+        vGPU Heterogeneous Mode           : N/A
+    GPU Reset Status
+        Reset Required                    : No
+        Drain and Reset Recommended       : No
+    GSP Firmware Version                  : 550.144.03
+    IBMNPU
+        Relaxed Ordering Mode             : N/A
+    PCI
+        Bus                               : 0x98
+        Device                            : 0x00
+        Domain                            : 0x0000
+        Base Classcode                    : 0x3
+        Sub Classcode                     : 0x2
+        Device Id                         : 0x20B710DE
+        Bus Id                            : 00000000:98:00.0
+        Sub System Id                     : 0x153210DE
+        GPU Link Info
+            PCIe Generation
+                Max                       : 4
+                Current                   : 4
+                Device Current            : 4
+                Device Max                : 4
+                Host Max                  : 4
+            Link Width
+                Max                       : 16x
+                Current                   : 16x
+        Bridge Chip
+            Type                          : N/A
+            Firmware                      : N/A
+        Replays Since Reset               : 0
+        Replay Number Rollovers           : 0
+        Tx Throughput                     : 350 KB/s
+        Rx Throughput                     : 300 KB/s
+        Atomic Caps Inbound               : N/A
+        Atomic Caps Outbound              : N/A
+    Fan Speed                             : N/A
+    Performance State                     : P0
+    Clocks Event Reasons
+        Idle                              : Active
+        Applications Clocks Setting       : Not Active
+        SW Power Cap                      : Not Active
+        HW Slowdown                       : Not Active
+            HW Thermal Slowdown           : Not Active
+            HW Power Brake Slowdown       : Not Active
+        Sync Boost                        : Not Active
+        SW Thermal Slowdown               : Not Active
+        Display Clock Setting             : Not Active
+    Sparse Operation Mode                 : N/A
+    FB Memory Usage
+        Total                             : 24576 MiB
+        Reserved                          : 527 MiB
+        Used                              : 1 MiB
+        Free                              : 24050 MiB
+    BAR1 Memory Usage
+        Total                             : 32768 MiB
+        Used                              : 1 MiB
+        Free                              : 32767 MiB
+    Conf Compute Protected Memory Usage
+        Total                             : 0 MiB
+        Used                              : 0 MiB
+        Free                              : 0 MiB
+    Compute Mode                          : Default
+    Utilization
+        Gpu                               : 0 %
+        Memory                            : 0 %
+        Encoder                           : 0 %
+        Decoder                           : 0 %
+        JPEG                              : 0 %
+        OFA                               : 0 %
+    Encoder Stats
+        Active Sessions                   : 0
+        Average FPS                       : 0
+        Average Latency                   : 0
+    FBC Stats
+        Active Sessions                   : 0
+        Average FPS                       : 0
+        Average Latency                   : 0
+    ECC Mode
+        Current                           : Enabled
+        Pending                           : Enabled
+    ECC Errors
+        Volatile
+            SRAM Correctable              : 0
+            SRAM Uncorrectable Parity     : 0
+            SRAM Uncorrectable SEC-DED    : 0
+            DRAM Correctable              : 0
+            DRAM Uncorrectable            : 0
+        Aggregate
+            SRAM Correctable              : 0
+            SRAM Uncorrectable Parity     : 0
+            SRAM Uncorrectable SEC-DED    : 0
+            DRAM Correctable              : 0
+            DRAM Uncorrectable            : 0
+            SRAM Threshold Exceeded       : No
+        Aggregate Uncorrectable SRAM Sources
+            SRAM L2                       : 0
+            SRAM SM                       : 0
+            SRAM Microcontroller          : 0
+            SRAM PCIE                     : 0
+            SRAM Other                    : 0
+    Retired Pages
+        Single Bit ECC                    : N/A
+        Double Bit ECC                    : N/A
+        Pending Page Blacklist            : N/A
+    Remapped Rows
+        Correctable Error                 : 0
+        Uncorrectable Error               : 0
+        Pending                           : No
+        Remapping Failure Occurred        : No
+        Bank Remap Availability Histogram
+            Max                           : 384 bank(s)
+            High                          : 0 bank(s)
+            Partial                       : 0 bank(s)
+            Low                           : 0 bank(s)
+            None                          : 0 bank(s)
+    Temperature
+        GPU Current Temp                  : 28 C
+        GPU T.Limit Temp                  : N/A
+        GPU Shutdown Temp                 : 100 C
+        GPU Slowdown Temp                 : 97 C
+        GPU Max Operating Temp            : 90 C
+        GPU Target Temperature            : N/A
+        Memory Current Temp               : 27 C
+        Memory Max Operating Temp         : 95 C
+    GPU Power Readings
+        Power Draw                        : 48.10 W
+        Current Power Limit               : 165.00 W
+        Requested Power Limit             : 165.00 W
+        Default Power Limit               : 165.00 W
+        Min Power Limit                   : 100.00 W
+        Max Power Limit                   : 165.00 W
+    GPU Memory Power Readings 
+        Power Draw                        : N/A
+    Module Power Readings
+        Power Draw                        : N/A
+        Current Power Limit               : N/A
+        Requested Power Limit             : N/A
+        Default Power Limit               : N/A
+        Min Power Limit                   : N/A
+        Max Power Limit                   : N/A
+    Clocks
+        Graphics                          : 1440 MHz
+        SM                                : 1440 MHz
+        Memory                            : 1215 MHz
+        Video                             : 1305 MHz
+    Applications Clocks
+        Graphics                          : 930 MHz
+        Memory                            : 1215 MHz
+    Default Applications Clocks
+        Graphics                          : 930 MHz
+        Memory                            : 1215 MHz
+    Deferred Clocks
+        Memory                            : N/A
+    Max Clocks
+        Graphics                          : 1440 MHz
+        SM                                : 1440 MHz
+        Memory                            : 1215 MHz
+        Video                             : 1305 MHz
+    Max Customer Boost Clocks
+        Graphics                          : 1440 MHz
+    Clock Policy
+        Auto Boost                        : N/A
+        Auto Boost Default                : N/A
+    Voltage
+        Graphics                          : 912.500 mV
+    Fabric
+        State                             : N/A
+        Status                            : N/A
+        CliqueId                          : N/A
+        ClusterUUID                       : N/A
+        Health
+            Bandwidth                     : N/A
+    Processes                             : None
+
+GPU 00000000:B1:00.0
+    Product Name                          : NVIDIA A30
+    Product Brand                         : NVIDIA
+    Product Architecture                  : Ampere
+    Display Mode                          : Enabled
+    Display Active                        : Disabled
+    Persistence Mode                      : Enabled
+    Addressing Mode                       : None
+    MIG Mode
+        Current                           : Disabled
+        Pending                           : Disabled
+    Accounting Mode                       : Disabled
+    Accounting Mode Buffer Size           : 4000
+    Driver Model
+        Current                           : N/A
+        Pending                           : N/A
+    Serial Number                         : 1562721004827
+    GPU UUID                              : GPU-79f4460a-5a6e-63df-66c2-73984d78d4b0
+    Minor Number                          : 3
+    VBIOS Version                         : 92.00.58.00.01
+    MultiGPU Board                        : No
+    Board ID                              : 0xb100
+    Board Part Number                     : 900-21001-0040-000
+    GPU Part Number                       : 20B7-882-A1
+    FRU Part Number                       : N/A
+    Module ID                             : 1
+    Inforom Version
+        Image Version                     : 1001.0205.00.02
+        OEM Object                        : 2.0
+        ECC Object                        : 6.16
+        Power Management Object           : N/A
+    Inforom BBX Object Flush
+        Latest Timestamp                  : 2026/07/23 20:26:39.078
+        Latest Duration                   : 105473 us
+    GPU Operation Mode
+        Current                           : N/A
+        Pending                           : N/A
+    GPU C2C Mode                          : N/A
+    GPU Virtualization Mode
+        Virtualization Mode               : None
+        Host VGPU Mode                    : N/A
+        vGPU Heterogeneous Mode           : N/A
+    GPU Reset Status
+        Reset Required                    : No
+        Drain and Reset Recommended       : No
+    GSP Firmware Version                  : 550.144.03
+    IBMNPU
+        Relaxed Ordering Mode             : N/A
+    PCI
+        Bus                               : 0xB1
+        Device                            : 0x00
+        Domain                            : 0x0000
+        Base Classcode                    : 0x3
+        Sub Classcode                     : 0x2
+        Device Id                         : 0x20B710DE
+        Bus Id                            : 00000000:B1:00.0
+        Sub System Id                     : 0x153210DE
+        GPU Link Info
+            PCIe Generation
+                Max                       : 4
+                Current                   : 4
+                Device Current            : 4
+                Device Max                : 4
+                Host Max                  : 4
+            Link Width
+                Max                       : 16x
+                Current                   : 16x
+        Bridge Chip
+            Type                          : N/A
+            Firmware                      : N/A
+        Replays Since Reset               : 0
+        Replay Number Rollovers           : 0
+        Tx Throughput                     : 350 KB/s
+        Rx Throughput                     : 350 KB/s
+        Atomic Caps Inbound               : N/A
+        Atomic Caps Outbound              : N/A
+    Fan Speed                             : N/A
+    Performance State                     : P0
+    Clocks Event Reasons
+        Idle                              : Active
+        Applications Clocks Setting       : Not Active
+        SW Power Cap                      : Not Active
+        HW Slowdown                       : Not Active
+            HW Thermal Slowdown           : Not Active
+            HW Power Brake Slowdown       : Not Active
+        Sync Boost                        : Not Active
+        SW Thermal Slowdown               : Not Active
+        Display Clock Setting             : Not Active
+    Sparse Operation Mode                 : N/A
+    FB Memory Usage
+        Total                             : 24576 MiB
+        Reserved                          : 527 MiB
+        Used                              : 1 MiB
+        Free                              : 24050 MiB
+    BAR1 Memory Usage
+        Total                             : 32768 MiB
+        Used                              : 1 MiB
+        Free                              : 32767 MiB
+    Conf Compute Protected Memory Usage
+        Total                             : 0 MiB
+        Used                              : 0 MiB
+        Free                              : 0 MiB
+    Compute Mode                          : Default
+    Utilization
+        Gpu                               : 0 %
+        Memory                            : 0 %
+        Encoder                           : 0 %
+        Decoder                           : 0 %
+        JPEG                              : 0 %
+        OFA                               : 0 %
+    Encoder Stats
+        Active Sessions                   : 0
+        Average FPS                       : 0
+        Average Latency                   : 0
+    FBC Stats
+        Active Sessions                   : 0
+        Average FPS                       : 0
+        Average Latency                   : 0
+    ECC Mode
+        Current                           : Enabled
+        Pending                           : Enabled
+    ECC Errors
+        Volatile
+            SRAM Correctable              : 0
+            SRAM Uncorrectable Parity     : 0
+            SRAM Uncorrectable SEC-DED    : 0
+            DRAM Correctable              : 0
+            DRAM Uncorrectable            : 0
+        Aggregate
+            SRAM Correctable              : 0
+            SRAM Uncorrectable Parity     : 0
+            SRAM Uncorrectable SEC-DED    : 0
+            DRAM Correctable              : 0
+            DRAM Uncorrectable            : 0
+            SRAM Threshold Exceeded       : No
+        Aggregate Uncorrectable SRAM Sources
+            SRAM L2                       : 0
+            SRAM SM                       : 0
+            SRAM Microcontroller          : 0
+            SRAM PCIE                     : 0
+            SRAM Other                    : 0
+    Retired Pages
+        Single Bit ECC                    : N/A
+        Double Bit ECC                    : N/A
+        Pending Page Blacklist            : N/A
+    Remapped Rows
+        Correctable Error                 : 0
+        Uncorrectable Error               : 0
+        Pending                           : No
+        Remapping Failure Occurred        : No
+        Bank Remap Availability Histogram
+            Max                           : 384 bank(s)
+            High                          : 0 bank(s)
+            Partial                       : 0 bank(s)
+            Low                           : 0 bank(s)
+            None                          : 0 bank(s)
+    Temperature
+        GPU Current Temp                  : 30 C
+        GPU T.Limit Temp                  : N/A
+        GPU Shutdown Temp                 : 100 C
+        GPU Slowdown Temp                 : 97 C
+        GPU Max Operating Temp            : 90 C
+        GPU Target Temperature            : N/A
+        Memory Current Temp               : 30 C
+        Memory Max Operating Temp         : 95 C
+    GPU Power Readings
+        Power Draw                        : 53.50 W
+        Current Power Limit               : 165.00 W
+        Requested Power Limit             : 165.00 W
+        Default Power Limit               : 165.00 W
+        Min Power Limit                   : 100.00 W
+        Max Power Limit                   : 165.00 W
+    GPU Memory Power Readings 
+        Power Draw                        : N/A
+    Module Power Readings
+        Power Draw                        : N/A
+        Current Power Limit               : N/A
+        Requested Power Limit             : N/A
+        Default Power Limit               : N/A
+        Min Power Limit                   : N/A
+        Max Power Limit                   : N/A
+    Clocks
+        Graphics                          : 1440 MHz
+        SM                                : 1440 MHz
+        Memory                            : 1215 MHz
+        Video                             : 1305 MHz
+    Applications Clocks
+        Graphics                          : 930 MHz
+        Memory                            : 1215 MHz
+    Default Applications Clocks
+        Graphics                          : 930 MHz
+        Memory                            : 1215 MHz
+    Deferred Clocks
+        Memory                            : N/A
+    Max Clocks
+        Graphics                          : 1440 MHz
+        SM                                : 1440 MHz
+        Memory                            : 1215 MHz
+        Video                             : 1305 MHz
+    Max Customer Boost Clocks
+        Graphics                          : 1440 MHz
+    Clock Policy
+        Auto Boost                        : N/A
+        Auto Boost Default                : N/A
+    Voltage
+        Graphics                          : 906.250 mV
+    Fabric
+        State                             : N/A
+        Status                            : N/A
+        CliqueId                          : N/A
+        ClusterUUID                       : N/A
+        Health
+            Bandwidth                     : N/A
+    Processes                             : None
+
+
+--- nvidia-smi topo -m (interconnect matrix + CPU/NUMA affinity) ---
+	[4mGPU0	GPU1	GPU2	GPU3	CPU Affinity	NUMA Affinity	GPU NUMA ID[0m
+GPU0	 X 	NODE	SYS	SYS		0		N/A
+GPU1	NODE	 X 	SYS	SYS		0		N/A
+GPU2	SYS	SYS	 X 	NODE	8,24	1		N/A
+GPU3	SYS	SYS	NODE	 X 	8,24	1		N/A
+
+Legend:
+
+  X    = Self
+  SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)
+  NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node
+  PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)
+  PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)
+  PIX  = Connection traversing at most a single PCIe bridge
+  NV#  = Connection traversing a bonded set of # NVLinks
+
+
+==============================================================================
+== GPU device properties via CUDA runtime (compute capability, SM count, memory bus, theoretical bandwidth)
+==============================================================================
+cudaGetDeviceCount() = 4
+
+GPU 0: NVIDIA A30
+  compute capability      : 8.0
+  multiProcessorCount (SM): 56
+  totalGlobalMem           : 23.49 GiB
+  memoryBusWidth           : 3072 bits
+  memoryClockRate          : 1215 MHz
+  theoretical peak mem BW  : 933.1 GB/s
+  l2CacheSize              : 24576 KiB
+  sharedMemPerBlock        : 48 KiB
+  sharedMemPerMultiprocessor: 164 KiB
+  regsPerMultiprocessor    : 65536
+  warpSize                 : 32
+  maxThreadsPerBlock       : 1024
+  maxThreadsPerMultiProc   : 2048
+  clockRate (SM)           : 1440 MHz
+  pciBusID:pciDeviceID     : 17:00.0
+  pciDomainID              : 0
+  ECCEnabled               : 1
+  unifiedAddressing        : 1
+  concurrentKernels        : 1
+  asyncEngineCount         : 3
+
+GPU 1: NVIDIA A30
+  compute capability      : 8.0
+  multiProcessorCount (SM): 56
+  totalGlobalMem           : 23.49 GiB
+  memoryBusWidth           : 3072 bits
+  memoryClockRate          : 1215 MHz
+  theoretical peak mem BW  : 933.1 GB/s
+  l2CacheSize              : 24576 KiB
+  sharedMemPerBlock        : 48 KiB
+  sharedMemPerMultiprocessor: 164 KiB
+  regsPerMultiprocessor    : 65536
+  warpSize                 : 32
+  maxThreadsPerBlock       : 1024
+  maxThreadsPerMultiProc   : 2048
+  clockRate (SM)           : 1440 MHz
+  pciBusID:pciDeviceID     : 4b:00.0
+  pciDomainID              : 0
+  ECCEnabled               : 1
+  unifiedAddressing        : 1
+  concurrentKernels        : 1
+  asyncEngineCount         : 3
+
+GPU 2: NVIDIA A30
+  compute capability      : 8.0
+  multiProcessorCount (SM): 56
+  totalGlobalMem           : 23.49 GiB
+  memoryBusWidth           : 3072 bits
+  memoryClockRate          : 1215 MHz
+  theoretical peak mem BW  : 933.1 GB/s
+  l2CacheSize              : 24576 KiB
+  sharedMemPerBlock        : 48 KiB
+  sharedMemPerMultiprocessor: 164 KiB
+  regsPerMultiprocessor    : 65536
+  warpSize                 : 32
+  maxThreadsPerBlock       : 1024
+  maxThreadsPerMultiProc   : 2048
+  clockRate (SM)           : 1440 MHz
+  pciBusID:pciDeviceID     : 98:00.0
+  pciDomainID              : 0
+  ECCEnabled               : 1
+  unifiedAddressing        : 1
+  concurrentKernels        : 1
+  asyncEngineCount         : 3
+
+GPU 3: NVIDIA A30
+  compute capability      : 8.0
+  multiProcessorCount (SM): 56
+  totalGlobalMem           : 23.49 GiB
+  memoryBusWidth           : 3072 bits
+  memoryClockRate          : 1215 MHz
+  theoretical peak mem BW  : 933.1 GB/s
+  l2CacheSize              : 24576 KiB
+  sharedMemPerBlock        : 48 KiB
+  sharedMemPerMultiprocessor: 164 KiB
+  regsPerMultiprocessor    : 65536
+  warpSize                 : 32
+  maxThreadsPerBlock       : 1024
+  maxThreadsPerMultiProc   : 2048
+  clockRate (SM)           : 1440 MHz
+  pciBusID:pciDeviceID     : b1:00.0
+  pciDomainID              : 0
+  ECCEnabled               : 1
+  unifiedAddressing        : 1
+  concurrentKernels        : 1
+  asyncEngineCount         : 3
+
+
+==============================================================================
+== PCIe topology
+==============================================================================
+--- lspci -tv (bus tree) ---
+-+-[0000:ff]-+-00.0  Intel Corporation Device 344c
+ |           +-00.1  Intel Corporation Device 344c
+ |           +-00.2  Intel Corporation Device 344c
+ |           +-00.3  Intel Corporation Device 344c
+ |           +-00.4  Intel Corporation Device 344c
+ |           +-00.5  Intel Corporation Device 344c
+ |           +-00.6  Intel Corporation Device 344c
+ |           +-00.7  Intel Corporation Device 344c
+ |           +-0a.0  Intel Corporation Device 344d
+ |           +-0a.1  Intel Corporation Device 344d
+ |           +-0a.2  Intel Corporation Device 344d
+ |           +-0a.3  Intel Corporation Device 344d
+ |           +-0a.4  Intel Corporation Device 344d
+ |           +-0a.5  Intel Corporation Device 344d
+ |           +-0a.6  Intel Corporation Device 344d
+ |           +-0a.7  Intel Corporation Device 344d
+ |           +-1d.0  Intel Corporation Device 344f
+ |           +-1d.1  Intel Corporation Device 3457
+ |           +-1e.0  Intel Corporation Device 3458
+ |           +-1e.1  Intel Corporation Device 3459
+ |           +-1e.2  Intel Corporation Device 345a
+ |           +-1e.3  Intel Corporation Device 345b
+ |           +-1e.4  Intel Corporation Device 345c
+ |           +-1e.5  Intel Corporation Device 345d
+ |           +-1e.6  Intel Corporation Device 345e
+ |           \-1e.7  Intel Corporation Device 345f
+ +-[0000:fe]-+-00.0  Intel Corporation Device 3450
+ |           +-00.1  Intel Corporation Device 3451
+ |           +-00.2  Intel Corporation Device 3452
+ |           +-00.3  Intel Corporation Ice Lake IEH
+ |           +-00.5  Intel Corporation Device 3455
+ |           +-02.0  Intel Corporation Ice Lake UPI Misc
+ |           +-02.1  Intel Corporation Ice Lake UPI Link/Phy0
+ |           +-02.2  Intel Corporation Device 3442
+ |           +-04.0  Intel Corporation Ice Lake UPI Misc
+ |           +-04.1  Intel Corporation Ice Lake UPI Link/Phy0
+ |           +-04.2  Intel Corporation Device 3442
+ |           +-04.3  Intel Corporation Device 3443
+ |           +-05.0  Intel Corporation Device 3445
+ |           +-05.1  Intel Corporation Device 3446
+ |           +-05.2  Intel Corporation Device 3447
+ |           +-06.0  Intel Corporation Device 3445
+ |           +-06.1  Intel Corporation Device 3446
+ |           +-06.2  Intel Corporation Device 3447
+ |           +-07.0  Intel Corporation Device 3445
+ |           +-07.1  Intel Corporation Device 3446
+ |           +-07.2  Intel Corporation Device 3447
+ |           +-0b.0  Intel Corporation Device 3448
+ |           +-0b.1  Intel Corporation Device 3448
+ |           +-0b.2  Intel Corporation Device 344b
+ |           +-0c.0  Intel Corporation Device 344a
+ |           +-0d.0  Intel Corporation Device 344a
+ |           +-0e.0  Intel Corporation Device 344a
+ |           +-0f.0  Intel Corporation Device 344a
+ |           +-1a.0  Intel Corporation Device 2880
+ |           +-1b.0  Intel Corporation Device 2880
+ |           +-1c.0  Intel Corporation Device 2880
+ |           \-1d.0  Intel Corporation Device 2880
+ +-[0000:e2]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           \-00.4  Intel Corporation Ice Lake IEH
+ +-[0000:c9]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           \-00.4  Intel Corporation Ice Lake IEH
+ +-[0000:b0]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           +-00.4  Intel Corporation Ice Lake IEH
+ |           \-02.0-[b1]----00.0  NVIDIA Corporation GA100GL [A30 PCIe]
+ +-[0000:97]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           +-00.4  Intel Corporation Ice Lake IEH
+ |           \-02.0-[98]----00.0  NVIDIA Corporation GA100GL [A30 PCIe]
+ +-[0000:80]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           +-00.4  Intel Corporation Ice Lake IEH
+ |           +-01.0  Intel Corporation Ice Lake CBDMA [QuickData Technology]
+ |           +-01.1  Intel Corporation Ice Lake CBDMA [QuickData Technology]
+ |           +-01.2  Intel Corporation Ice Lake CBDMA [QuickData Technology]
+ |           +-01.3  Intel Corporation Ice Lake CBDMA [QuickData Technology]
+ |           +-01.4  Intel Corporation Ice Lake CBDMA [QuickData Technology]
+ |           +-01.5  Intel Corporation Ice Lake CBDMA [QuickData Technology]
+ |           +-01.6  Intel Corporation Ice Lake CBDMA [QuickData Technology]
+ |           +-01.7  Intel Corporation Ice Lake CBDMA [QuickData Technology]
+ |           +-02.0  Intel Corporation Ice Lake MSM
+ |           +-02.1  Intel Corporation Ice Lake PMON MSM
+ |           \-02.4  Intel Corporation Ice Lake NorthPeak
+ +-[0000:7f]-+-00.0  Intel Corporation Device 344c
+ |           +-00.1  Intel Corporation Device 344c
+ |           +-00.2  Intel Corporation Device 344c
+ |           +-00.3  Intel Corporation Device 344c
+ |           +-00.4  Intel Corporation Device 344c
+ |           +-00.5  Intel Corporation Device 344c
+ |           +-00.6  Intel Corporation Device 344c
+ |           +-00.7  Intel Corporation Device 344c
+ |           +-0a.0  Intel Corporation Device 344d
+ |           +-0a.1  Intel Corporation Device 344d
+ |           +-0a.2  Intel Corporation Device 344d
+ |           +-0a.3  Intel Corporation Device 344d
+ |           +-0a.4  Intel Corporation Device 344d
+ |           +-0a.5  Intel Corporation Device 344d
+ |           +-0a.6  Intel Corporation Device 344d
+ |           +-0a.7  Intel Corporation Device 344d
+ |           +-1d.0  Intel Corporation Device 344f
+ |           +-1d.1  Intel Corporation Device 3457
+ |           +-1e.0  Intel Corporation Device 3458
+ |           +-1e.1  Intel Corporation Device 3459
+ |           +-1e.2  Intel Corporation Device 345a
+ |           +-1e.3  Intel Corporation Device 345b
+ |           +-1e.4  Intel Corporation Device 345c
+ |           +-1e.5  Intel Corporation Device 345d
+ |           +-1e.6  Intel Corporation Device 345e
+ |           \-1e.7  Intel Corporation Device 345f
+ +-[0000:7e]-+-00.0  Intel Corporation Device 3450
+ |           +-00.1  Intel Corporation Device 3451
+ |           +-00.2  Intel Corporation Device 3452
+ |           +-00.3  Intel Corporation Ice Lake IEH
+ |           +-00.5  Intel Corporation Device 3455
+ |           +-02.0  Intel Corporation Ice Lake UPI Misc
+ |           +-02.1  Intel Corporation Ice Lake UPI Link/Phy0
+ |           +-02.2  Intel Corporation Device 3442
+ |           +-04.0  Intel Corporation Ice Lake UPI Misc
+ |           +-04.1  Intel Corporation Ice Lake UPI Link/Phy0
+ |           +-04.2  Intel Corporation Device 3442
+ |           +-04.3  Intel Corporation Device 3443
+ |           +-05.0  Intel Corporation Device 3445
+ |           +-05.1  Intel Corporation Device 3446
+ |           +-05.2  Intel Corporation Device 3447
+ |           +-06.0  Intel Corporation Device 3445
+ |           +-06.1  Intel Corporation Device 3446
+ |           +-06.2  Intel Corporation Device 3447
+ |           +-07.0  Intel Corporation Device 3445
+ |           +-07.1  Intel Corporation Device 3446
+ |           +-07.2  Intel Corporation Device 3447
+ |           +-0b.0  Intel Corporation Device 3448
+ |           +-0b.1  Intel Corporation Device 3448
+ |           +-0b.2  Intel Corporation Device 344b
+ |           +-0c.0  Intel Corporation Device 344a
+ |           +-0d.0  Intel Corporation Device 344a
+ |           +-0e.0  Intel Corporation Device 344a
+ |           +-0f.0  Intel Corporation Device 344a
+ |           +-1a.0  Intel Corporation Device 2880
+ |           +-1b.0  Intel Corporation Device 2880
+ |           +-1c.0  Intel Corporation Device 2880
+ |           \-1d.0  Intel Corporation Device 2880
+ +-[0000:64]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           \-00.4  Intel Corporation Ice Lake IEH
+ +-[0000:4a]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           +-00.4  Intel Corporation Ice Lake IEH
+ |           \-02.0-[4b]----00.0  NVIDIA Corporation GA100GL [A30 PCIe]
+ +-[0000:30]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           +-00.4  Intel Corporation Ice Lake IEH
+ |           +-02.0-[31]--
+ |           \-03.0-[32]----00.0  KIOXIA Corporation NVMe SSD Controller Cx6
+ +-[0000:16]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+ |           +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+ |           +-00.2  Intel Corporation Ice Lake RAS
+ |           +-00.4  Intel Corporation Ice Lake IEH
+ |           \-02.0-[17]----00.0  NVIDIA Corporation GA100GL [A30 PCIe]
+ \-[0000:00]-+-00.0  Intel Corporation Ice Lake Memory Map/VT-d
+             +-00.1  Intel Corporation Ice Lake Mesh 2 PCIe
+             +-00.2  Intel Corporation Ice Lake RAS
+             +-00.4  Intel Corporation Ice Lake IEH
+             +-01.0  Intel Corporation Ice Lake CBDMA [QuickData Technology]
+             +-01.1  Intel Corporation Ice Lake CBDMA [QuickData Technology]
+             +-01.2  Intel Corporation Ice Lake CBDMA [QuickData Technology]
+             +-01.3  Intel Corporation Ice Lake CBDMA [QuickData Technology]
+             +-01.4  Intel Corporation Ice Lake CBDMA [QuickData Technology]
+             +-01.5  Intel Corporation Ice Lake CBDMA [QuickData Technology]
+             +-01.6  Intel Corporation Ice Lake CBDMA [QuickData Technology]
+             +-01.7  Intel Corporation Ice Lake CBDMA [QuickData Technology]
+             +-02.0  Intel Corporation Ice Lake MSM
+             +-02.1  Intel Corporation Ice Lake PMON MSM
+             +-02.4  Intel Corporation Ice Lake NorthPeak
+             +-11.0  Intel Corporation C620 Series Chipset Family MROM 0
+             +-14.0  Intel Corporation C620 Series Chipset Family USB 3.0 xHCI Controller
+             +-14.2  Intel Corporation C620 Series Chipset Family Thermal Subsystem
+             +-16.0  Intel Corporation C620 Series Chipset Family MEI Controller #1
+             +-16.1  Intel Corporation C620 Series Chipset Family MEI Controller #2
+             +-16.4  Intel Corporation C620 Series Chipset Family MEI Controller #3
+             +-17.0  Intel Corporation C620 Series Chipset Family SATA Controller [AHCI mode]
+             +-1c.0-[01]--
+             +-1c.4-[02]--
+             +-1c.5-[03-04]----00.0-[04]----00.0  ASPEED Technology, Inc. ASPEED Graphics Family
+             +-1d.0-[05]--+-00.0  Intel Corporation Ethernet Controller 10-Gigabit X540-AT2
+             |            \-00.1  Intel Corporation Ethernet Controller 10-Gigabit X540-AT2
+             +-1f.0  Intel Corporation Device a1cb
+             +-1f.2  Intel Corporation C620 Series Chipset Family Power Management Controller
+             +-1f.4  Intel Corporation C620 Series Chipset Family SMBus
+             \-1f.5  Intel Corporation C620 Series Chipset Family SPI Controller
+
+--- lspci NVIDIA devices, verbose (LnkCap/LnkSta = PCIe gen/width capable vs. actually negotiated) ---
+17:00.0 3D controller: NVIDIA Corporation GA100GL [A30 PCIe] (rev a1)
+4b:00.0 3D controller: NVIDIA Corporation GA100GL [A30 PCIe] (rev a1)
+98:00.0 3D controller: NVIDIA Corporation GA100GL [A30 PCIe] (rev a1)
+b1:00.0 3D controller: NVIDIA Corporation GA100GL [A30 PCIe] (rev a1)
+
+
+==============================================================================
+== Network / interconnect fabric
+==============================================================================
+--- ip -brief addr ---
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eno1             UP             10.205.3.101/24 fe80::3eec:efff:fefa:5512/64 
+eno2             UP             192.168.125.13/24 fe80::3eec:efff:fefa:5513/64 
+
+--- ip -brief link ---
+lo               UNKNOWN        00:00:00:00:00:00 <LOOPBACK,UP,LOWER_UP> 
+eno1             UP             3c:ec:ef:fa:55:12 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+eno2             UP             3c:ec:ef:fa:55:13 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+
+--- InfiniBand devices (ibstat) ---
+
+--- InfiniBand devices (ibv_devinfo) ---
+/var/spool/slurmd/job1518388/slurm_script: line 72: ibv_devinfo: command not found
+(command failed or not available: ibv_devinfo)
+
+--- RDMA links (rdma link) ---
+Failed to open NETLINK_RDMA socket
+(command failed or not available: rdma link)
+
+NOTE: this project's jobs request --nodes=1 (single node, edu01, 4 local
+GPUs) -- if no IB/RDMA devices are listed above, no multi-node fabric is
+exercised by any driver in this project; all communication measured
+throughout (MPI/NCCL) happens over the intra-node PCIe topology profiled
+above, not a cluster interconnect.
+
+
+==============================================================================
+== Software stack versions
+==============================================================================
+--- nvcc --version ---
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2023 NVIDIA Corporation
+Built on Wed_Nov_22_10:17:15_PST_2023
+Cuda compilation tools, release 12.3, V12.3.107
+Build cuda_12.3.r12.3/compiler.33567101_0
+
+--- mpirun --version ---
+mpirun (Open MPI) 4.1.5
+
+Report bugs to http://www.open-mpi.org/community/help/
+
+--- ompi_info -v ompi full (build config summary) ---
+                 Package: Open MPI tech@stivo Distribution
+                Open MPI: 4.1.5
+  Open MPI repo revision: v4.1.5
+   Open MPI release date: Feb 23, 2023
+                Open RTE: 4.1.5
+  Open RTE repo revision: v4.1.5
+   Open RTE release date: Feb 23, 2023
+                    OPAL: 4.1.5
+      OPAL repo revision: v4.1.5
+       OPAL release date: Feb 23, 2023
+                 MPI API: 3.1.0
+            Ident string: 4.1.5
+                  Prefix: /opt/shares/openmpi-4.1.5-cuda-12.3.2
+ Configured architecture: x86_64-pc-linux-gnu
+          Configure host: stivo
+           Configured by: tech
+           Configured on: Mon Jun 16 14:39:11 UTC 2025
+          Configure host: stivo
+  Configure command line: '--with-slurm' '--with-cuda=/opt/shares/cuda/software/CUDA/12.3.2/targets/x86_64-linux' '--prefix=/opt/shares/openmpi-4.1.5-cuda-12.3.2'
+                Built by: tech
+                Built on: Mon Jun 16 02:54:07 PM UTC 2025
+              Built host: stivo
+              C bindings: yes
+            C++ bindings: no
+             Fort mpif.h: yes (all)
+            Fort use mpi: yes (full: ignore TKR)
+       Fort use mpi size: deprecated-ompi-info-value
+        Fort use mpi_f08: yes
+ Fort mpi_f08 compliance: The mpi_f08 module is available, but due to limitations in the gfortran compiler and/or Open MPI, does not support the following: array subsections, direct passthru (where possible) to underlying Open MPI's C functionality
+  Fort mpi_f08 subarrays: no
+
+--- gcc --version ---
+gcc (GCC) 11.4.1 20230605 (Red Hat 11.4.1-2)
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+--- cmake --version ---
+cmake version 3.26.5
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+
+--- NCCL headers/version ---
+/opt/shares/NVHPC/nvhpc_2024_247_Linux_x86_64_cuda_12.5/install_components/Linux_x86_64/24.7/comm_libs/12.5/nccl/include/nccl.h
+#define NCCL_MAJOR 2
+#define NCCL_MINOR 18
+#define NCCL_PATCH 5
+  NCCL_VERSION(NCCL_MAJOR, NCCL_MINOR, NCCL_PATCH), /* version */       \
+/opt/shares/NVHPC/nvhpc_24.7_cuda_12.5/Linux_x86_64/24.7/comm_libs/12.5/nccl/include/nccl.h
+#define NCCL_MAJOR 2
+#define NCCL_MINOR 18
+#define NCCL_PATCH 5
+  NCCL_VERSION(NCCL_MAJOR, NCCL_MINOR, NCCL_PATCH), /* version */       \
+
+--- loaded environment modules ---
+Currently Loaded Modulefiles:
+ 1) CUDA/12.3.2   2) OpenMpi/4.1.5-CUDA-12.3.2  
+
+
+==============================================================================
+== SLURM view of this node
+==============================================================================
+--- scontrol show node edu01 ---
+NodeName=edu01 Arch=x86_64 CpuBind=threads CoresPerSocket=8 
+   CPUAlloc=2 CPUEfctv=32 CPUTot=32 CPULoad=3.24
+   AvailableFeatures=(null)
+   ActiveFeatures=(null)
+   Gres=gpu:a30.24:4
+   NodeAddr=edu01 NodeHostName=edu01 Version=25.05.2
+   OS=Linux 5.14.0-503.35.1.el9_5.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Apr 3 12:12:16 UTC 2025 
+   RealMemory=250000 AllocMem=14336 FreeMem=174509 Sockets=2 Boards=1
+   State=MIXED+PLANNED ThreadsPerCore=2 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A
+   Partitions=admin,edu-short,edu-medium,edu-long,edu-thesis 
+   BootTime=2026-05-15T12:07:20 SlurmdStartTime=2026-05-15T12:08:00
+   LastBusyTime=2026-07-24T15:23:52 ResumeAfterTime=None
+   CfgTRES=cpu=32,mem=250000M,billing=23,gres/gpu=4,gres/gpu:a30.24=4
+   AllocTRES=cpu=2,mem=14G,gres/gpu=4,gres/gpu:a30.24=4
+   CurrentWatts=0 AveWatts=0
+
+
+--- sinfo -N -l -n edu01 ---
+Fri Jul 24 15:25:19 2026
+NODELIST   NODES  PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON              
+edu01          1      admin      mixed- 32      2:8:2 250000        0      1   (null) none                
+edu01          1  edu-short      mixed- 32      2:8:2 250000        0      1   (null) none                
+edu01          1 edu-medium      mixed- 32      2:8:2 250000        0      1   (null) none                
+edu01          1   edu-long      mixed- 32      2:8:2 250000        0      1   (null) none                
+edu01          1 edu-thesis      mixed- 32      2:8:2 250000        0      1   (null) none                
+
+
+==============================================================================
+== Filesystem (matrix storage capacity)
+==============================================================================
+--- df -h on repo root and /tmp ---
+Filesystem                                             Size  Used Avail Use% Mounted on
+nfs-hpc.storage.unitn.it:/vol_DISI_clusterGPU_home_FG   20T   19T  631G  97% /home
+/dev/sda4                                              429G   20G  410G   5% /
+
+
+=== Job done ===

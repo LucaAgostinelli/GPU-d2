@@ -1,0 +1,85 @@
+=== D2_final intelligent-partitioning (RCM, cuSPARSE) small-matrix check ===
+Node:     edu01
+Date:     Thu Jul 23 01:55:57 PM CEST 2026
+Matrix:   ../matrices/poisson3Da.mtx
+Reps:     3
+
+--- P=1 rep=1/3 driver=spmv_rcm_nccl_cusparse ---
+Loaded ../matrices/poisson3Da.mtx: 13514 x 13514, 352762 nnz
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=1 rank=0 nrows_local=13514 ncols_global=13514 nnz_local=352762 n_ghost=0 compute_avg_ms=0.022938 compute_min_ms=0.022528 compute_max_ms=0.023552 compute_var_ms=0.000000252 compute_gflops=30.758405 eff_bw_gbs=130.103758 pct_peak_bw=13.9429 comm_avg_ms=0.001054 comm_min_ms=0.001009 comm_max_ms=0.001212 comm_var_ms=0.000000002 total_avg_ms=0.023992 total_min_ms=0.023538 total_max_ms=0.024690 total_var_ms=0.000000256 effective_gflops=29.407044
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/3 driver=spmv_rcm_nccl_cusparse ---
+Loaded ../matrices/poisson3Da.mtx: 13514 x 13514, 352762 nnz
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=2 rank=1 nrows_local=6451 ncols_global=13514 nnz_local=176363 n_ghost=2320 compute_avg_ms=0.019866 compute_min_ms=0.019456 compute_max_ms=0.023552 compute_var_ms=0.000000741 compute_gflops=17.755618 eff_bw_gbs=75.386601 pct_peak_bw=8.0790 comm_avg_ms=0.040803 comm_min_ms=0.039022 comm_max_ms=0.045461 comm_var_ms=0.000001726 total_avg_ms=0.060669 total_min_ms=0.058478 total_max_ms=0.064917 total_var_ms=0.000001972 effective_gflops=5.813935
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=2 rank=0 nrows_local=7063 ncols_global=13514 nnz_local=176399 n_ghost=1087 compute_avg_ms=0.019217 compute_min_ms=0.018432 compute_max_ms=0.020480 compute_var_ms=0.000000327 compute_gflops=18.358577 eff_bw_gbs=78.071230 pct_peak_bw=8.3667 comm_avg_ms=0.038917 comm_min_ms=0.037380 comm_max_ms=0.045451 comm_var_ms=0.000003575 total_avg_ms=0.058134 total_min_ms=0.056532 total_max_ms=0.064400 total_var_ms=0.000003331 effective_gflops=6.068679
+[ERROR CHECKING] OK!
+
+--- P=3 rep=1/3 driver=spmv_rcm_nccl_cusparse ---
+Loaded ../matrices/poisson3Da.mtx: 13514 x 13514, 352762 nnz
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=3 rank=0 nrows_local=4830 ncols_global=13514 nnz_local=117613 n_ghost=1120 compute_avg_ms=0.018534 compute_min_ms=0.017408 compute_max_ms=0.020480 compute_var_ms=0.000000304 compute_gflops=12.691320 eff_bw_gbs=54.134365 pct_peak_bw=5.8014 comm_avg_ms=0.034956 comm_min_ms=0.033623 comm_max_ms=0.043838 comm_var_ms=0.000003274 total_avg_ms=0.053490 total_min_ms=0.051073 total_max_ms=0.064318 total_var_ms=0.000004863 effective_gflops=4.397556
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=3 rank=1 nrows_local=4401 ncols_global=13514 nnz_local=117578 n_ghost=3033 compute_avg_ms=0.019524 compute_min_ms=0.018432 compute_max_ms=0.021504 compute_var_ms=0.000000764 compute_gflops=12.044294 eff_bw_gbs=51.503702 pct_peak_bw=5.5195 comm_avg_ms=0.043129 comm_min_ms=0.040026 comm_max_ms=0.067525 comm_var_ms=0.000023963 total_avg_ms=0.062653 total_min_ms=0.058886 total_max_ms=0.088005 total_var_ms=0.000026339 effective_gflops=3.753316
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=3 rank=2 nrows_local=4283 ncols_global=13514 nnz_local=117571 n_ghost=2107 compute_avg_ms=0.074513 compute_min_ms=0.017408 compute_max_ms=1.715200 compute_var_ms=0.092822786 compute_gflops=3.155715 eff_bw_gbs=13.425780 pct_peak_bw=1.4388 comm_avg_ms=0.037337 comm_min_ms=0.035601 comm_max_ms=0.045561 comm_var_ms=0.000002734 total_avg_ms=0.111850 total_min_ms=0.053443 total_max_ms=1.752057 total_var_ms=0.092771473 effective_gflops=2.102295
+[ERROR CHECKING] OK!
+
+--- P=4 rep=1/3 driver=spmv_rcm_nccl_cusparse ---
+Loaded ../matrices/poisson3Da.mtx: 13514 x 13514, 352762 nnz
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=4 rank=0 nrows_local=3678 ncols_global=13514 nnz_local=88197 n_ghost=1038 compute_avg_ms=0.017886 compute_min_ms=0.017408 compute_max_ms=0.018432 compute_var_ms=0.000000261 compute_gflops=9.862200 eff_bw_gbs=42.148809 pct_peak_bw=4.5170 comm_avg_ms=0.039532 comm_min_ms=0.038512 comm_max_ms=0.041302 comm_var_ms=0.000000479 total_avg_ms=0.057418 total_min_ms=0.055941 total_max_ms=0.059292 total_var_ms=0.000000793 effective_gflops=3.072099
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=4 rank=1 nrows_local=3385 ncols_global=13514 nnz_local=88202 n_ghost=2935 compute_avg_ms=0.017783 compute_min_ms=0.017408 compute_max_ms=0.018432 compute_var_ms=0.000000244 compute_gflops=9.919551 eff_bw_gbs=42.622735 pct_peak_bw=4.5678 comm_avg_ms=0.044292 comm_min_ms=0.042758 comm_max_ms=0.047349 comm_var_ms=0.000001114 total_avg_ms=0.062075 total_min_ms=0.060166 total_max_ms=0.065781 total_var_ms=0.000001714 effective_gflops=2.841777
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=4 rank=2 nrows_local=3236 ncols_global=13514 nnz_local=88191 n_ghost=3063 compute_avg_ms=0.017271 compute_min_ms=0.016384 compute_max_ms=0.018432 compute_var_ms=0.000000191 compute_gflops=10.212335 eff_bw_gbs=43.807281 pct_peak_bw=4.6947 comm_avg_ms=0.047434 comm_min_ms=0.045725 comm_max_ms=0.049700 comm_var_ms=0.000001058 total_avg_ms=0.064705 total_min_ms=0.062626 total_max_ms=0.067108 total_var_ms=0.000001356 effective_gflops=2.725931
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=4 rank=3 nrows_local=3215 ncols_global=13514 nnz_local=88172 n_ghost=1663 compute_avg_ms=0.017783 compute_min_ms=0.017408 compute_max_ms=0.018432 compute_var_ms=0.000000244 compute_gflops=9.916177 eff_bw_gbs=42.208417 pct_peak_bw=4.5234 comm_avg_ms=0.039912 comm_min_ms=0.038835 comm_max_ms=0.041082 comm_var_ms=0.000000328 total_avg_ms=0.057696 total_min_ms=0.056383 total_max_ms=0.059514 total_var_ms=0.000000671 effective_gflops=3.056450
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_rcm_nccl_cusparse ---
+Loaded ../matrices/poisson3Da.mtx: 13514 x 13514, 352762 nnz
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=1 rank=0 nrows_local=13514 ncols_global=13514 nnz_local=352762 n_ghost=0 compute_avg_ms=0.022801 compute_min_ms=0.021504 compute_max_ms=0.023552 compute_var_ms=0.000000345 compute_gflops=30.942587 eff_bw_gbs=130.882823 pct_peak_bw=14.0264 comm_avg_ms=0.000991 comm_min_ms=0.000957 comm_max_ms=0.001079 comm_var_ms=0.000000001 total_avg_ms=0.023792 total_min_ms=0.022473 total_max_ms=0.024608 total_var_ms=0.000000343 effective_gflops=29.653293
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_rcm_nccl_cusparse ---
+Loaded ../matrices/poisson3Da.mtx: 13514 x 13514, 352762 nnz
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=2 rank=1 nrows_local=6451 ncols_global=13514 nnz_local=176363 n_ghost=2320 compute_avg_ms=0.020412 compute_min_ms=0.018432 compute_max_ms=0.021504 compute_var_ms=0.000000694 compute_gflops=17.280551 eff_bw_gbs=73.369567 pct_peak_bw=7.8628 comm_avg_ms=0.036035 comm_min_ms=0.034469 comm_max_ms=0.037812 comm_var_ms=0.000000431 total_avg_ms=0.056446 total_min_ms=0.054724 total_max_ms=0.058340 total_var_ms=0.000001277 effective_gflops=6.248877
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=2 rank=0 nrows_local=7063 ncols_global=13514 nnz_local=176399 n_ghost=1087 compute_avg_ms=0.020309 compute_min_ms=0.018432 compute_max_ms=0.021504 compute_var_ms=0.000000845 compute_gflops=17.371225 eff_bw_gbs=73.872441 pct_peak_bw=7.9167 comm_avg_ms=0.033449 comm_min_ms=0.032413 comm_max_ms=0.034994 comm_var_ms=0.000000325 total_avg_ms=0.053758 total_min_ms=0.051320 total_max_ms=0.056498 total_var_ms=0.000001474 effective_gflops=6.562674
+[ERROR CHECKING] OK!
+
+--- P=3 rep=2/3 driver=spmv_rcm_nccl_cusparse ---
+Loaded ../matrices/poisson3Da.mtx: 13514 x 13514, 352762 nnz
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=3 rank=0 nrows_local=4830 ncols_global=13514 nnz_local=117613 n_ghost=1120 compute_avg_ms=0.018671 compute_min_ms=0.017408 compute_max_ms=0.020480 compute_var_ms=0.000000887 compute_gflops=12.598513 eff_bw_gbs=53.738502 pct_peak_bw=5.7590 comm_avg_ms=0.034662 comm_min_ms=0.033483 comm_max_ms=0.036190 comm_var_ms=0.000000433 total_avg_ms=0.053333 total_min_ms=0.050891 total_max_ms=0.056670 total_var_ms=0.000002002 effective_gflops=4.410545
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=3 rank=1 nrows_local=4401 ncols_global=13514 nnz_local=117578 n_ghost=3033 compute_avg_ms=0.018705 compute_min_ms=0.018432 compute_max_ms=0.019456 compute_var_ms=0.000000205 compute_gflops=12.571781 eff_bw_gbs=53.759337 pct_peak_bw=5.7612 comm_avg_ms=0.042572 comm_min_ms=0.040314 comm_max_ms=0.068990 comm_var_ms=0.000025756 total_avg_ms=0.061277 total_min_ms=0.058746 total_max_ms=0.087422 total_var_ms=0.000025395 effective_gflops=3.837605
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=3 rank=2 nrows_local=4283 ncols_global=13514 nnz_local=117571 n_ghost=2107 compute_avg_ms=0.018091 compute_min_ms=0.017408 compute_max_ms=0.018432 compute_var_ms=0.000000233 compute_gflops=12.997973 eff_bw_gbs=55.299011 pct_peak_bw=5.9262 comm_avg_ms=0.036806 comm_min_ms=0.035890 comm_max_ms=0.038415 comm_var_ms=0.000000384 total_avg_ms=0.054897 total_min_ms=0.053630 total_max_ms=0.056527 total_var_ms=0.000000384 effective_gflops=4.283336
+[ERROR CHECKING] OK!
+
+--- P=4 rep=2/3 driver=spmv_rcm_nccl_cusparse ---
+Loaded ../matrices/poisson3Da.mtx: 13514 x 13514, 352762 nnz
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=4 rank=0 nrows_local=3678 ncols_global=13514 nnz_local=88197 n_ghost=1038 compute_avg_ms=0.017920 compute_min_ms=0.017408 compute_max_ms=0.018432 compute_var_ms=0.000000262 compute_gflops=9.843415 eff_bw_gbs=42.068526 pct_peak_bw=4.5084 comm_avg_ms=0.039368 comm_min_ms=0.037820 comm_max_ms=0.043898 comm_var_ms=0.000001414 total_avg_ms=0.057288 total_min_ms=0.055491 total_max_ms=0.061306 total_var_ms=0.000001226 effective_gflops=3.079099
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=4 rank=1 nrows_local=3385 ncols_global=13514 nnz_local=88202 n_ghost=2935 compute_avg_ms=0.018057 compute_min_ms=0.017408 compute_max_ms=0.018432 compute_var_ms=0.000000244 compute_gflops=9.769538 eff_bw_gbs=41.978156 pct_peak_bw=4.4987 comm_avg_ms=0.044772 comm_min_ms=0.043188 comm_max_ms=0.047942 comm_var_ms=0.000001235 total_avg_ms=0.062829 total_min_ms=0.060840 total_max_ms=0.066374 total_var_ms=0.000001648 effective_gflops=2.807687
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=4 rank=2 nrows_local=3236 ncols_global=13514 nnz_local=88191 n_ghost=3063 compute_avg_ms=0.017476 compute_min_ms=0.016384 compute_max_ms=0.018432 compute_var_ms=0.000000205 compute_gflops=10.092659 eff_bw_gbs=43.293914 pct_peak_bw=4.6397 comm_avg_ms=0.064376 comm_min_ms=0.045900 comm_max_ms=0.540960 comm_var_ms=0.007833625 total_avg_ms=0.081852 total_min_ms=0.063568 total_max_ms=0.558368 total_var_ms=0.007831637 effective_gflops=2.154888
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=4 rank=3 nrows_local=3215 ncols_global=13514 nnz_local=88172 n_ghost=1663 compute_avg_ms=0.018022 compute_min_ms=0.017408 compute_max_ms=0.019456 compute_var_ms=0.000000322 compute_gflops=9.784712 eff_bw_gbs=41.648836 pct_peak_bw=4.4634 comm_avg_ms=0.040257 comm_min_ms=0.039013 comm_max_ms=0.041970 comm_var_ms=0.000000461 total_avg_ms=0.058280 total_min_ms=0.056421 total_max_ms=0.059882 total_var_ms=0.000000887 effective_gflops=3.025820
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_rcm_nccl_cusparse ---
+Loaded ../matrices/poisson3Da.mtx: 13514 x 13514, 352762 nnz
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=1 rank=0 nrows_local=13514 ncols_global=13514 nnz_local=352762 n_ghost=0 compute_avg_ms=0.022596 compute_min_ms=0.021504 compute_max_ms=0.023552 compute_var_ms=0.000000485 compute_gflops=31.223034 eff_bw_gbs=132.069072 pct_peak_bw=14.1535 comm_avg_ms=0.000983 comm_min_ms=0.000950 comm_max_ms=0.001040 comm_var_ms=0.000000000 total_avg_ms=0.023579 total_min_ms=0.022459 total_max_ms=0.024573 total_var_ms=0.000000495 effective_gflops=29.921541
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_rcm_nccl_cusparse ---
+Loaded ../matrices/poisson3Da.mtx: 13514 x 13514, 352762 nnz
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=2 rank=1 nrows_local=6451 ncols_global=13514 nnz_local=176363 n_ghost=2320 compute_avg_ms=0.020821 compute_min_ms=0.019456 compute_max_ms=0.022528 compute_var_ms=0.000000932 compute_gflops=16.940606 eff_bw_gbs=71.926231 pct_peak_bw=7.7081 comm_avg_ms=0.036341 comm_min_ms=0.035083 comm_max_ms=0.038843 comm_var_ms=0.000000570 total_avg_ms=0.057163 total_min_ms=0.054539 total_max_ms=0.060347 total_var_ms=0.000001694 effective_gflops=6.170548
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=2 rank=0 nrows_local=7063 ncols_global=13514 nnz_local=176399 n_ghost=1087 compute_avg_ms=0.020070 compute_min_ms=0.018432 compute_max_ms=0.021504 compute_var_ms=0.000001440 compute_gflops=17.578025 eff_bw_gbs=74.751874 pct_peak_bw=8.0110 comm_avg_ms=0.033445 comm_min_ms=0.032246 comm_max_ms=0.034762 comm_var_ms=0.000000381 total_avg_ms=0.053515 total_min_ms=0.050678 total_max_ms=0.056266 total_var_ms=0.000002602 effective_gflops=6.592503
+[ERROR CHECKING] OK!
+
+--- P=3 rep=3/3 driver=spmv_rcm_nccl_cusparse ---
+Loaded ../matrices/poisson3Da.mtx: 13514 x 13514, 352762 nnz
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=3 rank=0 nrows_local=4830 ncols_global=13514 nnz_local=117613 n_ghost=1120 compute_avg_ms=0.018534 compute_min_ms=0.017408 compute_max_ms=0.019456 compute_var_ms=0.000000164 compute_gflops=12.691320 eff_bw_gbs=54.134365 pct_peak_bw=5.8014 comm_avg_ms=0.035644 comm_min_ms=0.033995 comm_max_ms=0.042344 comm_var_ms=0.000003346 total_avg_ms=0.054179 total_min_ms=0.052375 total_max_ms=0.060776 total_var_ms=0.000003301 effective_gflops=4.341680
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=3 rank=1 nrows_local=4401 ncols_global=13514 nnz_local=117578 n_ghost=3033 compute_avg_ms=0.018876 compute_min_ms=0.018432 compute_max_ms=0.019456 compute_var_ms=0.000000257 compute_gflops=12.458112 eff_bw_gbs=53.273268 pct_peak_bw=5.7092 comm_avg_ms=0.068866 comm_min_ms=0.040129 comm_max_ms=0.801268 comm_var_ms=0.018536854 total_avg_ms=0.087742 total_min_ms=0.058561 total_max_ms=0.819700 total_var_ms=0.018515851 effective_gflops=2.680085
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=3 rank=2 nrows_local=4283 ncols_global=13514 nnz_local=117571 n_ghost=2107 compute_avg_ms=0.017988 compute_min_ms=0.017408 compute_max_ms=0.019456 compute_var_ms=0.000000327 compute_gflops=13.071965 eff_bw_gbs=55.613806 pct_peak_bw=5.9600 comm_avg_ms=0.037768 comm_min_ms=0.036342 comm_max_ms=0.044866 comm_var_ms=0.000003912 total_avg_ms=0.055756 total_min_ms=0.053878 total_max_ms=0.064322 total_var_ms=0.000004722 effective_gflops=4.217342
+[ERROR CHECKING] OK!
+
+--- P=4 rep=3/3 driver=spmv_rcm_nccl_cusparse ---
+Loaded ../matrices/poisson3Da.mtx: 13514 x 13514, 352762 nnz
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=4 rank=1 nrows_local=3385 ncols_global=13514 nnz_local=88202 n_ghost=2935 compute_avg_ms=0.017886 compute_min_ms=0.017408 compute_max_ms=0.018432 compute_var_ms=0.000000261 compute_gflops=9.862759 eff_bw_gbs=42.378711 pct_peak_bw=4.5416 comm_avg_ms=0.044721 comm_min_ms=0.042928 comm_max_ms=0.054853 comm_var_ms=0.000004171 total_avg_ms=0.062607 total_min_ms=0.060336 total_max_ms=0.073285 total_var_ms=0.000004895 effective_gflops=2.817654
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=4 rank=2 nrows_local=3236 ncols_global=13514 nnz_local=88191 n_ghost=3063 compute_avg_ms=0.017306 compute_min_ms=0.016384 compute_max_ms=0.018432 compute_var_ms=0.000000514 compute_gflops=10.192192 eff_bw_gbs=43.720876 pct_peak_bw=4.6855 comm_avg_ms=0.047726 comm_min_ms=0.045781 comm_max_ms=0.058321 comm_var_ms=0.000005319 total_avg_ms=0.065032 total_min_ms=0.062516 total_max_ms=0.076753 total_var_ms=0.000006362 effective_gflops=2.712249
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=4 rank=0 nrows_local=3678 ncols_global=13514 nnz_local=88197 n_ghost=1038 compute_avg_ms=0.017886 compute_min_ms=0.017408 compute_max_ms=0.018432 compute_var_ms=0.000000261 compute_gflops=9.862200 eff_bw_gbs=42.148809 pct_peak_bw=4.5170 comm_avg_ms=0.039504 comm_min_ms=0.038313 comm_max_ms=0.044582 comm_var_ms=0.000001411 total_avg_ms=0.057390 total_min_ms=0.055721 total_max_ms=0.063014 total_var_ms=0.000001743 effective_gflops=3.073598
+RESULT comm=rcm_nccl kernel=cusparse matrix=poisson3Da.mtx P=4 rank=3 nrows_local=3215 ncols_global=13514 nnz_local=88172 n_ghost=1663 compute_avg_ms=0.017954 compute_min_ms=0.017408 compute_max_ms=0.018432 compute_var_ms=0.000000261 compute_gflops=9.821916 eff_bw_gbs=41.807196 pct_peak_bw=4.4804 comm_avg_ms=0.040512 comm_min_ms=0.038775 comm_max_ms=0.054134 comm_var_ms=0.000007039 total_avg_ms=0.058466 total_min_ms=0.056183 total_max_ms=0.072566 total_var_ms=0.000007781 effective_gflops=3.016182
+[ERROR CHECKING] OK!
+
+=== Job done ===

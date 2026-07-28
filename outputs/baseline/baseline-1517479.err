@@ -1,0 +1,5 @@
+Loaded ../matrices/webbase-1M.mtx: 1000005 x 1000005, nnz(file)=3105536, nnz(expanded)=3105536, symmetric=0, skew=0, pattern=0
+
+real	0m0.811s
+user	0m0.785s
+sys	0m0.019s

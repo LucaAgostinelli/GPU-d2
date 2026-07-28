@@ -1,0 +1,43 @@
+=== D2_final intelligent-partitioning (RCM) small-matrix check ===
+Node:     edu01
+Date:     Thu Jul 23 11:45:50 AM CEST 2026
+Matrix:   ../matrices/roadNet-CA.mtx
+Reps:     1
+
+--- P=1 rep=1/1 driver=spmv_rcm_nccl_acc ---
+Loaded ../matrices/roadNet-CA.mtx: 1971281 x 1971281, 5533214 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=5533214, avg_nnz=2.81, imbalance=4.28, V=1)
+RESULT comm=rcm_nccl kernel=acc matrix=roadNet-CA.mtx P=1 rank=0 nrows_local=1971281 ncols_global=1971281 nnz_local=5533214 n_ghost=0 compute_avg_ms=0.148719 compute_min_ms=0.147456 compute_max_ms=0.150528 compute_var_ms=0.000000327 compute_gflops=74.411696 eff_bw_gbs=456.707741 pct_peak_bw=48.9442 comm_avg_ms=0.000960 comm_min_ms=0.000913 comm_max_ms=0.001185 comm_var_ms=0.000000003 total_avg_ms=0.149679 total_min_ms=0.148373 total_max_ms=0.151503 total_var_ms=0.000000343 effective_gflops=73.934373
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/1 driver=spmv_rcm_nccl_acc ---
+Loaded ../matrices/roadNet-CA.mtx: 1971281 x 1971281, 5533214 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=2766607, avg_nnz=2.85, imbalance=4.21, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=2766607, avg_nnz=2.77, imbalance=3.25, V=1)
+RESULT comm=rcm_nccl kernel=acc matrix=roadNet-CA.mtx P=2 rank=0 nrows_local=971070 ncols_global=1971281 nnz_local=2766607 n_ghost=3107 compute_avg_ms=0.081647 compute_min_ms=0.077824 compute_max_ms=0.083968 compute_var_ms=0.000002302 compute_gflops=67.770018 eff_bw_gbs=413.954664 pct_peak_bw=44.3624 comm_avg_ms=0.045838 comm_min_ms=0.043527 comm_max_ms=0.047867 comm_var_ms=0.000001101 total_avg_ms=0.127485 total_min_ms=0.123192 total_max_ms=0.131835 total_var_ms=0.000004685 effective_gflops=43.402932
+RESULT comm=rcm_nccl kernel=acc matrix=roadNet-CA.mtx P=2 rank=1 nrows_local=1000211 ncols_global=1971281 nnz_local=2766607 n_ghost=4309 compute_avg_ms=0.083627 compute_min_ms=0.079872 compute_max_ms=0.084992 compute_var_ms=0.000001911 compute_gflops=66.165666 eff_bw_gbs=408.393996 pct_peak_bw=43.7665 comm_avg_ms=0.053321 comm_min_ms=0.051772 comm_max_ms=0.055217 comm_var_ms=0.000000832 total_avg_ms=0.136948 total_min_ms=0.131644 total_max_ms=0.139720 total_var_ms=0.000003288 effective_gflops=40.403887
+[ERROR CHECKING] OK!
+
+--- P=3 rep=1/1 driver=spmv_rcm_nccl_acc ---
+Loaded ../matrices/roadNet-CA.mtx: 1971281 x 1971281, 5533214 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=1844404, avg_nnz=2.84, imbalance=3.52, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1844406, avg_nnz=2.83, imbalance=4.24, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1844404, avg_nnz=2.75, imbalance=2.91, V=1)
+RESULT comm=rcm_nccl kernel=acc matrix=roadNet-CA.mtx P=3 rank=0 nrows_local=652318 ncols_global=1971281 nnz_local=1844406 n_ghost=4718 compute_avg_ms=0.057822 compute_min_ms=0.054272 compute_max_ms=0.059392 compute_var_ms=0.000002917 compute_gflops=63.796141 eff_bw_gbs=390.889138 pct_peak_bw=41.8906 comm_avg_ms=0.049556 comm_min_ms=0.046919 comm_max_ms=0.053935 comm_var_ms=0.000002884 total_avg_ms=0.107378 total_min_ms=0.102215 total_max_ms=0.112303 total_var_ms=0.000007652 effective_gflops=34.353656
+RESULT comm=rcm_nccl kernel=acc matrix=roadNet-CA.mtx P=3 rank=1 nrows_local=648623 ncols_global=1971281 nnz_local=1844404 n_ghost=9829 compute_avg_ms=0.059597 compute_min_ms=0.058368 compute_max_ms=0.060416 compute_var_ms=0.000000238 compute_gflops=61.896073 eff_bw_gbs=378.846304 pct_peak_bw=40.6000 comm_avg_ms=0.059382 comm_min_ms=0.057083 comm_max_ms=0.062442 comm_var_ms=0.000001176 total_avg_ms=0.118979 total_min_ms=0.116475 total_max_ms=0.122858 total_var_ms=0.000001333 effective_gflops=31.003883
+RESULT comm=rcm_nccl kernel=acc matrix=roadNet-CA.mtx P=3 rank=2 nrows_local=670340 ncols_global=1971281 nnz_local=1844404 n_ghost=4559 compute_avg_ms=0.057276 compute_min_ms=0.054272 compute_max_ms=0.060416 compute_var_ms=0.000003630 compute_gflops=64.404377 eff_bw_gbs=398.380787 pct_peak_bw=42.6934 comm_avg_ms=0.051573 comm_min_ms=0.049498 comm_max_ms=0.054451 comm_var_ms=0.000001517 total_avg_ms=0.108849 total_min_ms=0.104794 total_max_ms=0.112819 total_var_ms=0.000005811 effective_gflops=33.889171
+[ERROR CHECKING] OK!
+
+--- P=4 rep=1/1 driver=spmv_rcm_nccl_acc ---
+Loaded ../matrices/roadNet-CA.mtx: 1971281 x 1971281, 5533214 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=1383302, avg_nnz=2.88, imbalance=4.17, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1383304, avg_nnz=2.80, imbalance=3.22, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1383305, avg_nnz=2.82, imbalance=2.83, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1383303, avg_nnz=2.74, imbalance=2.92, V=1)
+RESULT comm=rcm_nccl kernel=acc matrix=roadNet-CA.mtx P=4 rank=0 nrows_local=490191 ncols_global=1971281 nnz_local=1383305 n_ghost=4637 compute_avg_ms=0.039390 compute_min_ms=0.038912 compute_max_ms=0.039936 compute_var_ms=0.000000261 compute_gflops=70.236595 eff_bw_gbs=430.752529 pct_peak_bw=46.1626 comm_avg_ms=0.109207 comm_min_ms=0.044593 comm_max_ms=1.633501 comm_var_ms=0.080143132 total_avg_ms=0.148597 total_min_ms=0.083505 total_max_ms=1.672413 total_var_ms=0.080092920 effective_gflops=18.618268
+RESULT comm=rcm_nccl kernel=acc matrix=roadNet-CA.mtx P=4 rank=2 nrows_local=494560 ncols_global=1971281 nnz_local=1383304 n_ghost=7968 compute_avg_ms=0.041062 compute_min_ms=0.038912 compute_max_ms=0.051200 compute_var_ms=0.000010720 compute_gflops=67.375703 eff_bw_gbs=414.808401 pct_peak_bw=44.4539 comm_avg_ms=0.116365 comm_min_ms=0.059379 comm_max_ms=1.646027 comm_var_ms=0.080709584 total_avg_ms=0.157428 total_min_ms=0.098291 total_max_ms=1.697227 total_var_ms=0.081804593 effective_gflops=17.573814
+RESULT comm=rcm_nccl kernel=acc matrix=roadNet-CA.mtx P=4 rank=1 nrows_local=480879 ncols_global=1971281 nnz_local=1383302 n_ghost=9518 compute_avg_ms=0.043827 compute_min_ms=0.038912 compute_max_ms=0.051200 compute_var_ms=0.000009745 compute_gflops=63.125274 eff_bw_gbs=385.035779 pct_peak_bw=41.2633 comm_avg_ms=0.127904 comm_min_ms=0.064439 comm_max_ms=1.639403 comm_var_ms=0.080590455 total_avg_ms=0.171731 total_min_ms=0.103351 total_max_ms=1.690603 total_var_ms=0.081315326 effective_gflops=16.110102
+RESULT comm=rcm_nccl kernel=acc matrix=roadNet-CA.mtx P=4 rank=3 nrows_local=505651 ncols_global=1971281 nnz_local=1383303 n_ghost=5084 compute_avg_ms=0.039629 compute_min_ms=0.038912 compute_max_ms=0.039936 compute_var_ms=0.000000220 compute_gflops=69.813017 eff_bw_gbs=432.881557 pct_peak_bw=46.3908 comm_avg_ms=0.081772 comm_min_ms=0.059076 comm_max_ms=0.279612 comm_var_ms=0.001369980 total_avg_ms=0.121401 total_min_ms=0.099012 total_max_ms=0.318524 total_var_ms=0.001360878 effective_gflops=22.789001
+[ERROR CHECKING] OK!
+
+=== Job done ===

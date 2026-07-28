@@ -1,0 +1,10 @@
+=== D2_final parallel MPI-IO read benchmark ===
+Node:    edu01
+Date:    Fri Jul 24 11:52:28 AM CEST 2026
+Matrix:  ../matrices/poisson3Da.mtx
+P:       2
+Reps:    3
+
+RESULT_CSV_READ matrix=poisson3Da.mtx P=2 reps=3 serial_mean_ms=157.9852 serial_min_ms=156.3194 mpiio_mean_ms=362.9302 mpiio_min_ms=304.9134 nnz_total_serial=352762 nnz_total_mpiio=352762 spmv_mismatches=0 check=OK!
+
+=== Job done ===

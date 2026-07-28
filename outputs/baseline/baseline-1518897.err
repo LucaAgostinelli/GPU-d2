@@ -1,0 +1,5 @@
+Loaded ../big_matrices/webbase-2001.mtx: 118142155 x 118142155, nnz(file)=1019903190, nnz(expanded)=1019903190, symmetric=0, skew=0, pattern=1
+
+real	17m35.642s
+user	2m22.008s
+sys	0m41.030s

@@ -1,0 +1,34 @@
+=== D2_final strong scaling (large matrix, full P sweep, single driver) ===
+Node:     edu01
+Date:     Fri Jul 24 09:47:12 PM CEST 2026
+Matrix:   ../big_matrices/europe_osm.mtx
+Reps:     1
+Driver:   spmv_ghost_cusparse
+
+--- P=1 rep=1/1 driver=spmv_ghost_cusparse ---
+Loaded ../big_matrices/europe_osm.mtx: 50912018 x 50912018, 108109320 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=europe_osm.mtx P=1 rank=0 nrows_local=50912018 ncols_global=50912018 nnz_local=108109320 n_ghost=0 compute_avg_ms=2.975061 compute_min_ms=2.969600 compute_max_ms=2.977792 compute_var_ms=0.000003379 compute_gflops=72.677036 eff_bw_gbs=496.063312 pct_peak_bw=53.1618 comm_avg_ms=0.000577 comm_min_ms=0.000548 comm_max_ms=0.000717 comm_var_ms=0.000000001 total_avg_ms=2.975638 total_min_ms=2.970167 total_max_ms=2.978379 total_var_ms=0.000003357 effective_gflops=72.662940
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/1 driver=spmv_ghost_cusparse ---
+Loaded ../big_matrices/europe_osm.mtx: 50912018 x 50912018, 108109320 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=europe_osm.mtx P=2 rank=1 nrows_local=25456009 ncols_global=50912018 nnz_local=54054955 n_ghost=25193908 compute_avg_ms=1.580646 compute_min_ms=1.579008 compute_max_ms=1.582080 compute_var_ms=0.000000671 compute_gflops=68.396012 eff_bw_gbs=530.597727 pct_peak_bw=56.8628 comm_avg_ms=55.305769 comm_min_ms=51.975714 comm_max_ms=56.588297 comm_var_ms=0.759127600 total_avg_ms=56.886415 total_min_ms=53.555746 total_max_ms=58.168329 total_var_ms=0.759303667 effective_gflops=1.900452
+RESULT comm=ghost_mpi kernel=cusparse matrix=europe_osm.mtx P=2 rank=0 nrows_local=25456009 ncols_global=50912018 nnz_local=54054365 n_ghost=25192684 compute_avg_ms=1.581431 compute_min_ms=1.579008 compute_max_ms=1.583104 compute_var_ms=0.000001012 compute_gflops=68.361312 eff_bw_gbs=530.328240 pct_peak_bw=56.8339 comm_avg_ms=55.305943 comm_min_ms=51.975454 comm_max_ms=56.588322 comm_var_ms=0.759441767 total_avg_ms=56.887374 total_min_ms=53.557534 total_max_ms=58.170402 total_var_ms=0.759363177 effective_gflops=1.900399
+[ERROR CHECKING] OK!
+
+--- P=3 rep=1/1 driver=spmv_ghost_cusparse ---
+Loaded ../big_matrices/europe_osm.mtx: 50912018 x 50912018, 108109320 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=europe_osm.mtx P=3 rank=0 nrows_local=16970673 ncols_global=50912018 nnz_local=36035737 n_ghost=31078308 compute_avg_ms=1.146505 compute_min_ms=1.143808 compute_max_ms=1.152000 compute_var_ms=0.000004647 compute_gflops=62.861917 eff_bw_gbs=537.500885 pct_peak_bw=57.6025 comm_avg_ms=112.307004 comm_min_ms=68.743882 comm_max_ms=117.901603 comm_var_ms=89.459996683 total_avg_ms=113.453509 total_min_ms=69.894858 total_max_ms=119.046435 total_var_ms=89.444202007 effective_gflops=0.635251
+RESULT comm=ghost_mpi kernel=cusparse matrix=europe_osm.mtx P=3 rank=1 nrows_local=16970673 ncols_global=50912018 nnz_local=36038009 n_ghost=31075851 compute_avg_ms=1.145958 compute_min_ms=1.142784 compute_max_ms=1.152000 compute_var_ms=0.000003520 compute_gflops=62.895841 eff_bw_gbs=537.764325 pct_peak_bw=57.6308 comm_avg_ms=87.846868 comm_min_ms=68.743904 comm_max_ms=117.201887 comm_var_ms=98.189347523 total_avg_ms=88.992826 total_min_ms=69.892832 total_max_ms=118.346719 total_var_ms=98.197112672 effective_gflops=0.809908
+RESULT comm=ghost_mpi kernel=cusparse matrix=europe_osm.mtx P=3 rank=2 nrows_local=16970672 ncols_global=50912018 nnz_local=36035574 n_ghost=31077713 compute_avg_ms=1.144900 compute_min_ms=1.142784 compute_max_ms=1.148928 compute_var_ms=0.000001953 compute_gflops=62.949716 eff_bw_gbs=538.250817 pct_peak_bw=57.6829 comm_avg_ms=112.994472 comm_min_ms=68.587930 comm_max_ms=117.901630 comm_var_ms=83.861983416 total_avg_ms=114.139372 total_min_ms=69.731738 total_max_ms=119.048510 total_var_ms=83.865572055 effective_gflops=0.631431
+[ERROR CHECKING] OK!
+
+--- P=4 rep=1/1 driver=spmv_ghost_cusparse ---
+Loaded ../big_matrices/europe_osm.mtx: 50912018 x 50912018, 108109320 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=europe_osm.mtx P=4 rank=0 nrows_local=12728005 ncols_global=50912018 nnz_local=27028095 n_ghost=24223759 compute_avg_ms=0.850739 compute_min_ms=0.848896 compute_max_ms=0.852992 compute_var_ms=0.000001356 compute_gflops=63.540261 eff_bw_gbs=547.589516 pct_peak_bw=58.6837 comm_avg_ms=113.102872 comm_min_ms=77.819868 comm_max_ms=144.908839 comm_var_ms=639.308487829 total_avg_ms=113.953612 total_min_ms=78.668764 total_max_ms=145.758759 total_var_ms=639.321113393 effective_gflops=0.474370
+RESULT comm=ghost_mpi kernel=cusparse matrix=europe_osm.mtx P=4 rank=1 nrows_local=12728005 ncols_global=50912018 nnz_local=27029134 n_ghost=24222251 compute_avg_ms=0.850364 compute_min_ms=0.847872 compute_max_ms=0.854016 compute_var_ms=0.000001586 compute_gflops=63.570760 eff_bw_gbs=547.833976 pct_peak_bw=58.7099 comm_avg_ms=115.150699 comm_min_ms=77.820230 comm_max_ms=145.924535 comm_var_ms=762.282199745 total_avg_ms=116.001063 total_min_ms=78.671174 total_max_ms=146.773431 total_var_ms=762.264509508 effective_gflops=0.466015
+RESULT comm=ghost_mpi kernel=cusparse matrix=europe_osm.mtx P=4 rank=2 nrows_local=12728004 ncols_global=50912018 nnz_local=27026270 n_ghost=24224681 compute_avg_ms=0.850227 compute_min_ms=0.847872 compute_max_ms=0.851968 compute_var_ms=0.000000989 compute_gflops=63.574231 eff_bw_gbs=547.906421 pct_peak_bw=58.7177 comm_avg_ms=113.597403 comm_min_ms=77.782745 comm_max_ms=144.913213 comm_var_ms=718.922436407 total_avg_ms=114.447630 total_min_ms=78.632665 total_max_ms=145.762109 total_var_ms=718.905916794 effective_gflops=0.472291
+RESULT comm=ghost_mpi kernel=cusparse matrix=europe_osm.mtx P=4 rank=3 nrows_local=12728004 ncols_global=50912018 nnz_local=27025821 n_ghost=24221948 compute_avg_ms=0.850091 compute_min_ms=0.847872 compute_max_ms=0.851968 compute_var_ms=0.000001054 compute_gflops=63.583386 eff_bw_gbs=547.977336 pct_peak_bw=58.7253 comm_avg_ms=111.835176 comm_min_ms=73.155335 comm_max_ms=145.923615 comm_var_ms=982.390772479 total_avg_ms=112.685266 total_min_ms=74.005255 total_max_ms=146.773535 total_var_ms=982.381163657 effective_gflops=0.479669
+[ERROR CHECKING] OK!
+
+=== Job done ===

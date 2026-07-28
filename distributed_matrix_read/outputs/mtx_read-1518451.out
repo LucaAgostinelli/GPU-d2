@@ -1,0 +1,10 @@
+=== D2_final distributed matrix read benchmark ===
+Node:    edu01
+Date:    Fri Jul 24 04:58:36 PM CEST 2026
+Matrix:  ../matrices/webbase-1M.mtx
+P:       1
+Reps:    3
+
+RESULT_CSV_READ matrix=webbase-1M.mtx P=1 reps=3 serial_mean_ms=984.2074 serial_min_ms=979.8992 chunked_mean_ms=529.1430 chunked_min_ms=514.3482 serial_read_ms=772.8222 serial_distribute_ms=211.3847 chunked_io_ms=20.7861 chunked_parse_ms=273.0091 chunked_redistribute_ms=235.2867 nnz_total_serial=3105536 nnz_total_chunked=3105536 spmv_mismatches=0 check=OK!
+
+=== Job done ===

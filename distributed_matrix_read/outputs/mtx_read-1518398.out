@@ -1,0 +1,10 @@
+=== D2_final distributed matrix read benchmark ===
+Node:    edu01
+Date:    Fri Jul 24 03:26:33 PM CEST 2026
+Matrix:  ../matrices/poisson3Da.mtx
+P:       4
+Reps:    3
+
+RESULT_CSV_READ matrix=poisson3Da.mtx P=4 reps=3 serial_mean_ms=261.2655 serial_min_ms=260.0962 chunked_mean_ms=37.6386 chunked_min_ms=36.2516 serial_read_ms=220.1236 serial_distribute_ms=260.8158 chunked_io_ms=2.7759 chunked_parse_ms=23.2558 chunked_redistribute_ms=12.5706 nnz_total_serial=352762 nnz_total_chunked=352762 spmv_mismatches=0 check=OK!
+
+=== Job done ===

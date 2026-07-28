@@ -1,0 +1,9 @@
+=== CPU baseline ===
+Node:     edu01
+Date:     Sun Jul 26 03:08:07 PM CEST 2026
+Matrix:   ../big_matrices/mawi_201512020330.mtx
+Reps:     10
+
+RESULT comm=none kernel=cpu_serial matrix=mawi_201512020330.mtx M=226196185 N=226196185 nnz_expanded=480047894 avg_ms=840.326403 min_ms=829.303693 max_ms=847.084320 gflops=1.142527
+
+=== Job done ===

@@ -1,0 +1,5 @@
+Loaded ../big_matrices/Queen_4147.mtx: 4147110 x 4147110, nnz(file)=166823197, nnz(expanded)=329499284, symmetric=1, skew=0, pattern=0
+
+real	0m49.356s
+user	0m47.277s
+sys	0m1.762s

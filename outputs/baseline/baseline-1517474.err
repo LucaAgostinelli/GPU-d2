@@ -1,0 +1,5 @@
+Loaded ../matrices/cage13.mtx: 445315 x 445315, nnz(file)=7479343, nnz(expanded)=7479343, symmetric=0, skew=0, pattern=0
+
+real	0m2.112s
+user	0m2.057s
+sys	0m0.046s

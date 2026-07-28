@@ -1,0 +1,41 @@
+=== D2_final strong scaling (large matrix, full P sweep, single driver) ===
+Node:     edu01
+Date:     Sat Jul 25 09:31:22 AM CEST 2026
+Matrix:   ../big_matrices/mawi_201512020330.mtx
+Reps:     1
+Driver:   spmv_2d_acc
+
+--- P=1 rep=1/1 driver=spmv_2d_acc ---
+Grid: P=1 -> P_r=1 x P_c=1
+Loaded ../big_matrices/mawi_201512020330.mtx: 226196185 x 226196185, 480047894 nnz
+[kernel] acc -> FLAT (nnz=480047894, avg_nnz=2.12, imbalance=99325784.00)
+RESULT comm=checkerboard_mpi kernel=acc matrix=mawi_201512020330.mtx P=1 rank=0 nrows_local=226196185 ncols_global=226196185 nnz_local=480047894 n_ghost=-1 compute_avg_ms=12.571341 compute_min_ms=12.380160 compute_max_ms=12.620800 compute_var_ms=0.005614990 compute_gflops=76.371789 eff_bw_gbs=521.552367 pct_peak_bw=55.8934 comm_avg_ms=588.045600 comm_min_ms=570.485959 comm_max_ms=604.872795 comm_var_ms=40.196959424 total_avg_ms=600.616941 total_min_ms=583.101639 total_max_ms=617.252955 total_var_ms=39.988506996 effective_gflops=1.598516
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/1 driver=spmv_2d_acc ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded ../big_matrices/mawi_201512020330.mtx: 226196185 x 226196185, 480047894 nnz
+[kernel] acc -> FLAT (nnz=135045360, avg_nnz=0.60, imbalance=176536064.00)
+[kernel] acc -> FLAT (nnz=345002534, avg_nnz=1.53, imbalance=69103144.00)
+RESULT comm=checkerboard_mpi kernel=acc matrix=mawi_201512020330.mtx P=2 rank=0 nrows_local=226196185 ncols_global=226196185 nnz_local=135045360 n_ghost=-1 compute_avg_ms=8.911223 compute_min_ms=8.862720 compute_max_ms=8.986624 compute_var_ms=0.000824004 compute_gflops=30.309050 eff_bw_gbs=375.128316 pct_peak_bw=40.2015 comm_avg_ms=744.329778 comm_min_ms=731.182564 comm_max_ms=782.073773 comm_var_ms=169.489913593 total_avg_ms=753.241001 total_min_ms=740.126180 total_max_ms=791.015341 total_var_ms=169.538298256 effective_gflops=0.358571
+RESULT comm=checkerboard_mpi kernel=acc matrix=mawi_201512020330.mtx P=2 rank=1 nrows_local=226196185 ncols_global=226196185 nnz_local=345002534 n_ghost=-1 compute_avg_ms=9.082266 compute_min_ms=9.075712 compute_max_ms=9.090048 compute_var_ms=0.000010318 compute_gflops=75.972791 eff_bw_gbs=553.092150 pct_peak_bw=59.2734 comm_avg_ms=549.045358 comm_min_ms=539.555713 comm_max_ms=578.200753 comm_var_ms=111.085245533 total_avg_ms=558.127624 total_min_ms=548.638593 total_max_ms=587.283633 total_var_ms=111.089363400 effective_gflops=1.236285
+[ERROR CHECKING] OK!
+
+--- P=3 driver=spmv_2d_acc: SKIPPED (no non-degenerate process grid at P=3) ---
+--- P=4 rep=1/1 driver=spmv_2d_acc ---
+Grid: P=4 -> P_r=2 x P_c=2
+Loaded ../big_matrices/mawi_201512020330.mtx: 226196185 x 226196185, 480047894 nnz
+[kernel] acc -> FLAT (nnz=224987694, avg_nnz=1.99, imbalance=52982364.00)
+[kernel] acc -> FLAT (nnz=120014840, avg_nnz=1.06, imbalance=99322616.00)
+[kernel] acc -> FLAT (nnz=15030520, avg_nnz=0.13, imbalance=1083687.62)
+[kernel] acc -> FLAT (nnz=120014840, avg_nnz=1.06, imbalance=136027.94)
+RESULT comm=checkerboard_mpi kernel=acc matrix=mawi_201512020330.mtx P=4 rank=0 nrows_local=113098093 ncols_global=226196185 nnz_local=15030520 n_ghost=-1 compute_avg_ms=4.374289 compute_min_ms=4.278272 compute_max_ms=4.424704 compute_var_ms=0.001077075 compute_gflops=6.872212 eff_bw_gbs=337.764600 pct_peak_bw=36.1973 comm_avg_ms=676.466741 comm_min_ms=670.462950 comm_max_ms=698.059372 comm_var_ms=26.590966774 total_avg_ms=680.841030 total_min_ms=674.846694 total_max_ms=702.469740 total_var_ms=26.626581177 effective_gflops=0.044153
+RESULT comm=checkerboard_mpi kernel=acc matrix=mawi_201512020330.mtx P=4 rank=1 nrows_local=113098093 ncols_global=226196185 nnz_local=120014840 n_ghost=-1 compute_avg_ms=3.319535 compute_min_ms=3.314688 compute_max_ms=3.325952 compute_var_ms=0.000006357 compute_gflops=72.308225 eff_bw_gbs=698.219687 pct_peak_bw=74.8264 comm_avg_ms=503.152055 comm_min_ms=496.846854 comm_max_ms=520.124445 comm_var_ms=18.383417136 total_avg_ms=506.471590 total_min_ms=500.165638 total_max_ms=523.445277 total_var_ms=18.380131529 effective_gflops=0.473925
+RESULT comm=checkerboard_mpi kernel=acc matrix=mawi_201512020330.mtx P=4 rank=2 nrows_local=113098092 ncols_global=226196185 nnz_local=120014840 n_ghost=-1 compute_avg_ms=5.245440 compute_min_ms=4.971520 compute_max_ms=5.733376 compute_var_ms=0.034234096 compute_gflops=45.759685 eff_bw_gbs=441.862768 pct_peak_bw=47.3533 comm_avg_ms=678.764155 comm_min_ms=673.290745 comm_max_ms=700.591941 comm_var_ms=25.542777824 total_avg_ms=684.009595 total_min_ms=678.815328 total_max_ms=705.641285 total_var_ms=24.865865515 effective_gflops=0.350916
+RESULT comm=checkerboard_mpi kernel=acc matrix=mawi_201512020330.mtx P=4 rank=3 nrows_local=113098092 ncols_global=226196185 nnz_local=224987694 n_ghost=-1 compute_avg_ms=5.839838 compute_min_ms=5.836800 compute_max_ms=5.846016 compute_var_ms=0.000004018 compute_gflops=77.052719 eff_bw_gbs=540.761160 pct_peak_bw=57.9519 comm_avg_ms=510.849439 comm_min_ms=507.004753 comm_max_ms=526.397977 comm_var_ms=11.889504069 total_avg_ms=516.689277 total_min_ms=512.843601 total_max_ms=532.236825 total_var_ms=11.889743942 effective_gflops=0.870882
+[ERROR CHECKING] Mismatch at index 25328463: CPU = 51.321812, GPU = 32.890873
+[ERROR CHECKING] Mismatch at index 95401514: CPU = -38.653591, GPU = -20.032400
+[ERROR CHECKING] Mismatch at index 155785750: CPU = -8.914278, GPU = -13.710617
+[ERROR CHECKING] Total mismatches: 3
+
+=== Job done ===

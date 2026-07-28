@@ -1,0 +1,115 @@
+=== D2_final intelligent-partitioning (Fennel/LDG) small-matrix check ===
+Node:     edu01
+Date:     Thu Jul 23 12:51:23 PM CEST 2026
+Matrix:   ../matrices/roadNet-CA.mtx
+Reps:     3
+
+--- P=1 rep=1/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/roadNet-CA.mtx: 1971281 x 1971281, 5533214 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=5533214, avg_nnz=2.81, imbalance=4.28, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=1 rank=0 nrows_local=1971281 ncols_global=1971281 nnz_local=5533214 n_ghost=0 compute_avg_ms=0.167526 compute_min_ms=0.166912 compute_max_ms=0.167936 compute_var_ms=0.000000252 compute_gflops=66.057815 eff_bw_gbs=405.435131 pct_peak_bw=43.4494 comm_avg_ms=0.001036 comm_min_ms=0.000980 comm_max_ms=0.001215 comm_var_ms=0.000000003 total_avg_ms=0.168563 total_min_ms=0.167892 total_max_ms=0.169151 total_var_ms=0.000000259 effective_gflops=65.651636
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/roadNet-CA.mtx: 1971281 x 1971281, 5533214 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=2766586, avg_nnz=2.80, imbalance=3.57, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=2766628, avg_nnz=2.82, imbalance=4.26, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=2 rank=1 nrows_local=988660 ncols_global=1971281 nnz_local=2766586 n_ghost=348283 compute_avg_ms=0.090214 compute_min_ms=0.089088 compute_max_ms=0.097280 compute_var_ms=0.000003030 compute_gflops=61.333578 eff_bw_gbs=392.284865 pct_peak_bw=42.0401 comm_avg_ms=0.244167 comm_min_ms=0.239191 comm_max_ms=0.255671 comm_var_ms=0.000013679 total_avg_ms=0.334381 total_min_ms=0.329210 total_max_ms=0.347875 total_var_ms=0.000020495 effective_gflops=16.547497
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=2 rank=0 nrows_local=982621 ncols_global=1971281 nnz_local=2766628 n_ghost=348615 compute_avg_ms=0.088474 compute_min_ms=0.087040 compute_max_ms=0.093184 compute_var_ms=0.000001091 compute_gflops=62.541323 eff_bw_gbs=399.203151 pct_peak_bw=42.7815 comm_avg_ms=0.417182 comm_min_ms=0.407755 comm_max_ms=0.434604 comm_var_ms=0.000026568 total_avg_ms=0.505656 total_min_ms=0.494795 total_max_ms=0.522668 total_var_ms=0.000029113 effective_gflops=10.942735
+[ERROR CHECKING] OK!
+
+--- P=3 rep=1/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/roadNet-CA.mtx: 1971281 x 1971281, 5533214 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=1844395, avg_nnz=2.82, imbalance=3.55, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1844428, avg_nnz=2.82, imbalance=4.26, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1844391, avg_nnz=2.79, imbalance=3.58, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=3 rank=0 nrows_local=655091 ncols_global=1971281 nnz_local=1844428 n_ghost=327620 compute_avg_ms=0.063078 compute_min_ms=0.061440 compute_max_ms=0.067584 compute_var_ms=0.000003397 compute_gflops=58.480495 eff_bw_gbs=379.321612 pct_peak_bw=40.6509 comm_avg_ms=0.286237 comm_min_ms=0.278590 comm_max_ms=0.301971 comm_var_ms=0.000028100 total_avg_ms=0.349315 total_min_ms=0.340030 total_max_ms=0.364435 total_var_ms=0.000030190 effective_gflops=10.560253
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=3 rank=1 nrows_local=655058 ncols_global=1971281 nnz_local=1844395 n_ghost=327586 compute_avg_ms=0.062976 compute_min_ms=0.062464 compute_max_ms=0.063488 compute_var_ms=0.000000262 compute_gflops=58.574537 eff_bw_gbs=379.925756 pct_peak_bw=40.7156 comm_avg_ms=0.267324 comm_min_ms=0.259422 comm_max_ms=0.274064 comm_var_ms=0.000017491 total_avg_ms=0.330300 total_min_ms=0.321886 total_max_ms=0.337552 total_var_ms=0.000016791 effective_gflops=11.167986
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=3 rank=2 nrows_local=661132 ncols_global=1971281 nnz_local=1844391 n_ghost=327787 compute_avg_ms=0.062669 compute_min_ms=0.061440 compute_max_ms=0.067584 compute_var_ms=0.000003244 compute_gflops=58.861540 eff_bw_gbs=382.963523 pct_peak_bw=41.0412 comm_avg_ms=0.287272 comm_min_ms=0.272910 comm_max_ms=0.303472 comm_var_ms=0.000059193 total_avg_ms=0.349941 total_min_ms=0.335374 total_max_ms=0.369711 total_var_ms=0.000068256 effective_gflops=10.541155
+[ERROR CHECKING] OK!
+
+--- P=4 rep=1/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/roadNet-CA.mtx: 1971281 x 1971281, 5533214 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=1383341, avg_nnz=2.82, imbalance=4.26, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1383257, avg_nnz=2.78, imbalance=3.24, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1383306, avg_nnz=2.82, imbalance=3.55, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1383310, avg_nnz=2.82, imbalance=3.55, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=4 rank=0 nrows_local=491338 ncols_global=1971281 nnz_local=1383341 n_ghost=284468 compute_avg_ms=0.049220 compute_min_ms=0.048128 compute_max_ms=0.051200 compute_var_ms=0.000000345 compute_gflops=56.210218 eff_bw_gbs=367.748100 pct_peak_bw=39.4106 comm_avg_ms=0.354749 comm_min_ms=0.261533 comm_max_ms=2.714885 comm_var_ms=0.192117710 total_avg_ms=0.403969 total_min_ms=0.310685 total_max_ms=2.765061 total_var_ms=0.192271995 effective_gflops=6.848745
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=4 rank=1 nrows_local=491303 ncols_global=1971281 nnz_local=1383306 n_ghost=283646 compute_avg_ms=0.049596 compute_min_ms=0.048128 compute_max_ms=0.054272 compute_var_ms=0.000001586 compute_gflops=55.783265 eff_bw_gbs=364.883638 pct_peak_bw=39.1036 comm_avg_ms=0.440054 comm_min_ms=0.344126 comm_max_ms=2.822895 comm_var_ms=0.195834714 total_avg_ms=0.489650 total_min_ms=0.393278 total_max_ms=2.872047 total_var_ms=0.195769038 effective_gflops=5.650182
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=4 rank=2 nrows_local=491311 ncols_global=1971281 nnz_local=1383310 n_ghost=282899 compute_avg_ms=0.049050 compute_min_ms=0.048128 compute_max_ms=0.053248 compute_var_ms=0.000001423 compute_gflops=56.404536 eff_bw_gbs=368.888054 pct_peak_bw=39.5328 comm_avg_ms=0.461460 comm_min_ms=0.368654 comm_max_ms=2.834091 comm_var_ms=0.194145664 total_avg_ms=0.510510 total_min_ms=0.417806 total_max_ms=2.883243 total_var_ms=0.194166312 effective_gflops=5.419330
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=4 rank=3 nrows_local=497329 ncols_global=1971281 nnz_local=1383257 n_ghost=283900 compute_avg_ms=0.048401 compute_min_ms=0.047104 compute_max_ms=0.053248 compute_var_ms=0.000001184 compute_gflops=57.158119 eff_bw_gbs=375.396841 pct_peak_bw=40.2303 comm_avg_ms=0.418016 comm_min_ms=0.323636 comm_max_ms=2.792603 comm_var_ms=0.194496697 total_avg_ms=0.466417 total_min_ms=0.372788 total_max_ms=2.840731 total_var_ms=0.194451531 effective_gflops=5.931421
+[ERROR CHECKING] OK!
+
+--- P=1 rep=2/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/roadNet-CA.mtx: 1971281 x 1971281, 5533214 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=5533214, avg_nnz=2.81, imbalance=4.28, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=1 rank=0 nrows_local=1971281 ncols_global=1971281 nnz_local=5533214 n_ghost=0 compute_avg_ms=0.167697 compute_min_ms=0.166912 compute_max_ms=0.168960 compute_var_ms=0.000000327 compute_gflops=65.990588 eff_bw_gbs=405.022517 pct_peak_bw=43.4052 comm_avg_ms=0.001022 comm_min_ms=0.000969 comm_max_ms=0.001152 comm_var_ms=0.000000002 total_avg_ms=0.168719 total_min_ms=0.167890 total_max_ms=0.170074 total_var_ms=0.000000340 effective_gflops=65.591037
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/roadNet-CA.mtx: 1971281 x 1971281, 5533214 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=2766586, avg_nnz=2.80, imbalance=3.57, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=2766628, avg_nnz=2.82, imbalance=4.26, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=2 rank=1 nrows_local=988660 ncols_global=1971281 nnz_local=2766586 n_ghost=348283 compute_avg_ms=0.090112 compute_min_ms=0.089088 compute_max_ms=0.096256 compute_var_ms=0.000002167 compute_gflops=61.403275 eff_bw_gbs=392.730643 pct_peak_bw=42.0879 comm_avg_ms=0.243238 comm_min_ms=0.237563 comm_max_ms=0.257895 comm_var_ms=0.000014130 total_avg_ms=0.333350 total_min_ms=0.326651 total_max_ms=0.354151 total_var_ms=0.000022697 effective_gflops=16.598678
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=2 rank=0 nrows_local=982621 ncols_global=1971281 nnz_local=2766628 n_ghost=348615 compute_avg_ms=0.088610 compute_min_ms=0.087040 compute_max_ms=0.094208 compute_var_ms=0.000001379 compute_gflops=62.444957 eff_bw_gbs=398.588046 pct_peak_bw=42.7156 comm_avg_ms=0.417510 comm_min_ms=0.409504 comm_max_ms=0.427250 comm_var_ms=0.000009441 total_avg_ms=0.506120 total_min_ms=0.497568 total_max_ms=0.515314 total_var_ms=0.000010313 effective_gflops=10.932699
+[ERROR CHECKING] OK!
+
+--- P=3 rep=2/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/roadNet-CA.mtx: 1971281 x 1971281, 5533214 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=1844395, avg_nnz=2.82, imbalance=3.55, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1844428, avg_nnz=2.82, imbalance=4.26, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1844391, avg_nnz=2.79, imbalance=3.58, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=3 rank=0 nrows_local=655091 ncols_global=1971281 nnz_local=1844428 n_ghost=327620 compute_avg_ms=0.063078 compute_min_ms=0.061440 compute_max_ms=0.068608 compute_var_ms=0.000003048 compute_gflops=58.480495 eff_bw_gbs=379.321612 pct_peak_bw=40.6509 comm_avg_ms=0.311513 comm_min_ms=0.276747 comm_max_ms=0.956101 comm_var_ms=0.014405309 total_avg_ms=0.374592 total_min_ms=0.338187 total_max_ms=1.024709 total_var_ms=0.014666370 effective_gflops=9.847672
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=3 rank=1 nrows_local=655058 ncols_global=1971281 nnz_local=1844395 n_ghost=327586 compute_avg_ms=0.062771 compute_min_ms=0.061440 compute_max_ms=0.063488 compute_var_ms=0.000000290 compute_gflops=58.765645 eff_bw_gbs=381.165318 pct_peak_bw=40.8485 comm_avg_ms=0.265207 comm_min_ms=0.256415 comm_max_ms=0.275175 comm_var_ms=0.000017815 total_avg_ms=0.327978 total_min_ms=0.318879 total_max_ms=0.337639 total_var_ms=0.000017375 effective_gflops=11.247048
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=3 rank=2 nrows_local=661132 ncols_global=1971281 nnz_local=1844391 n_ghost=327787 compute_avg_ms=0.062327 compute_min_ms=0.061440 compute_max_ms=0.067584 compute_var_ms=0.000002568 compute_gflops=59.183892 eff_bw_gbs=385.060805 pct_peak_bw=41.2659 comm_avg_ms=0.288057 comm_min_ms=0.274577 comm_max_ms=0.305200 comm_var_ms=0.000058744 total_avg_ms=0.350384 total_min_ms=0.336017 total_max_ms=0.367812 total_var_ms=0.000063558 effective_gflops=10.527828
+[ERROR CHECKING] OK!
+
+--- P=4 rep=2/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/roadNet-CA.mtx: 1971281 x 1971281, 5533214 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=1383341, avg_nnz=2.82, imbalance=4.26, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1383310, avg_nnz=2.82, imbalance=3.55, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1383257, avg_nnz=2.78, imbalance=3.24, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1383306, avg_nnz=2.82, imbalance=3.55, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=4 rank=0 nrows_local=491338 ncols_global=1971281 nnz_local=1383341 n_ghost=284468 compute_avg_ms=0.049493 compute_min_ms=0.048128 compute_max_ms=0.053248 compute_var_ms=0.000000792 compute_gflops=55.900093 eff_bw_gbs=365.719147 pct_peak_bw=39.1932 comm_avg_ms=0.278516 comm_min_ms=0.269242 comm_max_ms=0.287102 comm_var_ms=0.000024297 total_avg_ms=0.328009 total_min_ms=0.318394 total_max_ms=0.337952 total_var_ms=0.000025691 effective_gflops=8.434777
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=4 rank=1 nrows_local=491303 ncols_global=1971281 nnz_local=1383306 n_ghost=283646 compute_avg_ms=0.049630 compute_min_ms=0.048128 compute_max_ms=0.053248 compute_var_ms=0.000001310 compute_gflops=55.744900 eff_bw_gbs=364.632689 pct_peak_bw=39.0767 comm_avg_ms=0.372764 comm_min_ms=0.351283 comm_max_ms=0.620267 comm_var_ms=0.002149524 total_avg_ms=0.422394 total_min_ms=0.400435 total_max_ms=0.673515 total_var_ms=0.002212070 effective_gflops=6.549835
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=4 rank=2 nrows_local=491311 ncols_global=1971281 nnz_local=1383310 n_ghost=282899 compute_avg_ms=0.048913 compute_min_ms=0.048128 compute_max_ms=0.052224 compute_var_ms=0.000000817 compute_gflops=56.561980 eff_bw_gbs=369.917748 pct_peak_bw=39.6431 comm_avg_ms=0.385470 comm_min_ms=0.369937 comm_max_ms=0.457432 comm_var_ms=0.000217652 total_avg_ms=0.434383 total_min_ms=0.419089 total_max_ms=0.506584 total_var_ms=0.000216218 effective_gflops=6.369084
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=4 rank=3 nrows_local=497329 ncols_global=1971281 nnz_local=1383257 n_ghost=283900 compute_avg_ms=0.048640 compute_min_ms=0.047104 compute_max_ms=0.053248 compute_var_ms=0.000001940 compute_gflops=56.877342 eff_bw_gbs=373.552787 pct_peak_bw=40.0327 comm_avg_ms=0.338175 comm_min_ms=0.325165 comm_max_ms=0.347876 comm_var_ms=0.000036666 total_avg_ms=0.386815 total_min_ms=0.374317 total_max_ms=0.396004 total_var_ms=0.000034764 effective_gflops=7.152037
+[ERROR CHECKING] OK!
+
+--- P=1 rep=3/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/roadNet-CA.mtx: 1971281 x 1971281, 5533214 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=5533214, avg_nnz=2.81, imbalance=4.28, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=1 rank=0 nrows_local=1971281 ncols_global=1971281 nnz_local=5533214 n_ghost=0 compute_avg_ms=0.167526 compute_min_ms=0.165888 compute_max_ms=0.167936 compute_var_ms=0.000000322 compute_gflops=66.057816 eff_bw_gbs=405.435132 pct_peak_bw=43.4494 comm_avg_ms=0.001031 comm_min_ms=0.000996 comm_max_ms=0.001127 comm_var_ms=0.000000001 total_avg_ms=0.168557 total_min_ms=0.166934 total_max_ms=0.169026 total_var_ms=0.000000317 effective_gflops=65.653818
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/roadNet-CA.mtx: 1971281 x 1971281, 5533214 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=2766628, avg_nnz=2.82, imbalance=4.26, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=2766586, avg_nnz=2.80, imbalance=3.57, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=2 rank=0 nrows_local=982621 ncols_global=1971281 nnz_local=2766628 n_ghost=348615 compute_avg_ms=0.088235 compute_min_ms=0.087040 compute_max_ms=0.090112 compute_var_ms=0.000000425 compute_gflops=62.710681 eff_bw_gbs=400.284166 pct_peak_bw=42.8974 comm_avg_ms=0.423028 comm_min_ms=0.404719 comm_max_ms=0.644565 comm_var_ms=0.001713195 total_avg_ms=0.511263 total_min_ms=0.492783 total_max_ms=0.732629 total_var_ms=0.001710514 effective_gflops=10.822727
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=2 rank=1 nrows_local=988660 ncols_global=1971281 nnz_local=2766586 n_ghost=348283 compute_avg_ms=0.090044 compute_min_ms=0.089088 compute_max_ms=0.096256 compute_var_ms=0.000001953 compute_gflops=61.449828 eff_bw_gbs=393.028392 pct_peak_bw=42.1198 comm_avg_ms=0.244282 comm_min_ms=0.237132 comm_max_ms=0.255702 comm_var_ms=0.000015155 total_avg_ms=0.334325 total_min_ms=0.326220 total_max_ms=0.351958 total_var_ms=0.000022556 effective_gflops=16.550257
+[ERROR CHECKING] OK!
+
+--- P=3 rep=3/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/roadNet-CA.mtx: 1971281 x 1971281, 5533214 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=1844395, avg_nnz=2.82, imbalance=3.55, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1844428, avg_nnz=2.82, imbalance=4.26, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1844391, avg_nnz=2.79, imbalance=3.58, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=3 rank=0 nrows_local=655091 ncols_global=1971281 nnz_local=1844428 n_ghost=327620 compute_avg_ms=0.063113 compute_min_ms=0.061440 compute_max_ms=0.067584 compute_var_ms=0.000002760 compute_gflops=58.448867 eff_bw_gbs=379.116462 pct_peak_bw=40.6289 comm_avg_ms=0.289608 comm_min_ms=0.276014 comm_max_ms=0.310531 comm_var_ms=0.000095471 total_avg_ms=0.352721 total_min_ms=0.337454 total_max_ms=0.375529 total_var_ms=0.000109039 effective_gflops=10.458288
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=3 rank=1 nrows_local=655058 ncols_global=1971281 nnz_local=1844395 n_ghost=327586 compute_avg_ms=0.062908 compute_min_ms=0.062464 compute_max_ms=0.064512 compute_var_ms=0.000000327 compute_gflops=58.638102 eff_bw_gbs=380.338046 pct_peak_bw=40.7598 comm_avg_ms=0.265403 comm_min_ms=0.258240 comm_max_ms=0.281585 comm_var_ms=0.000027553 total_avg_ms=0.328311 total_min_ms=0.321100 total_max_ms=0.344049 total_var_ms=0.000027982 effective_gflops=11.235653
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=3 rank=2 nrows_local=661132 ncols_global=1971281 nnz_local=1844391 n_ghost=327787 compute_avg_ms=0.062464 compute_min_ms=0.060416 compute_max_ms=0.067584 compute_var_ms=0.000002936 compute_gflops=59.054528 eff_bw_gbs=384.219141 pct_peak_bw=41.1757 comm_avg_ms=0.301046 comm_min_ms=0.273448 comm_max_ms=0.723728 comm_var_ms=0.006247838 total_avg_ms=0.363510 total_min_ms=0.334888 total_max_ms=0.789264 total_var_ms=0.006352596 effective_gflops=10.147675
+[ERROR CHECKING] OK!
+
+--- P=4 rep=3/3 driver=spmv_fennel_nccl_acc ---
+Loaded ../matrices/roadNet-CA.mtx: 1971281 x 1971281, 5533214 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=1383310, avg_nnz=2.82, imbalance=3.55, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1383306, avg_nnz=2.82, imbalance=3.55, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1383257, avg_nnz=2.78, imbalance=3.24, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=1383341, avg_nnz=2.82, imbalance=4.26, V=1)
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=4 rank=0 nrows_local=491338 ncols_global=1971281 nnz_local=1383341 n_ghost=284468 compute_avg_ms=0.049527 compute_min_ms=0.048128 compute_max_ms=0.054272 compute_var_ms=0.000001502 compute_gflops=55.861568 eff_bw_gbs=365.467100 pct_peak_bw=39.1661 comm_avg_ms=0.281076 comm_min_ms=0.275329 comm_max_ms=0.287794 comm_var_ms=0.000011869 total_avg_ms=0.330603 total_min_ms=0.324536 total_max_ms=0.341042 total_var_ms=0.000013167 effective_gflops=8.368586
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=4 rank=2 nrows_local=491311 ncols_global=1971281 nnz_local=1383310 n_ghost=282899 compute_avg_ms=0.048947 compute_min_ms=0.048128 compute_max_ms=0.053248 compute_var_ms=0.000001286 compute_gflops=56.522537 eff_bw_gbs=369.659786 pct_peak_bw=39.6155 comm_avg_ms=0.381187 comm_min_ms=0.371273 comm_max_ms=0.390844 comm_var_ms=0.000024618 total_avg_ms=0.430134 total_min_ms=0.419401 total_max_ms=0.439035 total_var_ms=0.000025072 effective_gflops=6.431989
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=4 rank=1 nrows_local=491303 ncols_global=1971281 nnz_local=1383306 n_ghost=283646 compute_avg_ms=0.049562 compute_min_ms=0.048128 compute_max_ms=0.053248 compute_var_ms=0.000001230 compute_gflops=55.821683 eff_bw_gbs=365.134935 pct_peak_bw=39.1305 comm_avg_ms=0.361661 comm_min_ms=0.347972 comm_max_ms=0.377198 comm_var_ms=0.000038382 total_avg_ms=0.411223 total_min_ms=0.397124 total_max_ms=0.427374 total_var_ms=0.000042584 effective_gflops=6.727766
+RESULT comm=fennel_nccl kernel=acc matrix=roadNet-CA.mtx P=4 rank=3 nrows_local=497329 ncols_global=1971281 nnz_local=1383257 n_ghost=283900 compute_avg_ms=0.048606 compute_min_ms=0.047104 compute_max_ms=0.053248 compute_var_ms=0.000001939 compute_gflops=56.917284 eff_bw_gbs=373.815113 pct_peak_bw=40.0608 comm_avg_ms=0.339586 comm_min_ms=0.326910 comm_max_ms=0.349469 comm_var_ms=0.000026174 total_avg_ms=0.388192 total_min_ms=0.375038 total_max_ms=0.397597 total_var_ms=0.000031945 effective_gflops=7.126660
+[ERROR CHECKING] OK!
+
+=== Job done ===

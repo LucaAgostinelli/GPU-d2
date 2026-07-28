@@ -1,0 +1,5 @@
+Loaded ../matrices/roadNet-CA.mtx: 1971281 x 1971281, nnz(file)=2766607, nnz(expanded)=5533214, symmetric=1, skew=0, pattern=1
+
+real	0m0.514s
+user	0m0.477s
+sys	0m0.021s

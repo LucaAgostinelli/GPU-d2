@@ -1,0 +1,9 @@
+=== CPU baseline ===
+Node:     edu01
+Date:     Sun Jul 26 03:08:07 PM CEST 2026
+Matrix:   ../big_matrices/arabic-2005.mtx
+Reps:     10
+
+RESULT comm=none kernel=cpu_serial matrix=arabic-2005.mtx M=22744080 N=22744080 nnz_expanded=639999458 avg_ms=707.090752 min_ms=698.211331 max_ms=719.576052 gflops=1.810233
+
+=== Job done ===

@@ -1,0 +1,9 @@
+=== CPU baseline ===
+Node:     edu01
+Date:     Sun Jul 26 03:08:07 PM CEST 2026
+Matrix:   ../big_matrices/nlpkkt240.mtx
+Reps:     10
+
+RESULT comm=none kernel=cpu_serial matrix=nlpkkt240.mtx M=27993600 N=27993600 nnz_expanded=774472352 avg_ms=599.172697 min_ms=596.187387 max_ms=606.324591 gflops=2.585139
+
+=== Job done ===

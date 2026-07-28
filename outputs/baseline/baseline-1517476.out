@@ -1,0 +1,9 @@
+=== D2_final CPU baseline ===
+Node:     edu01
+Date:     Wed Jul 22 05:29:53 PM CEST 2026
+Matrix:   ../matrices/parabolic_fem.mtx
+Reps:     10
+
+RESULT comm=none kernel=cpu_serial matrix=parabolic_fem.mtx M=525825 N=525825 nnz_expanded=3674625 avg_ms=3.062210 min_ms=3.022445 max_ms=3.097464 gflops=2.399983
+
+=== Job done ===

@@ -1,0 +1,9 @@
+=== CPU baseline ===
+Node:     edu01
+Date:     Sun Jul 26 04:37:08 PM CEST 2026
+Matrix:   ../big_matrices/uk-2005.mtx
+Reps:     10
+
+RESULT comm=none kernel=cpu_serial matrix=uk-2005.mtx M=39459925 N=39459925 nnz_expanded=936364282 avg_ms=1112.737554 min_ms=1080.526975 max_ms=1127.281399 gflops=1.682992
+
+=== Job done ===

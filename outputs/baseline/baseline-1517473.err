@@ -1,0 +1,5 @@
+Loaded ../matrices/ASIC_680k.mtx: 682862 x 682862, nnz(file)=3871773, nnz(expanded)=3871773, symmetric=0, skew=0, pattern=0
+
+real	0m1.121s
+user	0m1.084s
+sys	0m0.026s

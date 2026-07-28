@@ -1,0 +1,9 @@
+=== CPU baseline ===
+Node:     edu01
+Date:     Sun Jul 26 03:08:07 PM CEST 2026
+Matrix:   ../big_matrices/europe_osm.mtx
+Reps:     10
+
+RESULT comm=none kernel=cpu_serial matrix=europe_osm.mtx M=50912018 N=50912018 nnz_expanded=108109320 avg_ms=373.821542 min_ms=369.620004 max_ms=375.766885 gflops=0.578401
+
+=== Job done ===

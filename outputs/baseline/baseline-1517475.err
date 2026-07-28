@@ -1,0 +1,5 @@
+Loaded ../matrices/crankseg_2.mtx: 63838 x 63838, nnz(file)=7106348, nnz(expanded)=14148858, symmetric=1, skew=0, pattern=0
+
+real	0m1.941s
+user	0m1.863s
+sys	0m0.071s

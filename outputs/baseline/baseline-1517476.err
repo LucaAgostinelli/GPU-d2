@@ -1,0 +1,5 @@
+Loaded ../matrices/parabolic_fem.mtx: 525825 x 525825, nnz(file)=2100225, nnz(expanded)=3674625, symmetric=1, skew=0, pattern=0
+
+real	0m0.682s
+user	0m0.651s
+sys	0m0.026s

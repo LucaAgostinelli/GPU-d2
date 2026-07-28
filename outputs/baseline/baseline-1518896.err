@@ -1,0 +1,6 @@
+/var/spool/slurmd/job1518896/slurm_script: line 31: 2409934 Killed                  ./bin/spmv_cpu_baseline "${MATRIX}" "${REPS}"
+
+real	13m19.428s
+user	1m49.760s
+sys	0m24.294s
+[2026-07-26T15:21:27.276] error: Detected 1 oom_kill event in StepId=1518896.batch. Some of the step tasks have been OOM Killed.

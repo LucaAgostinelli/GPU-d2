@@ -1,0 +1,9 @@
+=== CPU baseline ===
+Node:     edu01
+Date:     Sun Jul 26 03:08:07 PM CEST 2026
+Matrix:   ../big_matrices/mycielskian19.mtx
+Reps:     10
+
+RESULT comm=none kernel=cpu_serial matrix=mycielskian19.mtx M=393215 N=393215 nnz_expanded=903194710 avg_ms=1100.960115 min_ms=1097.285879 max_ms=1105.626250 gflops=1.640740
+
+=== Job done ===

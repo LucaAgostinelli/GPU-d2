@@ -1,0 +1,51 @@
+=== D2_final strong scaling (large matrix, full P sweep, single driver) ===
+Node:     edu01
+Date:     Wed Jul 22 12:25:58 AM CEST 2026
+Matrix:   ../big_matrices/Queen_4147.mtx
+Reps:     1
+Driver:   spmv_ghost_nccl_acc
+
+--- P=1 rep=1/1 driver=spmv_ghost_nccl_acc ---
+Loaded ../big_matrices/Queen_4147.mtx: 4147110 x 4147110, 329499284 nnz
+[kernel] acc -> FLAT (nnz=329499284, avg_nnz=79.45, imbalance=1.02)
+RESULT comm=ghost_nccl kernel=acc matrix=Queen_4147.mtx P=1 rank=0 nrows_local=4147110 ncols_global=4147110 nnz_local=329499284 n_ghost=0 compute_avg_ms=3.882257 compute_min_ms=3.632128 compute_max_ms=3.912704 compute_var_ms=0.004611979 compute_gflops=169.746250 eff_bw_gbs=692.135193 pct_peak_bw=74.1743 comm_avg_ms=0.001113 comm_min_ms=0.001010 comm_max_ms=0.002695 comm_var_ms=0.000000089 total_avg_ms=3.883370 total_min_ms=3.633159 total_max_ms=3.913792 total_var_ms=0.004616089 effective_gflops=169.697614
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/1 driver=spmv_ghost_nccl_acc ---
+Loaded ../big_matrices/Queen_4147.mtx: 4147110 x 4147110, 329499284 nnz
+[kernel] acc -> FLAT (nnz=164730746, avg_nnz=79.44, imbalance=1.02)
+[kernel] acc -> FLAT (nnz=164768538, avg_nnz=79.46, imbalance=1.02)
+RESULT comm=ghost_nccl kernel=acc matrix=Queen_4147.mtx P=2 rank=0 nrows_local=2073555 ncols_global=4147110 nnz_local=164730746 n_ghost=2073555 compute_avg_ms=1.864977 compute_min_ms=1.824768 compute_max_ms=2.046976 compute_var_ms=0.005820571 compute_gflops=176.657128 eff_bw_gbs=724.762980 pct_peak_bw=77.6709 comm_avg_ms=1.206429 comm_min_ms=1.119856 comm_max_ms=1.457509 comm_var_ms=0.013560732 total_avg_ms=3.071406 total_min_ms=2.949744 total_max_ms=3.492386 total_var_ms=0.035682065 effective_gflops=107.267313
+RESULT comm=ghost_nccl kernel=acc matrix=Queen_4147.mtx P=2 rank=1 nrows_local=2073555 ncols_global=4147110 nnz_local=164768538 n_ghost=2073555 compute_avg_ms=1.892250 compute_min_ms=1.788928 compute_max_ms=2.050048 compute_var_ms=0.013168743 compute_gflops=174.150955 eff_bw_gbs=714.476998 pct_peak_bw=76.5686 comm_avg_ms=1.254856 comm_min_ms=1.113557 comm_max_ms=1.459166 comm_var_ms=0.021051490 total_avg_ms=3.147106 total_min_ms=2.909594 total_max_ms=3.488700 total_var_ms=0.066397696 effective_gflops=104.711158
+[ERROR CHECKING] Mismatch at index 80808: CPU = 688576.000000, GPU = 679936.000000
+[ERROR CHECKING] Mismatch at index 202548: CPU = -3542784.000000, GPU = -3477504.000000
+[ERROR CHECKING] Mismatch at index 1905263: CPU = -3872.000000, GPU = -4096.000000
+[ERROR CHECKING] Mismatch at index 2605016: CPU = -152961024.000000, GPU = -155451392.000000
+[ERROR CHECKING] Total mismatches: 4
+
+--- P=3 rep=1/1 driver=spmv_ghost_nccl_acc ---
+Loaded ../big_matrices/Queen_4147.mtx: 4147110 x 4147110, 329499284 nnz
+[kernel] acc -> FLAT (nnz=109833094, avg_nnz=79.45, imbalance=1.02)
+[kernel] acc -> FLAT (nnz=109833096, avg_nnz=79.45, imbalance=1.02)
+[kernel] acc -> FLAT (nnz=109833094, avg_nnz=79.45, imbalance=1.02)
+RESULT comm=ghost_nccl kernel=acc matrix=Queen_4147.mtx P=3 rank=0 nrows_local=1382370 ncols_global=4147110 nnz_local=109833096 n_ghost=2764740 compute_avg_ms=1.306863 compute_min_ms=1.190912 compute_max_ms=1.362944 compute_var_ms=0.005332684 compute_gflops=168.086633 eff_bw_gbs=693.830377 pct_peak_bw=74.3560 comm_avg_ms=1.651585 comm_min_ms=1.434792 comm_max_ms=1.746286 comm_var_ms=0.015135904 total_avg_ms=2.958448 total_min_ms=2.626728 total_max_ms=3.097966 total_var_ms=0.037165672 effective_gflops=74.250487
+RESULT comm=ghost_nccl kernel=acc matrix=Queen_4147.mtx P=3 rank=1 nrows_local=1382370 ncols_global=4147110 nnz_local=109833094 n_ghost=2764740 compute_avg_ms=1.310071 compute_min_ms=1.255424 compute_max_ms=1.357824 compute_var_ms=0.002213926 compute_gflops=167.674966 eff_bw_gbs=692.131091 pct_peak_bw=74.1739 comm_avg_ms=1.776160 comm_min_ms=1.661000 comm_max_ms=1.876859 comm_var_ms=0.007739185 total_avg_ms=3.086231 total_min_ms=2.923697 total_max_ms=3.228045 total_var_ms=0.017828906 effective_gflops=71.176193
+RESULT comm=ghost_nccl kernel=acc matrix=Queen_4147.mtx P=3 rank=2 nrows_local=1382370 ncols_global=4147110 nnz_local=109833094 n_ghost=2764740 compute_avg_ms=1.293073 compute_min_ms=1.217536 compute_max_ms=1.360896 compute_var_ms=0.003868105 compute_gflops=169.879174 eff_bw_gbs=701.229653 pct_peak_bw=75.1489 comm_avg_ms=1.725708 comm_min_ms=1.600904 comm_max_ms=1.803462 comm_var_ms=0.005033706 total_avg_ms=3.018781 total_min_ms=2.823560 total_max_ms=3.152070 total_var_ms=0.016780256 effective_gflops=72.766509
+[ERROR CHECKING] OK!
+
+--- P=4 rep=1/1 driver=spmv_ghost_nccl_acc ---
+Loaded ../big_matrices/Queen_4147.mtx: 4147110 x 4147110, 329499284 nnz
+[kernel] acc -> FLAT (nnz=82380308, avg_nnz=79.46, imbalance=1.02)
+[kernel] acc -> FLAT (nnz=82388230, avg_nnz=79.47, imbalance=1.02)
+[kernel] acc -> FLAT (nnz=82367280, avg_nnz=79.45, imbalance=1.02)
+[kernel] acc -> FLAT (nnz=82363466, avg_nnz=79.44, imbalance=1.02)
+RESULT comm=ghost_nccl kernel=acc matrix=Queen_4147.mtx P=4 rank=0 nrows_local=1036778 ncols_global=4147110 nnz_local=82363466 n_ghost=3110332 compute_avg_ms=1.020962 compute_min_ms=1.016832 compute_max_ms=1.024000 compute_var_ms=0.000002830 compute_gflops=161.344797 eff_bw_gbs=670.066100 pct_peak_bw=71.8092 comm_avg_ms=2.543636 comm_min_ms=2.489596 comm_max_ms=2.610834 comm_var_ms=0.000736676 total_avg_ms=3.564598 total_min_ms=3.506428 total_max_ms=3.628690 total_var_ms=0.000740959 effective_gflops=46.211924
+RESULT comm=ghost_nccl kernel=acc matrix=Queen_4147.mtx P=4 rank=2 nrows_local=1036777 ncols_global=4147110 nnz_local=82367280 n_ghost=3110333 compute_avg_ms=1.019597 compute_min_ms=1.015808 compute_max_ms=1.021952 compute_var_ms=0.000003016 compute_gflops=161.568335 eff_bw_gbs=670.993316 pct_peak_bw=71.9086 comm_avg_ms=3.442678 comm_min_ms=3.374749 comm_max_ms=3.512801 comm_var_ms=0.001330227 total_avg_ms=4.462275 total_min_ms=4.391581 total_max_ms=4.533729 total_var_ms=0.001335381 effective_gflops=36.917171
+RESULT comm=ghost_nccl kernel=acc matrix=Queen_4147.mtx P=4 rank=1 nrows_local=1036778 ncols_global=4147110 nnz_local=82380308 n_ghost=3110332 compute_avg_ms=1.010620 compute_min_ms=0.865280 compute_max_ms=1.031168 compute_var_ms=0.001936576 compute_gflops=163.029287 eff_bw_gbs=677.056765 pct_peak_bw=72.5584 comm_avg_ms=3.246212 comm_min_ms=3.179382 comm_max_ms=3.308314 comm_var_ms=0.001104697 total_avg_ms=4.256831 total_min_ms=4.118190 total_max_ms=4.333338 total_var_ms=0.002617425 effective_gflops=38.704991
+RESULT comm=ghost_nccl kernel=acc matrix=Queen_4147.mtx P=4 rank=3 nrows_local=1036777 ncols_global=4147110 nnz_local=82388230 n_ghost=3110333 compute_avg_ms=0.968636 compute_min_ms=0.861184 compute_max_ms=1.008640 compute_var_ms=0.003897903 compute_gflops=170.111890 eff_bw_gbs=706.468169 pct_peak_bw=75.7103 comm_avg_ms=3.376329 comm_min_ms=3.295230 comm_max_ms=3.495195 comm_var_ms=0.002224090 total_avg_ms=4.344964 total_min_ms=4.203804 total_max_ms=4.502811 total_var_ms=0.005614088 effective_gflops=37.923546
+[ERROR CHECKING] Mismatch at index 1416824: CPU = 108544.000000, GPU = 106496.000000
+[ERROR CHECKING] Mismatch at index 2276237: CPU = 4028416.000000, GPU = 4116480.000000
+[ERROR CHECKING] Mismatch at index 3115613: CPU = 158597120.000000, GPU = 155189248.000000
+[ERROR CHECKING] Total mismatches: 3
+
+=== Job done ===

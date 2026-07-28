@@ -1,0 +1,206 @@
+=== D2_final strong scaling ===
+Node:     edu01
+Date:     Tue Jul 21 05:10:19 PM CEST 2026
+Matrix:   ../matrices/thermal2.mtx
+P:        2
+Reps:     3
+
+--- P=2 rep=1/3 driver=spmv_bcast ---
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+RESULT comm=bcast kernel=cusparse matrix=thermal2.mtx P=2 rank=0 nrows_local=614023 ncols_global=1228045 nnz_local=4290060 n_ghost=-1 compute_avg_ms=0.096905 compute_min_ms=0.096256 compute_max_ms=0.098304 compute_var_ms=0.000000313 compute_gflops=88.541985 eff_bw_gbs=455.549860 pct_peak_bw=48.8201 comm_avg_ms=0.912079 comm_min_ms=0.906138 comm_max_ms=0.927606 comm_var_ms=0.000015968 total_avg_ms=1.008983 total_min_ms=1.002732 total_max_ms=1.023862 total_var_ms=0.000015858 effective_gflops=8.503729
+RESULT comm=bcast kernel=cusparse matrix=thermal2.mtx P=2 rank=1 nrows_local=614022 ncols_global=1228045 nnz_local=4290253 n_ghost=-1 compute_avg_ms=0.097485 compute_min_ms=0.096256 compute_max_ms=0.098304 compute_var_ms=0.000000238 compute_gflops=88.018909 eff_bw_gbs=452.854010 pct_peak_bw=48.5312 comm_avg_ms=0.926523 comm_min_ms=0.912397 comm_max_ms=0.945462 comm_var_ms=0.000083551 total_avg_ms=1.024008 total_min_ms=1.009677 total_max_ms=1.042742 total_var_ms=0.000084226 effective_gflops=8.379336
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/3 driver=spmv_ghost_cusparse ---
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=thermal2.mtx P=2 rank=0 nrows_local=614023 ncols_global=1228045 nnz_local=4290060 n_ghost=609135 compute_avg_ms=0.103902 compute_min_ms=0.102400 compute_max_ms=0.105472 compute_var_ms=0.000000541 compute_gflops=82.579076 eff_bw_gbs=424.682465 pct_peak_bw=45.5121 comm_avg_ms=0.660599 comm_min_ms=0.192745 comm_max_ms=0.944655 comm_var_ms=0.084095702 total_avg_ms=0.764501 total_min_ms=0.296169 total_max_ms=1.048079 total_var_ms=0.084122420 effective_gflops=11.223169
+RESULT comm=ghost_mpi kernel=cusparse matrix=thermal2.mtx P=2 rank=1 nrows_local=614022 ncols_global=1228045 nnz_local=4290253 n_ghost=609195 compute_avg_ms=0.105438 compute_min_ms=0.104448 compute_max_ms=0.106496 compute_var_ms=0.000000523 compute_gflops=81.379740 eff_bw_gbs=418.512571 pct_peak_bw=44.8509 comm_avg_ms=0.660883 comm_min_ms=0.193031 comm_max_ms=0.945329 comm_var_ms=0.084129281 total_avg_ms=0.766321 total_min_ms=0.297837 total_max_ms=1.050801 total_var_ms=0.084180058 effective_gflops=11.197016
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/3 driver=spmv_ghost_acc ---
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=4290253, avg_nnz=6.99, imbalance=1.57, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=4290060, avg_nnz=6.99, imbalance=1.57, V=1)
+RESULT comm=ghost_mpi kernel=acc matrix=thermal2.mtx P=2 rank=0 nrows_local=614023 ncols_global=1228045 nnz_local=4290060 n_ghost=609135 compute_avg_ms=0.110558 compute_min_ms=0.107520 compute_max_ms=0.112640 compute_var_ms=0.000001781 compute_gflops=77.607503 eff_bw_gbs=399.114973 pct_peak_bw=42.7721 comm_avg_ms=0.690649 comm_min_ms=0.196436 comm_max_ms=0.906167 comm_var_ms=0.073803125 total_avg_ms=0.801207 total_min_ms=0.304980 total_max_ms=1.017783 total_var_ms=0.074090289 effective_gflops=10.708990
+RESULT comm=ghost_mpi kernel=acc matrix=thermal2.mtx P=2 rank=1 nrows_local=614022 ncols_global=1228045 nnz_local=4290253 n_ghost=609195 compute_avg_ms=0.111275 compute_min_ms=0.109568 compute_max_ms=0.113664 compute_var_ms=0.000000862 compute_gflops=77.111046 eff_bw_gbs=396.559910 pct_peak_bw=42.4983 comm_avg_ms=0.690676 comm_min_ms=0.196036 comm_max_ms=0.905861 comm_var_ms=0.073849763 total_avg_ms=0.801951 total_min_ms=0.305604 total_max_ms=1.017477 total_var_ms=0.073958393 effective_gflops=10.699537
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/3 driver=spmv_ghost_nccl_cusparse ---
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+RESULT comm=ghost_nccl kernel=cusparse matrix=thermal2.mtx P=2 rank=0 nrows_local=614023 ncols_global=1228045 nnz_local=4290060 n_ghost=609135 compute_avg_ms=0.105335 compute_min_ms=0.103424 compute_max_ms=0.106496 compute_var_ms=0.000000680 compute_gflops=81.455187 eff_bw_gbs=418.902598 pct_peak_bw=44.8927 comm_avg_ms=0.727606 comm_min_ms=0.714706 comm_max_ms=0.770868 comm_var_ms=0.000087027 total_avg_ms=0.832941 total_min_ms=0.820178 total_max_ms=0.877364 total_var_ms=0.000092317 effective_gflops=10.300989
+RESULT comm=ghost_nccl kernel=cusparse matrix=thermal2.mtx P=2 rank=1 nrows_local=614022 ncols_global=1228045 nnz_local=4290253 n_ghost=609195 compute_avg_ms=0.106428 compute_min_ms=0.104448 compute_max_ms=0.123904 compute_var_ms=0.000011040 compute_gflops=80.622840 eff_bw_gbs=414.620055 pct_peak_bw=44.4337 comm_avg_ms=0.749109 comm_min_ms=0.714903 comm_max_ms=1.144406 comm_var_ms=0.005963252 total_avg_ms=0.855536 total_min_ms=0.821399 total_max_ms=1.268310 total_var_ms=0.006447152 effective_gflops=10.029387
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/3 driver=spmv_ghost_nccl_acc ---
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=4290060, avg_nnz=6.99, imbalance=1.57, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=4290253, avg_nnz=6.99, imbalance=1.57, V=1)
+RESULT comm=ghost_nccl kernel=acc matrix=thermal2.mtx P=2 rank=0 nrows_local=614023 ncols_global=1228045 nnz_local=4290060 n_ghost=609135 compute_avg_ms=0.110831 compute_min_ms=0.108544 compute_max_ms=0.112640 compute_var_ms=0.000000817 compute_gflops=77.416293 eff_bw_gbs=398.131628 pct_peak_bw=42.6667 comm_avg_ms=0.722745 comm_min_ms=0.714826 comm_max_ms=0.734510 comm_var_ms=0.000018566 total_avg_ms=0.833576 total_min_ms=0.826442 total_max_ms=0.847150 total_var_ms=0.000018718 effective_gflops=10.293148
+RESULT comm=ghost_nccl kernel=acc matrix=thermal2.mtx P=2 rank=1 nrows_local=614022 ncols_global=1228045 nnz_local=4290253 n_ghost=609195 compute_avg_ms=0.111411 compute_min_ms=0.109568 compute_max_ms=0.113664 compute_var_ms=0.000001007 compute_gflops=77.016547 eff_bw_gbs=396.073930 pct_peak_bw=42.4462 comm_avg_ms=0.722393 comm_min_ms=0.713349 comm_max_ms=0.737135 comm_var_ms=0.000023087 total_avg_ms=0.833804 total_min_ms=0.824965 total_max_ms=0.849775 total_var_ms=0.000024325 effective_gflops=10.290799
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/3 driver=spmv_2d_cusparse ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+RESULT comm=checkerboard_mpi kernel=cusparse matrix=thermal2.mtx P=2 rank=1 nrows_local=1228045 ncols_global=1228045 nnz_local=4290253 n_ghost=-1 compute_avg_ms=0.104414 compute_min_ms=0.102400 compute_max_ms=0.106496 compute_var_ms=0.000000663 compute_gflops=82.177841 eff_bw_gbs=446.324596 pct_peak_bw=47.8314 comm_avg_ms=1.851114 comm_min_ms=1.843309 comm_max_ms=1.866520 comm_var_ms=0.000027947 total_avg_ms=1.955527 total_min_ms=1.947757 total_max_ms=1.970968 total_var_ms=0.000026729 effective_gflops=4.387822
+RESULT comm=checkerboard_mpi kernel=cusparse matrix=thermal2.mtx P=2 rank=0 nrows_local=1228045 ncols_global=1228045 nnz_local=4290060 n_ghost=-1 compute_avg_ms=0.108749 compute_min_ms=0.107520 compute_max_ms=0.110592 compute_var_ms=0.000000797 compute_gflops=78.898526 eff_bw_gbs=428.519084 pct_peak_bw=45.9233 comm_avg_ms=2.626722 comm_min_ms=2.616799 comm_max_ms=2.654057 comm_var_ms=0.000056004 total_avg_ms=2.735470 total_min_ms=2.724319 total_max_ms=2.761577 total_var_ms=0.000054574 effective_gflops=3.136616
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/3 driver=spmv_2d_acc ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=4290253, avg_nnz=3.49, imbalance=2.58, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=4290060, avg_nnz=3.49, imbalance=2.58, V=1)
+RESULT comm=checkerboard_mpi kernel=acc matrix=thermal2.mtx P=2 rank=1 nrows_local=1228045 ncols_global=1228045 nnz_local=4290253 n_ghost=-1 compute_avg_ms=0.107247 compute_min_ms=0.105472 compute_max_ms=0.108544 compute_var_ms=0.000000694 compute_gflops=80.007006 eff_bw_gbs=434.534349 pct_peak_bw=46.5679 comm_avg_ms=1.769609 comm_min_ms=1.760986 comm_max_ms=1.780799 comm_var_ms=0.000020674 total_avg_ms=1.876856 total_min_ms=1.868506 total_max_ms=1.888563 total_var_ms=0.000020575 effective_gflops=4.571746
+RESULT comm=checkerboard_mpi kernel=acc matrix=thermal2.mtx P=2 rank=0 nrows_local=1228045 ncols_global=1228045 nnz_local=4290060 n_ghost=-1 compute_avg_ms=0.109875 compute_min_ms=0.108544 compute_max_ms=0.111616 compute_var_ms=0.000000570 compute_gflops=78.089687 eff_bw_gbs=424.126063 pct_peak_bw=45.4525 comm_avg_ms=2.550921 comm_min_ms=2.537237 comm_max_ms=2.580265 comm_var_ms=0.000063138 total_avg_ms=2.660797 total_min_ms=2.646673 total_max_ms=2.688809 total_var_ms=0.000061287 effective_gflops=3.224643
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/3 driver=spmv_2d_nccl_cusparse ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+RESULT comm=checkerboard_nccl kernel=cusparse matrix=thermal2.mtx P=2 rank=1 nrows_local=1228045 ncols_global=1228045 nnz_local=4290253 n_ghost=-1 compute_avg_ms=0.107861 compute_min_ms=0.106496 compute_max_ms=0.114688 compute_var_ms=0.000003449 compute_gflops=79.551270 eff_bw_gbs=432.059153 pct_peak_bw=46.3026 comm_avg_ms=0.289997 comm_min_ms=0.287624 comm_max_ms=0.293921 comm_var_ms=0.000001579 total_avg_ms=0.397859 total_min_ms=0.394651 total_max_ms=0.404316 total_var_ms=0.000004916 effective_gflops=21.566722
+RESULT comm=checkerboard_nccl kernel=cusparse matrix=thermal2.mtx P=2 rank=0 nrows_local=1228045 ncols_global=1228045 nnz_local=4290060 n_ghost=-1 compute_avg_ms=0.111275 compute_min_ms=0.109568 compute_max_ms=0.114688 compute_var_ms=0.000001072 compute_gflops=77.107577 eff_bw_gbs=418.791961 pct_peak_bw=44.8808 comm_avg_ms=0.352679 comm_min_ms=0.337706 comm_max_ms=0.368457 comm_var_ms=0.000037026 total_avg_ms=0.463954 total_min_ms=0.450346 total_max_ms=0.481097 total_var_ms=0.000041559 effective_gflops=18.493473
+[ERROR CHECKING] OK!
+
+--- P=2 rep=1/3 driver=spmv_2d_nccl_acc ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=4290060, avg_nnz=3.49, imbalance=2.58, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=4290253, avg_nnz=3.49, imbalance=2.58, V=1)
+RESULT comm=checkerboard_nccl kernel=acc matrix=thermal2.mtx P=2 rank=0 nrows_local=1228045 ncols_global=1228045 nnz_local=4290060 n_ghost=-1 compute_avg_ms=0.111036 compute_min_ms=0.108544 compute_max_ms=0.115712 compute_var_ms=0.000001446 compute_gflops=77.273502 eff_bw_gbs=419.693143 pct_peak_bw=44.9774 comm_avg_ms=0.354636 comm_min_ms=0.342058 comm_max_ms=0.365168 comm_var_ms=0.000036752 total_avg_ms=0.465671 total_min_ms=0.450602 total_max_ms=0.475760 total_var_ms=0.000039843 effective_gflops=18.425271
+RESULT comm=checkerboard_nccl kernel=acc matrix=thermal2.mtx P=2 rank=1 nrows_local=1228045 ncols_global=1228045 nnz_local=4290253 n_ghost=-1 compute_avg_ms=0.108169 compute_min_ms=0.106496 compute_max_ms=0.114688 compute_var_ms=0.000003599 compute_gflops=79.325343 eff_bw_gbs=430.832099 pct_peak_bw=46.1711 comm_avg_ms=0.291515 comm_min_ms=0.289265 comm_max_ms=0.294370 comm_var_ms=0.000001993 total_avg_ms=0.399684 total_min_ms=0.395761 total_max_ms=0.406193 total_var_ms=0.000005096 effective_gflops=21.468246
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_bcast ---
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+RESULT comm=bcast kernel=cusparse matrix=thermal2.mtx P=2 rank=0 nrows_local=614023 ncols_global=1228045 nnz_local=4290060 n_ghost=-1 compute_avg_ms=0.096836 compute_min_ms=0.095232 compute_max_ms=0.098304 compute_var_ms=0.000000397 compute_gflops=88.604404 eff_bw_gbs=455.871009 pct_peak_bw=48.8545 comm_avg_ms=1.044288 comm_min_ms=1.040312 comm_max_ms=1.052687 comm_var_ms=0.000010815 total_avg_ms=1.141124 total_min_ms=1.137304 total_max_ms=1.149967 total_var_ms=0.000010781 effective_gflops=7.519009
+RESULT comm=bcast kernel=cusparse matrix=thermal2.mtx P=2 rank=1 nrows_local=614022 ncols_global=1228045 nnz_local=4290253 n_ghost=-1 compute_avg_ms=0.097587 compute_min_ms=0.096256 compute_max_ms=0.099328 compute_var_ms=0.000000430 compute_gflops=87.926549 eff_bw_gbs=452.378823 pct_peak_bw=48.4802 comm_avg_ms=0.925260 comm_min_ms=0.910235 comm_max_ms=0.943089 comm_var_ms=0.000045200 total_avg_ms=1.022847 total_min_ms=1.008539 total_max_ms=1.042417 total_var_ms=0.000046441 effective_gflops=8.388847
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_ghost_cusparse ---
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=thermal2.mtx P=2 rank=0 nrows_local=614023 ncols_global=1228045 nnz_local=4290060 n_ghost=609135 compute_avg_ms=0.104311 compute_min_ms=0.103424 compute_max_ms=0.105472 compute_var_ms=0.000000541 compute_gflops=82.254813 eff_bw_gbs=423.014863 pct_peak_bw=45.3334 comm_avg_ms=0.696007 comm_min_ms=0.193223 comm_max_ms=0.950878 comm_var_ms=0.077143472 total_avg_ms=0.800318 total_min_ms=0.297981 total_max_ms=1.055326 total_var_ms=0.077115996 effective_gflops=10.720889
+RESULT comm=ghost_mpi kernel=cusparse matrix=thermal2.mtx P=2 rank=1 nrows_local=614022 ncols_global=1228045 nnz_local=4290253 n_ghost=609195 compute_avg_ms=0.105472 compute_min_ms=0.104448 compute_max_ms=0.106496 compute_var_ms=0.000000489 compute_gflops=81.353403 eff_bw_gbs=418.377130 pct_peak_bw=44.8364 comm_avg_ms=0.696162 comm_min_ms=0.193242 comm_max_ms=0.950960 comm_var_ms=0.077143506 total_avg_ms=0.801634 total_min_ms=0.298714 total_max_ms=1.056432 total_var_ms=0.077187924 effective_gflops=10.703770
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_ghost_acc ---
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=4290253, avg_nnz=6.99, imbalance=1.57, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=4290060, avg_nnz=6.99, imbalance=1.57, V=1)
+RESULT comm=ghost_mpi kernel=acc matrix=thermal2.mtx P=2 rank=1 nrows_local=614022 ncols_global=1228045 nnz_local=4290253 n_ghost=609195 compute_avg_ms=0.110967 compute_min_ms=0.109568 compute_max_ms=0.113664 compute_var_ms=0.000001222 compute_gflops=77.324519 eff_bw_gbs=397.657739 pct_peak_bw=42.6159 comm_avg_ms=0.737368 comm_min_ms=0.197327 comm_max_ms=0.929190 comm_var_ms=0.057979876 total_avg_ms=0.848336 total_min_ms=0.306895 total_max_ms=1.038758 total_var_ms=0.057792081 effective_gflops=10.114520
+RESULT comm=ghost_mpi kernel=acc matrix=thermal2.mtx P=2 rank=0 nrows_local=614023 ncols_global=1228045 nnz_local=4290060 n_ghost=609135 compute_avg_ms=0.110421 compute_min_ms=0.108544 compute_max_ms=0.112640 compute_var_ms=0.000000984 compute_gflops=77.703463 eff_bw_gbs=399.608469 pct_peak_bw=42.8250 comm_avg_ms=0.737259 comm_min_ms=0.197605 comm_max_ms=0.929093 comm_var_ms=0.057947928 total_avg_ms=0.847680 total_min_ms=0.308197 total_max_ms=1.040709 total_var_ms=0.057934562 effective_gflops=10.121882
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_ghost_nccl_cusparse ---
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+RESULT comm=ghost_nccl kernel=cusparse matrix=thermal2.mtx P=2 rank=0 nrows_local=614023 ncols_global=1228045 nnz_local=4290060 n_ghost=609135 compute_avg_ms=0.105472 compute_min_ms=0.104448 compute_max_ms=0.107520 compute_var_ms=0.000000559 compute_gflops=81.349743 eff_bw_gbs=418.360329 pct_peak_bw=44.8346 comm_avg_ms=0.715062 comm_min_ms=0.703714 comm_max_ms=0.753083 comm_var_ms=0.000090290 total_avg_ms=0.820534 total_min_ms=0.808162 total_max_ms=0.857531 total_var_ms=0.000091011 effective_gflops=10.456757
+RESULT comm=ghost_nccl kernel=cusparse matrix=thermal2.mtx P=2 rank=1 nrows_local=614022 ncols_global=1228045 nnz_local=4290253 n_ghost=609195 compute_avg_ms=0.107179 compute_min_ms=0.105472 compute_max_ms=0.124928 compute_var_ms=0.000011488 compute_gflops=80.057966 eff_bw_gbs=411.715072 pct_peak_bw=44.1224 comm_avg_ms=0.727334 comm_min_ms=0.702640 comm_max_ms=1.058215 comm_var_ms=0.003860817 total_avg_ms=0.834512 total_min_ms=0.809384 total_max_ms=1.183143 total_var_ms=0.004281393 effective_gflops=10.282060
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_ghost_nccl_acc ---
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=4290060, avg_nnz=6.99, imbalance=1.57, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=4290253, avg_nnz=6.99, imbalance=1.57, V=1)
+RESULT comm=ghost_nccl kernel=acc matrix=thermal2.mtx P=2 rank=0 nrows_local=614023 ncols_global=1228045 nnz_local=4290060 n_ghost=609135 compute_avg_ms=0.111104 compute_min_ms=0.109568 compute_max_ms=0.112640 compute_var_ms=0.000000751 compute_gflops=77.226022 eff_bw_gbs=397.153117 pct_peak_bw=42.5618 comm_avg_ms=0.725313 comm_min_ms=0.712313 comm_max_ms=0.733064 comm_var_ms=0.000024685 total_avg_ms=0.836417 total_min_ms=0.822905 total_max_ms=0.845704 total_var_ms=0.000028160 effective_gflops=10.258186
+RESULT comm=ghost_nccl kernel=acc matrix=thermal2.mtx P=2 rank=1 nrows_local=614022 ncols_global=1228045 nnz_local=4290253 n_ghost=609195 compute_avg_ms=0.111343 compute_min_ms=0.109568 compute_max_ms=0.113664 compute_var_ms=0.000001114 compute_gflops=77.063768 eff_bw_gbs=396.316771 pct_peak_bw=42.4722 comm_avg_ms=0.726420 comm_min_ms=0.716323 comm_max_ms=0.733019 comm_var_ms=0.000015192 total_avg_ms=0.837763 total_min_ms=0.827939 total_max_ms=0.845659 total_var_ms=0.000017650 effective_gflops=10.242164
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_2d_cusparse ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+RESULT comm=checkerboard_mpi kernel=cusparse matrix=thermal2.mtx P=2 rank=1 nrows_local=1228045 ncols_global=1228045 nnz_local=4290253 n_ghost=-1 compute_avg_ms=0.104550 compute_min_ms=0.103424 compute_max_ms=0.106496 compute_var_ms=0.000000514 compute_gflops=82.070524 eff_bw_gbs=445.741736 pct_peak_bw=47.7690 comm_avg_ms=1.891592 comm_min_ms=1.877047 comm_max_ms=1.903679 comm_var_ms=0.000034081 total_avg_ms=1.996143 total_min_ms=1.981495 total_max_ms=2.008127 total_var_ms=0.000034799 effective_gflops=4.298544
+RESULT comm=checkerboard_mpi kernel=cusparse matrix=thermal2.mtx P=2 rank=0 nrows_local=1228045 ncols_global=1228045 nnz_local=4290060 n_ghost=-1 compute_avg_ms=0.108646 compute_min_ms=0.107520 compute_max_ms=0.109568 compute_var_ms=0.000000234 compute_gflops=78.972889 eff_bw_gbs=428.922967 pct_peak_bw=45.9665 comm_avg_ms=2.819214 comm_min_ms=2.803552 comm_max_ms=2.836524 comm_var_ms=0.000047647 total_avg_ms=2.927861 total_min_ms=2.912096 total_max_ms=2.945068 total_var_ms=0.000048481 effective_gflops=2.930508
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_2d_acc ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=4290253, avg_nnz=3.49, imbalance=2.58, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=4290060, avg_nnz=3.49, imbalance=2.58, V=1)
+RESULT comm=checkerboard_mpi kernel=acc matrix=thermal2.mtx P=2 rank=1 nrows_local=1228045 ncols_global=1228045 nnz_local=4290253 n_ghost=-1 compute_avg_ms=0.107042 compute_min_ms=0.105472 compute_max_ms=0.108544 compute_var_ms=0.000000471 compute_gflops=80.160081 eff_bw_gbs=435.365729 pct_peak_bw=46.6570 comm_avg_ms=1.977313 comm_min_ms=1.963609 comm_max_ms=1.995072 comm_var_ms=0.000039678 total_avg_ms=2.084356 total_min_ms=2.071129 total_max_ms=2.102592 total_var_ms=0.000040438 effective_gflops=4.116623
+RESULT comm=checkerboard_mpi kernel=acc matrix=thermal2.mtx P=2 rank=0 nrows_local=1228045 ncols_global=1228045 nnz_local=4290060 n_ghost=-1 compute_avg_ms=0.109875 compute_min_ms=0.108544 compute_max_ms=0.110592 compute_var_ms=0.000000430 compute_gflops=78.089687 eff_bw_gbs=424.126063 pct_peak_bw=45.4525 comm_avg_ms=2.755984 comm_min_ms=2.735047 comm_max_ms=2.777768 comm_var_ms=0.000117954 total_avg_ms=2.865859 total_min_ms=2.844615 total_max_ms=2.887336 total_var_ms=0.000115782 effective_gflops=2.993908
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_2d_nccl_cusparse ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+RESULT comm=checkerboard_nccl kernel=cusparse matrix=thermal2.mtx P=2 rank=1 nrows_local=1228045 ncols_global=1228045 nnz_local=4290253 n_ghost=-1 compute_avg_ms=0.107827 compute_min_ms=0.106496 compute_max_ms=0.114688 compute_var_ms=0.000004205 compute_gflops=79.576453 eff_bw_gbs=432.195924 pct_peak_bw=46.3173 comm_avg_ms=0.291263 comm_min_ms=0.288528 comm_max_ms=0.295006 comm_var_ms=0.000002997 total_avg_ms=0.399090 total_min_ms=0.395024 total_max_ms=0.408521 total_var_ms=0.000009972 effective_gflops=21.500185
+RESULT comm=checkerboard_nccl kernel=cusparse matrix=thermal2.mtx P=2 rank=0 nrows_local=1228045 ncols_global=1228045 nnz_local=4290060 n_ghost=-1 compute_avg_ms=0.110967 compute_min_ms=0.109568 compute_max_ms=0.113664 compute_var_ms=0.000000733 compute_gflops=77.321040 eff_bw_gbs=419.951336 pct_peak_bw=45.0051 comm_avg_ms=0.353662 comm_min_ms=0.340155 comm_max_ms=0.365567 comm_var_ms=0.000031242 total_avg_ms=0.464630 total_min_ms=0.449723 total_max_ms=0.477183 total_var_ms=0.000034628 effective_gflops=18.466566
+[ERROR CHECKING] OK!
+
+--- P=2 rep=2/3 driver=spmv_2d_nccl_acc ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=4290060, avg_nnz=3.49, imbalance=2.58, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=4290253, avg_nnz=3.49, imbalance=2.58, V=1)
+RESULT comm=checkerboard_nccl kernel=acc matrix=thermal2.mtx P=2 rank=0 nrows_local=1228045 ncols_global=1228045 nnz_local=4290060 n_ghost=-1 compute_avg_ms=0.110865 compute_min_ms=0.109568 compute_max_ms=0.115712 compute_var_ms=0.000001673 compute_gflops=77.392458 eff_bw_gbs=420.339222 pct_peak_bw=45.0466 comm_avg_ms=0.351383 comm_min_ms=0.340865 comm_max_ms=0.360576 comm_var_ms=0.000029433 total_avg_ms=0.462248 total_min_ms=0.452481 total_max_ms=0.472998 total_var_ms=0.000031784 effective_gflops=18.561736
+RESULT comm=checkerboard_nccl kernel=acc matrix=thermal2.mtx P=2 rank=1 nrows_local=1228045 ncols_global=1228045 nnz_local=4290253 n_ghost=-1 compute_avg_ms=0.108134 compute_min_ms=0.106496 compute_max_ms=0.116736 compute_var_ms=0.000004306 compute_gflops=79.350383 eff_bw_gbs=430.968094 pct_peak_bw=46.1857 comm_avg_ms=0.291584 comm_min_ms=0.289506 comm_max_ms=0.294127 comm_var_ms=0.000001726 total_avg_ms=0.399718 total_min_ms=0.396139 total_max_ms=0.407507 total_var_ms=0.000006383 effective_gflops=21.466372
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_bcast ---
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+RESULT comm=bcast kernel=cusparse matrix=thermal2.mtx P=2 rank=1 nrows_local=614022 ncols_global=1228045 nnz_local=4290253 n_ghost=-1 compute_avg_ms=0.097485 compute_min_ms=0.096256 compute_max_ms=0.099328 compute_var_ms=0.000000657 compute_gflops=88.018909 eff_bw_gbs=452.854012 pct_peak_bw=48.5312 comm_avg_ms=0.923600 comm_min_ms=0.912523 comm_max_ms=0.935815 comm_var_ms=0.000028776 total_avg_ms=1.021085 total_min_ms=1.010827 total_max_ms=1.034119 total_var_ms=0.000029448 effective_gflops=8.403324
+RESULT comm=bcast kernel=cusparse matrix=thermal2.mtx P=2 rank=0 nrows_local=614023 ncols_global=1228045 nnz_local=4290060 n_ghost=-1 compute_avg_ms=0.098031 compute_min_ms=0.096256 compute_max_ms=0.131072 compute_var_ms=0.000037954 compute_gflops=87.524616 eff_bw_gbs=450.315479 pct_peak_bw=48.2591 comm_avg_ms=1.089214 comm_min_ms=1.085061 comm_max_ms=1.099021 comm_var_ms=0.000009073 total_avg_ms=1.187245 total_min_ms=1.182341 total_max_ms=1.218908 total_var_ms=0.000044492 effective_gflops=7.226915
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_ghost_cusparse ---
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+RESULT comm=ghost_mpi kernel=cusparse matrix=thermal2.mtx P=2 rank=1 nrows_local=614022 ncols_global=1228045 nnz_local=4290253 n_ghost=609195 compute_avg_ms=0.104994 compute_min_ms=0.104448 compute_max_ms=0.106496 compute_var_ms=0.000000401 compute_gflops=81.723672 eff_bw_gbs=420.281318 pct_peak_bw=45.0404 comm_avg_ms=0.707828 comm_min_ms=0.193640 comm_max_ms=0.915208 comm_var_ms=0.066428177 total_avg_ms=0.812823 total_min_ms=0.298088 total_max_ms=1.019656 total_var_ms=0.066400630 effective_gflops=10.556432
+RESULT comm=ghost_mpi kernel=cusparse matrix=thermal2.mtx P=2 rank=0 nrows_local=614023 ncols_global=1228045 nnz_local=4290060 n_ghost=609135 compute_avg_ms=0.104038 compute_min_ms=0.102400 compute_max_ms=0.105472 compute_var_ms=0.000000671 compute_gflops=82.470705 eff_bw_gbs=424.125139 pct_peak_bw=45.4524 comm_avg_ms=0.707615 comm_min_ms=0.193810 comm_max_ms=0.914309 comm_var_ms=0.066421185 total_avg_ms=0.811653 total_min_ms=0.297290 total_max_ms=1.017733 total_var_ms=0.066225632 effective_gflops=10.571166
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_ghost_acc ---
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=4290253, avg_nnz=6.99, imbalance=1.57, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=4290060, avg_nnz=6.99, imbalance=1.57, V=1)
+RESULT comm=ghost_mpi kernel=acc matrix=thermal2.mtx P=2 rank=1 nrows_local=614022 ncols_global=1228045 nnz_local=4290253 n_ghost=609195 compute_avg_ms=0.111309 compute_min_ms=0.109568 compute_max_ms=0.114688 compute_var_ms=0.000001339 compute_gflops=77.087400 eff_bw_gbs=396.438303 pct_peak_bw=42.4852 comm_avg_ms=0.809635 comm_min_ms=0.197744 comm_max_ms=0.952662 comm_var_ms=0.027639862 total_avg_ms=0.920943 total_min_ms=0.311408 total_max_ms=1.064278 total_var_ms=0.027500353 effective_gflops=9.317083
+RESULT comm=ghost_mpi kernel=acc matrix=thermal2.mtx P=2 rank=0 nrows_local=614023 ncols_global=1228045 nnz_local=4290060 n_ghost=609135 compute_avg_ms=0.110797 compute_min_ms=0.109568 compute_max_ms=0.112640 compute_var_ms=0.000000797 compute_gflops=77.440142 eff_bw_gbs=398.254281 pct_peak_bw=42.6799 comm_avg_ms=0.809404 comm_min_ms=0.197424 comm_max_ms=0.951980 comm_var_ms=0.027621738 total_avg_ms=0.920200 total_min_ms=0.308016 total_max_ms=1.061548 total_var_ms=0.027637632 effective_gflops=9.324187
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_ghost_nccl_cusparse ---
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+RESULT comm=ghost_nccl kernel=cusparse matrix=thermal2.mtx P=2 rank=1 nrows_local=614022 ncols_global=1228045 nnz_local=4290253 n_ghost=609195 compute_avg_ms=0.106155 compute_min_ms=0.105472 compute_max_ms=0.107520 compute_var_ms=0.000000513 compute_gflops=80.830230 eff_bw_gbs=415.686601 pct_peak_bw=44.5480 comm_avg_ms=0.721717 comm_min_ms=0.711673 comm_max_ms=0.732285 comm_var_ms=0.000023828 total_avg_ms=0.827872 total_min_ms=0.818169 total_max_ms=0.838781 total_var_ms=0.000026312 effective_gflops=10.364535
+RESULT comm=ghost_nccl kernel=cusparse matrix=thermal2.mtx P=2 rank=0 nrows_local=614023 ncols_global=1228045 nnz_local=4290060 n_ghost=609135 compute_avg_ms=0.105097 compute_min_ms=0.104448 compute_max_ms=0.106496 compute_var_ms=0.000000313 compute_gflops=81.640373 eff_bw_gbs=419.854959 pct_peak_bw=44.9947 comm_avg_ms=0.718693 comm_min_ms=0.712414 comm_max_ms=0.727520 comm_var_ms=0.000019753 total_avg_ms=0.823789 total_min_ms=0.816862 total_max_ms=0.832192 total_var_ms=0.000020188 effective_gflops=10.415428
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_ghost_nccl_acc ---
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=4290060, avg_nnz=6.99, imbalance=1.57, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=4290253, avg_nnz=6.99, imbalance=1.57, V=1)
+RESULT comm=ghost_nccl kernel=acc matrix=thermal2.mtx P=2 rank=0 nrows_local=614023 ncols_global=1228045 nnz_local=4290060 n_ghost=609135 compute_avg_ms=0.110660 compute_min_ms=0.108544 compute_max_ms=0.113664 compute_var_ms=0.000001463 compute_gflops=77.535689 eff_bw_gbs=398.745650 pct_peak_bw=42.7325 comm_avg_ms=0.720345 comm_min_ms=0.709862 comm_max_ms=0.730743 comm_var_ms=0.000029342 total_avg_ms=0.831005 total_min_ms=0.819816 total_max_ms=0.840664 total_var_ms=0.000031564 effective_gflops=10.324990
+RESULT comm=ghost_nccl kernel=acc matrix=thermal2.mtx P=2 rank=1 nrows_local=614022 ncols_global=1228045 nnz_local=4290253 n_ghost=609195 compute_avg_ms=0.111582 compute_min_ms=0.110592 compute_max_ms=0.113664 compute_var_ms=0.000000593 compute_gflops=76.898749 eff_bw_gbs=395.468127 pct_peak_bw=42.3813 comm_avg_ms=0.726031 comm_min_ms=0.715007 comm_max_ms=0.734329 comm_var_ms=0.000022539 total_avg_ms=0.837613 total_min_ms=0.825599 total_max_ms=0.845945 total_var_ms=0.000022450 effective_gflops=10.244003
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_2d_cusparse ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+RESULT comm=checkerboard_mpi kernel=cusparse matrix=thermal2.mtx P=2 rank=1 nrows_local=1228045 ncols_global=1228045 nnz_local=4290253 n_ghost=-1 compute_avg_ms=0.104755 compute_min_ms=0.103424 compute_max_ms=0.107520 compute_var_ms=0.000000570 compute_gflops=81.910074 eff_bw_gbs=444.870296 pct_peak_bw=47.6756 comm_avg_ms=2.287422 comm_min_ms=2.277000 comm_max_ms=2.299828 comm_var_ms=0.000037242 total_avg_ms=2.392177 total_min_ms=2.382472 total_max_ms=2.405300 total_var_ms=0.000039145 effective_gflops=3.586902
+RESULT comm=checkerboard_mpi kernel=cusparse matrix=thermal2.mtx P=2 rank=0 nrows_local=1228045 ncols_global=1228045 nnz_local=4290060 n_ghost=-1 compute_avg_ms=0.108817 compute_min_ms=0.107520 compute_max_ms=0.110592 compute_var_ms=0.000000624 compute_gflops=78.849029 eff_bw_gbs=428.250252 pct_peak_bw=45.8944 comm_avg_ms=3.066738 comm_min_ms=3.045373 comm_max_ms=3.091547 comm_var_ms=0.000152565 total_avg_ms=3.175555 total_min_ms=3.155965 total_max_ms=3.201115 total_var_ms=0.000151193 effective_gflops=2.701927
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_2d_acc ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=4290253, avg_nnz=3.49, imbalance=2.58, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=4290060, avg_nnz=3.49, imbalance=2.58, V=1)
+RESULT comm=checkerboard_mpi kernel=acc matrix=thermal2.mtx P=2 rank=1 nrows_local=1228045 ncols_global=1228045 nnz_local=4290253 n_ghost=-1 compute_avg_ms=0.107281 compute_min_ms=0.105472 compute_max_ms=0.108544 compute_var_ms=0.000000397 compute_gflops=79.981551 eff_bw_gbs=434.396095 pct_peak_bw=46.5531 comm_avg_ms=1.957353 comm_min_ms=1.949003 comm_max_ms=1.975270 comm_var_ms=0.000028605 total_avg_ms=2.064635 total_min_ms=2.056523 total_max_ms=2.082790 total_var_ms=0.000028312 effective_gflops=4.155944
+RESULT comm=checkerboard_mpi kernel=acc matrix=thermal2.mtx P=2 rank=0 nrows_local=1228045 ncols_global=1228045 nnz_local=4290060 n_ghost=-1 compute_avg_ms=0.109602 compute_min_ms=0.108544 compute_max_ms=0.110592 compute_var_ms=0.000000453 compute_gflops=78.284243 eff_bw_gbs=425.182746 pct_peak_bw=45.5657 comm_avg_ms=2.730863 comm_min_ms=2.722608 comm_max_ms=2.755301 comm_var_ms=0.000040052 total_avg_ms=2.840465 total_min_ms=2.832176 total_max_ms=2.865893 total_var_ms=0.000040424 effective_gflops=3.020674
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_2d_nccl_cusparse ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+RESULT comm=checkerboard_nccl kernel=cusparse matrix=thermal2.mtx P=2 rank=1 nrows_local=1228045 ncols_global=1228045 nnz_local=4290253 n_ghost=-1 compute_avg_ms=0.107930 compute_min_ms=0.106496 compute_max_ms=0.114688 compute_var_ms=0.000003817 compute_gflops=79.500953 eff_bw_gbs=431.785871 pct_peak_bw=46.2733 comm_avg_ms=0.290533 comm_min_ms=0.288364 comm_max_ms=0.293700 comm_var_ms=0.000002031 total_avg_ms=0.398462 total_min_ms=0.395236 total_max_ms=0.407089 total_var_ms=0.000006429 effective_gflops=21.534038
+RESULT comm=checkerboard_nccl kernel=cusparse matrix=thermal2.mtx P=2 rank=0 nrows_local=1228045 ncols_global=1228045 nnz_local=4290060 n_ghost=-1 compute_avg_ms=0.111479 compute_min_ms=0.109568 compute_max_ms=0.113664 compute_var_ms=0.000000820 compute_gflops=76.965922 eff_bw_gbs=418.022594 pct_peak_bw=44.7984 comm_avg_ms=0.356105 comm_min_ms=0.339546 comm_max_ms=0.374509 comm_var_ms=0.000038064 total_avg_ms=0.467584 total_min_ms=0.451162 total_max_ms=0.486125 total_var_ms=0.000040739 effective_gflops=18.349888
+[ERROR CHECKING] OK!
+
+--- P=2 rep=3/3 driver=spmv_2d_nccl_acc ---
+Grid: P=2 -> P_r=1 x P_c=2 (degenerate 1D grid)
+Loaded ../matrices/thermal2.mtx: 1228045 x 1228045, 8580313 nnz
+[kernel] acc -> LINE-ENHANCE (nnz=4290253, avg_nnz=3.49, imbalance=2.58, V=1)
+[kernel] acc -> LINE-ENHANCE (nnz=4290060, avg_nnz=3.49, imbalance=2.58, V=1)
+RESULT comm=checkerboard_nccl kernel=acc matrix=thermal2.mtx P=2 rank=1 nrows_local=1228045 ncols_global=1228045 nnz_local=4290253 n_ghost=-1 compute_avg_ms=0.108032 compute_min_ms=0.105472 compute_max_ms=0.116736 compute_var_ms=0.000005365 compute_gflops=79.425597 eff_bw_gbs=431.376595 pct_peak_bw=46.2295 comm_avg_ms=0.291761 comm_min_ms=0.289121 comm_max_ms=0.295163 comm_var_ms=0.000003416 total_avg_ms=0.399793 total_min_ms=0.395804 total_max_ms=0.411647 total_var_ms=0.000012522 effective_gflops=21.462349
+RESULT comm=checkerboard_nccl kernel=acc matrix=thermal2.mtx P=2 rank=0 nrows_local=1228045 ncols_global=1228045 nnz_local=4290060 n_ghost=-1 compute_avg_ms=0.110967 compute_min_ms=0.109568 compute_max_ms=0.115712 compute_var_ms=0.000001152 compute_gflops=77.321040 eff_bw_gbs=419.951336 pct_peak_bw=45.0051 comm_avg_ms=0.351708 comm_min_ms=0.340588 comm_max_ms=0.372525 comm_var_ms=0.000045189 total_avg_ms=0.462675 total_min_ms=0.451180 total_max_ms=0.483117 total_var_ms=0.000049265 effective_gflops=18.544579
+[ERROR CHECKING] OK!
+
+=== Job done ===
