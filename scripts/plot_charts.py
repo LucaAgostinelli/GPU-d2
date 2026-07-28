@@ -31,8 +31,6 @@ ORANGE = "#eb6834"
 AQUA = "#1baf7a"
 YELLOW = "#eda100"
 MAGENTA = "#e87ba4"
-GREEN = "#008300"
-VIOLET = "#4a3aa7"
 RED = "#e34948"
 
 INK_PRIMARY = "#0b0b0b"
@@ -45,30 +43,18 @@ SURFACE = "#ffffff"
 
 # Entity -> color, held constant everywhere it appears.
 COMM_COLOR = {
-    "bcast": ORANGE,
-    "ghost_mpi": BLUE,
     "ghost_nccl": AQUA,
-    "checkerboard_mpi": VIOLET,
     "checkerboard_nccl": MAGENTA,
-    "cpu_serial": RED,
 }
-COMM_LABEL = {
-    "bcast": "naive bcast",
-    "ghost_mpi": "1D ghost (MPI)",
-    "ghost_nccl": "1D ghost (NCCL)",
-    "checkerboard_mpi": "2D checkerboard (MPI)",
-    "checkerboard_nccl": "2D checkerboard (NCCL)",
-}
-KERNEL_COLOR = {"cusparse": BLUE, "acc": ORANGE}
 
 STRUCTURED = ["Queen_4147.mtx", "nlpkkt240.mtx"]
 UNSTRUCTURED = ["webbase-2001.mtx", "com-Orkut.mtx"]
 CATEGORY_COLOR = {"structured": BLUE, "power-law / unstructured": ORANGE}
 
-# cyclic is the reference scheme; RCM/Fennel/Block get their own hues.
-PARTITION_COLOR = {"cyclic": INK_SECONDARY, "rcm": BLUE, "fennel": GREEN, "block": YELLOW}
-PARTITION_LABEL = {"cyclic": "cyclic (baseline)", "rcm": "RCM", "fennel": "Fennel/LDG", "block": "Block"}
-PARTITION_COMM_TAG = {"cyclic": "ghost_nccl", "rcm": "rcm_nccl", "fennel": "fennel_nccl", "block": "block_nccl"}
+# cyclic is the reference scheme; RCM/Block get their own hues.
+PARTITION_COLOR = {"cyclic": INK_SECONDARY, "rcm": BLUE, "block": YELLOW}
+PARTITION_LABEL = {"cyclic": "cyclic (baseline)", "rcm": "RCM", "block": "Block"}
+PARTITION_COMM_TAG = {"cyclic": "ghost_nccl", "rcm": "rcm_nccl", "block": "block_nccl"}
 BONUS_DIR = "bonus_partitioning_strategies"
 
 
@@ -187,73 +173,7 @@ def savefig(fig, name):
     print(f"wrote {path}")
 
 
-# 1-3: strong scaling small multiples (time / speedup / GFLOP/s vs P).
-def fig_strong_small_multiples(strong, value_col, ylabel, fname, title,
-                                ideal=None, log=False):
-    comms = ["bcast", "ghost_mpi", "ghost_nccl"]
-    df = strong[(strong.kernel == "cusparse") & (strong.comm.isin(comms))]
-    matrices = matrix_order(strong)
-    matrices = [m for m in matrices if m in df.matrix.unique()]
-    n = len(matrices)
-    ncols = 5
-    nrows = int(np.ceil(n / ncols))
-    fig, axes = plt.subplots(nrows, ncols, figsize=(4.2 * ncols, 3.2 * nrows),
-                              squeeze=False)
-    for i, matrix in enumerate(matrices):
-        ax = axes[i // ncols][i % ncols]
-        sub = df[df.matrix == matrix]
-        for comm in comms:
-            s = sub[sub.comm == comm].sort_values("P")
-            if s.empty:
-                continue
-            ax.plot(s.P, s[value_col], marker="o", color=COMM_COLOR[comm],
-                    label=COMM_LABEL[comm])
-        if ideal is not None:
-            ps = sorted(sub.P.unique())
-            ax.plot(ps, [ideal(p) for p in ps], linestyle="--", linewidth=1.2,
-                     color=BASELINE_LINE, label="ideal", zorder=0)
-        ax.set_title(short(matrix), fontsize=10)
-        ax.set_xticks(sorted(sub.P.unique()))
-        if log:
-            ax.set_yscale("log")
-        if i % ncols == 0:
-            ax.set_ylabel(ylabel)
-        if i // ncols == nrows - 1:
-            ax.set_xlabel("P (ranks/GPUs)")
-    for j in range(n, nrows * ncols):
-        axes[j // ncols][j % ncols].axis("off")
-
-    handles, labels = axes[0][0].get_legend_handles_labels()
-    fig.legend(handles, labels, loc="lower center", ncol=len(labels),
-               bbox_to_anchor=(0.5, -0.02))
-    fig.suptitle(title, y=1.02, fontsize=14)
-    fig.tight_layout()
-    savefig(fig, fname)
-
-
-# 4: kernel choice (cuSPARSE vs ACC) at P=4, comm=ghost_mpi.
-def fig_kernel_choice(strong):
-    df = strong[(strong.comm == "ghost_mpi") & (strong.P == 4)]
-    matrices = [m for m in matrix_order(strong) if m in df.matrix.unique()]
-    x = np.arange(len(matrices))
-    width = 0.36
-    fig, ax = plt.subplots(figsize=(11, 5))
-    for i, kernel in enumerate(["cusparse", "acc"]):
-        vals = [df[(df.matrix == m) & (df.kernel == kernel)].aggregate_effective_gflops
-                .mean() for m in matrices]
-        ax.bar(x + (i - 0.5) * width, vals, width, color=KERNEL_COLOR[kernel],
-               label=kernel)
-    ax.set_xticks(x)
-    ax.set_xticklabels([short(m) for m in matrices], rotation=30, ha="right")
-    ax.set_ylabel("effective GFLOP/s (aggregate, P=4)")
-    ax.set_title("Kernel choice at fixed communication strategy (1D ghost, MPI), P=4")
-    ax.legend()
-    fig.tight_layout()
-    savefig(fig, "04_kernel_choice_gflops")
-
-
 # 5: NCCL vs MPI point-to-point speedup for 1D ghost exchange, across P.
-# Generic df param: reused for both the small and large-matrix sweeps.
 def fig_nccl_speedup(df_in, fname, title, figsize=(8, 6), legend_fontsize=10):
     df = df_in[(df_in.kernel == "cusparse") &
                (df_in.comm.isin(["ghost_mpi", "ghost_nccl"]))]
@@ -290,56 +210,6 @@ def fig_nccl_speedup(df_in, fname, title, figsize=(8, 6), legend_fontsize=10):
     ax.legend(loc="upper left", fontsize=legend_fontsize)
     fig.tight_layout()
     savefig(fig, fname)
-
-
-# 6: communication volume per rank, P=4 -- ghost/naive and checkerboard/naive.
-def fig_comm_volume(comm_vol):
-    df = comm_vol[comm_vol.P == 4].dropna(subset=["ghost_over_naive"])
-    df = df.sort_values("ghost_over_naive")
-    matrices = df.matrix.tolist()
-    x = np.arange(len(matrices))
-    width = 0.36
-    fig, ax = plt.subplots(figsize=(11, 5.5))
-    ax.bar(x - width / 2, df.ghost_over_naive, width, color=COMM_COLOR["ghost_mpi"],
-           label="1D ghost / naive")
-    ax.bar(x + width / 2, df.checkerboard_over_naive, width,
-           color=COMM_COLOR["checkerboard_mpi"], label="2D checkerboard / naive")
-    ax.set_xticks(x)
-    ax.set_xticklabels([short(m) for m in matrices], rotation=30, ha="right")
-    ax.set_ylabel("fraction of naive's per-rank comm volume (bytes)")
-    ax.set_title("Communication volume per rank relative to full-broadcast, P=4")
-    ax.legend()
-    for m in STRUCTURED + UNSTRUCTURED:
-        if m in matrices:
-            ax.get_xticklabels()[matrices.index(m)].set_color(
-                CATEGORY_COLOR["structured" if m in STRUCTURED else "power-law / unstructured"])
-    fig.tight_layout()
-    savefig(fig, "06_comm_volume_vs_naive")
-
-
-# 7: load-balance (max/avg NNZ-per-rank), 1D cyclic vs 2D checkerboard, P=4.
-def fig_load_balance(load_bal):
-    df = load_bal[(load_bal.P == 4) & (~load_bal.matrix.str.startswith("weak_"))]
-    matrices = sorted(df.matrix.unique(),
-                       key=lambda m: df[(df.matrix == m) & (df.family == "1d_cyclic")]
-                       .max_over_avg.max() if not df[(df.matrix == m) & (df.family == "1d_cyclic")].empty else 0)
-    x = np.arange(len(matrices))
-    width = 0.36
-    fig, ax = plt.subplots(figsize=(11, 5.5))
-    for i, family in enumerate(["1d_cyclic", "2d_checkerboard"]):
-        color = COMM_COLOR["ghost_mpi"] if family == "1d_cyclic" else COMM_COLOR["checkerboard_mpi"]
-        vals = [df[(df.matrix == m) & (df.family == family)].max_over_avg
-                .mean() for m in matrices]
-        ax.bar(x + (i - 0.5) * width, vals, width, color=color,
-               label="1D cyclic" if family == "1d_cyclic" else "2D checkerboard")
-    ax.axhline(1.0, color=BASELINE_LINE, linestyle="--", linewidth=1.2)
-    ax.set_xticks(x)
-    ax.set_xticklabels([short(m) for m in matrices], rotation=30, ha="right")
-    ax.set_ylabel("NNZ-per-rank imbalance (max / avg), P=4")
-    ax.set_title("Load balance: 1D cyclic vs. 2D checkerboard partitioning, P=4")
-    ax.legend()
-    fig.tight_layout()
-    savefig(fig, "07_load_balance")
 
 
 # 8: weak-scaling efficiency, two panels (saturated vs. partial ghost
@@ -404,66 +274,6 @@ def fig_weak_scaling(weak, weak_sparse, weak_part, weak_part_sparse):
     savefig(fig, "08_weak_scaling_efficiency")
 
 
-# 9: speedup over serial CPU baseline (only matrices with a baseline run).
-def fig_baseline_speedup(baseline):
-    cfg_cols = [c for c in baseline.columns if c.startswith("speedup_")]
-    matrices = baseline.matrix.tolist()
-    x = np.arange(len(matrices))
-    n = len(cfg_cols)
-    width = 0.8 / n
-    colors = [BLUE, VIOLET, AQUA, MAGENTA]
-    fig, ax = plt.subplots(figsize=(9, 5.5))
-    for i, col in enumerate(cfg_cols):
-        ax.bar(x + (i - (n - 1) / 2) * width, baseline[col], width,
-               color=colors[i % len(colors)], label=col.replace("speedup_", ""))
-    ax.axhline(1.0, color=BASELINE_LINE, linestyle="--", linewidth=1.2)
-    ax.set_yscale("log")
-    ax.set_xticks(x)
-    ax.set_xticklabels([short(m) for m in matrices], rotation=15, ha="right")
-    ax.set_ylabel("speedup over 1-core serial CPU reference (log scale)")
-    ax.set_title(f"Speedup over CPU baseline ({len(matrices)}/10 matrices measured so far)")
-    ax.legend(fontsize=8)
-    fig.tight_layout()
-    savefig(fig, "09_baseline_speedup")
-
-
-# 10: comm vs compute breakdown, P=4, comm=ghost_nccl kernel=cusparse (parsed from raw RESULT lines).
-def fig_comm_compute_breakdown():
-    paths = sorted(glob.glob("outputs/strong_scaling/strong-*.out"))
-    if not paths:
-        print("no outputs/strong_scaling/strong-*.out found, skipping comm/compute breakdown", file=sys.stderr)
-        return
-    rows = parse_files(paths)
-    rows = [r for r in rows if r.get("comm") == "ghost_nccl" and r.get("kernel") == "cusparse"
-            and r.get("P") == 4]
-    if not rows:
-        print("no ghost_nccl/cusparse P=4 rows found, skipping comm/compute breakdown", file=sys.stderr)
-        return
-    by_matrix = {}
-    for m in sorted(set(r["matrix"] for r in rows)):
-        grp = [r for r in rows if r["matrix"] == m]
-        chunks = chunk_repetitions(grp, 4)
-        compute_reps = [max(r["compute_avg_ms"] for r in c) for c in chunks]
-        comm_reps = [max(r["comm_avg_ms"] for r in c) for c in chunks]
-        by_matrix[m] = (float(np.median(compute_reps)), float(np.median(comm_reps)))
-
-    matrices = sorted(by_matrix, key=lambda m: sum(by_matrix[m]))
-    compute = [by_matrix[m][0] for m in matrices]
-    comm = [by_matrix[m][1] for m in matrices]
-
-    fig, ax = plt.subplots(figsize=(10, 6))
-    y = np.arange(len(matrices))
-    ax.barh(y, compute, color=BLUE, label="compute (kernel)")
-    ax.barh(y, comm, left=compute, color=ORANGE, label="communication (1D ghost, NCCL)")
-    ax.set_yticks(y)
-    ax.set_yticklabels([short(m) for m in matrices])
-    ax.set_xlabel("time per SpMV call, ms (slowest rank, median over reps)")
-    ax.set_title("Communication vs. compute breakdown, 1D ghost + NCCL + cuSPARSE, P=4")
-    ax.legend()
-    fig.tight_layout()
-    savefig(fig, "10_comm_compute_breakdown")
-
-
 # 11: structured vs. unstructured, large matrices, P=4, cuSPARSE.
 # ghost/naive volume ratio isn't in the CSV, so it's recomputed from raw logs.
 def fig_structured_vs_unstructured(large, large_cyclic_paths):
@@ -522,99 +332,8 @@ def fig_structured_vs_unstructured(large, large_cyclic_paths):
     savefig(fig, "11_structured_vs_unstructured")
 
 
-# 12: 1D ghost vs 2D checkerboard, both NCCL, faceted by P (P=3 skipped:
-# no non-degenerate 2D grid at P=3).
-def fig_checkerboard_vs_1d(strong):
-    df = strong[(strong.kernel == "cusparse") &
-                (strong.comm.isin(["ghost_nccl", "checkerboard_nccl"]))]
-    Ps = [p for p in [1, 2, 4] if p in df.P.unique()]
-    fig, axes = plt.subplots(1, len(Ps), figsize=(5.2 * len(Ps), 6.5))
-    if len(Ps) == 1:
-        axes = [axes]
-    for ax, p in zip(axes, Ps):
-        sub = df[df.P == p]
-        rows = []
-        for m in sub.matrix.unique():
-            g = sub[(sub.matrix == m) & (sub.comm == "ghost_nccl")].T_median_ms
-            c = sub[(sub.matrix == m) & (sub.comm == "checkerboard_nccl")].T_median_ms
-            if g.empty or c.empty:
-                continue
-            rows.append((m, g.iloc[0] / c.iloc[0]))
-        rows.sort(key=lambda r: r[1])
-        matrices = [short(r[0]) for r in rows]
-        speedups = [r[1] for r in rows]
-        y = np.arange(len(matrices))
-        colors = [COMM_COLOR["checkerboard_nccl"] if v >= 1 else COMM_COLOR["ghost_nccl"]
-                  for v in speedups]
-        ax.barh(y, speedups, color=colors)
-        ax.axvline(1.0, color=BASELINE_LINE, linestyle="--", linewidth=1.2)
-        ax.set_yticks(y)
-        ax.set_yticklabels(matrices, fontsize=8.5)
-        ax.set_title(f"P={p}")
-        ax.set_xlabel("speedup of 2D over 1D\n(T_ghost_nccl / T_checkerboard_nccl)")
-    handles = [plt.Rectangle((0, 0), 1, 1, color=COMM_COLOR["checkerboard_nccl"]),
-               plt.Rectangle((0, 0), 1, 1, color=COMM_COLOR["ghost_nccl"])]
-    fig.legend(handles, ["2D checkerboard wins", "1D ghost wins"],
-               loc="lower center", ncol=2, bbox_to_anchor=(0.5, -0.03))
-    fig.suptitle("Row-cyclic (1D) vs. checkerboard (2D) partitioning, NCCL transport", y=1.02)
-    fig.tight_layout()
-    savefig(fig, "12_checkerboard_vs_1d")
-
-
-# 13: large-matrix strong scaling (bcast/ghost_mpi/ghost_nccl, cuSPARSE),
-# reuses the fig 1-3 small-multiples layout.
-def fig_large_matrix_scaling(large):
-    fig_strong_small_multiples(
-        large, "speedup", "speedup S(P) = T(1)/T(P)",
-        "13_large_matrix_strong_scaling_speedup",
-        "Interconnect sensitivity: strong scaling on large matrices "
-        "(up to 1.02B nnz, baseline scheme)",
-        ideal=lambda p: p)
-
-
-# 14-15: partitioning-prototype GFLOP/s vs. P (cyclic/RCM/Fennel/Block),
-# one panel per matrix, cuSPARSE only.
-def fig_partitioning_gflops(cyclic_paths, rcm_paths, fennel_paths, block_paths,
-                             fname, title):
-    series = {
-        "cyclic": prototype_series(cyclic_paths, PARTITION_COMM_TAG["cyclic"]),
-        "rcm": prototype_series(rcm_paths, PARTITION_COMM_TAG["rcm"]),
-        "fennel": prototype_series(fennel_paths, PARTITION_COMM_TAG["fennel"]),
-        "block": prototype_series(block_paths, PARTITION_COMM_TAG["block"]),
-    }
-    matrices = order_matrices_from_series(series)
-    n = len(matrices)
-    ncols = 5
-    nrows = int(np.ceil(n / ncols))
-    fig, axes = plt.subplots(nrows, ncols, figsize=(4.2 * ncols, 3.2 * nrows), squeeze=False)
-    for i, matrix in enumerate(matrices):
-        ax = axes[i // ncols][i % ncols]
-        for method in ["cyclic", "rcm", "fennel", "block"]:
-            d = series[method].get(matrix, {})
-            ps = sorted(d.keys())
-            if not ps:
-                continue
-            ax.plot(ps, [d[p]["gflops"] for p in ps], marker="o",
-                    color=PARTITION_COLOR[method], label=PARTITION_LABEL[method])
-        ax.set_title(short(matrix), fontsize=10)
-        all_ps = sorted({p for d in series.values() for p in d.get(matrix, {})})
-        if all_ps:
-            ax.set_xticks(all_ps)
-        if i % ncols == 0:
-            ax.set_ylabel("effective GFLOP/s (aggregate)")
-        if i // ncols == nrows - 1:
-            ax.set_xlabel("P (ranks/GPUs)")
-    for j in range(n, nrows * ncols):
-        axes[j // ncols][j % ncols].axis("off")
-    handles, labels = axes[0][0].get_legend_handles_labels()
-    fig.legend(handles, labels, loc="lower center", ncol=4, bbox_to_anchor=(0.5, -0.02))
-    fig.suptitle(title, y=1.02, fontsize=14)
-    fig.tight_layout()
-    savefig(fig, fname)
-
-
 # 15b: GFLOP/s vs. P, restricted to the 6 large matrices with a clear RCM
-# P-scaling trend; cyclic/RCM/Block only (no Fennel).
+# P-scaling trend; cyclic/RCM/Block only.
 def fig_partitioning_gflops_large_variant(cyclic_paths, rcm_paths, block_paths,
                                            fname, title):
     label = dict(PARTITION_LABEL, cyclic="1D cyclic")
@@ -661,69 +380,8 @@ def fig_partitioning_gflops_large_variant(cyclic_paths, rcm_paths, block_paths,
     savefig(fig, fname)
 
 
-# 16-17: partitioning comm-vs-compute breakdown, P=4, cuSPARSE.
-# Missing method/matrix combos (OOM at this P) are drawn as an "OOM" label.
-def fig_partitioning_breakdown(cyclic_paths, rcm_paths, fennel_paths, block_paths,
-                                fname, title):
-    series = {
-        "cyclic": prototype_series(cyclic_paths, PARTITION_COMM_TAG["cyclic"]),
-        "rcm": prototype_series(rcm_paths, PARTITION_COMM_TAG["rcm"]),
-        "fennel": prototype_series(fennel_paths, PARTITION_COMM_TAG["fennel"]),
-        "block": prototype_series(block_paths, PARTITION_COMM_TAG["block"]),
-    }
-    matrices = order_matrices_from_series(series)
-    methods = ["cyclic", "rcm", "fennel", "block"]
-    x = np.arange(len(matrices))
-    width = 0.19
-    fig, ax = plt.subplots(figsize=(max(11, 1.1 * len(matrices)), 6))
-
-    ymax = 0.0
-    for i, method in enumerate(methods):
-        offset = (i - 1.5) * width
-        compute_vals, comm_vals, missing = [], [], []
-        for m in matrices:
-            d = series[method].get(m, {}).get(4)
-            if d is None:
-                compute_vals.append(0.0)
-                comm_vals.append(0.0)
-                missing.append(True)
-            else:
-                compute_vals.append(d["compute_ms"])
-                comm_vals.append(d["comm_ms"])
-                missing.append(False)
-                ymax = max(ymax, d["compute_ms"] + d["comm_ms"])
-        xs = x + offset
-        ax.bar(xs, compute_vals, width, color=PARTITION_COLOR[method],
-                label=PARTITION_LABEL[method])
-        ax.bar(xs, comm_vals, width, bottom=compute_vals, color=PARTITION_COLOR[method],
-                hatch="//", edgecolor=SURFACE, linewidth=0.4, alpha=0.65)
-        for xi, miss in zip(xs, missing):
-            if miss:
-                ax.text(xi, 0, "OOM", rotation=90, va="bottom", ha="center",
-                        fontsize=7, color=RED)
-
-    ax.set_ylim(0, ymax * 1.15 if ymax > 0 else 1)
-    ax.set_xticks(x)
-    ax.set_xticklabels([short(m) for m in matrices], rotation=30, ha="right")
-    ax.set_ylabel("time per SpMV call, ms (slowest rank, median over reps)")
-    ax.set_title(title)
-
-    method_handles = [plt.Rectangle((0, 0), 1, 1, color=PARTITION_COLOR[m])
-                       for m in methods]
-    texture_handles = [plt.Rectangle((0, 0), 1, 1, facecolor=INK_MUTED),
-                        plt.Rectangle((0, 0), 1, 1, facecolor=INK_MUTED, hatch="//",
-                                      edgecolor=SURFACE, alpha=0.65)]
-    leg1 = ax.legend(method_handles, [PARTITION_LABEL[m] for m in methods],
-                      loc="upper left", fontsize=8.5, title="method")
-    ax.add_artist(leg1)
-    ax.legend(texture_handles, ["compute", "communication"],
-              loc="upper right", fontsize=8.5)
-    fig.tight_layout()
-    savefig(fig, fname)
-
-
-# 17b: horizontal-bar variant of fig 17, cyclic/RCM/Block only; mawi/webbase-2001
-# excluded (their bars dwarf the rest on a linear axis).
+# 17b: horizontal-bar comm-vs-compute breakdown, P=4, cuSPARSE, cyclic/RCM/Block
+# only; mawi/webbase-2001 excluded (their bars dwarf the rest on a linear axis).
 def fig_partitioning_breakdown_large_variant(cyclic_paths, rcm_paths, block_paths,
                                               fname, title):
     label = dict(PARTITION_LABEL, cyclic="1D cyclic")
@@ -795,37 +453,18 @@ def fig_partitioning_breakdown_large_variant(cyclic_paths, rcm_paths, block_path
 
 def main():
     style()
-    strong = load_csv("strong_scaling_summary.csv")
     weak = load_csv("weak_scaling_summary.csv", required=False)
     weak_sparse = load_csv("weak_scaling_sparse_summary.csv", required=False)
     weak_part = load_bonus_csv("weak_partitioned_summary.csv")
     weak_part_sparse = load_bonus_csv("weak_partitioned_summary_sparse.csv")
-    baseline = load_csv("baseline_summary.csv", required=False)
-    load_bal = load_csv("load_balance_summary.csv", required=False)
-    comm_vol = load_csv("comm_volume_summary.csv", required=False)
     large = load_csv("large_matrices_summary.csv", required=False)
     large_cyclic = sorted(glob.glob("outputs/large_matrices/strong_large_night-*.out"))
 
-    if strong is None:
-        print("strong_scaling_summary.csv is required for most figures -- "
-              "run scripts/analyze_strong_scaling.py first", file=sys.stderr)
-        sys.exit(1)
+    if weak is not None:
+        fig_weak_scaling(weak, weak_sparse, weak_part, weak_part_sparse)
+    else:
+        print("weak_scaling_summary.csv missing -- skipping fig 08", file=sys.stderr)
 
-    fig_strong_small_multiples(
-        strong, "T_median_ms", "time per SpMV (ms)", "01_strong_scaling_time",
-        "Strong scaling: execution time vs. P (1D ghost, cuSPARSE)")
-    fig_strong_small_multiples(
-        strong, "speedup", "speedup S(P) = T(1)/T(P)", "02_strong_scaling_speedup",
-        "Strong scaling: speedup vs. P", ideal=lambda p: p)
-    fig_strong_small_multiples(
-        strong, "aggregate_effective_gflops", "effective GFLOP/s (aggregate)",
-        "03_strong_scaling_gflops", "Strong scaling: aggregate GFLOP/s vs. P")
-
-    fig_kernel_choice(strong)
-    fig_nccl_speedup(
-        strong, "05_nccl_vs_mpi_speedup_small",
-        "1D ghost exchange: NCCL vs. MPI point-to-point, across P\n"
-        "(small matrices; thin lines: one per matrix)")
     if large is not None:
         fig_nccl_speedup(
             large, "05_nccl_vs_mpi_speedup_large",
@@ -833,18 +472,7 @@ def main():
             "(large matrices, up to 1.02B nnz; thin lines: one per matrix)",
             figsize=(8, 4), legend_fontsize=17)
     else:
-        print("large_matrices_summary.csv missing -- skipping fig 05 (large)", file=sys.stderr)
-
-    if comm_vol is not None:
-        fig_comm_volume(comm_vol)
-    if load_bal is not None:
-        fig_load_balance(load_bal)
-    if weak is not None:
-        fig_weak_scaling(weak, weak_sparse, weak_part, weak_part_sparse)
-    if baseline is not None:
-        fig_baseline_speedup(baseline)
-
-    fig_comm_compute_breakdown()
+        print("large_matrices_summary.csv missing -- skipping fig 05", file=sys.stderr)
 
     if large is not None and large_cyclic:
         fig_structured_vs_unstructured(large, large_cyclic)
@@ -852,53 +480,20 @@ def main():
         print("large_matrices_summary.csv or outputs/large_matrices/ logs missing "
               "-- skipping fig 11", file=sys.stderr)
 
-    fig_checkerboard_vs_1d(strong)
-
-    if large is not None:
-        fig_large_matrix_scaling(large)
-    else:
-        print("large_matrices_summary.csv missing -- skipping fig 13", file=sys.stderr)
-
-    # Partitioning-prototype figures (RCM/Fennel/Block vs. baseline cyclic),
-    # small (10) and large (big_matrices/) matrix passes.
-    small_cyclic = sorted(glob.glob("outputs/strong_scaling/strong-*.out"))
-    small_rcm = sorted(glob.glob(f"{BONUS_DIR}/outputs/rcm/rcm_cusparse-*.out"))
-    small_fennel = sorted(glob.glob(f"{BONUS_DIR}/outputs/fennel/fennel_cusparse-*.out"))
-    small_block = sorted(glob.glob(f"{BONUS_DIR}/outputs/block/block_cusparse-*.out"))
-    if small_cyclic and (small_rcm or small_fennel or small_block):
-        fig_partitioning_gflops(
-            small_cyclic, small_rcm, small_fennel, small_block,
-            "14_partitioning_gflops_small",
-            "Partitioning strategies: GFLOP/s vs. P, small matrices (cuSPARSE)")
-        fig_partitioning_breakdown(
-            small_cyclic, small_rcm, small_fennel, small_block,
-            "16_partitioning_breakdown_small",
-            "Partitioning strategies: compute vs. communication, P=4, cuSPARSE (small matrices)")
-    else:
-        print("no small-matrix partitioning-prototype logs found -- skipping figs 14/16", file=sys.stderr)
-
     large_partitioned = sorted(glob.glob(f"{BONUS_DIR}/outputs/large_matrices/large_night-*.out"))
     if large_cyclic and large_partitioned:
-        fig_partitioning_gflops(
-            large_cyclic, large_partitioned, large_partitioned, large_partitioned,
-            "15_partitioning_gflops_large",
-            "Partitioning strategies: GFLOP/s vs. P, large matrices (up to 1.02B nnz, cuSPARSE)")
         fig_partitioning_gflops_large_variant(
             large_cyclic, large_partitioned, large_partitioned,
             "15b_partitioning_gflops_large_rcm_trend",
             "Partitioning strategies: GFLOP/s vs. P\n"
             "(matrices with a clear RCM P-scaling trend, cuSPARSE)")
-        fig_partitioning_breakdown(
-            large_cyclic, large_partitioned, large_partitioned, large_partitioned,
-            "17_partitioning_breakdown_large",
-            "Partitioning strategies: compute vs. communication, P=4, cuSPARSE (large matrices)")
         fig_partitioning_breakdown_large_variant(
             large_cyclic, large_partitioned, large_partitioned,
             "17b_partitioning_breakdown_large_log_horizontal",
             "Partitioning strategies: compute vs. communication, P=4, cuSPARSE\n"
             "(large matrices, log scale, mawi/webbase-2001 excluded)")
     else:
-        print("no large-matrix partitioning-prototype logs found -- skipping figs 15/17", file=sys.stderr)
+        print("no large-matrix partitioning-prototype logs found -- skipping figs 15b/17b", file=sys.stderr)
 
     print(f"\nAll figures written to {OUT_DIR}/")
 
