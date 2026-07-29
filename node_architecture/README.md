@@ -33,7 +33,7 @@ be absent.
 
 ## Output
 
-Plain-text diagnostic dump, not `RESULT` lines and not a CSV — meant to be
+Plain-text diagnostic dump, not `RESULT` lines and not a CSV; meant to be
 read directly, not parsed by an analysis script:
 
 ```

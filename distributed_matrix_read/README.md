@@ -80,6 +80,6 @@ python distributed_matrix_read/analyze_mtx_read.py
 
 Reads `distributed_matrix_read/outputs/mtx_read-*.out`, reduces multiple
 runs of the same (matrix, P) by median field-by-field, and writes
-`distributed_matrix_read/outputs/mtx_read_summary.csv` — one row per
+`distributed_matrix_read/outputs/mtx_read_summary.csv`: one row per
 (matrix, P) with both methods' timings, `speedup_chunked_over_serial`, the
 phase breakdown, and the carried-through `check` result.

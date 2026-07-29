@@ -27,19 +27,19 @@ small one and a large one (see [Two matrix sets](#two-matrix-sets)).
 This project benchmarks two separate matrix sets, kept in two separate
 directories:
 
-- **`matrices/`** — 10 small matrices, the same set used in the
+- **`matrices/`**: 10 small matrices, the same set used in the
   single-GPU predecessor project (see [Dataset](#dataset)).
-- **`big_matrices/`** — 10 additional, much larger matrices (up to
+- **`big_matrices/`**: 10 additional, much larger matrices (up to
   1.02B nnz), used for a dedicated large-scale strong-scaling
   investigation.
 
 Both sets were fully benchmarked, and both result sets are still shipped
 under `outputs/`. **The written report, however, only presents the
 big-matrix numbers.** At that scale, communication genuinely dominates
-and the strong/weak-scaling trends are far more informative — several
+and the strong/weak-scaling trends are far more informative (several
 small matrices finish so fast that fixed per-call overhead swamps the
 actual communication pattern being studied, which makes it harder to see
-the effect the report is about. The small-matrix data and driver
+the effect the report is about). The small-matrix data and driver
 infrastructure were kept anyway because they're a much faster
 correctness/smoke-test path (minutes, vs. up to 2-hour jobs and multi-GB
 downloads for the big set).
@@ -105,7 +105,7 @@ targets are skipped with a warning instead of failing the whole build.
 
 ## Run
 
-Matrix data isn't shipped (too large) — place the small matrix set under
+Matrix data isn't shipped (too large): place the small matrix set under
 `matrices/` and the big matrix set under `big_matrices/` (see
 [Dataset](#dataset) for exactly which files each expects). Weak scaling
 needs synthetic matrices instead, generated once, pure Python stdlib,
@@ -133,10 +133,10 @@ sbatch sbatch/cpu_baseline.sh matrices/<name>.mtx [reps]
 bash sbatch/submit_all_matrices.sh sbatch/cpu_baseline.sh [reps]   # all 10 matrices
 ```
 
-### Big matrices (`big_matrices/`, up to 1.02B nnz — what the report's results come from)
+### Big matrices (`big_matrices/`, what the report's results come from)
 
 A full multi-driver sweep per job isn't
-practical here — these scripts run **one driver at a time**, sweeping P
+practical here. These scripts run **one driver at a time**, sweeping P
 internally instead of one job per (matrix, P):
 
 ```bash
@@ -196,8 +196,16 @@ python scripts/plot_charts.py
 
 ## Drivers at a glance
 
-The table below covers the 11 core drivers — every communication-strategy
-x kernel-choice combination, plus the CPU baseline — named systematically
+Every driver below runs with one of two local SpMV kernels, both carried
+over from Deliverable 1's kernel comparison: **ACC** (the adaptive
+LINE/FLAT dispatcher), one of the strongest performers there, and
+**cuSPARSE**, the most broadly reliable and adaptable across matrix
+types. Both are kept, for every communication strategy, specifically to
+check whether kernel choice ever changes the outcome for a given
+matrix/driver combination.
+
+The table below covers the 11 core drivers (every communication-strategy
+x kernel-choice combination, plus the CPU baseline) named systematically
 (`spmv_<comm>_<kernel>`):
 
 | Binary | Communication | Kernel |
@@ -222,8 +230,8 @@ reference before exiting.
 
 **On top of these 11, there are 6 additional bonus drivers**
 (`spmv_{rcm,fennel,block}_nccl_{acc,cusparse}`) implementing three
-alternative partitioning strategies instead of the baseline cyclic rule —
-see `bonus_partitioning_strategies/`'s own README for their table and
+alternative partitioning strategies instead of the baseline cyclic rule.
+See `bonus_partitioning_strategies/`'s own README for their table and
 usage.
 
 ---
@@ -231,7 +239,7 @@ usage.
 ## Dataset
 
 **Only the big-matrix numbers below are used in the written report** (see
-[Two matrix sets](#two-matrix-sets) for why) — the small-matrix set is
+[Two matrix sets](#two-matrix-sets) for why). The small-matrix set is
 still fully benchmarked and shipped under `outputs/`, but it's not what
 the report's figures/tables are drawn from.
 
@@ -256,9 +264,9 @@ investigation, well beyond the small set's scale:
 ### Small matrices (`matrices/`, used in Deliverable 1)
 
 10 matrices from the [SuiteSparse Matrix Collection](https://sparse.tamu.edu/),
-the same set used in the single-GPU predecessor project — still fully
-benchmarked here (see [Two matrix sets](#two-matrix-sets)), but not what
-the report's numbers come from:
+the same set used in the single-GPU predecessor project (still fully
+benchmarked here, see [Two matrix sets](#two-matrix-sets), but not what
+the report's numbers come from):
 
 | Matrix | Rows | NNZ | avg nnz/row |
 |---|---:|---:|---:|
@@ -280,11 +288,11 @@ the report's numbers come from:
 Each of these lives in its own directory with its own README, SLURM
 scripts, and (once collected) `outputs/`:
 
-- **`bonus_partitioning_strategies/`** — three alternative row/column
+- **`bonus_partitioning_strategies/`**: three alternative row/column
   partitioning strategies (RCM, Fennel/LDG, classical 1D-Block) compared
   against the baseline cyclic rule.
-- **`distributed_matrix_read/`** — compares rank-0-serial-read+scatter
+- **`distributed_matrix_read/`**: compares rank-0-serial-read+scatter
   against a fully parallel, per-rank chunked read for loading a `.mtx`
   file.
-- **`node_architecture/`** — one-shot hardware/software profile of the
+- **`node_architecture/`**: one-shot hardware/software profile of the
   compute node these benchmarks run on.

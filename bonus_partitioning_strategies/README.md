@@ -2,7 +2,7 @@
 
 Three additional, opt-in row/column partitioning strategies, alternative to
 the baseline 1D cyclic rule `owner(i) = i mod P`. Cyclic partitioning is
-data-agnostic — it ignores the matrix's sparsity structure entirely — so on
+data-agnostic (it ignores the matrix's sparsity structure entirely) so on
 matrices with exploitable locality it scatters neighboring rows across
 every rank, maximizing ghost-exchange volume instead of minimizing it. Each
 strategy here computes a different, still-square-matrix row/column
@@ -13,13 +13,13 @@ the baseline 1D driver, isolating partitioning quality as the only variable.
 
 ## The three strategies
 
-- **RCM** — Reverse Cuthill-McKee reordering of the matrix's sparsity-pattern
+- **RCM**: Reverse Cuthill-McKee reordering of the matrix's sparsity-pattern
   graph, then P contiguous, NNZ-balanced blocks over that reordering.
   Clusters mutually-adjacent rows together before slicing.
-- **Fennel/LDG** — streaming greedy edge-cut partitioning: each vertex is
+- **Fennel/LDG**: streaming greedy edge-cut partitioning: each vertex is
   assigned directly to whichever partition already holds the most of its
   neighbors, weighted by a load-balance penalty. No reordering step.
-- **Block** — classical 1D-Block: contiguous row ranges over the matrix's
+- **Block**: classical 1D-Block: contiguous row ranges over the matrix's
   *original* row order, split as evenly as possible by row count. No NNZ
   balancing, no reordering, no view of the sparsity pattern at all.
 
@@ -44,7 +44,7 @@ in the project's shared trees and builds as part of the root
 
 ## Build
 
-Built automatically by the root `bash build.sh` — no separate build step.
+Built automatically by the root `bash build.sh` (no separate build step).
 All 6 binaries land in the project root's `bin/` alongside every other driver.
 
 ---
