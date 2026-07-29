@@ -1,4 +1,4 @@
-# Intelligent partitioning strategies (bonus)
+# Alternative partitioning strategies (bonus)
 
 Three additional, opt-in row/column partitioning strategies, alternative to
 the baseline 1D cyclic rule `owner(i) = i mod P`. Cyclic partitioning is
