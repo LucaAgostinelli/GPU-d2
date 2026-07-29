@@ -365,7 +365,7 @@ def fig_partitioning_gflops_large_variant(cyclic_paths, rcm_paths, block_paths,
             ax.set_xticks(all_ps)
         ax.tick_params(axis="both", labelsize=11.5, colors=INK_DARK_GRAY)
         if i % ncols == 0:
-            ax.set_ylabel("effective GFLOP/s (aggregate)", fontsize=12, color=INK_DARK_GRAY)
+            ax.set_ylabel("effective GFLOP/s", fontsize=12, color=INK_DARK_GRAY)
         if i // ncols == nrows - 1:
             ax.set_xlabel("P (ranks/GPUs)", fontsize=12, color=INK_DARK_GRAY)
     for j in range(n, nrows * ncols):
