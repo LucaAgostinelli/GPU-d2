@@ -81,6 +81,7 @@ downloads for the big set).
 ├── bonus_partitioning_strategies/     # RCM/Fennel/Block investigation — own README
 ├── distributed_matrix_read/           # parallel matrix-read benchmark — own README
 ├── node_architecture/                 # compute-node hardware profile — own README
+├── gpu_computing_deliverable_2.pdf    # written report
 ├── CMakeLists.txt
 └── build.sh
 ```
